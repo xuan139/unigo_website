@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>OStation_V18.app Updates</title>
+    <link>https://unigo.com/updates/OStation_V18.app/appcast.xml</link>
+    <description>Latest updates for OStation_V18.app</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.8</title>
+      <sparkle:releaseNotesLink>https://unigo.com/updates/OStation_V18.app/release_notes_1.8.html</sparkle:releaseNotesLink>
+      <pubDate>Thu, 24 Jul 2025 10:18:00 -0500</pubDate>
+      <enclosure url="https://unigo.com/updates/OStation_V18.app/OStation_V18.app" sparkle:version="1.8" sparkle:shortVersionString="1.8" length="447640" type="application/octet-stream" sparkle:edSignature="full_sig" />
+      <sparkle:delta>
+        <enclosure url="https://unigo.com/updates/OStation_V18.app/upadte.delta" sparkle:version="1.8" sparkle:deltaFrom="1.8" length="6250" type="application/octet-stream" sparkle:edSignature="delta_sig" />
+      </sparkle:delta>
+    </item>
+  </channel>
+</rss>
