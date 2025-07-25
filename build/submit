@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_title">OStation - Plug-and-Play Gaming SSD Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .hero {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .feature-card {
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#" data-i18n="nav_brand">OStation</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#" data-i18n="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#product" data-i18n="nav_product">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="#updates" data-i18n="nav_updates">Updates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#guide" data-i18n="nav_guide">Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq" data-i18n="nav_faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="/download" data-i18n="nav_download">Downloads</a></li>
+          <li class="nav-item"><a class="nav-link" href="#support" data-i18n="nav_support">Support</a></li>
+          <li class="nav-item ms-3">
+
+            <select
+              class="form-select form-select-sm bg-dark text-white"
+              id="lang-select"
+              aria-label="Language select"
+            >
+              <option value="en">English</option>
+              <option value="zh">简体中文</option>
+              <option value="zh_tw">繁體中文</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4" data-i18n="hero_title">Plug and Play. The Ultimate Gaming SSD Solution.</h1>
+      <p class="lead" data-i18n="hero_sub">
+        Pre-installed with Steam, Epic, VM Windows11 , drivers, and a full gaming environment. Power up and play instantly.
+      </p>
+      <a href="/buy" class="btn btn-primary btn-lg mt-3" data-i18n="get_started">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4" data-i18n="features_title">Top 3 Features</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card feature-card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title" data-i18n="feature1_title">Plug & Play</h5>
+              <p class="card-text" data-i18n="feature1_desc">Connect the SSD to your Mac and launch without any setup or installation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card feature-card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title" data-i18n="feature2_title">Gaming Ready</h5>
+              <p class="card-text" data-i18n="feature2_desc">Preloaded with Steam, Epic, runtime libraries, and for most AAA titles.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card feature-card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title" data-i18n="feature3_title">VM Support</h5>
+              <p class="card-text" data-i18n="feature3_desc">Comes with VMware virtual machines so you can launch Windows 11 instantly or DIY Ubuntu or others.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details -->
+  <section class="py-5" id="product">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img
+            src="https://tw.gametogo.io/wp-content/uploads/2024/10/AppToGo11-500GB-600x600.jpg"
+            alt="Product Screenshot"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2 data-i18n="product_support_title">Support for Mac</h2>
+          <p data-i18n="product_support_desc">OStation is optimized for MacOS, offering seamless performance across systems so you can play anywhere.</p>
+          <ul>
+            <li data-i18n="product_support_li1">Supports USB-C and Thunderbolt</li>
+            <li data-i18n="product_support_li2">Compatible with macOS Catalina to Sonoma</li>
+            <li data-i18n="product_support_li3">Works with M1/M2/M3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Updates -->
+  <section class="py-5" id="updates">
+    <div class="container">
+      <h2 class="mb-4 text-center" data-i18n="updates_title">Software Updates</h2>
+      <div class="list-group">
+        <a href="/static/downloads/GameSSD_Toolkit_v1.2.3.dmg" class="list-group-item list-group-item-action">
+          <h5 class="mb-1" data-i18n="update1_version">Version 1.2.3 <small class="text-muted">2025-07-10</small></h5>
+          <p class="mb-1" data-i18n="update1_desc">• Improved compatibility with macOS Sonoma<br>• Fixed virtual machine display bug<br>• Added auto-launch tool</p>
+        </a>
+        <a href="/static/downloads/GameSSD_Toolkit_v1.2.2.dmg" class="list-group-item list-group-item-action">
+          <h5 class="mb-1" data-i18n="update2_version">Version 1.2.2 <small class="text-muted">2025-06-25</small></h5>
+          <p class="mb-1" data-i18n="update2_desc">• Added DXVK installer<br>• Updated preloaded game libraries</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide -->
+  <section class="py-5 bg-light" id="guide">
+    <div class="container">
+      <h2 class="mb-4 text-center" data-i18n="guide_title">Installation Guide</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <img
+            src="https://www.a-accessories.com/images/contenu/ssd-hdd04.jpg"
+            class="img-fluid mb-3"
+            alt="Step 1"
+          />
+          <h5 data-i18n="guide_step1_title">Step 1: Plug in the SSD</h5>
+          <p data-i18n="guide_step1_desc">Connect the SSD to your Mac device via USB-C or Thunderbolt.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <img
+            src="https://www.a-accessories.com/images/contenu/ssd-hdd04.jpg"
+            class="img-fluid mb-3"
+            alt="Step 2"
+          />
+          <h5 data-i18n="guide_step2_title">Step 2: Launch Toolkit</h5>
+          <p data-i18n="guide_step2_desc">Open the OStation app to initialize game or virtual machine launch.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <img
+            src="https://www.a-accessories.com/images/contenu/ssd-hdd04.jpg"
+            class="img-fluid mb-3"
+            alt="Step 3"
+          />
+          <h5 data-i18n="guide_step3_title">Step 3: Start Gaming</h5>
+          <p data-i18n="guide_step3_desc">Enjoy Steam, Epic, or pre-configured games instantly. No setup needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5" id="faq">
+    <div class="container">
+      <h2 class="mb-4 text-center" data-i18n="faq_title">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq1">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse1"
+              aria-expanded="true"
+              aria-controls="collapse1"
+              data-i18n="faq_q1"
+            >
+              Why isn't the SSD recognized on my Mac?
+            </button>
+          </h2>
+          <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" data-i18n="faq_a1">
+              Please ensure your system allows external drives in Security & Privacy. Try switching USB ports.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq2">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse2"
+              aria-expanded="false"
+              aria-controls="collapse2"
+              data-i18n="faq_q2"
+            >
+              Steam doesn't launch or update properly?
+            </button>
+          </h2>
+          <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" data-i18n="faq_a2">
+              Make sure the internet is connected and permissions are granted. Try using our Steam Repair Tool in the Download Center.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq3">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse3"
+              aria-expanded="false"
+              aria-controls="collapse3"
+              data-i18n="faq_q3"
+            >
+              How do I restore the original SSD environment?
+            </button>
+          </h2>
+          <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" data-i18n="faq_a3">
+              Visit the Download Center and get the official restoration image. You may need your SSD serial number.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads CTA -->
+  <section class="text-center py-5 bg-dark text-white" id="download">
+    <div class="container">
+      <h2 data-i18n="download_title">Download or Purchase Now</h2>
+      <p data-i18n="download_desc">Get the latest toolkit or order the pre-configured SSD package.</p>
+      <a href="/download" class="btn btn-light btn-lg" data-i18n="download_button">Visit Download Center</a>
+    </div>
+  </section>
+
+
+  <!-- Product Verification -->
+  <section class="py-5 bg-light" id="support">
+    <div class="container">
+      <h2 class="mb-4 text-center" data-i18n="support_title">Product Verification</h2>
+      <form method="POST" action="/api/verify-uuid" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+          <label for="uuid" class="form-label" data-i18n="support_label">Enter Your Product UUID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="uuid"
+            name="uuid"
+            placeholder="e.g. 123e4567-e89b-12d3-a456-426614184000"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-success w-100" data-i18n="support_button">Verify</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p data-i18n="footer_text">&copy; 2025 OStation | Contact: support@gamessd.com | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Language Data -->
+  <script>
+    const translations = {
+      en: {
+        page_title: "OStation - Plug-and-Play Gaming SSD Platform",
+        nav_brand: "OStation",
+        nav_home: "Home",
+        nav_product: "Product",
+        nav_updates: "Updates",
+        nav_guide: "Guide",
+        nav_faq: "FAQ",
+        nav_download: "Downloads",
+        nav_support: "Support",
+
+        hero_title: "Plug and Play. The Ultimate Gaming SSD Solution.",
+        hero_sub:
+          "Pre-installed with Steam, Epic, VM Windows11 , drivers, and a full gaming environment. Power up and play instantly.",
+        get_started: "Get Started",
+
+        features_title: "Top 3 Features",
+        feature1_title: "Plug & Play",
+        feature1_desc: "Connect the SSD to your Mac and launch without any setup or installation.",
+        feature2_title: "Gaming Ready",
+        feature2_desc: "Preloaded with Steam, Epic, runtime libraries, and for most AAA titles.",
+        feature3_title: "VM Support",
+        feature3_desc:
+          "Comes with VMware virtual machines so you can launch Windows 11 instantly or DIY Ubuntu or others.",
+
+        product_support_title: "Support for Mac",
+        product_support_desc:
+          "OStation is optimized for MacOS, offering seamless performance across systems so you can play anywhere.",
+        product_support_li1: "Supports USB-C and Thunderbolt",
+        product_support_li2: "Compatible with macOS Catalina to Sonoma",
+        product_support_li3: "Works with M1/M2/M3",
+
+        updates_title: "Software Updates",
+        update1_version: "Version 1.2.3 ",
+        update1_desc:
+          "• Improved compatibility with macOS Sonoma\n• Fixed virtual machine display bug\n• Added auto-launch tool",
+        update2_version: "Version 1.2.2 ",
+        update2_desc: "• Added DXVK installer\n• Updated preloaded game libraries",
+
+        guide_title: "Installation Guide",
+        guide_step1_title: "Step 1: Plug in the SSD",
+        guide_step1_desc: "Connect the SSD to your Mac device via USB-C or Thunderbolt.",
+        guide_step2_title: "Step 2: Launch Toolkit",
+        guide_step2_desc: "Open the OStation app to initialize game or virtual machine launch.",
+        guide_step3_title: "Step 3: Start Gaming",
+        guide_step3_desc: "Enjoy Steam, Epic, or pre-configured games instantly. No setup needed.",
+
+        faq_title: "Frequently Asked Questions",
+        faq_q1: "Why isn't the SSD recognized on my Mac?",
+        faq_a1:
+          "Please ensure your system allows external drives in Security & Privacy. Try switching USB ports.",
+        faq_q2: "Steam doesn't launch or update properly?",
+        faq_a2:
+          "Make sure the internet is connected and permissions are granted. Try using our Steam Repair Tool in the Download Center.",
+        faq_q3: "How do I restore the original SSD environment?",
+        faq_a3:
+          "Visit the Download Center and get the official restoration image. You may need your SSD serial number.",
+
+        download_title: "Download or Purchase Now",
+        download_desc: "Get the latest toolkit or order the pre-configured SSD package.",
+        download_button: "Visit Download Center",
+
+        support_title: "Product Verification",
+        support_label: "Enter Your Product UUID",
+        support_button: "Verify",
+
+        footer_text: "© 2025 OStation | Contact: support@gamessd.com | All rights reserved.",
+      },
+      zh: {
+        page_title: "OStation - 即插即用游戏SSD平台",
+        nav_brand: "OStation",
+        nav_home: "首页",
+        nav_product: "产品",
+        nav_updates: "更新",
+        nav_guide: "指南",
+        nav_faq: "常见问题",
+        nav_download: "下载",
+        nav_support: "支持",
+
+        hero_title: "即插即玩。终极游戏SSD解决方案。",
+        hero_sub:
+          "预装 Steam、Epic、Windows11 虚拟机、驱动程序和完整游戏环境。即开即玩。",
+        get_started: "开始使用",
+
+        features_title: "三大核心功能",
+        feature1_title: "即插即用",
+        feature1_desc: "连接 SSD 到 Mac，无需设置或安装即可启动。",
+        feature2_title: "游戏就绪",
+        feature2_desc: "预装 Steam、Epic、运行库，支持多数大型游戏。",
+        feature3_title: "虚拟机支持",
+        feature3_desc: "内置 VMware 虚拟机，支持即时启动 Windows 11 或自定义 Ubuntu 等。",
+
+        product_support_title: "Mac 支持",
+        product_support_desc: "OStation 针对 MacOS 优化，提供流畅性能，随时随地游戏。",
+        product_support_li1: "支持 USB-C 和 Thunderbolt",
+        product_support_li2: "兼容 macOS Catalina 到 Sonoma",
+        product_support_li3: "支持 M1/M2/M3 芯片",
+
+        updates_title: "软件更新",
+        update1_version: "版本 1.2.3 ",
+        update1_desc:
+          "• 改进对 macOS Sonoma 的兼容性\n• 修复虚拟机显示问题\n• 增加自动启动工具",
+        update2_version: "版本 1.2.2 ",
+        update2_desc: "• 新增 DXVK 安装器\n• 更新预装游戏库",
+
+        guide_title: "安装指南",
+        guide_step1_title: "步骤 1：插入 SSD",
+        guide_step1_desc: "通过 USB-C 或 Thunderbolt 连接 SSD 到 Mac。",
+        guide_step2_title: "步骤 2：启动工具包",
+        guide_step2_desc: "打开 OStation 应用，初始化游戏或虚拟机启动。",
+        guide_step3_title: "步骤 3：开始游戏",
+        guide_step3_desc: "立即享用 Steam、Epic 或预配置游戏，无需设置。",
+
+        faq_title: "常见问题",
+        faq_q1: "为什么我的 Mac 识别不了 SSD？",
+        faq_a1:
+          "请确保系统安全与隐私设置允许外接硬盘。尝试更换 USB 端口。",
+        faq_q2: "Steam 无法正常启动或更新？",
+        faq_a2:
+          "确保网络连接正常并已授予权限。尝试使用下载中心的 Steam 修复工具。",
+        faq_q3: "如何恢复 SSD 的原始环境？",
+        faq_a3:
+          "访问下载中心获取官方恢复镜像，可能需要 SSD 序列号。",
+
+        download_title: "立即下载或购买",
+        download_desc: "获取最新工具包或订购预配置 SSD 套装。",
+        download_button: "访问下载中心",
+
+        support_title: "产品验证",
+        support_label: "请输入您的产品 UUID",
+        support_button: "验证",
+
+        footer_text: "© 2025 OStation | 联系: support@gamessd.com | 保留所有权利。",
+      },
+      zh_tw: {
+        page_title: "OStation - 即插即用遊戲SSD平台",
+        nav_brand: "OStation",
+        nav_home: "首頁",
+        nav_product: "產品",
+        nav_updates: "更新",
+        nav_guide: "指南",
+        nav_faq: "常見問題",
+        nav_download: "下載",
+        nav_support: "支援",
+
+        hero_title: "即插即玩。終極遊戲SSD解決方案。",
+        hero_sub:
+          "預裝 Steam、Epic、Windows11 虛擬機、驅動程式和完整遊戲環境。即開即玩。",
+        get_started: "開始使用",
+
+        features_title: "三大核心功能",
+        feature1_title: "即插即用",
+        feature1_desc: "連接 SSD 到 Mac，無需設置或安裝即可啟動。",
+        feature2_title: "遊戲就緒",
+        feature2_desc: "預裝 Steam、Epic、運行庫，支持多數大型遊戲。",
+        feature3_title: "虛擬機支持",
+        feature3_desc: "內置 VMware 虛擬機，支持即時啟動 Windows 11 或自訂 Ubuntu 等。",
+
+        product_support_title: "Mac 支持",
+        product_support_desc: "OStation 針對 MacOS 優化，提供流暢性能，隨時隨地遊戲。",
+        product_support_li1: "支持 USB-C 和 Thunderbolt",
+        product_support_li2: "相容 macOS Catalina 到 Sonoma",
+        product_support_li3: "支持 M1/M2/M3 晶片",
+
+        updates_title: "軟體更新",
+        update1_version: "版本 1.2.3 ",
+        update1_desc:
+          "• 改善對 macOS Sonoma 的相容性\n• 修復虛擬機顯示問題\n• 新增自動啟動工具",
+        update2_version: "版本 1.2.2 ",
+        update2_desc: "• 新增 DXVK 安裝器\n• 更新預裝遊戲庫",
+
+        guide_title: "安裝指南",
+        guide_step1_title: "步驟 1：插入 SSD",
+        guide_step1_desc: "透過 USB-C 或 Thunderbolt 連接 SSD 到 Mac。",
+        guide_step2_title: "步驟 2：啟動工具包",
+        guide_step2_desc: "開啟 OStation 應用，初始化遊戲或虛擬機啟動。",
+        guide_step3_title: "步驟 3：開始遊戲",
+        guide_step3_desc: "立即享用 Steam、Epic 或預配置遊戲，無需設置。",
+
+        faq_title: "常見問題",
+        faq_q1: "為什麼我的 Mac 識別不了 SSD？",
+        faq_a1:
+          "請確保系統安全與隱私設定允許外接硬碟。嘗試更換 USB 埠。",
+        faq_q2: "Steam 無法正常啟動或更新？",
+        faq_a2:
+          "確保網路連線正常並已授予權限。嘗試使用下載中心的 Steam 修復工具。",
+        faq_q3: "如何恢復 SSD 的原始環境？",
+        faq_a3:
+          "訪問下載中心取得官方恢復映像，可能需要 SSD 序號。",
+
+        download_title: "立即下載或購買",
+        download_desc: "取得最新工具包或訂購預配置 SSD 套裝。",
+        download_button: "訪問下載中心",
+
+        support_title: "產品驗證",
+        support_label: "請輸入您的產品 UUID",
+        support_button: "驗證",
+
+        footer_text: "© 2025 OStation | 聯絡: support@gamessd.com | 保留所有權利。",
+      },
+      ja: {
+        page_title: "OStation - プラグアンドプレイのゲームSSDプラットフォーム",
+        nav_brand: "OStation",
+        nav_home: "ホーム",
+        nav_product: "製品",
+        nav_updates: "アップデート",
+        nav_guide: "ガイド",
+        nav_faq: "よくある質問",
+        nav_download: "ダウンロード",
+        nav_support: "サポート",
+
+        hero_title: "プラグアンドプレイ。究極のゲームSSDソリューション。",
+        hero_sub:
+          "Steam、Epic、Windows11仮想マシン、ドライバ、完全なゲーム環境をプリインストール。すぐにプレイ開始。",
+        get_started: "始める",
+
+        features_title: "主な3つの機能",
+        feature1_title: "プラグアンドプレイ",
+        feature1_desc: "SSDをMacに接続し、セットアップ不要で起動。",
+        feature2_title: "ゲーム準備完了",
+        feature2_desc: "Steam、Epic、ランタイムライブラリ、多くのAAAタイトルをプリロード。",
+        feature3_title: "VMサポート",
+        feature3_desc: "VMware仮想マシンを搭載し、Windows 11やUbuntuなどを即起動可能。",
+
+        product_support_title: "Mac対応",
+        product_support_desc:
+          "OStationはMacOSに最適化されており、どこでもスムーズなパフォーマンスを提供します。",
+        product_support_li1: "USB-CおよびThunderbolt対応",
+        product_support_li2: "macOS CatalinaからSonomaまで対応",
+        product_support_li3: "M1/M2/M3チップ対応",
+
+        updates_title: "ソフトウェアアップデート",
+        update1_version: "バージョン 1.2.3 ",
+        update1_desc:
+          "• macOS Sonomaとの互換性を改善\n• 仮想マシン表示バグを修正\n• 自動起動ツールを追加",
+        update2_version: "バージョン 1.2.2 ",
+        update2_desc: "• DXVKインストーラーを追加\n• プリロードゲームライブラリを更新",
+
+        guide_title: "インストールガイド",
+        guide_step1_title: "ステップ1：SSDを接続",
+        guide_step1_desc: "USB-CまたはThunderbolt経由でSSDをMacに接続。",
+        guide_step2_title: "ステップ2：ツールキットを起動",
+        guide_step2_desc: "OStationアプリを開き、ゲームまたは仮想マシンの起動を初期化。",
+        guide_step3_title: "ステップ3：ゲーム開始",
+        guide_step3_desc: "Steam、Epic、または事前設定済みゲームを即座に楽しめます。設定不要。",
+
+        faq_title: "よくある質問",
+        faq_q1: "MacでSSDが認識されないのはなぜですか？",
+        faq_a1:
+          "システムのセキュリティとプライバシーで外部ドライブを許可していることを確認してください。USBポートを変更してみてください。",
+        faq_q2: "Steamが正しく起動しない、または更新できませんか？",
+        faq_a2:
+          "インターネット接続と権限が付与されていることを確認してください。ダウンロードセンターのSteam修復ツールを試してください。",
+        faq_q3: "元のSSD環境に戻すには？",
+        faq_a3:
+          "ダウンロードセンターにアクセスして公式の復元イメージを入手してください。SSDのシリアル番号が必要な場合があります。",
+
+        download_title: "今すぐダウンロードまたは購入",
+        download_desc: "最新のツールキットを取得するか、事前構成済みのSSDパッケージを注文してください。",
+        download_button: "ダウンロードセンターにアクセス",
+
+        support_title: "製品認証",
+        support_label: "製品UUIDを入力してください",
+        support_button: "認証",
+
+        footer_text: "© 2025 OStation | 連絡先: support@gamessd.com | 全著作権所有。",
+      },
+      ko: {
+        page_title: "OStation - 플러그 앤 플레이 게임 SSD 플랫폼",
+        nav_brand: "OStation",
+        nav_home: "홈",
+        nav_product: "제품",
+        nav_updates: "업데이트",
+        nav_guide: "가이드",
+        nav_faq: "자주 묻는 질문",
+        nav_download: "다운로드",
+        nav_support: "지원",
+
+        hero_title: "플러그 앤 플레이. 궁극의 게임 SSD 솔루션.",
+        hero_sub:
+          "Steam, Epic, Windows11 가상 머신, 드라이버, 완전한 게임 환경이 사전 설치되어 있습니다. 즉시 실행 가능.",
+        get_started: "시작하기",
+
+        features_title: "주요 3가지 기능",
+        feature1_title: "플러그 앤 플레이",
+        feature1_desc: "SSD를 Mac에 연결하면 별도 설정 없이 바로 실행됩니다.",
+        feature2_title: "게임 준비 완료",
+        feature2_desc: "Steam, Epic, 런타임 라이브러리, 대부분 AAA 타이틀 사전 로드.",
+        feature3_title: "VM 지원",
+        feature3_desc: "VMware 가상 머신 포함, Windows 11 즉시 실행 또는 Ubuntu 등 DIY 가능.",
+
+        product_support_title: "Mac 지원",
+        product_support_desc:
+          "OStation은 MacOS에 최적화되어 시스템 전반에 걸쳐 원활한 성능을 제공합니다.",
+        product_support_li1: "USB-C 및 Thunderbolt 지원",
+        product_support_li2: "macOS Catalina부터 Sonoma까지 호환",
+        product_support_li3: "M1/M2/M3 칩과 호환",
+
+        updates_title: "소프트웨어 업데이트",
+        update1_version: "버전 1.2.3 ",
+        update1_desc:
+          "• macOS Sonoma와 호환성 개선\n• 가상 머신 표시 버그 수정\n• 자동 실행 도구 추가",
+        update2_version: "버전 1.2.2 ",
+        update2_desc: "• DXVK 설치 프로그램 추가\n• 사전 로드 게임 라이브러리 업데이트",
+
+        guide_title: "설치 가이드",
+        guide_step1_title: "1단계: SSD 연결",
+        guide_step1_desc: "USB-C 또는 Thunderbolt를 통해 Mac에 SSD 연결.",
+        guide_step2_title: "2단계: 툴킷 실행",
+        guide_step2_desc: "OStation 앱을 열어 게임 또는 가상 머신 실행 초기화.",
+        guide_step3_title: "3단계: 게임 시작",
+        guide_step3_desc: "즉시 Steam, Epic 또는 사전 구성된 게임 즐기기. 설정 불필요.",
+
+        faq_title: "자주 묻는 질문",
+        faq_q1: "Mac에서 SSD가 인식되지 않는 이유는 무엇인가요?",
+        faq_a1:
+          "시스템 보안 및 개인 정보 보호 설정에서 외장 드라이브를 허용했는지 확인하세요. USB 포트를 변경해 보세요.",
+        faq_q2: "Steam이 제대로 실행되거나 업데이트되지 않나요?",
+        faq_a2:
+          "인터넷 연결과 권한 부여를 확인하세요. 다운로드 센터의 Steam 복구 도구를 사용해 보세요.",
+        faq_q3: "원래 SSD 환경으로 복원하려면 어떻게 하나요?",
+        faq_a3:
+          "다운로드 센터를 방문하여 공식 복원 이미지를 받아보세요. SSD 시리얼 번호가 필요할 수 있습니다.",
+
+        download_title: "지금 다운로드 또는 구매",
+        download_desc: "최신 툴킷을 받거나 사전 구성된 SSD 패키지를 주문하세요.",
+        download_button: "다운로드 센터 방문",
+
+        support_title: "제품 검증",
+        support_label: "제품 UUID를 입력하세요",
+        support_button: "검증",
+
+        footer_text: "© 2025 OStation | 문의: support@gamessd.com | 모든 권리 보유.",
+      },
+    };
+
+    function updateTexts(lang) {
+      document.querySelectorAll("[data-i18n]").forEach((elem) => {
+        const key = elem.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          // 支持换行转换
+          const text = translations[lang][key].replace(/\n/g, "<br>");
+          if (elem.tagName.toLowerCase() === "input" || elem.tagName.toLowerCase() === "textarea") {
+            elem.placeholder = translations[lang][key];
+          } else if (elem.tagName.toLowerCase() === "title") {
+            document.title = translations[lang][key];
+          } else {
+            elem.innerHTML = text;
+          }
+        }
+      });
+    }
+
+    document.getElementById("lang-select").addEventListener("change", (e) => {
+      const lang = e.target.value;
+      updateTexts(lang);
+      localStorage.setItem("lang", lang);
+    });
+
+    // 页面加载时自动设置语言
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "en";
+      document.getElementById("lang-select").value = savedLang;
+      updateTexts(savedLang);
+    });
+  </script>
+
+
+<!-- ✅ AI Chat Assistant (Upgraded White Theme) -->
+<style>
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    #chatbot-toggle:hover {
+      background-color: #0056b3;
+    }
+    
+    #chatbot-box {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 340px;
+      height: 440px;
+      background: #ffffff;
+      color: #212529;
+      border-radius: 18px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      z-index: 9998;
+      border: 1px solid #ced4da;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    #chatbot-box header {
+      background: #e9f2ff;
+      padding: 10px 18px;
+      font-weight: 600;
+      color: #007BFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    #chatbot-box header button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #6c757d;
+      cursor: pointer;
+    }
+    #chatbot-box header button:hover {
+      color: #dc3545;
+    }
+    
+    #chat-log {
+      flex: 1;
+      padding: 12px 18px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    
+    #chat-log div {
+      margin-bottom: 10px;
+    }
+    
+    #chat-input {
+      display: flex;
+      border-top: 1px solid #dee2e6;
+      background: #f8f9fa;
+    }
+    
+    #chat-input input {
+      flex: 1;
+      padding: 12px;
+      background: transparent;
+      color: #212529;
+      border: none;
+      font-size: 14px;
+    }
+    #chat-input input::placeholder {
+      color: #adb5bd;
+    }
+    
+    #chat-input button {
+      background: #007BFF;
+      border: none;
+      color: white;
+      padding: 12px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    #chat-input button:hover {
+      background: #0056b3;
+    }
+    </style>
+    
+    <!-- ✅ Chat Trigger -->
+    <button id="chatbot-toggle" title="Chat with Assistant">💬</button>
+    
+    <!-- ✅ Chat Box -->
+    <div id="chatbot-box">
+      <header>
+        <span>OStation Assistant</span>
+        <button id="chatbot-close" title="Close">×</button>
+      </header>
+      <div id="chat-log"></div>
+      <div id="chat-input">
+        <input type="text" id="chat-message" placeholder="Ask anything...">
+        <button onclick="sendMessage()">▶</button>
+      </div>
+    </div>
+    
+    <!-- ✅ Logic -->
+    <script>
+    const toggleBtn = document.getElementById("chatbot-toggle");
+    const chatBox = document.getElementById("chatbot-box");
+    const closeBtn = document.getElementById("chatbot-close");
+    const chatLog = document.getElementById("chat-log");
+    
+    toggleBtn.onclick = () => {
+      chatBox.style.display = (chatBox.style.display === "flex") ? "none" : "flex";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    };
+    
+    closeBtn.onclick = () => {
+      chatBox.style.display = "none";
+    };
+    
+    document.addEventListener('keydown', function (e) {
+      if (e.key === "Escape") {
+        chatBox.style.display = "none";
+      }
+    });
+    
+    function sendMessage() {
+      const input = document.getElementById("chat-message");
+      const msg = input.value.trim();
+      if (!msg) return;
+      chatLog.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+      input.value = "";
+    
+      // Simulate bot reply
+      setTimeout(() => {
+        const reply = getBotReply(msg);
+        chatLog.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }, 500);
+    }
+    
+    function getBotReply(msg) {
+      msg = msg.toLowerCase();
+      if (msg.includes("download")) return "You can download it from the Downloads page.";
+      if (msg.includes("vmware")) return "Yes, a VMware image is included in your SSD package.";
+      if (msg.includes("steam")) return "Steam is ready with pre-installed games.";
+      return "I'm here to assist you! You can ask about setup, features, or downloads.";
+    }
+    </script>
+
+
+</body>
+</html>
