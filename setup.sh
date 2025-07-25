@@ -125,8 +125,8 @@ EOF
 
 echo "项目创建完成！"
 echo "进入项目目录: cd $PROJECT_NAME"
-echo "激活虚拟环境: source venv/bin/activate"
-echo "运行服务器: python3 app.py"
-echo "生成静态文件: python3 app.py freeze"
+echo "激活虚拟环境: source venv/bin/activate
+echo "运行服务器: python3 app.py
+echo "生成静态文件: python3 app.py freeze
 echo "测试静态文件: cd build && python3 -m http.server 8000"
 echo "测试下载: 访问 http://localhost:5000/static/appcast.xml 或 http://localhost:8000/static/appcast.xml"
