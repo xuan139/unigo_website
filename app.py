@@ -5,18 +5,24 @@ import datetime
 from functools import wraps
 from flask import (
     Flask, request, jsonify, render_template,
-    redirect, url_for, make_response
+    redirect, url_for, make_response, send_from_directory
 )
 import jwt
 from werkzeug.security import check_password_hash
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 SECRET_KEY = 'your_secret_key_here'
 
+app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'static', 'uploads')  # or wherever your upload folder is
+
 DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'crm.db')
+
+
 
 # -------------------- 工具函数 --------------------
 def get_db_connection():
+    print("DB_PATH =", DB_PATH)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -68,11 +74,6 @@ def index():
 def buy():
     return render_template('buy.html')
 
-@app.route('/downloads')
-def downloads():
-    upload_dir = os.path.join('static', 'uploads')
-    files = os.listdir(upload_dir) if os.path.exists(upload_dir) else []
-    return render_template('downloads.html', files=files)
 
 # -------------------- 登录 --------------------
 
@@ -110,21 +111,72 @@ def logout():
 # -------------------- 受保护页面 --------------------
 
 @app.route('/upload', methods=['GET', 'POST'])
-@require_auth
 def upload():
     if request.method == 'POST':
         file = request.files.get('file')
-        if file and file.filename:
-            upload_dir = os.path.join('static', 'uploads')
-            os.makedirs(upload_dir, exist_ok=True)
-            file.save(os.path.join(upload_dir, file.filename))
-            return render_template('upload.html', message=f"文件 {file.filename} 上传成功！")
-        else:
-            return render_template('upload.html', message="请选择一个有效的文件")
-    
-    # GET 请求
+        version = request.form.get('version', '1.0.0')
+        description = request.form.get('description', 'Initial Release')
+        platform = request.form.get('platform', 'macOS / Windows')
+
+        if file:
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+
+            # conn = sqlite3.connect(DB_PATH)
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute('''
+                INSERT INTO app_versions (filename, version, description, platform)
+                VALUES (?, ?, ?, ?)
+            ''', (filename, version, description, platform))
+            conn.commit()
+            conn.close()
+
+            return redirect(url_for('downloads'))
+
     return render_template('upload.html')
 
+
+
+@app.route('/downloads')
+def downloads():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT filename, version, description, platform, upload_date FROM app_versions ORDER BY upload_date DESC")
+    rows = cursor.fetchall()
+    conn.close()
+
+    files = [
+        {
+            'name': row[0],
+            'version': row[1],
+            'desc': row[2],
+            'platform': row[3],
+            'date': row[4]
+        } for row in rows
+    ]
+    return render_template('downloads.html', files=files)
+
+
+@app.route('/uploads/<filename>')
+def download_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+
+
+@app.route('/delete-file', methods=['POST'])
+def delete_file():
+    data = request.get_json()
+    filename = data.get('filename')
+    if not filename:
+        return jsonify({'error': 'No filename provided'}), 400
+
+    file_path = os.path.join('static', 'uploads', filename)
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return jsonify({'success': True})
+    else:
+        return jsonify({'error': 'File not found'}), 404
 
 @app.route('/user_management', methods=['GET'])
 @require_auth
@@ -137,4 +189,5 @@ def user_management():
 # -------------------- 启动 --------------------
 
 if __name__ == '__main__':
+    # reset_app_versions_table()
     app.run(debug=True)
