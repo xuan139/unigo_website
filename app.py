@@ -1,12 +1,12 @@
 import os
 import sqlite3
 import datetime
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 import jwt
 from werkzeug.security import check_password_hash
 
 app = Flask(__name__)
-SECRET_KEY = 'your_secret_key_here_change_this'  # JWT密钥，生产环境请改成安全值
+SECRET_KEY = 'your_secret_key_here_change_this'  # 生产环境请换强密钥
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'crm.db')
 
@@ -43,55 +43,39 @@ def verify_jwt(token):
 def index():
     return render_template('index.html', message="欢迎访问我的简单网站！")
 
-# 登录接口（示范用JSON接口）
-@app.route('/login', methods=['POST'])
+# 登录页面和提交
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    data = request.json
-    email = data.get('email')
-    password = data.get('password')
+    if request.method == 'GET':
+        return render_template('login.html')
+    
+    # POST表单提交
+    email = request.form.get('email')
+    password = request.form.get('password')
     if not email or not password:
-        return jsonify({'error': 'Email and password required'}), 400
+        return render_template('login.html', error='请填写邮箱和密码')
     
     user = authenticate(email, password)
     if user:
         token = create_jwt(user['id'])
-        return jsonify({'token': token})
+        # 登录成功，直接显示 token，方便调试
+        return f"""
+        <h3>登录成功！</h3>
+        <p>你的 JWT Token (有效期2小时):</p>
+        <textarea rows="5" cols="80" readonly>{token}</textarea><br/><br/>
+        <a href="/">返回首页</a>
+        """
     else:
-        return jsonify({'error': 'Invalid credentials'}), 401
+        return render_template('login.html', error='邮箱或密码错误')
 
-# 受保护上传示例接口
-@app.route('/upload', methods=['GET', 'POST'])
+
+@app.route('/upload', methods=['GET'])
 def upload():
-    # 验证 Authorization 头
-    auth_header = request.headers.get('Authorization')
-    if not auth_header or not auth_header.startswith('Bearer '):
-        return jsonify({'error': 'Authorization header missing or invalid'}), 401
-    token = auth_header.split(' ')[1]
-    user_id = verify_jwt(token)
-    if not user_id:
-        return jsonify({'error': 'Invalid or expired token'}), 401
+    token = request.args.get('token')
+    if not token or not verify_jwt(token):
+        return redirect(url_for('login'))
+    return render_template('upload.html')
 
-    if request.method == 'POST':
-        file = request.files.get('file')
-        if file and file.filename:
-            upload_dir = os.path.join('static', 'uploads')
-            os.makedirs(upload_dir, exist_ok=True)
-            file.save(os.path.join(upload_dir, file.filename))
-
-            # 记录上传历史
-            conn = get_db_connection()
-            conn.execute(
-                "INSERT INTO history (user_id, action, details) VALUES (?, ?, ?)",
-                (user_id, 'Upload File', f'Uploaded {file.filename}')
-            )
-            conn.commit()
-            conn.close()
-
-            return jsonify({'message': f'File {file.filename} uploaded successfully'})
-        return jsonify({'error': 'No valid file provided'}), 400
-
-    # GET 请求返回上传页面（示范简单页面）
-    return render_template('upload.html', message=None)
 
 if __name__ == '__main__':
     app.run(debug=True)
