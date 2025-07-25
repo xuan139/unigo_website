@@ -10,8 +10,12 @@
   <div class="container" style="max-width: 400px; margin-top: 100px;">
     <h2 class="mb-4 text-center">Login to OStation</h2>
 
-    {% if error %}
+    <!-- {% if error %}
       <div class="alert alert-danger">{{ error }}</div>
+    {% endif %} -->
+
+    {% if message %}
+    <p class="error">{{ message }}</p>
     {% endif %}
 
     <form id="loginForm" method="post" action="/login">

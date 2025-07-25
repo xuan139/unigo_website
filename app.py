@@ -1,6 +1,7 @@
 import os
 import sqlite3
 import datetime
+
 from functools import wraps
 from flask import (
     Flask, request, jsonify, render_template,
@@ -21,6 +22,8 @@ def get_db_connection():
     return conn
 
 def authenticate(email, password):
+    print(email, password)
+
     conn = get_db_connection()
     user = conn.execute('SELECT * FROM user_info WHERE email = ?', (email,)).fetchone()
     conn.close()
@@ -28,12 +31,15 @@ def authenticate(email, password):
         return user
     return None
 
+
+
 def create_jwt(user_id):
     payload = {
         'user_id': user_id,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=2)
+        'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=2)
     }
     return jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+
 
 def verify_jwt(token):
     try:
@@ -103,10 +109,22 @@ def logout():
 
 # -------------------- 受保护页面 --------------------
 
-@app.route('/upload', methods=['GET'])
+@app.route('/upload', methods=['GET', 'POST'])
 @require_auth
 def upload():
+    if request.method == 'POST':
+        file = request.files.get('file')
+        if file and file.filename:
+            upload_dir = os.path.join('static', 'uploads')
+            os.makedirs(upload_dir, exist_ok=True)
+            file.save(os.path.join(upload_dir, file.filename))
+            return render_template('upload.html', message=f"文件 {file.filename} 上传成功！")
+        else:
+            return render_template('upload.html', message="请选择一个有效的文件")
+    
+    # GET 请求
     return render_template('upload.html')
+
 
 @app.route('/user_management', methods=['GET'])
 @require_auth
