@@ -111,6 +111,9 @@ def logout():
 # -------------------- 受保护页面 --------------------
 
 @app.route('/upload', methods=['GET', 'POST'])
+@require_auth
+
+
 def upload():
     if request.method == 'POST':
         file = request.files.get('file')
