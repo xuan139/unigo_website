@@ -181,13 +181,6 @@ def delete_file():
     else:
         return jsonify({'error': 'File not found'}), 404
 
-@app.route('/user_management', methods=['GET'])
-@require_auth
-def user_management():
-    conn = get_db_connection()
-    users = conn.execute('SELECT id, name, email, phone FROM user_info').fetchall()
-    conn.close()
-    return render_template('user_management.html', users=users)
 
 # -------------------- 启动 --------------------
 
