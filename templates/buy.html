@@ -1,102 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Buy SSD - OStation</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
     body {
-      background-color: #f8f9fa;
-      color: #212529;
+      background: linear-gradient(to right, #f3f4f6, #ffffff);
+      font-family: "Segoe UI", sans-serif;
+      padding-top: 72px;
     }
+
     .product-card {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      transition: transform 0.2s;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .product-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
+
+    .product-card img {
+      border-radius: 12px;
+      object-fit: cover;
+      max-height: 260px;
+    }
+
     .price {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: #0d6efd;
+      font-weight: bold;
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
 
-    <!-- ✅ Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/">OStation</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/downloads">Download</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/buy">Buy</a> <!-- ✅ Buy Page Link -->
-          </li>
-        </ul>
-      </div>
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-hdd-stack"></i> OStation</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/downloads">Download</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/buy">Buy</a></li>
+      </ul>
     </div>
-  </nav>
-  <div class="container py-5">
-    <h2 class="text-center mb-5">Buy SSD - OStation Series</h2>
+  </div>
+</nav>
 
-    <div class="row g-4 justify-content-center">
-      <!-- Product 1 -->
-      <div class="col-md-4">
-        <div class="card product-card p-3">
+<!-- ✅ Main Content -->
+<div class="container py-5">
+  <h2 class="text-center text-primary section-title"><i class="bi bi-cart-check me-2"></i>Buy SSD - OStation Series</h2>
 
-            
-          <img src="https://tw.gametogo.io/wp-content/uploads/2024/10/AppToGo11-500GB-600x600.jpg" class="card-img-top" alt="OStation SSD 512GB" />
-          <div class="card-body">
-            <h5 class="card-title">OStation SSD - 512GB</h5>
-            <p class="card-text">Plug-and-play SSD preloaded with Steam, Epic, and Windows VM.</p>
-            <p class="price">$89.99</p>
-            <select class="form-select mb-3">
-              <option selected>Choose Capacity</option>
-              <option value="512">512GB</option>
-              <option value="1024">1TB</option>
-              <option value="2048">2TB</option>
-            </select>
-            <button class="btn btn-primary w-100">Buy Now</button>
-          </div>
+  <div class="row g-4 justify-content-center">
+    <!-- Product 1 -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card product-card p-3">
+        <img src="https://tw.gametogo.io/wp-content/uploads/2024/10/AppToGo11-500GB-600x600.jpg" class="card-img-top" alt="OStation SSD 512GB" />
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">OStation SSD - 512GB</h5>
+          <p class="card-text">Plug-and-play SSD preloaded with Steam, Epic Games Launcher, and a Windows VM.</p>
+          <p class="price">$89.99</p>
+          <label class="form-label">Choose Capacity:</label>
+          <select class="form-select mb-3">
+            <option selected disabled>Choose...</option>
+            <option value="512">512GB</option>
+            <option value="1024">1TB</option>
+            <option value="2048">2TB</option>
+          </select>
+          <button class="btn btn-primary w-100"><i class="bi bi-bag-plus me-1"></i>Buy Now</button>
         </div>
       </div>
+    </div>
 
-      <!-- Product 2 -->
-      <div class="col-md-4">
-        <div class="card product-card p-3">
-          <img src="https://tw.gametogo.io/wp-content/uploads/2024/10/AppToGo11-500GB-600x600.jpg" class="card-img-top" alt="OStation SSD 1TB" />
-          <div class="card-body">
-            <h5 class="card-title">OStation SSD - 1TB Gaming Pro</h5>
-            <p class="card-text">Optimized for high-speed gaming and VM usage. Steam ready.</p>
-            <p class="price">$129.99</p>
-            <select class="form-select mb-3">
-              <option selected>Choose Capacity</option>
-              <option value="1024">1TB</option>
-              <option value="2048">2TB</option>
-              <option value="4096">4TB</option>
-            </select>
-            <button class="btn btn-primary w-100">Buy Now</button>
-          </div>
+    <!-- Product 2 -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card product-card p-3">
+        <img src="https://tw.gametogo.io/wp-content/uploads/2024/10/AppToGo11-500GB-600x600.jpg" class="card-img-top" alt="OStation SSD 1TB" />
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">OStation SSD - 1TB Gaming Pro</h5>
+          <p class="card-text">Optimized for high-speed gaming, virtualization, and Steam/VM readiness.</p>
+          <p class="price">$129.99</p>
+          <label class="form-label">Choose Capacity:</label>
+          <select class="form-select mb-3">
+            <option selected disabled>Choose...</option>
+            <option value="1024">1TB</option>
+            <option value="2048">2TB</option>
+            <option value="4096">4TB</option>
+          </select>
+          <button class="btn btn-primary w-100"><i class="bi bi-bag-plus me-1"></i>Buy Now</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- ✅ Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
