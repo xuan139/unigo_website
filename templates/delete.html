@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>删除文件 - OStation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #eef2f3, #ffffff);
+      min-height: 100vh;
+      padding-top: 70px;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .delete-table {
+      background: var(--bs-body-bg);
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-box-arrow-down"></i> OStation</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/downloads">Download</a></li>
+        <li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+        <li class="nav-item"><a class="nav-link" href="/buy">Buy</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ✅ 删除文件部分 -->
+<div class="container py-5 mt-4">
+  <h2 class="text-center text-danger section-title">
+    <i class="bi bi-trash3-fill me-2"></i>删除文件管理
+  </h2>
+
+  <div class="delete-table">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-light">
+          <tr>
+            <th>文件名</th>
+            <th>版本</th>
+            <th>说明</th>
+            <th>平台</th>
+            <th>发布日期</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for file in files %}
+          <tr>
+            <td>{{ file.name }}</td>
+            <td>{{ file.version }}</td>
+            <td>{{ file.desc }}</td>
+            <td>{{ file.platform }}</td>
+            <td>{{ file.date }}</td>
+            <td>
+              <button class="delete-btn" onclick="deleteFile('{{ file.name }}')">
+                <i class="bi bi-trash3-fill"></i> 删除
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Bootstrap JS & 删除逻辑 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function deleteFile(filename) {
+    if (!confirm(`确定删除 ${filename} 吗？`)) return;
+
+    fetch('/delete-file', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert('✅ 删除成功');
+        location.reload();
+      } else {
+        alert('❌ 删除失败：' + (data.error || '未知错误'));
+      }
+    })
+    .catch(err => {
+      alert('网络错误：' + err.message);
+    });
+  }
+</script>
+
+</body>
+</html>

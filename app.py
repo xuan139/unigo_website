@@ -111,28 +111,35 @@ def logout():
 # -------------------- 受保护页面 --------------------
 
 @app.route('/upload', methods=['GET', 'POST'])
-@require_auth
-
-
+# @require_auth
 def upload():
     if request.method == 'POST':
         file = request.files.get('file')
         version = request.form.get('version', '1.0.0')
-        description = request.form.get('description', 'Initial Release')
-        platform = request.form.get('platform', 'macOS / Windows')
+        build_version = request.form.get('build_version', '1')
+        patch = request.form.get('patch', '')
+        notes = request.form.get('notes', '')
 
         if file:
             filename = secure_filename(file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
 
-            # conn = sqlite3.connect(DB_PATH)
+            # ✅ 计算文件大小（字节 -> MB）
+            file_size_bytes = os.path.getsize(file_path)
+            file_size_mb = file_size_bytes / (1024 * 1024)
+            file_size_str = f"{file_size_mb:.2f} MB"
+
+            # ✅ 拼接 notes
+            full_notes = f"{notes.strip()}\n\n[File Size: {file_size_str}]"
+
             conn = get_db_connection()
             cursor = conn.cursor()
             cursor.execute('''
-                INSERT INTO app_versions (filename, version, description, platform)
-                VALUES (?, ?, ?, ?)
-            ''', (filename, version, description, platform))
+                INSERT INTO app_versions (
+                    app_name, version, build_version, patch, notes
+                ) VALUES (?, ?, ?, ?, ?)
+            ''', (filename, version, build_version, patch, full_notes))
             conn.commit()
             conn.close()
 
@@ -143,10 +150,37 @@ def upload():
 
 
 @app.route('/downloads')
+# @require_auth
 def downloads():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute("SELECT filename, version, description, platform, upload_date FROM app_versions ORDER BY upload_date DESC")
+    cursor.execute("SELECT app_name, version,  build_version, patch, release_date ,notes FROM app_versions ORDER BY release_date DESC")
+    rows = cursor.fetchall()
+    conn.close()
+
+    files = [
+        {
+            'name': row[0],
+            'version': row[1],
+            'desc': row[2],
+            'platform': row[3],
+            'date': row[4],
+            'notes': row[5]
+        } for row in rows
+    ]
+    return render_template('downloads.html', files=files)
+
+
+@app.route('/uploads/<filename>')
+def download_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+
+@app.route('/delete')
+# @require_auth
+def delete_page():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT app_name, version, build_version, patch, release_date FROM app_versions ORDER BY release_date DESC")
     rows = cursor.fetchall()
     conn.close()
 
@@ -159,31 +193,39 @@ def downloads():
             'date': row[4]
         } for row in rows
     ]
-    return render_template('downloads.html', files=files)
-
-
-@app.route('/uploads/<filename>')
-def download_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+    return render_template('delete.html', files=files)
 
 
 @app.route('/delete-file', methods=['POST'])
+@require_auth
 def delete_file():
     data = request.get_json()
     filename = data.get('filename')
     if not filename:
         return jsonify({'error': 'No filename provided'}), 400
 
-    file_path = os.path.join('static', 'uploads', filename)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        return jsonify({'success': True})
-    else:
-        return jsonify({'error': 'File not found'}), 404
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
+    try:
+        # 删除文件（如果存在）
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        else:
+            return jsonify({'error': 'File not found on disk'}), 404
+
+        # 删除数据库记录
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM app_versions WHERE app_name = ?', (filename,))
+        conn.commit()
+        conn.close()
+
+        return jsonify({'success': True})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # -------------------- 启动 --------------------
-
+    
 if __name__ == '__main__':
-    # reset_app_versions_table()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5050, debug=True)

@@ -138,3 +138,15 @@ Make executable and run:
 chmod +x deploy.sh
 ./deploy.sh
 ```
+
+lijiaxi@Xuans-MacBook-Air Documents % ngrok http 5050
+lijiaxi@Xuans-MacBook-Air Documents % ngrok config add-authtoken 273BEiyE76URtSdePAdWliE9FlQ_7d5LAw2n1r5BKaHLVsGkW
+
+
+Created user: User1, email: user1@example.com, password: e7KO24UX
+Created user: User2, email: user2@example.com, password: Qye4HCZb
+Created user: User3, email: user3@example.com, password: mwL6PnZa
+
+hdiutil create -volname "SteamMetal" \
+  -srcfolder "SteamMetal.4.01.01.app" \
+  -ov -format UDZO "SteamMetal.4.01.01.dmg"
