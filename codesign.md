@@ -24,9 +24,9 @@ hdiutil create -volname "SteamDxvkApp" -srcfolder ./SteamDxvk.4.01.01.app -ov -f
 
 ### 6 download to folder or SSD folder
 
-### 7  run app 先绕过privicy里的设置，就可以运行
+### 7 run app 先绕过privicy里的设置，就可以运行
 
-### 8  正式发布时需要AppleID 签名
+### 8 正式发布时需要AppleID 签名
 
 
 

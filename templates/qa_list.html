@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA 列表</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">QA 管理系统</h1>
+            <div>
+                <a href="{{ url_for('qa_edit') }}" class="px-4 py-2 hover:bg-blue-700 rounded">编辑 QA</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto p-6">
+        <h2 class="text-2xl font-semibold mb-4">QA 列表</h2>
+        {% if qa_list %}
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-gray-600">问题</th>
+                            <th class="py-3 px-4 text-left text-gray-600">答案</th>
+                            <th class="py-3 px-4 text-left text-gray-600">创建时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for qa in qa_list %}
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="py-3 px-4">{{ qa.question }}</td>
+                            <td class="py-3 px-4">{{ qa.answer }}</td>
+                            <td class="py-3 px-4">{{ qa.created_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-gray-600">没有 QA 记录</p>
+        {% endif %}
+    </div>
+</body>
+</html>

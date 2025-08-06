@@ -170,74 +170,40 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="py-5" id="faq">
-    <div class="container">
-      <h2 class="mb-4 text-center" data-i18n="faq_title">Frequently Asked Questions</h2>
-      <div class="accordion" id="faqAccordion">
+<!-- FAQ -->
+<section class="py-5" id="faq">
+  <div class="container">
+    <h2 class="mb-4 text-center">常见问题（FAQ）</h2>
+    <div class="accordion" id="faqAccordion">
+      {% for qa in qa_list %}
         <div class="accordion-item">
-          <h2 class="accordion-header" id="faq1">
+          <h2 class="accordion-header" id="faq{{ loop.index }}">
             <button
-              class="accordion-button"
+              class="accordion-button {% if not loop.first %}collapsed{% endif %}"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapse1"
-              aria-expanded="true"
-              aria-controls="collapse1"
-              data-i18n="faq_q1"
+              data-bs-target="#collapse{{ loop.index }}"
+              aria-expanded="{{ 'true' if loop.first else 'false' }}"
+              aria-controls="collapse{{ loop.index }}"
             >
-              Why isn't the SSD recognized on my Mac?
+              {{ qa['question'] }}
             </button>
           </h2>
-          <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-            <div class="accordion-body" data-i18n="faq_a1">
-              Please ensure your system allows external drives in Security & Privacy. Try switching USB ports.
+          <div
+            id="collapse{{ loop.index }}"
+            class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              {{ qa['answer'] }}
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faq2">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse2"
-              aria-expanded="false"
-              aria-controls="collapse2"
-              data-i18n="faq_q2"
-            >
-              Steam doesn't launch or update properly?
-            </button>
-          </h2>
-          <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body" data-i18n="faq_a2">
-              Make sure the internet is connected and permissions are granted. Try using our Steam Repair Tool in the Download Center.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faq3">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse3"
-              aria-expanded="false"
-              aria-controls="collapse3"
-              data-i18n="faq_q3"
-            >
-              How do I restore the original SSD environment?
-            </button>
-          </h2>
-          <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body" data-i18n="faq_a3">
-              Visit the Download Center and get the official restoration image. You may need your SSD serial number.
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Downloads CTA -->
   <section class="text-center py-5 bg-dark text-white" id="download">

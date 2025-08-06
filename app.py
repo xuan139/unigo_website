@@ -68,7 +68,16 @@ def require_auth(view_func):
 
 @app.route('/')
 def index():
-    return render_template('index.html', message="欢迎访问！")
+
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT question, answer FROM qa_list ORDER BY created_at DESC")
+    qa_list = cursor.fetchall()
+    conn.close()
+
+    # return render_template('index.html', qa_list=qa_list)
+    return render_template('index.html', qa_list=qa_list, message="欢迎访问！")
 
 @app.route('/buy')
 def buy():
@@ -225,7 +234,90 @@ def delete_file():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# -------------------- 启动 --------------------
-    
+
+
+@app.route('/qa', methods=['GET'])
+def qa_list():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, question, answer, created_at FROM qa_list ORDER BY created_at DESC")
+        qa_list = cursor.fetchall()
+        conn.close()
+        return render_template('qa_list.html', qa_list=qa_list)
+    except Exception as e:
+        return f"错误: {str(e)}", 500
+
+@app.route('/qa/edit', methods=['GET', 'POST'])
+def qa_edit():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        if request.method == 'POST':
+            question = request.form.get('question', '').strip()
+            answer = request.form.get('answer', '').strip()
+            if not question or not answer:
+                qa_list = cursor.execute("SELECT * FROM qa_list ORDER BY created_at DESC").fetchall()
+                conn.close()
+                return render_template('qa_edit.html', qa_list=qa_list, message="问题或答案不能为空")
+            cursor.execute("INSERT INTO qa_list (question, answer) VALUES (?, ?)", (question, answer))
+            conn.commit()
+            qa_list = cursor.execute("SELECT * FROM qa_list ORDER BY created_at DESC").fetchall()
+            conn.close()
+            return render_template('qa_edit.html', qa_list=qa_list, message="添加成功")
+        qa_list = cursor.execute("SELECT * FROM qa_list ORDER BY created_at DESC").fetchall()
+        conn.close()
+        return render_template('qa_edit.html', qa_list=qa_list, message=request.args.get('message'))
+    except Exception as e:
+        conn.close()
+        return render_template('qa_edit.html', qa_list=[], message=f"错误: {str(e)}"), 500
+
+@app.route('/qa/editqa/<int:qa_id>', methods=['GET', 'POST'])
+def edit_qa(qa_id):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, question, answer FROM qa_list WHERE id = ?", (qa_id,))
+        qa = cursor.fetchone()
+        if not qa:
+            conn.close()
+            return redirect(url_for('qa_edit', message="记录不存在"))
+        if request.method == 'POST':
+            question = request.form.get('question', '').strip()
+            answer = request.form.get('answer', '').strip()
+            if not question or not answer:
+                conn.close()
+                return render_template('qa_edit_form.html', qa=qa, message="问题或答案不能为空")
+            cursor.execute("UPDATE qa_list SET question = ?, answer = ? WHERE id = ?", (question, answer, qa_id))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('qa_edit', message="编辑成功"))
+        conn.close()
+        return render_template('qa_edit_form.html', qa=qa)
+    except Exception as e:
+        conn.close()
+        return redirect(url_for('qa_edit', message=f"编辑失败: {str(e)}"))
+
+@app.route('/qa/deleteqa/<int:qa_id>', methods=['GET', 'POST'])
+def delete_qa(qa_id):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, question FROM qa_list WHERE id = ?", (qa_id,))
+        qa = cursor.fetchone()
+        if not qa:
+            conn.close()
+            return redirect(url_for('qa_edit', message="记录不存在"))
+        if request.method == 'GET':
+            conn.close()
+            return render_template('qa_delete.html', qa_id=qa_id, question=qa['question'])
+        cursor.execute("DELETE FROM qa_list WHERE id = ?", (qa_id,))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('qa_edit', message="删除成功"))
+    except Exception as e:
+        conn.close()
+        return redirect(url_for('qa_edit', message=f"删除失败: {str(e)}"))
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5050, debug=True)

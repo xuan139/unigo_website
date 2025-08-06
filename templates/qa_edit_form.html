@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑 QA 记录</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 40px;
+        }
+
+        h2 {
+            color: #444;
+            border-left: 5px solid #3f51b5;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 600px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #3f51b5;
+            outline: none;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #303f9f;
+        }
+
+        a {
+            margin-left: 15px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            color: #3f51b5;
+            text-decoration: underline;
+        }
+
+        .message {
+            color: #d32f2f;
+            background-color: #fdecea;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h2>编辑 QA</h2>
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+    <div class="form-container">
+        <form method="POST">
+            <label>问题:</label>
+            <input type="text" name="question" value="{{ qa.question }}" required>
+
+            <label>答案:</label>
+            <textarea name="answer" rows="5" required>{{ qa.answer }}</textarea>
+
+            <button type="submit">保存</button>
+            <a href="{{ url_for('qa_edit') }}">取消</a>
+        </form>
+    </div>
+</body>
+</html>
