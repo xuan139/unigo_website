@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forum - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='forum.css') }}">
+</head>
+<body>
+<header>
+    <h1>My Forum</h1>
+    <nav>
+        <a href="{{ url_for('forum.forum_index') }}">Home</a>
+        <a href="{{ url_for('forum.forum_new_post') }}">New Post</a>
+    </nav>
+</header>
+
+<main>
+    {% for post in posts %}
+    <div class="post-card">
+        <h2><a href="{{ url_for('forum.forum_post', post_id=post['id']) }}">{{ post['title'] }}</a></h2>
+        <p class="meta">Posted at {{ post['created_at'] }}</p>
+        <p class="content-preview">{{ post['content'][:150] }}{% if post['content']|length > 150 %}...{% endif %}</p>
+    </div>
+    {% else %}
+    <p>No posts yet. <a href="{{ url_for('forum.forum_new_post') }}">Create the first one!</a></p>
+    {% endfor %}
+</main>
+
+<footer>
+    <p>&copy; 2025 My Forum</p>
+</footer>
+</body>
+</html>

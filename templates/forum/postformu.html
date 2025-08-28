@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post['title'] }}</title>
+</head>
+<body>
+    <h1>{{ post['title'] }}</h1>
+    <p>{{ post['content'] }}</p>
+    <hr>
+    <h3>评论区</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment['content'] }} <small>{{ comment['created_at'] }}</small></li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        <textarea name="content"></textarea>
+        <button type="submit">评论</button>
+    </form>
+    <p><a href="{{ url_for('index') }}">⬅ 返回首页</a></p>
+</body>
+</html>

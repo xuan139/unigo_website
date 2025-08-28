@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post['title'] }} - Forum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='forum.css') }}">
+</head>
+<body>
+<header>
+    <h1>My Forum</h1>
+    <nav>
+        <a href="{{ url_for('forum.forum_index') }}">Home</a>
+        <a href="{{ url_for('forum.forum_new_post') }}">New Post</a>
+    </nav>
+</header>
+
+<main>
+    <div class="post-card full">
+        <h2>{{ post['title'] }}</h2>
+        <p class="meta">Posted at {{ post['created_at'] }}</p>
+        <p class="content">{{ post['content'] }}</p>
+    </div>
+
+    <section class="comments">
+        <h3>Comments</h3>
+        {% for comment in comments %}
+        <div class="comment-card">
+            <p class="meta">Commented at {{ comment['created_at'] }}</p>
+            <p class="content">{{ comment['content'] }}</p>
+        </div>
+        {% else %}
+        <p>No comments yet.</p>
+        {% endfor %}
+
+        <form action="{{ url_for('forum.forum_comment', post_id=post['id']) }}" method="post">
+            <textarea name="content" placeholder="Write a comment..." required></textarea>
+            <button type="submit">Submit Comment</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 My Forum</p>
+</footer>
+</body>
+</html>

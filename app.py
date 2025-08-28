@@ -1,6 +1,7 @@
 import os
 import sqlite3
 import datetime
+from forum_app import forum_bp
 
 from functools import wraps
 from flask import (
@@ -78,6 +79,8 @@ def index():
 
     # return render_template('index.html', qa_list=qa_list)
     return render_template('index.html', qa_list=qa_list, message="欢迎访问！")
+
+app.register_blueprint(forum_bp)
 
 @app.route('/buy')
 def buy():
