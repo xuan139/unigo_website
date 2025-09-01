@@ -152,4 +152,18 @@ hdiutil create -volname "SteamMetal" \
   -ov -format UDZO "SteamMetal.4.01.01.dmg"
 
 
-  3.27.169.60
+
+godaddy
+pengxcindy@gmail.com
+@54385438
+
+aws 服务器IP 地址
+3.27.169.60
+
+### Step 8 更新ubuntu website 步骤
+先push 最新代码到github 上 若db 更新最好
+在 ubuntu 下
+cd /home/unigo_website
+git pull origin main
+source venv/bin/activate
+gunicorn -w 4 -b 0.0.0.0:5050 app:app --access-logfile gunicorn_access.log --error-logfile gunicorn_error.log -D

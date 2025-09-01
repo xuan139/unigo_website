@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>序列号列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #007BFF;
+            color: white;
+        }
+        tr:hover {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>序列号列表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Serial Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in serials %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ s }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -2,6 +2,7 @@ import os
 import sqlite3
 import datetime
 from forum_app import forum_bp
+import pandas as pd
 
 from functools import wraps
 from flask import (
@@ -321,6 +322,118 @@ def delete_qa(qa_id):
     except Exception as e:
         conn.close()
         return redirect(url_for('qa_edit', message=f"删除失败: {str(e)}"))
+# 获取所有序列号
+def get_all_serials():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT serial FROM serial_numbers")
+    rows = cursor.fetchall()
+    conn.close()
+    return [r[0] for r in rows]
+
+@app.route("/getAllserials")
+def serials_page():
+    serials = get_all_serials()
+    return render_template("serials.html", serials=serials)
+
+
+def get_serial(serial_number):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT serial FROM serial_numbers WHERE serial = ?", (serial_number,))
+    row = cursor.fetchone()
+    conn.close()
+    return row[0] if row else None
+
+@app.route('/serial/<serial_number>', methods=['GET'])
+def check_serial(serial_number):
+    result = get_serial(serial_number)
+    if result:
+        return jsonify({"serial": result}), 200
+    else:
+        return jsonify({"serial": None}), 200
+
+# 添加单个序列号
+@app.route('/serial', methods=['POST'])
+def add_serial():
+    data = request.get_json()
+    serial = data.get("serial")
+    if not serial:
+        return jsonify({"error": "serial is required"}), 400
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    try:
+        cursor.execute("INSERT INTO serial_numbers (serial) VALUES (?)", (serial,))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        conn.close()
+        return jsonify({"error": "serial already exists"}), 409
+    conn.close()
+    return jsonify({"serial": serial}), 201
+
+# 批量导入 Excel（API）
+@app.route('/import_excel', methods=['POST'])
+def import_excel():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+    try:
+        if file.filename.endswith(('.xlsx', '.xls')):
+            df = pd.read_excel(file)
+        elif file.filename.endswith('.csv'):
+            df = pd.read_csv(file)
+        else:
+            return jsonify({"error": "Unsupported file type"}), 400
+        if df.empty:
+            return jsonify({"error": "File is empty"}), 400
+
+        serials = df.iloc[:, 0].dropna().astype(str).tolist()
+
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        added = 0
+        for s in serials:
+            cursor.execute("INSERT OR IGNORE INTO serial_numbers (serial) VALUES (?)", (s,))
+            added += cursor.rowcount
+        conn.commit()
+        conn.close()
+        return jsonify({"added": added, "total": len(serials)})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Web 上传页面
+@app.route('/uploadSS', methods=['GET', 'POST'])
+def upload_page():
+    result_text = None
+    if request.method == 'POST':
+        file = request.files.get('file')
+        if not file:
+            result_text = "没有选择文件"
+        else:
+            try:
+                if file.filename.endswith(('.xlsx', '.xls')):
+                    df = pd.read_excel(file)
+                elif file.filename.endswith('.csv'):
+                    df = pd.read_csv(file)
+                else:
+                    result_text = "不支持的文件类型"
+                    return render_template('upload.html', result=result_text)
+                
+                serials = df.iloc[:, 0].dropna().astype(str).tolist()
+                conn = sqlite3.connect(DB_PATH)
+                cursor = conn.cursor()
+                added = 0
+                for s in serials:
+                    cursor.execute("INSERT OR IGNORE INTO serial_numbers (serial) VALUES (?)", (s,))
+                    added += cursor.rowcount
+                conn.commit()
+                conn.close()
+                result_text = f"导入完成，总数量: {len(serials)}, 成功添加: {added}"
+            except Exception as e:
+                result_text = f"导入失败: {e}"
+    return render_template('uploadSS.html', result=result_text)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5050, debug=True)
