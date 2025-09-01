@@ -322,21 +322,23 @@ def delete_qa(qa_id):
     except Exception as e:
         conn.close()
         return redirect(url_for('qa_edit', message=f"删除失败: {str(e)}"))
-# 获取所有序列号
-def get_all_serials():
+# ========================
+# 获取所有序列号，支持搜索
+# ========================
+def get_all_serials(search=None):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute("SELECT serial FROM serial_numbers")
+    if search:
+        cursor.execute("SELECT serial FROM serial_numbers WHERE serial LIKE ?", (f"%{search}%",))
+    else:
+        cursor.execute("SELECT serial FROM serial_numbers")
     rows = cursor.fetchall()
     conn.close()
     return [r[0] for r in rows]
 
-@app.route("/getAllserials")
-def serials_page():
-    serials = get_all_serials()
-    return render_template("serials.html", serials=serials)
-
-
+# ========================
+# 单条序列号查询
+# ========================
 def get_serial(serial_number):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -345,6 +347,18 @@ def get_serial(serial_number):
     conn.close()
     return row[0] if row else None
 
+# ========================
+# 显示所有序列号页面 + 搜索
+# ========================
+@app.route("/serials", methods=["GET"])
+def serials_page():
+    search_query = request.args.get("search", "")
+    serials = get_all_serials(search_query)
+    return render_template("serials.html", serials=serials, search=search_query)
+
+# ========================
+# 查询单条序列号接口
+# ========================
 @app.route('/serial/<serial_number>', methods=['GET'])
 def check_serial(serial_number):
     result = get_serial(serial_number)
@@ -353,7 +367,9 @@ def check_serial(serial_number):
     else:
         return jsonify({"serial": None}), 200
 
-# 添加单个序列号
+# ========================
+# 添加单个序列号接口
+# ========================
 @app.route('/serial', methods=['POST'])
 def add_serial():
     data = request.get_json()
@@ -371,7 +387,9 @@ def add_serial():
     conn.close()
     return jsonify({"serial": serial}), 201
 
-# 批量导入 Excel（API）
+# ========================
+# 批量导入 Excel / CSV 接口
+# ========================
 @app.route('/import_excel', methods=['POST'])
 def import_excel():
     if 'file' not in request.files:
@@ -403,13 +421,15 @@ def import_excel():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Web 上传页面
+# ========================
+# 网页上传页面
+# ========================
 @app.route('/uploadSS', methods=['GET', 'POST'])
 def upload_page():
     result_text = None
     if request.method == 'POST':
         file = request.files.get('file')
-        if not file:
+        if not file or file.filename == '':
             result_text = "没有选择文件"
         else:
             try:
@@ -419,7 +439,7 @@ def upload_page():
                     df = pd.read_csv(file)
                 else:
                     result_text = "不支持的文件类型"
-                    return render_template('upload.html', result=result_text)
+                    return render_template('uploadSS.html', result=result_text)
                 
                 serials = df.iloc[:, 0].dropna().astype(str).tolist()
                 conn = sqlite3.connect(DB_PATH)
@@ -434,6 +454,15 @@ def upload_page():
             except Exception as e:
                 result_text = f"导入失败: {e}"
     return render_template('uploadSS.html', result=result_text)
+
+@app.route('/serials/delete_all', methods=['POST'])
+def delete_all_serials():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM serial_numbers")
+    conn.commit()
+    conn.close()
+    return redirect("/serials")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5050, debug=True)
