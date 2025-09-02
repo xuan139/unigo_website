@@ -166,4 +166,5 @@ aws 服务器IP 地址
 cd /home/unigo_website
 git pull origin main
 source venv/bin/activate
+pip install -r requirements.txt
 gunicorn -w 4 -b 0.0.0.0:5050 app:app --access-logfile gunicorn_access.log --error-logfile gunicorn_error.log -D
