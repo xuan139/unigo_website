@@ -430,7 +430,7 @@ def upload_page():
     if request.method == 'POST':
         file = request.files.get('file')
         if not file or file.filename == '':
-            result_text = "没有选择文件"
+            result_text = "choose file pls"
         else:
             try:
                 if file.filename.endswith(('.xlsx', '.xls')):
@@ -438,7 +438,7 @@ def upload_page():
                 elif file.filename.endswith('.csv'):
                     df = pd.read_csv(file)
                 else:
-                    result_text = "不支持的文件类型"
+                    result_text = "file is not support!"
                     return render_template('uploadSS.html', result=result_text)
                 
                 serials = df.iloc[:, 0].dropna().astype(str).tolist()
@@ -450,9 +450,9 @@ def upload_page():
                     added += cursor.rowcount
                 conn.commit()
                 conn.close()
-                result_text = f"导入完成，总数量: {len(serials)}, 成功添加: {added}"
+                result_text = f"import successful，total amount: {len(serials)}, add successfully: {added}"
             except Exception as e:
-                result_text = f"导入失败: {e}"
+                result_text = f"fail import: {e}"
     return render_template('uploadSS.html', result=result_text)
 
 @app.route('/serials/delete_all', methods=['POST'])
