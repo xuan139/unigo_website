@@ -215,18 +215,19 @@
   </section>
 
 
-  <!-- Product Verification -->
   <section class="py-5 bg-light" id="support">
     <div class="container">
       <h2 class="mb-4 text-center" data-i18n="support_title">Product Verification</h2>
-      <form method="POST" action="/api/verify-Serial Numbers" class="mx-auto" style="max-width: 500px;">
+      <form id="serialForm" class="mx-auto" style="max-width: 500px;">
         <div class="mb-3">
-          <label for="Serial Numbers" class="form-label" data-i18n="support_label">Enter Your Product Serial Numbers</label>
+          <label for="search" class="form-label" data-i18n="support_label">
+            Enter Your Product Serial Numbers
+          </label>
           <input
             type="text"
             class="form-control"
-            id="Serial Numbers"
-            name="Serial Numbers"
+            id="search"
+            name="search"
             placeholder="e.g. 123e4567-e89b-12d3-a456-426614184000"
             required
           />
@@ -235,6 +236,7 @@
       </form>
     </div>
   </section>
+
 
   <!-- Footer -->
   <footer class="text-center">
@@ -247,7 +249,22 @@
 
   <!-- Language Data -->
   <script>
+    document.getElementById("serialForm").addEventListener("submit", function(e) {
+        e.preventDefault();  // 阻止表单默认提交
 
+        const searchValue = document.getElementById("search").value;
+
+        fetch(`/serials_ajax?search=${encodeURIComponent(searchValue)}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`${data.result}`);
+            })
+            .catch(err => {
+                alert("Error fetching data");
+                console.error(err);
+            });
+    });
+ 
     function updateTexts(lang) {
       document.querySelectorAll("[data-i18n]").forEach((elem) => {
         const key = elem.getAttribute("data-i18n");

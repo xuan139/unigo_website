@@ -71,7 +71,6 @@ def require_auth(view_func):
 @app.route('/')
 def index():
 
-
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT question, answer FROM qa_list ORDER BY created_at DESC")
@@ -350,6 +349,20 @@ def get_serial(serial_number):
 # ========================
 # 显示所有序列号页面 + 搜索
 # ========================
+def serial_exists(serial):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT 1 FROM serial_numbers WHERE serial = ?", (serial,))
+    exists = cursor.fetchone() is not None
+    conn.close()
+    return exists
+
+@app.route("/serials_ajax", methods=["GET"])
+def serials_ajax():
+    search_query = request.args.get("search", "")
+    result = serial_exists(search_query)
+    return jsonify({"result": result})
+
 @app.route("/serials", methods=["GET"])
 def serials_page():
     search_query = request.args.get("search", "")
