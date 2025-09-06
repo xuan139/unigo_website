@@ -1,7 +1,7 @@
 # UniGo Website
 
 A Flask-based web application for managing software downloads and updates.
-## domain unigo.ai
+## [unigo.ai](https://unigo.ai)
 ## Project Structure
 
 ```
@@ -100,7 +100,7 @@ sudo nano /etc/nginx/sites-available/unigo
 ```nginx
 server {
     listen 80;
-    server_name unigo.ai;
+    server_name unigo.ai www.unigo.ai;
 
     location / {
         proxy_pass http://127.0.0.1:5050;
@@ -110,7 +110,7 @@ server {
 }
 server {
     listen 443;
-    server_name unigo.ai;
+    server_name unigo.ai www.unigo.ai;
 
     location / {
         proxy_pass http://127.0.0.1:5050;
