@@ -1,0 +1,74 @@
+{
+    "zh_CN": [
+      ["什么是 NVMe SSD？", "NVMe 是一种为固态硬盘设计的高速传输协议，相比 SATA SSD 拥有更高的读写速度，特别适合需要快速加载的游戏应用。"],
+      ["如何将 Steam 游戏安装到外部 SSD？", "在 Steam 客户端设置中添加外部 SSD 为新的库文件夹，然后在安装游戏时选择该路径即可。"],
+      ["Steam Deck 支持更换 SSD 吗？", "是的，Steam Deck 使用 M.2 2230 NVMe 接口的 SSD，可以更换，但需要注意尺寸兼容和数据备份。"],
+      ["SSD 对游戏加载速度有多大提升？", "相比传统机械硬盘，SSD 能将游戏加载时间减少一半以上，尤其在大型开放世界游戏中效果显著。"],
+      ["如何迁移 Steam 游戏到新的 SSD？", "复制 Steam 库文件夹到新 SSD 后，在 Steam 设置中添加该库路径，然后可以移动或重新识别游戏。"],
+      ["我可以在多个硬盘之间共享 Steam 游戏吗？", "可以，Steam 支持多个库位置，只需在设置中添加多个安装目录即可按需选择。"],
+      ["SSD 会影响游戏帧率吗？", "不会直接影响帧率，但可以显著提升加载速度和减少卡顿，尤其在读取大量资源时。"],
+      ["如何检查我的 SSD 是否支持 PCIe 4.0？", "可通过主板说明书或系统信息工具（如 CrystalDiskInfo）查看接口类型和协议支持情况。"],
+      ["Steam 游戏能否安装到移动硬盘？", "可以，但推荐使用 SSD 移动硬盘，否则加载速度和游戏体验可能受到影响。"],
+      ["购买游戏前如何确认是否支持我的 SSD？", "一般无需特别担心兼容性，Steam 游戏对硬盘要求较低，只需确保有足够的存储空间即可。"]
+    ],
+    "zh_TW": [
+      ["什麼是 NVMe SSD？", "NVMe 是一種為固態硬碟設計的高速傳輸協議，相比 SATA SSD 擁有更高的讀寫速度，特別適合需要快速載入的遊戲應用。"],
+      ["如何將 Steam 遊戲安裝到外部 SSD？", "在 Steam 客戶端設定中新增外部 SSD 為新的庫資料夾，然後在安裝遊戲時選擇該路徑即可。"],
+      ["Steam Deck 支援更換 SSD 嗎？", "是的，Steam Deck 使用 M.2 2230 NVMe 介面的 SSD，可以更換，但需要注意尺寸相容性與資料備份。"],
+      ["SSD 對遊戲載入速度有多大提升？", "相比傳統機械硬碟，SSD 能將遊戲載入時間減少一半以上，尤其在大型開放世界遊戲中效果顯著。"],
+      ["如何遷移 Steam 遊戲到新的 SSD？", "複製 Steam 庫資料夾到新 SSD 後，在 Steam 設定中新增該庫路徑，然後可以移動或重新識別遊戲。"],
+      ["我可以在多個硬碟之間共享 Steam 遊戲嗎？", "可以，Steam 支援多個庫位置，只需在設定中新增多個安裝目錄即可按需選擇。"],
+      ["SSD 會影響遊戲幀率嗎？", "不會直接影響幀率，但可以顯著提升載入速度和減少卡頓，尤其在讀取大量資源時。"],
+      ["如何檢查我的 SSD 是否支援 PCIe 4.0？", "可透過主機板說明書或系統資訊工具（如 CrystalDiskInfo）查看介面類型和協議支援情況。"],
+      ["Steam 遊戲能否安裝到行動硬碟？", "可以，但建議使用 SSD 行動硬碟，否則載入速度和遊戲體驗可能受到影響。"],
+      ["購買遊戲前如何確認是否支援我的 SSD？", "一般無需特別擔心相容性，Steam 遊戲對硬碟要求較低，只需確保有足夠的儲存空間即可。"]
+    ],
+    "en": [
+      ["What is an NVMe SSD?", "NVMe is a high-speed transfer protocol designed for solid-state drives. Compared to SATA SSDs, it offers much faster read and write speeds, making it ideal for games that require fast loading."],
+      ["How do I install Steam games on an external SSD?", "In the Steam client settings, add the external SSD as a new library folder, then select that path when installing games."],
+      ["Does the Steam Deck support SSD replacement?", "Yes, the Steam Deck uses M.2 2230 NVMe SSDs, which can be replaced, but size compatibility and data backup should be considered."],
+      ["How much faster is game loading with an SSD?", "Compared to traditional hard drives, SSDs can cut loading times by more than half, especially in large open-world games."],
+      ["How do I move Steam games to a new SSD?", "Copy the Steam library folder to the new SSD, then add the path in Steam settings to move or re-detect the games."],
+      ["Can I share Steam games across multiple drives?", "Yes, Steam supports multiple library locations. Just add them in the settings and choose as needed."],
+      ["Does an SSD affect game FPS?", "Not directly, but it greatly improves loading times and reduces stuttering when reading large assets."],
+      ["How do I check if my SSD supports PCIe 4.0?", "Check your motherboard manual or use a system information tool (like CrystalDiskInfo) to see the interface type and protocol support."],
+      ["Can Steam games be installed on an external hard drive?", "Yes, but SSD external drives are recommended for better performance."],
+      ["Do I need to worry about SSD compatibility before buying a game?", "Generally no, Steam games don’t have strict storage requirements. Just ensure you have enough space."]
+    ],
+    "ja": [
+      ["NVMe SSDとは何ですか？", "NVMeはSSD向けに設計された高速転送プロトコルで、SATA SSDに比べて読み書き速度が大幅に向上し、高速ロードが必要なゲームに最適です。"],
+      ["Steamゲームを外付けSSDにインストールする方法は？", "Steamクライアントの設定で外付けSSDを新しいライブラリフォルダーとして追加し、ゲームのインストール時にそのパスを選択します。"],
+      ["Steam DeckはSSDの交換に対応していますか？", "はい、Steam DeckはM.2 2230 NVMe SSDを使用しており、交換可能ですが、サイズの互換性やデータのバックアップに注意する必要があります。"],
+      ["SSDはゲームの読み込み速度をどれくらい向上させますか？", "従来のHDDと比べて、SSDは読み込み時間を半分以下に短縮でき、大規模なオープンワールドゲームで特に効果的です。"],
+      ["Steamゲームを新しいSSDに移行するには？", "Steamライブラリフォルダーを新しいSSDにコピーし、Steamの設定でそのパスを追加すると、ゲームを移動または再認識できます。"],
+      ["複数のドライブ間でSteamゲームを共有できますか？", "はい、Steamは複数のライブラリをサポートしています。設定で複数のインストール先を追加して選択できます。"],
+      ["SSDはゲームのFPSに影響しますか？", "直接的には影響しませんが、読み込み速度を大幅に改善し、大量のリソースを読み込む際のスタッタリングを減らします。"],
+      ["自分のSSDがPCIe 4.0に対応しているか確認する方法は？", "マザーボードのマニュアルやCrystalDiskInfoなどのツールでインターフェースとプロトコルの対応状況を確認できます。"],
+      ["Steamゲームは外付けHDDにインストールできますか？", "可能ですが、パフォーマンス向上のためには外付けSSDを推奨します。"],
+      ["ゲーム購入前にSSDとの互換性を気にする必要がありますか？", "一般的に不要です。Steamゲームはストレージ要件が低いため、十分な空き容量があれば問題ありません。"]
+    ],
+    "ko": [
+      ["NVMe SSD란 무엇인가요?", "NVMe는 SSD를 위해 설계된 고속 전송 프로토콜로, SATA SSD보다 훨씬 빠른 읽기/쓰기 속도를 제공하며, 빠른 로딩이 필요한 게임에 적합합니다."],
+      ["Steam 게임을 외장 SSD에 설치하려면?", "Steam 클라이언트 설정에서 외장 SSD를 새로운 라이브러리 폴더로 추가한 후, 게임 설치 시 해당 경로를 선택하면 됩니다."],
+      ["Steam Deck은 SSD 교체를 지원하나요?", "네, Steam Deck은 M.2 2230 NVMe SSD를 사용하며 교체가 가능하지만, 크기 호환성과 데이터 백업에 유의해야 합니다."],
+      ["SSD가 게임 로딩 속도를 얼마나 향상시키나요?", "기존 HDD에 비해 SSD는 로딩 시간을 절반 이하로 줄일 수 있으며, 대규모 오픈월드 게임에서 특히 효과적입니다."],
+      ["Steam 게임을 새로운 SSD로 옮기려면?", "Steam 라이브러리 폴더를 새 SSD로 복사한 후, Steam 설정에서 해당 경로를 추가하면 게임을 이동하거나 다시 인식할 수 있습니다."],
+      ["여러 드라이브에서 Steam 게임을 공유할 수 있나요?", "네, Steam은 여러 라이브러리 위치를 지원합니다. 설정에서 추가하여 필요할 때 선택하면 됩니다."],
+      ["SSD가 게임 FPS에 영향을 주나요?", "직접적인 영향은 없지만, 로딩 속도를 크게 개선하고 대용량 리소스를 불러올 때 끊김 현상을 줄여줍니다."],
+      ["내 SSD가 PCIe 4.0을 지원하는지 확인하려면?", "메인보드 설명서나 CrystalDiskInfo와 같은 시스템 도구를 통해 인터페이스 및 프로토콜 지원 여부를 확인할 수 있습니다."],
+      ["Steam 게임을 외장 하드에 설치할 수 있나요?", "가능하지만 성능 향상을 위해 외장 SSD를 권장합니다."],
+      ["게임 구매 전에 SSD 호환성을 걱정해야 하나요?", "일반적으로 걱정할 필요가 없습니다. Steam 게임은 저장 장치 요구사항이 낮아 충분한 공간만 있으면 됩니다."]
+    ],
+    "th": [
+      ["NVMe SSD คืออะไร?", "NVMe เป็นโปรโตคอลการส่งข้อมูลความเร็วสูงที่ออกแบบมาสำหรับ SSD ซึ่งเร็วกกว่า SATA SSD เหมาะสำหรับเกมที่ต้องการการโหลดรวดเร็ว"],
+      ["ติดตั้งเกม Steam ลง SSD ภายนอกได้อย่างไร?", "ในเมนูการตั้งค่า Steam ให้เพิ่ม SSD ภายนอกเป็นโฟลเดอร์ไลบรารีใหม่ จากนั้นเลือกพาธนั้นตอนติดตั้งเกม"],
+      ["Steam Deck รองรับการเปลี่ยน SSD หรือไม่?", "รองรับ Steam Deck ใช้ SSD แบบ M.2 2230 NVMe ที่สามารถเปลี่ยนได้ แต่ต้องระวังเรื่องความเข้ากันได้ของขนาดและการสำรองข้อมูล"],
+      ["SSD ช่วยให้เวลาโหลดเกมเร็วขึ้นแค่ไหน?", "เมื่อเทียบกับฮาร์ดดิสก์แบบจานหมุน SSD สามารถลดเวลาโหลดได้มากกว่าครึ่ง โดยเฉพาะเกมโลกเปิดขนาดใหญ่"],
+      ["ย้ายเกม Steam ไปยัง SSD ใหม่ได้อย่างไร?", "คัดลอกโฟลเดอร์ไลบรารี Steam ไปยัง SSD ใหม่ จากนั้นเพิ่มพาธใน Steam เพื่อย้ายหรือตรวจพบเกมอีกครั้ง"],
+      ["สามารถแชร์เกม Steam ระหว่างหลายไดรฟ์ได้หรือไม่?", "ได้ Steam รองรับหลายตำแหน่งไลบรารี เพียงเพิ่มในเมนูตั้งค่าแล้วเลือกตามต้องการ"],
+      ["SSD ส่งผลต่อ FPS ของเกมหรือไม่?", "ไม่ส่งผลโดยตรง แต่ช่วยให้เวลาโหลดเร็วขึ้นและลดการกระตุกขณะอ่านไฟล์จำนวนมาก"],
+      ["ตรวจสอบได้อย่างไรว่า SSD ของฉันรองรับ PCIe 4.0?", "ตรวจสอบจากคู่มือเมนบอร์ดหรือใช้โปรแกรมอย่าง CrystalDiskInfo เพื่อดูประเภทและโปรโตคอลที่รองรับ"],
+      ["ติดตั้งเกม Steam บนฮาร์ดดิสก์ภายนอกได้ไหม?", "ได้ แต่แนะนำให้ใช้ SSD ภายนอกเพื่อประสิทธิภาพที่ดีกว่า"],
+      ["ต้องกังวลเรื่องความเข้ากันได้ของ SSD ก่อนซื้อเกมหรือไม่?", "โดยทั่วไปไม่จำเป็น เกมบน Steam ต้องการเพียงพื้นที่จัดเก็บเพียงพอเท่านั้น"]
+    ]
+  }  

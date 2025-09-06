@@ -27,7 +27,7 @@ cd unigo_website/
 git init
 git add .
 git commit -m "initial commit"
-git remote add origin https://github.com/你的用户名/你的仓库名.git
+git remote add origin https://github.com/xuan139/unigo_website
 git push -u origin main
 ```
 
@@ -64,8 +64,8 @@ sudo apt update
 sudo apt install git python3-pip python3-venv nginx -y
 
 # Clone project
-git clone https://github.com/你的用户名/你的仓库名.git
-cd 你的仓库名
+git clone https://github.com/xuan139/unigo_website
+cd unigo_website
 
 # Create virtual environment
 python3 -m venv venv
@@ -80,7 +80,6 @@ pip install -r requirements.txt
 ```bash
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
-
 Test with: `curl http://localhost:5000`
 
 ### Step 5: Configure Nginx Reverse Proxy + HTTPS
@@ -126,18 +125,13 @@ Create `deploy.sh` on server:
 
 ```bash
 #!/bin/bash
-cd /home/ubuntu/你的仓库名
-git pull origin main
-source venv/bin/activate
-pip install -r requirements.txt
-sudo systemctl restart gunicorn
+cd /home/unigo_website
+
+# 获取并同步远程最新代码
+git fetch --all
+git reset --hard origin/main
 ```
 
-Make executable and run:
-```bash
-chmod +x deploy.sh
-./deploy.sh
-```
 
 lijiaxi@Xuans-MacBook-Air Documents % ngrok http 5050
 lijiaxi@Xuans-MacBook-Air Documents % ngrok config add-authtoken 273BEiyE76URtSdePAdWliE9FlQ_7d5LAw2n1r5BKaHLVsGkW
@@ -147,21 +141,38 @@ Created user: User1, email: user1@example.com, password: e7KO24UX
 Created user: User2, email: user2@example.com, password: Qye4HCZb
 Created user: User3, email: user3@example.com, password: mwL6PnZa
 
-hdiutil create -volname "SteamMetal" \
-  -srcfolder "SteamMetal.4.01.01.app" \
-  -ov -format UDZO "SteamMetal.4.01.01.dmg"
-
-
 
 aws 服务器IP 地址
 3.27.169.60
 
-### Step 8 更新ubuntu website 步骤
-先push 最新代码到github 上 若db 更新最好
-在 ubuntu 下
+### Step 8: 更新 Ubuntu Website 步骤
+
+```bash
+# 1. 推送最新代码到 GitHub（若有数据库更新更佳）
+git add .
+git commit -m "update"
+git push origin main
+
+# 2. 在 Ubuntu 服务器上执行以下步骤
 cd /home/unigo_website
-git pull origin main
+
+# 获取并同步远程最新代码
+git fetch --all
+git reset --hard origin/main
+
+# 3. 进入虚拟环境并安装依赖
 source venv/bin/activate
 pip install -r requirements.txt
+
+# 4. 重启 Gunicorn 服务
 pkill -f gunicorn
-gunicorn -w 4 -b 0.0.0.0:5050 app:app --access-logfile gunicorn_access.log --error-logfile gunicorn_error.log -D
+gunicorn -w 4 -b 0.0.0.0:5050 app:app \
+  --access-logfile gunicorn_access.log \
+  --error-logfile gunicorn_error.log -D
+
+# 5. 检查服务是否正常运行
+ps aux | grep gunicorn
+curl http://localhost:5050
+
+
+
