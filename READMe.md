@@ -132,7 +132,7 @@ sudo systemctl restart nginx
 
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d your-domain.com
+sudo certbot --nginx -d unigo.ai
 ```
 
 Certificate renewal will be automatically added to crontab.
