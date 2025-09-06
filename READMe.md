@@ -187,5 +187,5 @@ curl http://localhost:5050
 3.27.169.60
 
 ## Domain name
-(https://unigo.ai)
+[unigo.ai](https://unigo.ai)
 
