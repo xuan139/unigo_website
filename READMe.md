@@ -11,11 +11,15 @@ unigo_website/
 │   └── crm.db            # ✅ SQLite database
 ├── templates/
 │   └── *.html            # HTML templates
-├── static/
+├── /static/
 │   └── uploads/          # File uploads directory
+│   └── i18n/             # Multi language
+│   └── images/           # images
+│   └── style.css         # css
+│   └── forum.css         # css
 ├── requirements.txt      # ✅ Python package dependencies
-├── .gitignore           # Git ignore rules
-└── README.md            # Project documentation
+├── .gitignore            # Git ignore rules
+└── README.md             # Project documentation 
 ```
 
 ## Deployment Guide
@@ -56,7 +60,7 @@ instance/
 ssh -i your-key.pem ubuntu@your-ec2-public-ip
 ```
 
-### Step 3: Deploy Project on Server
+### Step 3: Deploy Project on Server first time
 
 ```bash
 # Install dependencies
@@ -78,9 +82,12 @@ pip install -r requirements.txt
 ### Step 4: Start Flask with Gunicorn
 
 ```bash
-gunicorn -w 4 -b 0.0.0.0:5000 app:app
+sudo pkill -f gunicorn
+sudo gunicorn -w 4 -b 0.0.0.0:5050 app:app \
+  --access-logfile gunicorn_access.log \
+  --error-logfile gunicorn_error.log -D
 ```
-Test with: `curl http://localhost:5000`
+Test with: `curl http://localhost:5050`
 
 ### Step 5: Configure Nginx Reverse Proxy + HTTPS
 
@@ -89,18 +96,29 @@ Test with: `curl http://localhost:5000`
 sudo nano /etc/nginx/sites-available/unigo
 ```
 
-2. **Configuration content**:
+2. **Configuration content sample**:
 ```nginx
 server {
     listen 80;
-    server_name your-domain.com;
+    server_name unigo.ai;
 
     location / {
-        proxy_pass http://127.0.0.1:5000;
+        proxy_pass http://127.0.0.1:5050;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
 }
+server {
+    listen 443;
+    server_name unigo.ai;
+
+    location / {
+        proxy_pass http://127.0.0.1:5050;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
 ```
 
 3. **Enable and restart Nginx**:
@@ -119,37 +137,9 @@ sudo certbot --nginx -d your-domain.com
 
 Certificate renewal will be automatically added to crontab.
 
-### Step 7: Auto Deployment Script (Optional)
 
-Create `deploy.sh` on server:
 
-```bash
-#!/bin/bash
-cd /home/unigo_website
-
-# 获取并同步远程最新代码
-git fetch --all
-git reset --hard origin/main
-```
-
-## Created Users
-
-- **User1**  
-  Email: `user1@example.com`  
-  Password: `e7KO24UX`
-
-- **User2**  
-  Email: `user2@example.com`  
-  Password: `Qye4HCZb`
-
-- **User3**  
-  Email: `user3@example.com`  
-  Password: `mwL6PnZa`
-
-## AWS Server IP Address
-3.27.169.60
-
-### Step 8: 更新 Ubuntu Website 步骤
+### Step 7: 更新 Ubuntu Website 步骤
 
 ```bash
 # 1. 推送最新代码到 GitHub（若有数据库更新更佳）
@@ -179,4 +169,19 @@ ps aux | grep gunicorn
 curl http://localhost:5050
 
 
+##  Users Info
 
+- **User1**  
+  Email: `user1@example.com`  
+  Password: `e7KO24UX`
+
+- **User2**  
+  Email: `user2@example.com`  
+  Password: `Qye4HCZb`
+
+- **User3**  
+  Email: `user3@example.com`  
+  Password: `mwL6PnZa`
+
+## AWS Server IP Address
+3.27.169.60
