@@ -132,17 +132,21 @@ git fetch --all
 git reset --hard origin/main
 ```
 
+## Created Users
 
-lijiaxi@Xuans-MacBook-Air Documents % ngrok http 5050
-lijiaxi@Xuans-MacBook-Air Documents % ngrok config add-authtoken 273BEiyE76URtSdePAdWliE9FlQ_7d5LAw2n1r5BKaHLVsGkW
+- **User1**  
+  Email: `user1@example.com`  
+  Password: `e7KO24UX`
 
+- **User2**  
+  Email: `user2@example.com`  
+  Password: `Qye4HCZb`
 
-Created user: User1, email: user1@example.com, password: e7KO24UX
-Created user: User2, email: user2@example.com, password: Qye4HCZb
-Created user: User3, email: user3@example.com, password: mwL6PnZa
+- **User3**  
+  Email: `user3@example.com`  
+  Password: `mwL6PnZa`
 
-
-aws 服务器IP 地址
+## AWS Server IP Address
 3.27.169.60
 
 ### Step 8: 更新 Ubuntu Website 步骤
