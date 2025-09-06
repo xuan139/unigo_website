@@ -142,7 +142,7 @@ Certificate renewal will be automatically added to crontab.
 ### Step 7: Update Ubuntu Website 
 
 ```bash
-# 1. Push code to github with crm.db locally
+# 1. Push code to github with crm.db from local
 git add .
 git commit -m "update"
 git push origin main
@@ -154,7 +154,7 @@ cd /home/unigo_website
 git fetch --all
 git reset --hard origin/main
 
-# 4. active vnew and install requirements.txt
+# 4. Active venv and install requirements.txt
 source venv/bin/activate
 pip install -r requirements.txt
 
@@ -185,3 +185,7 @@ curl http://localhost:5050
 
 ## AWS Server IP Address
 3.27.169.60
+
+## Domain Name
+[unigo.ai](https://unigo.ai)
+
