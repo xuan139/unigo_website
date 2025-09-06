@@ -355,7 +355,7 @@ def serial_exists(serial):
     cursor.execute("SELECT 1 FROM serial_numbers WHERE serial = ?", (serial,))
     exists = cursor.fetchone() is not None
     conn.close()
-    return exists
+    return "Exist" if exists else "Not exist"
 
 @app.route("/serials_ajax", methods=["GET"])
 def serials_ajax():
