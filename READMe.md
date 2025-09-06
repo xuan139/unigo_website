@@ -1,7 +1,7 @@
 # UniGo Website
 
 A Flask-based web application for managing software downloads and updates.
-
+## domain unigo.ai
 ## Project Structure
 
 ```
@@ -60,7 +60,7 @@ instance/
 ssh -i your-key.pem ubuntu@your-ec2-public-ip
 ```
 
-### Step 3: Deploy Project on Server first time
+### Step 3: Deploy Project on Server for the First Time
 
 ```bash
 # Install dependencies
@@ -139,37 +139,37 @@ Certificate renewal will be automatically added to crontab.
 
 
 
-### Step 7: 更新 Ubuntu Website 步骤
+### Step 7: Update Ubuntu Website 
 
 ```bash
-# 1. 推送最新代码到 GitHub（若有数据库更新更佳）
+# 1. Push code to github with crm.db locally
 git add .
 git commit -m "update"
 git push origin main
 
-# 2. 在 Ubuntu 服务器上执行以下步骤
+# 2. On Ubuntu 
 cd /home/unigo_website
 
-# 获取并同步远程最新代码
+# 3. Pull newest code from github
 git fetch --all
 git reset --hard origin/main
 
-# 3. 进入虚拟环境并安装依赖
+# 4. active vnew and install requirements.txt
 source venv/bin/activate
 pip install -r requirements.txt
 
-# 4. 重启 Gunicorn 服务
+# 5. Restart  Gunicorn service
 pkill -f gunicorn
 gunicorn -w 4 -b 0.0.0.0:5050 app:app \
   --access-logfile gunicorn_access.log \
   --error-logfile gunicorn_error.log -D
 
-# 5. 检查服务是否正常运行
+# 6. Check gunicorn service is running 
 ps aux | grep gunicorn
 curl http://localhost:5050
 
 
-##  Users Info
+##  Users Info Exist for Demo
 
 - **User1**  
   Email: `user1@example.com`  
