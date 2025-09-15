@@ -1,8 +1,23 @@
 {
-  "latestVersion" : "2.2",
+  "description" : "OStation client update",
+  "fileSize" : "180993",
+  "deltaURL" : "https:\/\/unigo.ai\/uploads\/OStation-2.2-2.3.delta",
+  "releaseDate" : "2025-09-12",
+  "wineConfig" : {
+    "bottleName" : "OStation",
+    "wineVersion" : "10.0",
+    "preservePaths" : {
+      "0" : "steamapps",
+      "1" : "userdata",
+      "2" : "config"
+    }
+  },
+  "minimumSystemVersion" : "13.5",
+  "deltaFileName" : "OStation-2.2-2.3.delta",
+  "latestVersion" : "2.3",
+  "signature" : "base64_encoded_signature",
   "appName" : "OStation",
-  "releaseDate" : "2025-07-30 10:31:36",
-  "lastVersion" : "2.1",
-  "deltaFileName" : "OStation-2.1-2.2.delta",
-  "jsonPath" : "\/Users\/lijiaxi\/Documents\/sparkle_output\/OStation.json"
+  "lastVersion" : "2.2",
+  "deltaSize" : "110322",
+  "downloadURL" : "https:\/\/unigo.ai\/uploads\/OStation-2.3.zip"
 }

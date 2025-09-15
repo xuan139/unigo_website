@@ -1,0 +1,23 @@
+{
+  "description" : "Steam client update: Improve game download speed, fix macOS compatibility issues, optimize memory usage.",
+  "fileSize" : "209715200",
+  "deltaURL" : "https:\/\/unigo.ai\/uploads\/Steam-1.0.0-to-1.1.0.delta",
+  "wineConfig" : {
+    "bottleName" : "Steam",
+    "preservePaths" : {
+      "1" : "userdata",
+      "2" : "config",
+      "0" : "steamapps"
+    },
+    "wineVersion" : "10.9"
+  },
+  "releaseDate" : "2025-01-28",
+  "minimumSystemVersion" : "10.20",
+  "deltaFileName" : "Steam-1.0.0-to-1.1.0.delta",
+  "latestVersion" : "1.1.1",
+  "signature" : "base64_encoded_signature",
+  "appName" : "steam",
+  "deltaSize" : "20971520",
+  "lastVersion" : "1.1.0",
+  "downloadURL" : "https:\/\/unigo.ai\/uploads\/Steam-1.1.0.zip"
+}
