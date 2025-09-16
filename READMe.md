@@ -194,7 +194,6 @@ tail -n 50 gunicorn_error.log
 tail -n 50 gunicorn_access.log
 ```
 
----
 
 ## 3. Configure Nginx on Ubuntu
 
@@ -236,7 +235,6 @@ Test:
 curl http://unigo.ai
 ```
 
----
 
 ## 4. Install Certbot and Nginx Plugin
 
@@ -324,6 +322,7 @@ sudo systemctl reload nginx
 ```bash
 sudo lsof -i :80
 curl http://unigo.ai
+Hello Unigo
 ```
 
 #### 4.1.4 Install Certbot
