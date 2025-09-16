@@ -14,7 +14,7 @@
   "releaseDate" : "2025-01-28",
   "minimumSystemVersion" : "10.20",
   "deltaFileName" : "Steam-1.0.0-to-1.1.0.delta",
-  "latestVersion" : "1.1",
+  "latestVersion" : "1.2",
   "signature" : "base64_encoded_signature",
   "appName" : "steam",
   "deltaSize" : "20971520",

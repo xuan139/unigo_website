@@ -1,361 +1,369 @@
-          		*UniGo Website Deploy Manual*
 
-# 
+# UniGo Website Deploy Manual
+
+**Application Name:** OStation  
+**Version:** 1.1  
+**Author:** XUAN  
+**Date:** 15/09/2025  
+
+---
+
+## Table of Contents
+
+1. [UniGo Website Overview](#unigo-website-overview)  
+   - [1.1 Project Structure (Local)](#11-project-structure-local)  
+
+2. [Deployment Guide](#deployment-guide)  
+   - [2.1 Push Project to GitHub](#21-push-project-to-github)  
+   - [2.2 Prepare AWS EC2 Deployment Environment](#22-prepare-aws-ec2-deployment-environment)  
+   - [2.3 Deploy Project on EC2 Server (First Time)](#23-deploy-project-on-ec2-server-for-the-first-time)  
+   - [2.4 Start Flask with Gunicorn](#24-start-flask-with-gunicorn)  
+   - [2.5 Update Website on EC2](#25-update-website-on-ec2)  
+     - [2.5.1 Push Code with crm.db](#251-push-code-to-github-with-crmdb-from-local)  
+     - [2.5.2 On Ubuntu](#252-on-ubuntu)  
+     - [2.5.3 Pull Newest Code](#253-pull-newest-code-from-github)  
+     - [2.5.4 Activate venv & Install Dependencies](#254-active-venv-and-install-requirementstxt)  
+     - [2.5.5 Restart Gunicorn](#255-restart-gunicorn-service)  
+     - [2.5.6 Check Gunicorn Running](#256-check-gunicorn-service-is-running)  
+     - [2.5.7 Check Gunicorn Logs](#257-check-gunicorn-log)  
+
+3. [Configure Nginx on Ubuntu](#configure-nginx-on-ubuntu)  
+   - [3.1 Verify DNS](#31-verify-dns)  
+   - [3.2 Check Firewall](#32-check-firewall)  
+   - [3.3 Verify Nginx is Listening](#33-verify-nginx-is-listening)  
+
+4. [Install Certbot and Nginx Plugin](#install-certbot-and-nginx-plugin)  
+   - [4.1 Nginx + Let's Encrypt Setup](#41-nginx--lets-encrypt-setup-for-unigoai)  
+     - [4.1.1 Open Port 80](#411-open-port-80-http)  
+     - [4.1.2 Configure Nginx](#412-configure-nginx)  
+     - [4.1.3 Verify Nginx](#413-verify-nginx-is-listening)  
+     - [4.1.4 Install Certbot](#414-install-certbot-and-nginx-plugin)  
+     - [4.1.5 Request SSL Certificate](#415-request-ssl-certificate)  
+     - [4.1.6 Verify HTTPS](#416-verify-https)  
+     - [4.1.7 Launch Flask App](#417-launch-flask-app)  
+     - [4.1.8 Automatic Renewal](#418-automatic-renewal)  
+     - [4.1.9 Notes](#419-notes)  
+
+5. [Demo Users Info](#users-info-exist-for-demo)
+
+---
+
+## 1. UniGo Website Overview
+
+A Flask-based web application for managing software downloads and updates.  
+🔗 [https://unigo.ai](https://unigo.ai)
+
+### 1.1 Project Structure (Local)
+
+```
+unigo_website/
+├── app.py               # Main Flask application
+├── db/
+│   └── crm.db           # ✅ SQLite database
+├── templates/           # Jinja2 templates
+│   └── *.html
+├── static/              # Static files
+│   ├── uploads/         # File uploads
+│   ├── i18n/            # Multi-language
+│   ├── images/          # Images
+│   ├── style.css        # CSS
+│   └── forum.css        # CSS
+├── requirements.txt     # ✅ Dependencies
+├── .gitignore           # Git ignore rules
+└── README.md            # Documentation
+```
+
+---
+
+## 2. Deployment Guide
+
+### 2.1 Push Project to GitHub
+
+```bash
+cd unigo_website/
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/xuan139/unigo_website
+git push -u origin main
+```
+
+⚠️ Ensure `.gitignore` excludes cache/temp files but **NOT `db/crm.db`**.
+
+Example `.gitignore`:
+
+```
+__pycache__/
+*.pyc
+*.pyo
+*.log
+instance/
+.env
+```
 
-*Application Name: \[OStation\]*  
-*Version: \[1.1\]*  
-*Author: \[XUAN\]*  
-*Date: \[15/09/2025\]*
+### 2.2 Prepare AWS EC2 Deployment Environment
 
-# 
+1. Create **EC2 instance** (Ubuntu 22.04)  
+2. Configure **security groups**:  
+   - TCP 22 (SSH)  
+   - TCP 80 (HTTP)  
+   - TCP 443 (HTTPS)  
+3. SSH login:
 
-# 
+```bash
+ssh -i your-key.pem ubuntu@your-ec2-public-ip
+```
 
-*[**1\. UniGo Website Overview	4**](#unigo-website-overview)*
+### 2.3 Deploy Project on EC2 Server for the First Time
 
-[*1.1  Project Structure local	4*](#1.1-project-structure-local)
+```bash
+sudo apt update
+sudo apt install git python3-pip python3-venv nginx -y
 
-[***2\. Deployment Guide	6***](#deployment-guide)
+git clone https://github.com/xuan139/unigo_website
+cd unigo_website
 
-[*2.1 Push Project to GitHub	6*](#2.1-push-project-to-github)
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+pip install gunicorn
+```
 
-[*2.2 Prepare AWS EC2 Deployment Environment	7*](#2.2-prepare-aws-ec2-deployment-environment)
+### 2.4 Start Flask with Gunicorn
 
-[*2.3 Deploy Project on EC2 Server for the First Time	7*](#2.3-deploy-project-on-ec2-server-for-the-first-time)
+```bash
+sudo pkill -f gunicorn
+sudo gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
+```
 
-[*2.4 Start Flask with Gunicorn	8*](#2.4-start-flask-with-gunicorn)
+Test:
 
-[*2.5 Update Ubuntu Website	9*](#2.5-update-ubuntu-website)
+```bash
+curl http://localhost:5050
+```
 
-[*2.5.1 Push code to github with crm.db from local	9*](#2.5.1-push-code-to-github-with-crm.db-from-local)
+### 2.5 Update Website on EC2
 
-[*2.5.2 On Ubuntu	9*](#2.5.2-on-ubuntu)
+#### 2.5.1 Push Code to GitHub with crm.db
 
-[*2.5.3 Pull newest code from github	9*](#2.5.3-pull-newest-code-from-github)
+```bash
+git add .
+git commit -m "update"
+git push origin main
+```
 
-[*2.5.4 Active venv and install requirements.txt	9*](#2.5.4-active-venv-and-install-requirements.txt)
+#### 2.5.2 On Ubuntu
 
-[*2.5.5 Restart  Gunicorn service	9*](#2.5.5-restart-gunicorn-service)
+```bash
+cd /home/unigo_website
+```
 
-[*2.5.6 Check gunicorn service is running	9*](#2.5.6-check-gunicorn-service-is-running)
+#### 2.5.3 Pull Newest Code
 
-[***3\. Configure Nginx on Ubuntu	11***](#configure-nginx-on-ubuntu)
+```bash
+git fetch --all
+git reset --hard origin/main
+```
 
-[*3.1 Verify DNS	11*](#3.1-verify-dns)
+#### 2.5.4 Activate venv & Install Dependencies
 
-[*3.2 Check Firewall	11*](#3.2-check-firewall)
+```bash
+source venv/bin/activate
+pip install -r requirements.txt
+pip install gunicorn
+```
 
-[*3.3 Verify Nginx is Listening	12*](#3.3-verify-nginx-is-listening)
+#### 2.5.5 Restart Gunicorn
 
-[***4\. Install Certbot and Nginx Plugin	13***](#install-certbot-and-nginx-plugin)
+```bash
+pkill -f gunicorn
+gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
+```
 
-[*4.1 Nginx \+ Let's Encrypt Setup for unigo.ai	13*](#4.1-nginx-+-let's-encrypt-setup-for-unigo.ai)
+#### 2.5.6 Check Gunicorn Running
 
-[*4.1.1 Open Port 80 (HTTP)	13*](#4.1.1-open-port-80-\(http\))
+```bash
+ps aux | grep gunicorn
+curl http://localhost:5050
+```
 
-[*4.1.2 Configure Nginx	13*](#4.1.2-configure-nginx)
+#### 2.5.7 Check Gunicorn Logs
 
-[*4.1.3 Verify Nginx is Listening	14*](#4.1.3-verify-nginx-is-listening)
+```bash
+tail -n 50 gunicorn_error.log
+tail -n 50 gunicorn_access.log
+```
 
-[*4.1.4 Install Certbot and Nginx Plugin	15*](#4.1.4-install-certbot-and-nginx-plugin)
+---
 
-[*4.1.5 Request SSL Certificate	15*](#4.1.5-request-ssl-certificate)
+## 3. Configure Nginx on Ubuntu
 
-[*4.1.6 Verify HTTPS	16*](#4.1.6-verify-https)
+### 3.1 Verify DNS
 
-[*4.1.7 Automatic Renewal	16*](#4.1.7-automatic-renewal)
+```bash
+dig +short unigo.ai
+dig +short www.unigo.ai
+```
 
-[*\#\# Notes	16*](###-notes)
+Expected:  
+```
+18.183.186.19
+18.183.186.19
+```
 
-[*\#\# Notes	17*](###-notes-1)
+### 3.2 Check Firewall
 
-[***Users Info Exist for Demo	18***](#users-info-exist-for-demo)
+```bash
+sudo ufw status
+```
 
-# 
+### 3.3 Verify Nginx is Listening
 
-# 
+```bash
+sudo lsof -i :80
+```
 
-# 
+Expected:
 
-1. # *UniGo Website Overview* {#unigo-website-overview}
+```
+nginx   12332 root     TCP *:http (LISTEN)
+nginx   12333 www-data TCP *:http (LISTEN)
+```
 
-   *A Flask-based web application for managing software downloads and updates.*  
-   *\[[unigo.ai](http://unigo.ai)\](https://unigo.ai)*  
-   
+Test:
 
-   ## *1.1  Project Structure local* {#1.1-project-structure-local}
+```bash
+curl http://unigo.ai
+```
 
-     
-   *unigo\_website/*  
-   *├── app.py                 \# Main Flask application*  
-   *├── db/*  
-   *│   └── crm.db            \# ✅ SQLite database*  
-   *├── templates/*  
-   *│   └── \*.html            \# HTML templates*  
-   *├── /static/*  
-   *│   └── uploads/          \# File uploads directory*  
-   *│   └── i18n/             \# Multi language*  
-   *│   └── images/           \# images*  
-   *│   └── style.css         \# css*  
-   *│   └── forum.css         \# css*  
-   *├── requirements.txt      \# ✅ Python package dependencies*  
-   *├── .gitignore            \# Git ignore rules*  
-   *└── README.md             \# Project documentation*
-
-2. # *Deployment Guide* {#deployment-guide}
-
-##  *2.1 Push Project to GitHub* {#2.1-push-project-to-github}
-
-*bash*  
-*cd unigo\_website/*  
-*git init*  
-*git add .*  
-*git commit \-m "initial commit"*  
-*git remote add origin https://github.com/xuan139/unigo\_website*  
-*git push \-u origin main*  
-*\*\*Important\*\*: Ensure \`.gitignore\` excludes cache or temporary files, but \*\*DO NOT\*\* ignore \`db/crm.db\` as you need to migrate data\!*  
-*Example \`.gitignore\`:*  
-*\`\`\`txt*  
-*\_\_pycache\_\_/*  
-*\*.pyc*  
-*\*.pyo*  
-*\*.log*  
-*instance/*  
-*.env*
-
-## *2.2 Prepare AWS EC2 Deployment Environment* {#2.2-prepare-aws-ec2-deployment-environment}
-
-*1\. \*\*Create EC2 Instance\*\*: Ubuntu 22.04*  
-*2\. \*\*Configure Security Groups\*\*:*  
-  *\- TCP 22 (SSH)*  
-  *\- TCP 80 (HTTP)*  
-  *\- TCP 443 (HTTPS)*  
-*3\. \*\*SSH Login\*\*:*  
-*bash*  
-*ssh \-i your-key.pem ubuntu@your-ec2-public-ip*
-
-## *2.3 Deploy Project on EC2 Server for the First Time* {#2.3-deploy-project-on-ec2-server-for-the-first-time}
-
-*bash*  
-*\# Install dependencies*  
-*sudo apt update*  
-*sudo apt install git python3-pip python3-venv nginx \-y*  
-*\# Clone project*  
-*git clone https://github.com/xuan139/unigo\_website*  
-*cd unigo\_website*  
-*\# Create virtual environment*  
-*python3 \-m venv venv*  
-*source venv/bin/activate*  
-*\# Install dependencies*  
-*pip install \-r requirements.txt*  
-*Pip install gunicorn*
-
-## *2.4 Start Flask with Gunicorn* {#2.4-start-flask-with-gunicorn}
-
-*bash*  
-*sudo pkill \-f gunicorn*  
-*sudo gunicorn \-w 4 \-b 0.0.0.0:5050 app:app \\*  
- *\--access-logfile gunicorn\_access.log \\*  
- *\--error-logfile gunicorn\_error.log \-D*  
-*Test with: \`curl http://localhost:5050\`*  
-*Certificate renewal will be automatically ad*
-
-## *2.5 Update Ubuntu Website* {#2.5-update-ubuntu-website}
-
-###  *2.5.1 Push code to github with crm.db from local* {#2.5.1-push-code-to-github-with-crm.db-from-local}
-
-*git add .*  
-*git commit \-m "update"*  
-*git push origin main*
-
-###  *2.5.2 On Ubuntu* {#2.5.2-on-ubuntu}
-
-*cd /home/unigo\_website*
-
-###  *2.5.3 Pull newest code from github* {#2.5.3-pull-newest-code-from-github}
-
-*git fetch \--all*  
-*git reset \--hard origin/main*
-
-### *2.5.4 Active venv and install requirements.txt* {#2.5.4-active-venv-and-install-requirements.txt}
-
-*source venv/bin/activate*  
-*pip install \-r requirements.txt*  
-*pip install gunicorn*
-
-### *2.5.5 Restart  Gunicorn service* {#2.5.5-restart-gunicorn-service}
-
-*pkill \-f gunicorn*  
-*gunicorn \-w 4 \-b 0.0.0.0:5050 app:app \\*  
- *\--access-logfile gunicorn\_access.log \\*  
- *\--error-logfile gunicorn\_error.log \-D*
-
-### *2.5.6 Check gunicorn service is running* {#2.5.6-check-gunicorn-service-is-running}
-
-*ps aux | grep gunicorn*  
-*curl [http://localhost:5050](http://localhost:5050)*
-
-3. # *Configure Nginx on Ubuntu*  {#configure-nginx-on-ubuntu}
-
-   *Domain name*  
-   *\[[unigo.ai](http://unigo.ai)\](https://unigo.ai)*
-
-## *3.1 Verify DNS* {#3.1-verify-dns}
-
-*Check that your domain points to your server IP:*  
-*\`\`\`bash*  
-*dig \+short unigo.ai*  
-*dig \+short www.unigo.ai*  
-*\`\`\`*  
-*Expected output:*  
-*\`\`\`*  
-*18.183.186.19*  
-*18.183.186.19*  
-*\`\`\`*
-
-## *3.2 Check Firewall* {#3.2-check-firewall}
-
-*Verify if \`ufw\` is active:*  
-*\`\`\`bash*  
-*sudo ufw status*  
-*\`\`\`*  
-*If inactive, no extra firewall rules are blocking HTTP/HTTPS.*
-
-## *3.3 Verify Nginx is Listening* {#3.3-verify-nginx-is-listening}
-
-*Check if Nginx is running on port 80:*  
-*bash*  
-*sudo lsof \-i :80*  
-*You should see something like:*
-
-*COMMAND   PID     USER   FD   TYPE DEVICE SIZE/OFF NODE NAME*  
-*nginx     12332   root   5u   IPv4  44161  0t0      TCP \*:http (LISTEN)*  
-*nginx     12333 www-data 5u   IPv4 44161  0t0      TCP \*:http (LISTEN)*
-
-*Test local access:*  
-*\`\`\`bash*  
-*curl http://unigo.ai*  
-*\`\`\`*  
-*Expected output:*  
-*\`\`\`*  
-*Hello from unigo.ai*  
-*\`\`\`*
-
-4. # *Install Certbot and Nginx Plugin* {#install-certbot-and-nginx-plugin}
-
-## *4.1 Nginx \+ Let's Encrypt Setup for unigo.ai* {#4.1-nginx-+-let's-encrypt-setup-for-unigo.ai}
-
-### *4.1.1 Open Port 80 (HTTP)* {#4.1.1-open-port-80-(http)}
-
-*Before requesting a certificate, ensure port 80 is open for Let's Encrypt HTTP challenge.*  
-*\`\`\`bash*  
-*sudo ufw allow 80/tcp*  
-*sudo ufw enable   \# if not already enabled*  
-*sudo ufw status*  
-*\`\`\`*  
-*You should see:*  
-*\`\`\`*  
-*80/tcp                     ALLOW       Anywhere*  
-*\`	\`\`*
-
-### *4.1.2 Configure Nginx* {#4.1.2-configure-nginx}
-
-*Create a server block for your domain:*  
-*\`\`\`bash*  
-*sudo nano /etc/nginx/sites-available/[unigo.ai](http://unigo.ai)*  
-*\`\`\`*  
-*Example configuration:*  
-*\`\`\`nginx*  
-*server {*  
-    *listen 80;*  
-    *server\_name unigo.ai www.unigo.ai;*  
-    *root /var/www/unigo.ai;*  
-    *index index.html;*  
-    *location / {*  
-        *try\_files $uri $uri/ \=404;*  
-    *}*  
-*}*  
-*\`\`\`*  
-*Enable the site:*  
-*\`\`\`bash*  
-*sudo ln \-s /etc/nginx/sites-available/unigo.ai /etc/nginx/sites-enabled/*  
-*sudo nginx \-t*  
-*sudo systemctl reload nginx*  
-*\`\`\`*
-
-### *4.1.3 Verify Nginx is Listening* {#4.1.3-verify-nginx-is-listening}
-
-*\`\`\`bash*  
-*sudo lsof \-i :80*  
-*\`\`\`*  
-*Expected output:*  
-*\`\`\`*  
-*COMMAND   PID     USER   FD   TYPE DEVICE SIZE/OFF NODE NAME*  
-*nginx     12332   root   5u   IPv4  44161  0t0      TCP \*:http (LISTEN)*  
-*nginx     12333 www-data 5u  IPv4 44161 0t0      TCP \*:http (LISTEN)*  
-*\`\`\`*  
-*Test local access:*  
-*\`\`\`bash*  
-*curl http://unigo.ai*  
-*\`\`\`*  
-*Expected response:*  
-*\`\`\`*  
-*Hello from [unigo.ai](http://unigo.ai)*
-
-### *4.1.4 Install Certbot and Nginx Plugin* {#4.1.4-install-certbot-and-nginx-plugin}
-
-*\`\`\`bash*  
-*sudo apt update*  
-*sudo apt install certbot python3-certbot-nginx \-y*  
-*\`\`\`*
-
-### *4.1.5 Request SSL Certificate* {#4.1.5-request-ssl-certificate}
-
-*\`\`\`bash*  
-*sudo certbot \--nginx \-d unigo.ai \-d www.unigo.ai*  
-*\`\`\`*  
-*Expected success message:*  
-*\`\`\`*  
-*Successfully received certificate.*  
-*Certificate is saved at: /etc/letsencrypt/live/unigo.ai/fullchain.pem*  
-*Key is saved at:         /etc/letsencrypt/live/unigo.ai/privkey.pem*  
-*Certificate expires on:  2025-12-14*  
-*Successfully deployed certificate for unigo.ai to /etc/nginx/sites-enabled/unigo.ai*  
-*Successfully deployed certificate for www.unigo.ai to /etc/nginx/sites-enabled/unigo.ai*  
-*\`\`\`*
-
-### *4.1.6 Verify HTTPS* {#4.1.6-verify-https}
-
-*\`\`\`bash*  
-*curl \-I [https://unigo.ai](https://unigo.ai)*  
-*\`\`\`*  
-*You should see \`HTTP/2 200\` or \`HTTP/1.1 200 OK\`.*
-
-### *4.1.7 Automatic Renewal* {#4.1.7-automatic-renewal}
-
-*Certbot automatically sets up a cron job to renew certificates. Test manually:*  
-*\`\`\`bash*  
-*sudo certbot renew \--dry-run*
-
-### *\#\# Notes* {###-notes}
-
-*\- Ensure your domain \`unigo.ai\` resolves to the correct public IP.*  
-*\- Firewall must allow HTTP (port 80\) for certificate issuance.*  
-*\- After successful SSL setup, you can optionally redirect HTTP to HTTPS in Nginx.*
-
-### *\#\# Notes* {###-notes-1}
-
-*\- Ensure your domain resolves to the correct public IP.*  
-*\- Nginx must be accessible from the Internet for Certbot HTTP challenge.*
-
-# *Users Info Exist for Demo* {#users-info-exist-for-demo}
-
-*\- \*\*User1\*\**   
- *Email: \`user1@example.com\`*   
- *Password: \`e7KO24UX\`*  
-*\- \*\*User2\*\**   
- *Email: \`user2@example.com\`*   
- *Password: \`Qye4HCZb\`*  
-*\- \*\*User3\*\**   
- *Email: \`user3@example.com\`*   
- *Password: \`mwL6PnZa\`*  
+---
+
+## 4. Install Certbot and Nginx Plugin
+
+### 4.1 Nginx + Let's Encrypt Setup for unigo.ai
+
+#### 4.1.1 Open Port 80 (HTTP)
+
+```bash
+sudo ufw allow 80/tcp
+sudo ufw enable
+sudo ufw status
+```
+
+#### 4.1.2 Configure Nginx
+
+```bash
+sudo nano /etc/nginx/sites-available/unigo.ai
+```
+
+Example:
+
+```nginx
+server {
+    listen 80;
+    server_name unigo.ai www.unigo.ai;
+    root /var/www/unigo.ai;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+Enable:
+
+```bash
+sudo ln -s /etc/nginx/sites-available/unigo.ai /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+#### 4.1.3 Verify Nginx is Listening
+
+```bash
+sudo lsof -i :80
+curl http://unigo.ai
+```
+
+#### 4.1.4 Install Certbot
+
+```bash
+sudo apt update
+sudo apt install certbot python3-certbot-nginx -y
+```
+
+#### 4.1.5 Request SSL Certificate
+
+```bash
+sudo certbot --nginx -d unigo.ai -d www.unigo.ai
+```
+
+#### 4.1.6 Verify HTTPS
+
+```bash
+curl -I https://unigo.ai
+```
+
+#### 4.1.7 Launch Flask App
+
+```nginx
+server {
+    listen 80;
+    server_name unigo.ai www.unigo.ai;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name unigo.ai www.unigo.ai;
+
+    ssl_certificate /etc/letsencrypt/live/unigo.ai/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/unigo.ai/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    access_log /var/log/nginx/unigo.ai.access.log;
+    error_log /var/log/nginx/unigo.ai.error.log;
+
+    location / {
+        proxy_pass http://127.0.0.1:5050;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+```
+
+#### 4.1.8 Automatic Renewal
+
+```bash
+sudo certbot renew --dry-run
+```
+
+#### 4.1.9 Notes
+
+- Ensure domain resolves to correct IP  
+- Port 80 must be open for Let's Encrypt  
+- Redirect HTTP → HTTPS after SSL setup  
+
+---
+
+## 5. Demo Users Info
+
+- **User1**  
+  Email: `user1@example.com`  
+  Password: `e7KO24UX`  
+
+- **User2**  
+  Email: `user2@example.com`  
+  Password: `Qye4HCZb`  
+
+- **User3**  
+  Email: `user3@example.com`  
+  Password: `mwL6PnZa`
