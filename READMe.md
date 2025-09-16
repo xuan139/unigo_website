@@ -344,7 +344,11 @@ sudo certbot --nginx -d unigo.ai -d www.unigo.ai
 curl -I https://unigo.ai
 ```
 
-#### 4.1.7 Launch Flask App
+#### 4.1.7 Launch Flask App 
+
+```bash
+sudo nano /etc/nginx/sites-available/unigo.ai
+```
 
 ```nginx
 server {
@@ -378,7 +382,11 @@ server {
     }
 }
 ```
-
+```bash
+sudo ln -s /etc/nginx/sites-available/unigo.ai /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
 #### 4.1.8 Automatic Renewal
 
 ```bash
