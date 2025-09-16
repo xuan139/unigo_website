@@ -258,6 +258,44 @@ sudo nano /etc/nginx/sites-available/unigo.ai
 
 Example:
 
+#### Setup Hello Unigo Web Page for Nginx
+
+This guide explains how to create a simple test web page at
+`/var/www/unigo.ai` that shows **Hello Unigo**.
+
+------------------------------------------------------------------------
+
+#### Step 1: Create the Website Root Directory
+
+``` bash
+sudo mkdir -p /var/www/unigo.ai
+```
+
+------------------------------------------------------------------------
+
+#### Step 2: Create a Test HTML Page
+
+``` bash
+echo "Hello Unigo" | sudo tee /var/www/unigo.ai/index.html
+```
+
+This creates `/var/www/unigo.ai/index.html` with the following content:
+
+``` html
+Hello Unigo
+```
+
+------------------------------------------------------------------------
+
+##### Step 3: Set Permissions
+
+``` bash
+sudo chown -R www-data:www-data /var/www/unigo.ai
+sudo chmod -R 755 /var/www/unigo.ai
+```
+
+Now your Nginx root directory is ready with a test page.
+
 ```nginx
 server {
     listen 80;
