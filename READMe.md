@@ -252,9 +252,6 @@ sudo ufw status
 
 #### 4.1.2 Configure Nginx
 
-```bash
-sudo nano /etc/nginx/sites-available/unigo.ai
-```
 
 Example:
 
@@ -265,7 +262,7 @@ This guide explains how to create a simple test web page at
 
 ------------------------------------------------------------------------
 
-#### Step 1: Create the Website Root Directory
+##### Step 1: Create the Website Root Directory
 
 ``` bash
 sudo mkdir -p /var/www/unigo.ai
@@ -273,7 +270,7 @@ sudo mkdir -p /var/www/unigo.ai
 
 ------------------------------------------------------------------------
 
-#### Step 2: Create a Test HTML Page
+##### Step 2: Create a Test HTML Page
 
 ``` bash
 echo "Hello Unigo" | sudo tee /var/www/unigo.ai/index.html
@@ -295,6 +292,11 @@ sudo chmod -R 755 /var/www/unigo.ai
 ```
 
 Now your Nginx root directory is ready with a test page.
+Then
+
+```bash
+sudo nano /etc/nginx/sites-available/unigo.ai
+```
 
 ```nginx
 server {
