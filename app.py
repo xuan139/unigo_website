@@ -123,7 +123,7 @@ def logout():
 # -------------------- 受保护页面 --------------------
 
 @app.route('/upload', methods=['GET', 'POST'])
-# @require_auth
+@require_auth
 def upload():
     if request.method == 'POST':
         file = request.files.get('file')
@@ -162,7 +162,7 @@ def upload():
 
 
 @app.route('/downloads')
-# @require_auth
+@require_auth
 def downloads():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -188,7 +188,7 @@ def download_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
 
 @app.route('/delete')
-# @require_auth
+@require_auth
 def delete_page():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -252,6 +252,7 @@ def qa_list():
         return f"错误: {str(e)}", 500
 
 @app.route('/qa/edit', methods=['GET', 'POST'])
+@require_auth
 def qa_edit():
     try:
         conn = get_db_connection()
@@ -276,6 +277,7 @@ def qa_edit():
         return render_template('qa_edit.html', qa_list=[], message=f"错误: {str(e)}"), 500
 
 @app.route('/qa/editqa/<int:qa_id>', methods=['GET', 'POST'])
+@require_auth
 def edit_qa(qa_id):
     try:
         conn = get_db_connection()
@@ -302,6 +304,7 @@ def edit_qa(qa_id):
         return redirect(url_for('qa_edit', message=f"编辑失败: {str(e)}"))
 
 @app.route('/qa/deleteqa/<int:qa_id>', methods=['GET', 'POST'])
+@require_auth
 def delete_qa(qa_id):
     try:
         conn = get_db_connection()
@@ -358,12 +361,14 @@ def serial_exists(serial):
     return "Exist" if exists else "Not exist"
 
 @app.route("/serials_ajax", methods=["GET"])
+@require_auth
 def serials_ajax():
     search_query = request.args.get("search", "")
     result = serial_exists(search_query)
     return jsonify({"result": result})
 
 @app.route("/serials", methods=["GET"])
+@require_auth
 def serials_page():
     search_query = request.args.get("search", "")
     serials = get_all_serials(search_query)
@@ -373,6 +378,7 @@ def serials_page():
 # 查询单条序列号接口
 # ========================
 @app.route('/serial/<serial_number>', methods=['GET'])
+@require_auth
 def check_serial(serial_number):
     result = get_serial(serial_number)
     if result:
@@ -384,6 +390,7 @@ def check_serial(serial_number):
 # 添加单个序列号接口
 # ========================
 @app.route('/serial', methods=['POST'])
+@require_auth
 def add_serial():
     data = request.get_json()
     serial = data.get("serial")
@@ -404,6 +411,7 @@ def add_serial():
 # 批量导入 Excel / CSV 接口
 # ========================
 @app.route('/import_excel', methods=['POST'])
+@require_auth
 def import_excel():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
@@ -438,6 +446,7 @@ def import_excel():
 # 网页上传页面
 # ========================
 @app.route('/uploadSS', methods=['GET', 'POST'])
+@require_auth
 def upload_page():
     result_text = None
     if request.method == 'POST':
@@ -469,6 +478,7 @@ def upload_page():
     return render_template('uploadSS.html', result=result_text)
 
 @app.route('/serials/delete_all', methods=['POST'])
+@require_auth
 def delete_all_serials():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
