@@ -443,18 +443,19 @@ FLUSH PRIVILEGES;
  - Enter password: UnigoStrong123!@#
 
  - UnigoStrong123!@#
+
 CREATE USER 'unigo_remote'@'%' IDENTIFIED BY 'StrongPassword123!';
 GRANT ALL PRIVILEGES ON *.* TO 'unigo_remote'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
-mysql -h 18.183.186.19 -u unigo_remote -p
+  - mysql -h 18.183.186.19 -u unigo_remote -p
 
 ### 6.3 migrate sqlite to mysql 
 
-CREATE DATABASE crm DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE crm;
+  - CREATE DATABASE crm DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+  - USE crm;
 
-mysql -h 18.183.186.19 -u root -p crm < dump.sql
+  - mysql -h 18.183.186.19 -u root -p crm < dump.sql
 
 ### 6.4 max file upload size
   - 打开你的 Nginx 配置文件：
