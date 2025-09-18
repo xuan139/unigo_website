@@ -415,6 +415,8 @@ sudo certbot renew --dry-run
   Email: `user3@example.com`  
   Password: `mwL6PnZa`
 
+## mysql 和 nginx 设置tips
+
 ALTER USER 'root'@'localhost' IDENTIFIED WITH
 mysql_native_password BY 'unigo!@#123';
 FLUSH PRIVILEGES;
@@ -443,3 +445,13 @@ CREATE DATABASE crm DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE crm;
 
 mysql -h 18.183.186.19 -u root -p crm < dump.sql
+
+打开你的 Nginx 配置文件：
+
+全局修改：/etc/nginx/nginx.conf
+
+或者针对你站点的配置文件：/etc/nginx/sites-available/your_site
+
+在 http、server 或 location 块中添加：
+
+client_max_body_size 3G;
