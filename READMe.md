@@ -417,11 +417,12 @@ sudo certbot renew --dry-run
 
 ## 6. mysql 和 nginx 设置tips
 
--- for detail check 
+### for detail check 
  
- #### Mysql Installation Guide.pdf
- #### Mysql Remote Access Guide
- #### mysql_dump.sql
+ - Mysql Installation Guide.pdf
+ - Mysql Remote Access Guide
+ - mysql_dump.sql
+
 ### 6.1 new user
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH
@@ -456,12 +457,12 @@ USE crm;
 mysql -h 18.183.186.19 -u root -p crm < dump.sql
 
 ### 6.4 max file upload size
-打开你的 Nginx 配置文件：
+  - 打开你的 Nginx 配置文件：
 
-全局修改：/etc/nginx/nginx.conf
+  - 全局修改：/etc/nginx/nginx.conf
 
-或者针对你站点的配置文件：/etc/nginx/sites-available/your_site
+  - 或者针对你站点的配置文件：/etc/nginx/sites-available/your_site
 
-在 http、server 或 location 块中添加：
+  -在 http、server 或 location 块中添加：
 
-client_max_body_size 3G;
+  -client_max_body_size 3G;
