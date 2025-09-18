@@ -463,6 +463,6 @@ mysql -h 18.183.186.19 -u root -p crm < dump.sql
 
   - 或者针对你站点的配置文件：/etc/nginx/sites-available/your_site
 
-  -在 http、server 或 location 块中添加：
+  - 在 http、server 或 location 块中添加：
 
-  -client_max_body_size 3G;
+  - client_max_body_size 3G;
