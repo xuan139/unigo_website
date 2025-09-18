@@ -415,7 +415,14 @@ sudo certbot renew --dry-run
   Email: `user3@example.com`  
   Password: `mwL6PnZa`
 
-## mysql 和 nginx 设置tips
+## 6. mysql 和 nginx 设置tips
+
+-- for detail check 
+ 
+ #### Mysql Installation Guide.pdf
+ #### Mysql Remote Access Guide
+ #### mysql_dump.sql
+### 6.1 new user
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH
 mysql_native_password BY 'unigo!@#123';
@@ -428,24 +435,27 @@ EXIT;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'UnigoStrong123!@#';
 FLUSH PRIVILEGES;
 
+### 6.2 connect to MySql svever
+ - 18.183.186.19
 
-18.183.186.19
+ - mysql -h 18.183.186.19 -P 3306 -u root -p
+ - Enter password: UnigoStrong123!@#
 
-mysql -h 18.183.186.19 -P 3306 -u root -p
-# Enter password: UnigoStrong123!@#
-
-UnigoStrong123!@#
+ - UnigoStrong123!@#
 CREATE USER 'unigo_remote'@'%' IDENTIFIED BY 'StrongPassword123!';
 GRANT ALL PRIVILEGES ON *.* TO 'unigo_remote'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 mysql -h 18.183.186.19 -u unigo_remote -p
 
+### 6.3 migrate sqlite to mysql 
+
 CREATE DATABASE crm DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE crm;
 
 mysql -h 18.183.186.19 -u root -p crm < dump.sql
 
+### 6.4 max file upload size
 打开你的 Nginx 配置文件：
 
 全局修改：/etc/nginx/nginx.conf
