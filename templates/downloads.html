@@ -1,69 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Downloads - OStation</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <style>
-    body {
-      background: linear-gradient(to right, #eef2f3, #ffffff);
-      min-height: 100vh;
-      padding-top: 70px;
-      font-family: "Segoe UI", sans-serif;
-    }
+{% extends "base.html" %}
 
-    .download-card {
-      background: var(--bs-body-bg);
-      border-radius: 16px;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s ease;
-    }
+{% block title %}Downloads - OStation{% endblock %}
 
-    .download-card:hover {
-      transform: translateY(-4px);
-    }
+{% block head %}
+<style>
+  /* 页面专属样式 */
+  body {
+    background: linear-gradient(to right, #eef2f3, #ffffff);
+  }
 
-    .btn-outline-primary {
-      border-width: 2px;
-    }
+  .download-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease;
+  }
 
-    h4 {
-      font-weight: 600;
-    }
+  .download-card:hover {
+    transform: translateY(-4px);
+  }
 
-    .section-title {
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-  </style>
-</head>
-<body>
+  .btn-outline-primary {
+    border-width: 2px;
+  }
 
-<!-- ✅ Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-box-arrow-down"></i> OStation</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  h4 {
+    font-weight: 600;
+  }
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/downloads">Download</a></li>
-        <li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
-        <li class="nav-item"><a class="nav-link" href="/buy">Buy</a></li>
-        <li class="nav-item"><a class="nav-link text-warning" href="/logout">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  .section-title {
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+</style>
+{% endblock %}
 
-<!-- ✅ Downloads Section -->
+{% block content %}
 <div class="container py-5 mt-4">
   <h2 class="text-center text-primary section-title">
     <i class="bi bi-cloud-download-fill me-2"></i>Available Downloads
@@ -94,8 +68,4 @@
   </div>
   {% endfor %}
 </div>
-
-<!-- ✅ Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% endblock %}

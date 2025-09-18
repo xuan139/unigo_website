@@ -3,19 +3,25 @@ import pymysql
 import datetime
 from forum_app import forum_bp
 import pandas as pd
+from datetime import timedelta
 
 from functools import wraps
 from flask import (
     Flask, request, jsonify, render_template,
-    redirect, url_for, make_response, send_from_directory
+    redirect, url_for, make_response, send_from_directory,session
+
 )
 import jwt
 from werkzeug.security import check_password_hash
 from werkzeug.utils import secure_filename
 
+
 app = Flask(__name__)
-SECRET_KEY = 'your_secret_key_here'
+SECRET_KEY = 'StrongPassword123'
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'static', 'uploads')
+
+# 设置 session 永久化，并设置过期时间
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=3)
 
 # -------------------- MySQL 配置 --------------------
 MYSQL_HOST = '18.183.186.19'
@@ -25,6 +31,15 @@ MYSQL_PASSWORD = 'StrongPassword123!'
 MYSQL_DB = 'crm'
 
 # -------------------- 工具函数 --------------------
+
+def require_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if "user" not in session:
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated
+
 def get_db_connection():
     conn = pymysql.connect(
         host=MYSQL_HOST,
@@ -72,6 +87,12 @@ def require_auth(view_func):
     return wrapper
 
 # -------------------- 页面路由 --------------------
+# 入口页面
+@app.route('/crm')
+@require_auth
+def portal():
+    return render_template('base.html')
+
 @app.route('/')
 def index():
     conn = get_db_connection()
@@ -92,6 +113,7 @@ def buy():
 def login():
     token = request.cookies.get('token')
     if token and verify_jwt(token):
+        # session.permanent = True  # 激活永久 session，使用上面的 lifetime
         return redirect(url_for('upload'))
 
     if request.method == 'GET':
@@ -352,6 +374,13 @@ def add_serial():
             return jsonify({"error": "serial already exists"}), 409
     conn.close()
     return jsonify({"serial": serial}), 201
+
+@app.route('/uploadSS')
+@require_auth
+def upload_serial_page():
+    # 这里渲染上传页面，模板中表单的 action 指向 /import_excel
+    return render_template('uploadSS.html')
+
 
 @app.route('/import_excel', methods=['POST'])
 @require_auth

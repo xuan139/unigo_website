@@ -432,6 +432,14 @@ FLUSH PRIVILEGES;
 mysql -h 18.183.186.19 -P 3306 -u root -p
 # Enter password: UnigoStrong123!@#
 
+UnigoStrong123!@#
 CREATE USER 'unigo_remote'@'%' IDENTIFIED BY 'StrongPassword123!';
 GRANT ALL PRIVILEGES ON *.* TO 'unigo_remote'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+
+mysql -h 18.183.186.19 -u unigo_remote -p
+
+CREATE DATABASE crm DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE crm;
+
+mysql -h 18.183.186.19 -u root -p crm < dump.sql
