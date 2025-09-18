@@ -414,3 +414,24 @@ sudo certbot renew --dry-run
 - **User3**  
   Email: `user3@example.com`  
   Password: `mwL6PnZa`
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH
+mysql_native_password BY 'unigo!@#123';
+FLUSH PRIVILEGES;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'unigo123!@#';
+FLUSH PRIVILEGES;
+EXIT;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'UnigoStrong123!@#';
+FLUSH PRIVILEGES;
+
+
+18.183.186.19
+
+mysql -h 18.183.186.19 -P 3306 -u root -p
+# Enter password: UnigoStrong123!@#
+
+CREATE USER 'unigo_remote'@'%' IDENTIFIED BY 'StrongPassword123!';
+GRANT ALL PRIVILEGES ON *.* TO 'unigo_remote'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
