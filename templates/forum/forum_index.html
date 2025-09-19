@@ -7,9 +7,10 @@
 </head>
 <body>
 <header>
-    <h1>My Forum</h1>
+    <h1>OStation Forum</h1>
     <nav>
-        <a href="{{ url_for('forum.forum_index') }}">Home</a>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('forum.forum_index') }}">Forum</a>
         <a href="{{ url_for('forum.forum_new_post') }}">New Post</a>
     </nav>
 </header>
