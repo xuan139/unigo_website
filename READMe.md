@@ -200,6 +200,10 @@ gunicorn -w $WORKERS -b $BIND_ADDR $APP_MODULE \
 
 echo "Gunicorn restarted successfully."
 ```
+```bash
+  - chmod +x reload_gunicorn.sh
+  -./reload_gunicorn.sh
+```  
 
 #### 2.5.6 Check Gunicorn Running
 
