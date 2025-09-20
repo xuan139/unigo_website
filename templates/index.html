@@ -10,7 +10,8 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark-black fixed-top">
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> -->
     <div class="container">
       <a class="navbar-brand" href="#" data-i18n="nav_brand">OStation</a>
       <button
@@ -127,112 +128,46 @@
     </section>
 
 
-  <!-- Product Details -->
-  <section class="py-5" id="product">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <img
-            src="https://tw.gametogo.io/wp-content/uploads/2024/10/AppToGo11-500GB-600x600.jpg"
-            alt="Product Screenshot"
-            class="img-fluid rounded shadow"
-          />
-        </div>
-        <div class="col-md-6">
-          <h2 data-i18n="product_support_title">Support for Mac</h2>
-          <p data-i18n="product_support_desc">OStation is optimized for MacOS, offering seamless performance across systems so you can play anywhere.</p>
-          <ul>
-            <li data-i18n="product_support_li1">Supports USB-C and Thunderbolt</li>
-            <li data-i18n="product_support_li2">Compatible with macOS Catalina to Sonoma</li>
-            <li data-i18n="product_support_li3">Works with M1/M2/M3</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  
-
-  <!-- Guide -->
-  <section class="py-5 bg-light" id="guide">
-    <div class="container">
-      <h2 class="mb-4 text-center" data-i18n="guide_title">Installation Guide</h2>
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img
-            src="https://www.a-accessories.com/images/contenu/ssd-hdd04.jpg"
-            class="img-fluid mb-3"
-            alt="Step 1"
-          />
-          <h5 data-i18n="guide_step1_title">Step 1: Plug in the SSD</h5>
-          <p data-i18n="guide_step1_desc">Connect the SSD to your Mac device via USB-C or Thunderbolt.</p>
-        </div>
-        <div class="col-md-4 text-center">
-          <img
-            src="https://www.a-accessories.com/images/contenu/ssd-hdd04.jpg"
-            class="img-fluid mb-3"
-            alt="Step 2"
-          />
-          <h5 data-i18n="guide_step2_title">Step 2: Launch Toolkit</h5>
-          <p data-i18n="guide_step2_desc">Open the OStation app to initialize game or virtual machine launch.</p>
-        </div>
-        <div class="col-md-4 text-center">
-          <img
-            src="https://www.a-accessories.com/images/contenu/ssd-hdd04.jpg"
-            class="img-fluid mb-3"
-            alt="Step 3"
-          />
-          <h5 data-i18n="guide_step3_title">Step 3: Start Gaming</h5>
-          <p data-i18n="guide_step3_desc">Enjoy Steam, Epic, or pre-configured games instantly. No setup needed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- FAQ -->
-<section class="py-5" id="faq">
+  <!-- Section 2: 為啥選 OStation -->
+<section id="section2" class="bg-light text-center">
   <div class="container">
-    <h2 class="mb-4 text-center">常见问题（FAQ）</h2>
-    <div class="accordion" id="faqAccordion">
-      {% for qa in qa_list %}
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faq{{ loop.index }}">
-            <button
-              class="accordion-button {% if not loop.first %}collapsed{% endif %}"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse{{ loop.index }}"
-              aria-expanded="{{ 'true' if loop.first else 'false' }}"
-              aria-controls="collapse{{ loop.index }}"
-            >
-              {{ qa['question'] }}
-            </button>
-          </h2>
-          <div
-            id="collapse{{ loop.index }}"
-            class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              {{ qa['answer'] }}
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
+    <h2>為啥選 OStation</h2>
+    <p>這裡可以放一些 OStation 的優勢說明文字。</p>
   </div>
 </section>
 
+<!-- Section 3: 產品介紹 -->
+<section id="section3" class="text-center">
+  <div class="container">
+    <h2>產品介紹</h2>
+    <p>這裡可以放產品圖片與描述。</p>
+  </div>
+</section>
 
-  <!-- Downloads CTA -->
-  <section class="text-center py-5 bg-dark text-white" id="download">
-    <div class="container">
-      <h2 data-i18n="download_title">Download or Purchase Now</h2>
-      <p data-i18n="download_desc">Get the latest toolkit or order the pre-configured SSD package.</p>
-      <a href="/downloads" class="btn btn-light btn-lg" data-i18n="download_button">Visit Download Center</a>
-    </div>
-  </section>
+<!-- Section 4: 產品規格 -->
+<section id="section4" class="bg-light text-center">
+  <div class="container">
+    <h2>產品規格</h2>
+    <p>這裡列出產品規格表或相關技術細節。</p>
+  </div>
+</section>
 
+<!-- Section 5: 論壇 -->
+<section id="section5" class="text-center">
+  <div class="container">
+    <h2>論壇</h2>
+    <h2><a href="https://unigo.ai/forum" target="_blank">論壇入口</a></h2>
+  </div>
+</section>
+
+<!-- Section 6: 常見問題 -->
+<section id="section6" class="bg-light text-center">
+  <div class="container">
+    <h2>常見問題</h2>
+    <p>FAQ 列表或者折疊手風琴放在這裡。</p>
+  </div>
+</section>
 
   <section class="py-5 bg-light" id="support">
     <div class="container">
@@ -261,15 +196,15 @@
       <div class="row">
         <div class="col-md-6 left-column">
           <h5>公司資訊</h5>
-          <p>武盾多利有限公司 （MaKa Taiwan CO., LTD.）</p>
-          <p>統一編號：83460747</p>
-          <p>公司地址：105台灣台北市松山區八德路二段374號二樓之8</p>
+          <p>武盾多利有限公司 MaKa Taiwan CO., LTD.</p>
+          <p>統一編號 : 83460747</p>
+          <p>公司地址 : 105台灣台北市松山區八德路二段374號二樓之8</p>
         </div>
   
         <div class="col-md-3 center-column">
           <h5>聯絡我們</h5>
-          <p>客服專線：＋886-2-2771-5900</p>
-          <p>客服信箱: contact@unigo.ai</p>
+          <p>客服專線 : ＋886-2-2771-5900</p>
+          <p>客服信箱 : contact@unigo.ai</p>
           <p>Line@:</p>
         </div>
   

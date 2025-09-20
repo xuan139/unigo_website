@@ -11,6 +11,10 @@ body {
   h1 {
     color: #66c0f4;
   }
+
+  h2 {
+    color: #66c0f4;
+  }
   
   p {
     line-height: 1.8;
@@ -103,6 +107,35 @@ body {
     text-align: center;
   }
   
+
+    /* 全黑 Header */
+    .navbar-dark-black {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    .navbar-dark-black .navbar-brand,
+    .navbar-dark-black .nav-link,
+    .navbar-dark-black .form-select {
+        color: #fff !important;
+    }
+
+    /* 全白 Header */
+    .navbar-light-white {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+
+    .navbar-light-white .navbar-brand,
+    .navbar-light-white .nav-link,
+    .navbar-light-white .form-select {
+        color: #000 !important;
+    }
+
+    /* Navbar 固定在顶部 */
+    .navbar.fixed-top {
+        z-index: 1030;
+    }
   /* Footer */
   .footer {
     background-color: #000000; /* 黑底 */
