@@ -13,7 +13,11 @@ body {
   }
 
   h2 {
-    color: #66c0f4;
+    color: #669ff4;
+  }
+
+  h3 {
+    color: #66f49a;
   }
   
   p {
@@ -22,7 +26,8 @@ body {
   
   /* 通用容器，控制左右留白 */
   .container {
-    max-width: 1200px;  /* 页面内容最大宽度 */
+    /* max-width: 1200px;  */
+    width: 100%; /* 页面内容最大宽度 */
     margin: 0 auto;
     padding: 0 20px;    /* 左右留白 */
   }
@@ -38,7 +43,28 @@ body {
     margin: 5px;
   }
   
-
+  .logo {
+    margin-left: 10px;   /* 左边留白 */
+    margin-top: 0px;     /* 上边留白 */
+    margin-bottom: 0px;  /* 下边留白 */
+    height: 80px;
+    width: auto;
+  }
+  
+  #lang-select {
+    background: transparent;
+    border: 1px solid #666;
+    color: white;
+    border-radius: 8px;
+    padding: 2px 8px;
+    cursor: pointer;
+  }
+  /* #lang-select option {
+    background: black;
+    color: white;
+  } */
+  
+  
   /* Banner section 去掉多余 margin/padding */
   section.banner {
     position: relative;
