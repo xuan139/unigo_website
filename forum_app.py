@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, redirect, url_for
-import pymysql
+import sqlite3
 import os
 from werkzeug.utils import secure_filename
 
@@ -11,22 +11,11 @@ forum_bp = Blueprint(
     template_folder="templates/forum"   # 所有模板放在 templates/forum/
 )
 
-MYSQL_HOST = '18.183.186.19'
-MYSQL_PORT = 3306
-MYSQL_USER = 'unigo_remote'
-MYSQL_PASSWORD = 'StrongPassword123!'
-MYSQL_DB = 'crm'
+DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'crm.db')
 
 def get_db_connection():
-    conn = pymysql.connect(
-        host=MYSQL_HOST,
-        port=MYSQL_PORT,
-        user=MYSQL_USER,
-        password=MYSQL_PASSWORD,
-        database=MYSQL_DB,
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor  # 返回字典
-    )
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row  # 返回类似字典的行
     return conn
 
 # 论坛首页 - 显示帖子
@@ -36,7 +25,6 @@ def forum_index():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM forum_posts ORDER BY created_at DESC")
     posts = cursor.fetchall()
-    cursor.close()
     conn.close()
     return render_template("forum_index.html", posts=posts)
 
@@ -45,11 +33,10 @@ def forum_index():
 def forum_post(post_id):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM forum_posts WHERE id = %s", (post_id,))
+    cursor.execute("SELECT * FROM forum_posts WHERE id = ?", (post_id,))
     post = cursor.fetchone()
-    cursor.execute("SELECT * FROM forum_comments WHERE post_id = %s ORDER BY created_at ASC", (post_id,))
+    cursor.execute("SELECT * FROM forum_comments WHERE post_id = ? ORDER BY created_at ASC", (post_id,))
     comments = cursor.fetchall()
-    cursor.close()
     conn.close()
     return render_template("forum_post.html", post=post, comments=comments)
 
@@ -67,9 +54,8 @@ def forum_new_post():
         cursor = conn.cursor()
         # Use NULL for user_id if username is "匿名"
         user_id = None if username == "匿名" else 0  # Adjust 0 to a valid user_id if authenticated
-        cursor.execute("INSERT INTO forum_posts (user_id, title, content) VALUES (%s, %s, %s)", (user_id, title, content))
+        cursor.execute("INSERT INTO forum_posts (user_id, title, content) VALUES (?, ?, ?)", (user_id, title, content))
         conn.commit()
-        cursor.close()
         conn.close()
         return redirect(url_for("forum.forum_index"))
     return render_template("forum_new.html")
@@ -84,8 +70,7 @@ def forum_comment(post_id):
     conn = get_db_connection()
     cursor = conn.cursor()
     # Use NULL for user_id for anonymous comments
-    cursor.execute("INSERT INTO forum_comments (post_id, user_id, content) VALUES (%s, %s, %s)", (post_id, None, content))
+    cursor.execute("INSERT INTO forum_comments (post_id, user_id, content) VALUES (?, ?, ?)", (post_id, None, content))
     conn.commit()
-    cursor.close()
     conn.close()
     return redirect(url_for("forum.forum_post", post_id=post_id))
