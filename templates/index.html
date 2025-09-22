@@ -20,7 +20,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="#" data-i18n="nav_home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#product" data-i18n="nav_product">Product</a></li>
           <li class="nav-item"><a class="nav-link" href="#guide" data-i18n="nav_guide">Guide</a></li>
@@ -28,17 +28,24 @@
           <li class="nav-item"><a class="nav-link" href="/downloads" data-i18n="nav_download">Downloads</a></li>
           <li class="nav-item"><a class="nav-link" href="#support" data-i18n="nav_support">Support</a></li>
           <li class="nav-item ms-3 d-flex align-items-center">
-            <i class="bi bi-globe me-2 text-white"></i>
-            <select class="form-select form-select-sm lang-select-custom" id="lang-select" aria-label="Language select">
-              <option value="en">English 🇺🇸</option>
-              <option value="zh">简体中文 🇨🇳</option>
-              <option value="zh_tw">繁體中文 🇹🇼</option>
-              <option value="ja">日本語 🇯🇵</option>
-              <option value="ko">한국어 🇰🇷</option>
-              <option value="th">ไทย 🇹🇭</option>
-            </select>
-          </li>
         </ul>
+        <div class="d-flex align-items-center gap-2">
+          <!-- Language Dropdown with Flags -->
+          <div class="dropdown lang-dropdown">
+            <button class="btn btn-sm btn-outline-light dropdown-toggle lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="flag">🇺🇸</span>
+              <span class="label">English</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item lang-item" data-lang="en"><span class="flag">🇺🇸</span> English</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="zh"><span class="flag">🇨🇳</span> 简体中文</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="zh_tw"><span class="flag">🇭🇰</span> 繁體中文</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="ja"><span class="flag">🇯🇵</span> 日本語</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="ko"><span class="flag">🇰🇷</span> 한국어</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="th"><span class="flag">🇹🇭</span> ไทย</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -888,11 +895,31 @@
       applyTranslations(translations);
     }
 
-    document.getElementById('lang-select').addEventListener('change', async (e) => {
-      const lang = e.target.value;
-      await updateTexts(lang);
-      localStorage.setItem('lang', lang);
-      document.documentElement.setAttribute('lang', lang);
+    // Language switching via dropdown with flags
+    function setLangUI(lang) {
+      const btn = document.getElementById('langDropdown');
+      if (!btn) return;
+      const map = {
+        en: { flag: '🇺🇸', label: 'English' },
+        zh: { flag: '🇨🇳', label: '简体中文' },
+        zh_tw: { flag: '🇭🇰', label: '繁體中文' },
+        ja: { flag: '🇯🇵', label: '日本語' },
+        ko: { flag: '🇰🇷', label: '한국어' },
+        th: { flag: '🇹🇭', label: 'ไทย' }
+      };
+      const info = map[lang] || map.en;
+      btn.querySelector('.flag').textContent = info.flag;
+      btn.querySelector('.label').textContent = info.label;
+    }
+    document.querySelectorAll('.lang-item').forEach(item => {
+      item.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const lang = item.getAttribute('data-lang');
+        await updateTexts(lang);
+        localStorage.setItem('lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        setLangUI(lang);
+      });
     });
 
     // FAQ 搜索功能
@@ -923,9 +950,11 @@
         else if (nav.startsWith('th')) savedLang = 'th';
         else savedLang = 'en';
       }
-      document.getElementById('lang-select').value = savedLang;
       document.documentElement.setAttribute('lang', savedLang);
       await updateTexts(savedLang);
+      setLangUI(savedLang);
+
+      // Theme toggle removed per request
     });
 
     // Header 交互：滚动收缩 + 进度条
@@ -982,6 +1011,8 @@
         });
       });
     }
+
+    // Theme toggle removed per request
   </script>
 
 </body>

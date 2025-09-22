@@ -8,6 +8,108 @@ body {
     padding-top: 60px; /* 适配更大的 Header Logo，仍保持紧凑 */
   }
 
+  /* ===================== */
+  /* Light Theme Overrides */
+  /* Ensure strong switch of background/text between black/white */
+  /* ===================== */
+  body.theme-light { background-color: #ffffff !important; color: #111111 !important; }
+  body.theme-light a { color: #0d6efd; }
+  body.theme-light .navbar.bg-black { background-color: #ffffff !important; color: #111111 !important; }
+  body.theme-light .navbar.bg-black .nav-link { color: #111111 !important; }
+  body.theme-light .navbar.bg-black .navbar-brand { color: #111111 !important; text-shadow: none; }
+  body.theme-light .footer { background-color: #f7f7f7 !important; color: #222222 !important; }
+  body.theme-light .footer-title { color: #111111 !important; text-shadow: none !important; }
+  body.theme-light .footer-links a { color: #444444 !important; }
+  body.theme-light .feature-card-modern,
+  body.theme-light .spec-card,
+  body.theme-light .professional-accordion-item,
+  body.theme-light .card,
+  body.theme-light .search-box,
+  body.theme-light .support-card { background-color: #ffffff !important; color: #111111 !important; border-color: rgba(0,0,0,0.08) !important; }
+  body.theme-light .accordion-button { background-color: #ffffff !important; color: #111111 !important; }
+  body.theme-light .accordion-button:not(.collapsed) { background-color: #f6f9ff !important; color: #0d6efd !important; }
+  body.theme-light .form-control, body.theme-light .input-group-text { background-color: #ffffff !important; color: #111111 !important; border-color: rgba(0,0,0,0.15) !important; }
+  body.theme-light .banner .carousel-caption h1, 
+  body.theme-light .banner .carousel-caption h3 { text-shadow: none !important; color: #111111 !important; }
+
+/* 主题：浅色（白底黑字）覆盖 */
+body.theme-light {
+  background-color: #ffffff;
+  color: #111111;
+}
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light h4,
+body.theme-light h5,
+body.theme-light h6 { color: #111111; text-shadow: none; }
+body.theme-light p, body.theme-light .text-muted { color: #333333; }
+
+/* Navbar: light mode */
+body.theme-light .navbar.bg-black {
+  background: rgba(255,255,255,0.92) !important;
+  color: #111 !important;
+  text-shadow: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+}
+body.theme-light .navbar.bg-black.navbar-scrolled {
+  background: rgba(255,255,255,0.98) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+body.theme-light .navbar.bg-black .nav-link { color: #111 !important; text-shadow: none; }
+body.theme-light .navbar.bg-black .nav-link:hover,
+body.theme-light .navbar.bg-black .nav-link:focus { color: #0d6efd !important; text-shadow: none; }
+body.theme-light .navbar.bg-black .nav-link::after { background: linear-gradient(90deg,#0d6efd,#20c997); box-shadow: none; }
+body.theme-light .navbar.bg-black .nav-link.active { color: #0d6efd !important; text-shadow: none; }
+body.theme-light .navbar.bg-black .lang-select-custom {
+  background-color: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.12);
+  color: #111;
+}
+body.theme-light .navbar.bg-black .lang-select-custom:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25); }
+body.theme-light .navbar.bg-black .lang-select-custom:hover { box-shadow: 0 0 10px rgba(13,110,253,0.25); border-color: rgba(13,110,253,0.6); }
+
+/* Sections, cards, and containers */
+body.theme-light .card,
+body.theme-light .feature-card-modern,
+body.theme-light .professional-accordion-item,
+body.theme-light .spec-card,
+body.theme-light .search-box,
+body.theme-light .support-card {
+  background: #ffffff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+body.theme-light .accordion-button,
+body.theme-light .professional-accordion-header { background: #fff; color: #111; }
+body.theme-light .accordion-button:not(.collapsed) { color: #0d6efd; background: #f6f9ff; }
+
+/* Inputs */
+body.theme-light .form-control,
+body.theme-light .input-group-text {
+  background: #ffffff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+body.theme-light .form-control::placeholder { color: #666; }
+
+/* Footer */
+body.theme-light .footer {
+  background: #f7f7f7;
+  color: #222;
+}
+body.theme-light .footer-title { color: #111; text-shadow: none; }
+body.theme-light .footer-content { color: #444; }
+body.theme-light .footer-links a { color: #444; }
+body.theme-light .footer-links a:hover { color: #0d6efd; }
+body.theme-light .footer-divider { border-top-color: rgba(0,0,0,0.1); }
+body.theme-light .footer-legal .legal-link { color: #444; }
+
+/* Progress bar in light mode */
+body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#20c997); box-shadow: none; }
+
   /* 平滑滚动 */
   html {
     scroll-behavior: smooth;
@@ -218,7 +320,7 @@ body {
 
   /* 平板到小桌面之间更合适的尺寸 */
   @media (min-width: 992px) and (max-width: 1399.98px) {
-    .footer-logo-img { width: 480px; }
+    .footer-logo-img { width: 400px; }
   }
   
   #lang-select {
@@ -228,6 +330,51 @@ body {
     border-radius: 8px;
     padding: 2px 8px;
     cursor: pointer;
+  }
+
+  /* Language dropdown with flags (navbar) */
+  .lang-dropdown .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(4px);
+    text-shadow: 0 0 3px rgba(255,255,255,0.4);
+  }
+  .lang-dropdown .lang-toggle:hover,
+  .lang-dropdown .lang-toggle:focus {
+    border-color: #66c0f4;
+    box-shadow: 0 0 12px rgba(102,192,244,0.35), inset 0 0 8px rgba(255,255,255,0.06);
+    color: #fff;
+  }
+  .lang-dropdown .flag { font-size: 1rem; line-height: 1; }
+  .lang-dropdown .label { font-size: 0.95rem; }
+
+  .lang-dropdown .dropdown-menu {
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(20,20,20,0.95);
+    backdrop-filter: blur(8px);
+    padding: 0.35rem;
+    min-width: 12rem;
+    z-index: 2000; /* 确保在其他元素之上 */
+  }
+  .lang-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #e8e8e8;
+    border-radius: 8px;
+    padding: 0.45rem 0.6rem;
+  }
+  .lang-dropdown .dropdown-item:hover,
+  .lang-dropdown .dropdown-item:focus {
+    background: linear-gradient(90deg, rgba(102,192,244,0.12), rgba(0,224,198,0.12));
+    color: #ffffff;
   }
   /* #lang-select option {
     background: black;
@@ -337,13 +484,14 @@ body {
     .navbar.bg-black {
         background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%) !important;
         position: relative;
-        overflow: hidden;
+        overflow: visible; /* 允许下拉菜单溢出显示 */
         color: #ffffff; /* 与 footer 一致的白色文字 */
         text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* 与 footer 相同的发光效果 */
         box-shadow: 0 2px 10px rgba(0,0,0,0.35);
         padding-top: 0.05rem;  /* 更紧凑的垂直内边距 */
         padding-bottom: 0.05rem;
         backdrop-filter: blur(6px);
+        z-index: 1100; /* 高于 banner/carousel */
         transition: transform 200ms ease, padding 200ms ease, background 200ms ease, box-shadow 200ms ease;
     }
 
