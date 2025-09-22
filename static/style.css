@@ -218,17 +218,160 @@ body.theme-dark {
   html[lang="zh_tw"] li { letter-spacing: 0.1px; line-height: 1.7; }
   html[lang="zh"] .btn { letter-spacing: 0.2px; font-weight: 400; }
   html[lang="zh_tw"] .btn { letter-spacing: 0.2px; font-weight: 400; }
-  /* Section 1–6 + support background: darker grey-white */
+  /* Section 1–6 + support background: default white */
   body.theme-light #section1,
   body.theme-light #section2,
   body.theme-light #section3,
   body.theme-light #section4,
   body.theme-light #section5,
   body.theme-light #section6,
-  body.theme-light #support { background-color: #eef1f4 !important; }
+  body.theme-light #support { background-color: #ffffff !important; }
+  /* Section hover: smooth transitions */
+  body.theme-light #section1,
+  body.theme-light #section2,
+  body.theme-light #section3,
+  body.theme-light #section4,
+  body.theme-light #section5,
+  body.theme-light #section6,
+  body.theme-light #support {
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  /* Gentle hover feedback */
+  body.theme-light #section1:hover,
+  body.theme-light #section2:hover,
+  body.theme-light #section3:hover,
+  body.theme-light #section4:hover,
+  body.theme-light #section5:hover,
+  body.theme-light #section6:hover,
+  body.theme-light #support:hover {
+    background-color: #eef1f4 !important; /* grey-white on hover */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.04);
+    outline: 1px solid rgba(13,110,253,0.08);
+    outline-offset: -1px;
+  }
+  /* Desktop-only slight lift on hover */
+  @media (hover: hover) and (pointer: fine) {
+    body.theme-light #section1:hover,
+    body.theme-light #section2:hover,
+    body.theme-light #section3:hover,
+    body.theme-light #section4:hover,
+    body.theme-light #section5:hover,
+    body.theme-light #section6:hover,
+    body.theme-light #support:hover {
+      transform: translateY(-2px);
+    }
+    /* Headings color lift on hover */
+    body.theme-light #section1:hover h2,
+    body.theme-light #section2:hover h2,
+    body.theme-light #section3:hover h2,
+    body.theme-light #section4:hover h2,
+    body.theme-light #section5:hover h2,
+    body.theme-light #section6:hover h2,
+    body.theme-light #support:hover h2 { color: #0d6efd; }
+    body.theme-light #section1:hover h3,
+    body.theme-light #section2:hover h3,
+    body.theme-light #section3:hover h3,
+    body.theme-light #section4:hover h3,
+    body.theme-light #section5:hover h3,
+    body.theme-light #section6:hover h3,
+    body.theme-light #support:hover h3 { color: #0d6efd; }
+    body.theme-light #section1:hover h4,
+    body.theme-light #section2:hover h4,
+    body.theme-light #section3:hover h4,
+    body.theme-light #section4:hover h4,
+    body.theme-light #section5:hover h4,
+    body.theme-light #section6:hover h4,
+    body.theme-light #support:hover h4 { color: #0d6efd; }
+    /* Divider highlight on hover */
+    body.theme-light #section1:hover .divider-line,
+    body.theme-light #section2:hover .divider-line,
+    body.theme-light #section3:hover .divider-line,
+    body.theme-light #section4:hover .divider-line,
+    body.theme-light #section5:hover .divider-line,
+    body.theme-light #section6:hover .divider-line,
+    body.theme-light #support:hover .divider-line {
+      border-color: rgba(13,110,253,0.4) !important;
+      box-shadow: 0 0 0 1px rgba(13,110,253,0.1);
+    }
+    /* Elevate inner cards when parent section hovered */
+    body.theme-light #section1:hover .card,
+    body.theme-light #section2:hover .card,
+    body.theme-light #section3:hover .card,
+    body.theme-light #section4:hover .card,
+    body.theme-light #section5:hover .card,
+    body.theme-light #section6:hover .card,
+    body.theme-light #support:hover .card,
+    body.theme-light #section1:hover .feature-card-modern,
+    body.theme-light #section2:hover .feature-card-modern,
+    body.theme-light #section3:hover .feature-card-modern,
+    body.theme-light #section4:hover .feature-card-modern,
+    body.theme-light #section5:hover .feature-card-modern,
+    body.theme-light #section6:hover .feature-card-modern,
+    body.theme-light #section1:hover .professional-accordion-item,
+    body.theme-light #section6:hover .professional-accordion-item {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    }
+  }
+  /* Smooth transitions for inner cards */
+  body.theme-light .card,
+  body.theme-light .feature-card-modern,
+  body.theme-light .professional-accordion-item {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  /* Reduced motion: respect user preference */
+  @media (prefers-reduced-motion: reduce) {
+    body.theme-light #section1,
+    body.theme-light #section2,
+    body.theme-light #section3,
+    body.theme-light #section4,
+    body.theme-light #section5,
+    body.theme-light #section6,
+    body.theme-light #support,
+    body.theme-light .card,
+    body.theme-light .feature-card-modern,
+    body.theme-light .professional-accordion-item,
+    body.theme-light .btn {
+      transition: none !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+  /* Smooth button transitions */
+  body.theme-light .btn { transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+  /* Section 4 specs table hover highlight */
+  body.theme-light #section4 table.table tbody tr { transition: background-color 0.2s ease, box-shadow 0.2s ease; }
+  body.theme-light #section4 table.table tbody tr:hover {
+    background-color: #f6f9ff !important;
+    box-shadow: inset 3px 0 0 0 #0d6efd;
+  }
+  /* Desktop-only button emphasis inside hovered sections */
+  @media (hover: hover) and (pointer: fine) {
+    body.theme-light #section1:hover .btn.btn-outline-primary,
+    body.theme-light #section2:hover .btn.btn-outline-primary,
+    body.theme-light #section3:hover .btn.btn-outline-primary,
+    body.theme-light #section4:hover .btn.btn-outline-primary,
+    body.theme-light #section5:hover .btn.btn-outline-primary,
+    body.theme-light #section6:hover .btn.btn-outline-primary,
+    body.theme-light #support:hover .btn.btn-outline-primary {
+      background-color: #0d6efd;
+      color: #ffffff;
+      border-color: #0d6efd;
+    }
+    body.theme-light #section1:hover .btn.btn-primary,
+    body.theme-light #section2:hover .btn.btn-primary,
+    body.theme-light #section3:hover .btn.btn-primary,
+    body.theme-light #section4:hover .btn.btn-primary,
+    body.theme-light #section5:hover .btn.btn-primary,
+    body.theme-light #section6:hover .btn.btn-primary,
+    body.theme-light #support:hover .btn.btn-primary {
+      box-shadow: 0 0.25rem 0.75rem rgba(13,110,253,0.25);
+    }
+  }
   body.theme-light .divider-line { border-color: rgba(0,0,0,0.1) !important; }
   /* Light version of support block (match sections) */
-  body.theme-light #support { background-color: #eef1f4 !important; }
+  body.theme-light #support { background-color: #ffffff !important; }
   body.theme-light #support .form-control { background-color: #ffffff !important; color: #111111 !important; border: 1px solid rgba(0,0,0,0.15) !important; }
   body.theme-light #support .form-label { color: #111111 !important; }
   /* Light version of language dropdown */
