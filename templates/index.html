@@ -68,10 +68,10 @@
       <!-- Overlay copy -->
       <div class="position-absolute top-50 start-0 translate-middle-y w-100">
         <div class="container">
-          <div class="p-3 p-sm-4" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
-            <h1 class="h4 mb-2" style="color:#111;" data-i18n="banner_title">無縫體驗 PC on Mac</h1>
-            <p class="mb-2" style="color:#111;" data-i18n="banner_subtitle1">工作、娛樂， OStation 一台搞定！</p>
-            <p class="mb-0 text-secondary" data-i18n="banner_subtitle2">預裝 Steam、Battle.net、Bluestacks、Windows 11，體驗隨接即用的絲滑享受。</p>
+          <div class="p-3 p-sm-4 banner-copy" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
+            <h1 class="h4 mb-2" data-i18n="banner_title">無縫體驗 PC on Mac</h1>
+            <p class="mb-2" data-i18n="banner_subtitle1">工作、娛樂， OStation 一台搞定！</p>
+            <p class="mb-0" data-i18n="banner_subtitle2">預裝 Steam、Battle.net、Bluestacks、Windows 11，體驗隨接即用的絲滑享受。</p>
           </div>
         </div>
       </div>
@@ -282,10 +282,6 @@
                   <div class="question-number">{{ loop.index }}</div>
                   <div class="question-content">
                     <div class="question-title">{{ qa['question'] }}</div>
-                    <div class="question-meta">
-                      <span class="category-tag">一般</span>
-                      <span class="difficulty">簡單</span>
-                    </div>
                   </div>
                 </button>
               </h2>
@@ -296,9 +292,6 @@
               >
                 <div class="accordion-body professional-accordion-body">
                   <div class="answer-wrapper">
-                    <div class="answer-header">
-                      <div class="answer-title">解決方案</div>
-                    </div>
                     <div class="answer-content">
                       <div class="answer-text">{{ qa['answer'] }}</div>
                     </div>
