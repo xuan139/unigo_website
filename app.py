@@ -1,3 +1,6 @@
+ 
+
+
 import os
 import sqlite3
 import datetime
@@ -7,7 +10,8 @@ import pandas as pd
 from functools import wraps
 from flask import (
     Flask, request, jsonify, render_template,
-    redirect, url_for, make_response, send_from_directory
+    redirect, url_for, make_response, send_from_directory,
+    session
 )
 import jwt
 from werkzeug.security import check_password_hash
@@ -15,6 +19,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 SECRET_KEY = 'your_secret_key_here'
+app.secret_key = SECRET_KEY
 
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'static', 'uploads')  # or wherever your upload folder is
 

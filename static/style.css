@@ -13,7 +13,16 @@ body {
   /* Ensure strong switch of background/text between black/white */
   /* ===================== */
   body.theme-light { background-color: #ffffff !important; color: #111111 !important; }
-  body.theme-light a { color: #0d6efd; }
+  /* 避免覆盖按钮文本颜色：链接颜色对普通 a 生效，不作用于 .btn */
+  body.theme-light a:not(.btn) { color: #0d6efd; }
+  /* 确保按钮在浅色主题的可读性（与 Bootstrap 变体一致） */
+  body.theme-light .btn-primary,
+  body.theme-light .btn-success,
+  body.theme-light .btn-info,
+  body.theme-light .btn-danger,
+  body.theme-light .btn-dark { color: #ffffff !important; }
+  body.theme-light .btn-warning,
+  body.theme-light .btn-light { color: #111111 !important; }
   body.theme-light .navbar.bg-black { background-color: #ffffff !important; color: #111111 !important; }
   body.theme-light .navbar.bg-black .nav-link { color: #111111 !important; }
   body.theme-light .navbar.bg-black .navbar-brand { color: #111111 !important; text-shadow: none; }
