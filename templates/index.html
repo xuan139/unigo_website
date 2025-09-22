@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="../static/style.css">
 </head>
-<body>
+<body class="theme-light">
   <div id="scroll-progress"></div>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../static/images/unigo_logo.png" alt="OStation Logo" class="logo">
+        <img src="../static/images/unigo_logo1.png" alt="OStation Logo" class="logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -29,10 +29,19 @@
           <li class="nav-item"><a class="nav-link" href="#support" data-i18n="nav_support">Support</a></li>
           <li class="nav-item ms-3 d-flex align-items-center">
         </ul>
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-3">
+          <!-- Header Social Icons (left of language selector) -->
+          <div class="header-social d-none d-md-flex align-items-center gap-2 me-1">
+            <a href="#" class="header-social-link" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="header-social-link" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="header-social-link" title="Line" aria-label="Line"><i class="fab fa-line"></i></a>
+            <a href="#" class="header-social-link" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:contact@unigo.ai" class="header-social-link" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+
           <!-- Language Dropdown with Flags -->
           <div class="dropdown lang-dropdown">
-            <button class="btn btn-sm btn-outline-light dropdown-toggle lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="flag">🇺🇸</span>
               <span class="label">English</span>
             </button>
@@ -50,144 +59,54 @@
     </div>
   </nav>
 
-  <!-- Banner Carousel -->
-  <section class="banner">
-    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
+  <!-- Banner (single image) -->
+  <section class="banner mb-4">
+    <div class="container-fluid px-0 position-relative">
+      <div class="ratio" style="--bs-aspect-ratio: calc(400 / 1300 * 100%);">
+        <img src="https://picsum.photos/1300/400?random=1" class="w-100" alt="OStation banner">
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://picsum.photos/1300/400?random=1" class="d-block w-100" alt="即插即玩">
-          <div class="carousel-caption text-start">
-            <h1 data-i18n="carousel1_title">即插即玩</h1>
-            <h3 data-i18n="carousel1_sub">終極遊戲SSD解決方案。預裝 Steam 、Windows11 虛擬機、驅動程式和完整遊戲環境。即開即玩。</h3>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://picsum.photos/1300/400?random=2" class="d-block w-100" alt="遊戲就緒">
-          <div class="carousel-caption text-start">
-            <h1 data-i18n="carousel2_title">遊戲就緒</h1>
-            <h3 data-i18n="carousel2_sub">預裝 Steam、BlueNet、支持多數大型遊戲。</h3>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://picsum.photos/1300/400?random=3" class="d-block w-100" alt="虛擬機支持">
-          <div class="carousel-caption text-start">
-            <h1 data-i18n="carousel3_title">虛擬機支持</h1>
-            <h3 data-i18n="carousel3_sub">內置 VMware 虛擬機，支持即時啟動 Windows 11</h3>
+      <!-- Overlay copy -->
+      <div class="position-absolute top-50 start-0 translate-middle-y w-100">
+        <div class="container">
+          <div class="p-3 p-sm-4" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
+            <h1 class="h4 mb-2" style="color:#111;" data-i18n="banner_title">無縫體驗 PC on Mac</h1>
+            <p class="mb-2" style="color:#111;" data-i18n="banner_subtitle1">工作、娛樂， OStation 一台搞定！</p>
+            <p class="mb-0 text-secondary" data-i18n="banner_subtitle2">預裝 Steam、Battle.net、Bluestacks、Windows 11，體驗隨接即用的絲滑享受。</p>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-        <span class="visually-hidden">上一張</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-        <span class="visually-hidden">下一張</span>
-      </button>
     </div>
   </section>
 
-  <!-- Core Features -->
-  <section id="section1" class="py-5">
+  <!-- Core Features (text-first) -->
+  <section id="section1" class="py-5 bg-light">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="h3 fw-bold mb-3" data-i18n="features_title">核心特性</h2>
-        <p class="lead text-muted" data-i18n="features_subtitle">專業級遊戲SSD，為您帶來極致遊戲體驗</p>
-        <div class="divider-line"></div>
-      </div>
-      
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="feature-card-modern h-100">
-            <div class="feature-icon-wrapper">
-              <div class="feature-icon">
-                <i class="fas fa-plug"></i>
-              </div>
-              <div class="icon-bg"></div>
-            </div>
-            <div class="feature-content">
-              <h4 class="feature-title" data-i18n="feature1_title">即插即玩</h4>
-              <p class="feature-desc" data-i18n="feature1_desc">連接SSD到您的Mac，無需任何設置或安裝即可啟動遊戲。</p>
-              <div class="feature-highlight">
-                <span class="highlight-text" data-i18n="feature1_badge">零配置</span>
-              </div>
-            </div>
-          </div>
+      <div class="p-3 p-md-4">
+        <div class="text-center mb-4">
+          <h2 class="h4 mb-2" data-i18n="section1_title">三大核心功能</h2>
+          <div class="divider-line"></div>
         </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="feature-card-modern h-100">
-            <div class="feature-icon-wrapper">
-              <div class="feature-icon">
-                <i class="fas fa-gamepad"></i>
-              </div>
-              <div class="icon-bg"></div>
-            </div>
-            <div class="feature-content">
-              <h4 class="feature-title" data-i18n="feature2_title">遊戲就緒</h4>
-              <p class="feature-desc" data-i18n="feature2_desc">預裝Steam、Epic、運行時庫，支持大多數AAA級遊戲。</p>
-              <div class="feature-highlight">
-                <span class="highlight-text" data-i18n="feature2_badge">預裝環境</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="feature-card-modern h-100">
-            <div class="feature-icon-wrapper">
-              <div class="feature-icon">
-                <i class="fas fa-desktop"></i>
-              </div>
-              <div class="icon-bg"></div>
-            </div>
-            <div class="feature-content">
-              <h4 class="feature-title" data-i18n="feature3_title">虛擬機支援</h4>
-              <p class="feature-desc" data-i18n="feature3_desc">內置VMware虛擬機，可即時啟動Windows 11或自定義Ubuntu等系統。</p>
-              <div class="feature-highlight">
-                <span class="highlight-text" data-i18n="feature3_badge">多系統</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 特性统计 -->
-      <div class="row mt-5">
-        <div class="col-12">
-          <div class="stats-section">
-            <div class="row text-center">
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stat-item">
-                  <div class="stat-number">2000+</div>
-                  <div class="stat-label" data-i18n="stat_read">MB/s 讀取</div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stat-item">
-                  <div class="stat-number">100+</div>
-                  <div class="stat-label" data-i18n="stat_games">遊戲支持</div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stat-item">
-                  <div class="stat-number">3</div>
-                  <div class="stat-label" data-i18n="stat_capacity">容量選擇</div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stat-item">
-                  <div class="stat-number">24/7</div>
-                  <div class="stat-label" data-i18n="stat_support">技術支援</div>
-                </div>
-              </div>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="p-3 h-100">
+              <h5 class="mb-2" data-i18n="section1_item1_title">不佔用 Mac 空間</h5>
+              <p class="mb-0" data-i18n="section1_item1_desc">Windows 和遊戲都裝在 OStation 裡面的 SSD 上，完全不吃 Mac 本機硬碟。</p>
             </div>
           </div>
+          <div class="col-md-4">
+            <div class="p-3 h-100">
+              <h5 class="mb-2" data-i18n="section1_item2_title">隨接即用</h5>
+              <p class="mb-0" data-i18n="section1_item2_desc">接上 Mac 就能用 Windows 11，免安裝、免設定。</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-3 h-100">
+              <h5 class="mb-2" data-i18n="section1_item3_title">工作 & 遊戲兩不誤</h5>
+              <p class="mb-1" data-i18n="section1_item3_desc1">工作：股票、繪圖順暢用。</p>
+              <p class="mb-0" data-i18n="section1_item3_desc2">遊戲：Steam、Battle.net 等遊戲平台隨便玩。</p>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -196,101 +115,17 @@
   <!-- Section 2: 為啥選 OStation -->
   <section id="section2" class="py-5">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="h3 fw-bold mb-3" data-i18n="why_title">為啥選 OStation</h2>
-        <p class="lead text-muted" data-i18n="why_subtitle">專業級遊戲SSD，為您帶來極致遊戲體驗</p>
-        <div class="divider-line"></div>
-      </div>
-      
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="reason-card h-100">
-            <div class="reason-icon">
-              <i class="fas fa-plug"></i>
-            </div>
-            <div class="reason-content">
-              <h4 class="reason-title" data-i18n="why_reason1_title">即插即玩</h4>
-              <p class="reason-desc" data-i18n="why_reason1_desc">預裝 Steam、Windows11 虛擬機與完整遊戲環境，打開即玩，無需安裝。</p>
-              <div class="reason-highlight">
-                <span class="highlight-badge" data-i18n="why_reason1_badge">零配置</span>
-              </div>
-            </div>
-          </div>
+      <div class="p-3 p-md-4">
+        <div class="text-center mb-4">
+          <h2 class="h4 mb-2" data-i18n="why_title">為啥選 OStation</h2>
+          <div class="divider-line"></div>
         </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="reason-card h-100">
-            <div class="reason-icon">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <div class="reason-content">
-              <h4 class="reason-title" data-i18n="why_reason2_title">高性能支援</h4>
-              <p class="reason-desc" data-i18n="why_reason2_desc">支持 USB-C 和 Thunderbolt，兼容 macOS 13.5 以上，支持 M1/M2/M3 系列設備。</p>
-              <div class="reason-highlight">
-                <span class="highlight-badge" data-i18n="why_reason2_badge">極速傳輸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="reason-card h-100">
-            <div class="reason-icon">
-              <i class="fas fa-desktop"></i>
-            </div>
-            <div class="reason-content">
-              <h4 class="reason-title" data-i18n="why_reason3_title">虛擬機功能</h4>
-              <p class="reason-desc" data-i18n="why_reason3_desc">內置 VMware 虛擬機，支持即時啟動 Windows 11。</p>
-              <div class="reason-highlight">
-                <span class="highlight-badge" data-i18n="why_reason3_badge">多系統</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 核心优势展示 -->
-      <div class="row mt-5">
-        <div class="col-12">
-          <div class="advantages-section">
-            <h3 class="text-center mb-4" data-i18n="advantages_title">核心優勢</h3>
-            <div class="row">
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="advantage-item">
-                  <div class="advantage-icon">
-                    <i class="fas fa-gamepad"></i>
-                  </div>
-                  <h5 data-i18n="advantages_item1_title">遊戲就緒</h5>
-                  <p data-i18n="advantages_item1_desc">預裝完整遊戲環境</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="advantage-item">
-                  <div class="advantage-icon">
-                    <i class="fas fa-microchip"></i>
-                  </div>
-                  <h5 data-i18n="advantages_item2_title">晶片優化</h5>
-                  <p data-i18n="advantages_item2_desc">支援 M1/M2/M3 系列</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="advantage-item">
-                  <div class="advantage-icon">
-                    <i class="fas fa-shield-alt"></i>
-                  </div>
-                  <h5 data-i18n="advantages_item3_title">數據安全</h5>
-                  <p data-i18n="advantages_item3_desc">企業級數據保護</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <div class="advantage-item">
-                  <div class="advantage-icon">
-                    <i class="fas fa-headset"></i>
-                  </div>
-                  <h5 data-i18n="advantages_item4_title">24/7 支援</h5>
-                  <p data-i18n="advantages_item4_desc">全天候技術支援</p>
-                </div>
-              </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="p-3">
+              <h5 class="mb-2" data-i18n="section2_item1_title">資料完整保留</h5>
+              <p class="mb-0" data-i18n="section2_item1_desc">所有 Windows 資料、遊戲檔案都保留在外部 Neo Forza SSD，無需擔心佔用 Mac 的儲存空間。</p>
             </div>
           </div>
         </div>
@@ -301,207 +136,123 @@
   <!-- Section 3: 產品介紹 (上下布局) -->
   <section id="section3" class="py-5">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="h3 fw-bold mb-3" data-i18n="product_intro_title">產品介紹</h2>
-        <p class="lead text-muted" data-i18n="product_intro_subtitle">專業級遊戲SSD，為您帶來極致遊戲體驗</p>
-        <div class="divider-line"></div>
-      </div>
-      
-      <!-- 产品图片区域 -->
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8 col-md-10">
-          <div class="product-image-container text-center">
-            <img src="https://picsum.photos/800/480?random=10" alt="OStation Product" class="img-fluid rounded-3 shadow-lg">
-            <div class="image-overlay">
-              <div class="overlay-text">
-                <h4 class="text-white mb-3">OStation 遊戲SSD</h4>
-                <p class="text-white-50">即插即玩，遊戲就緒</p>
-              </div>
-            </div>
-          </div>
+      <div class="p-3 p-md-4">
+        <div class="text-center mb-4">
+          <h2 class="h4 mb-2" data-i18n="section3_title">產品介紹</h2>
+          <div class="divider-line"></div>
         </div>
-      </div>
 
-      <!-- 产品特性介绍 -->
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="feature-card text-center h-100 p-4">
-            <div class="feature-icon mb-3">
-              <i class="fas fa-plug fa-3x text-primary"></i>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="p-2">
+              <h5 class="mb-2" data-i18n="s3_item1_title">一鍵啟動 Windows 11</h5>
+              <ul class="mb-0 feature-list">
+                <li data-i18n="s3_item1_li1">接上 OStation，Mac 秒變 Windows</li>
+                <li data-i18n="s3_item1_li2">完美相容辦公軟體、股票、繪圖順暢用</li>
+              </ul>
             </div>
-            <h4 class="mb-3" data-i18n="product_feature1_title">即插即玩</h4>
-            <p class="text-muted" data-i18n="product_feature1_desc">OStation SSD 預裝 Steam、Windows11 虛擬機與完整遊戲環境，打開即玩，無需安裝。</p>
           </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="feature-card text-center h-100 p-4">
-            <div class="feature-icon mb-3">
-              <i class="fas fa-bolt fa-3x text-warning"></i>
+
+          <div class="col-md-6">
+            <div class="p-2">
+              <h5 class="mb-2" data-i18n="s3_item2_title">極致遊戲體驗</h5>
+              <ul class="mb-0 feature-list">
+                <li data-i18n="s3_item2_li1">Steam、Battle.net 隨接即玩，無需切換系統</li>
+                <li data-i18n="s3_item2_li2">內建 Wine 技術，流暢暢玩大作</li>
+                <li data-i18n="s3_item2_li3">支援手把、搖桿，外設體驗更自由</li>
+                <li data-i18n="s3_item2_li4">GPU 硬體加速 → 高畫質、不卡頓</li>
+              </ul>
             </div>
-            <h4 class="mb-3" data-i18n="product_feature2_title">高性能支援</h4>
-            <p class="text-muted" data-i18n="product_feature2_desc">支持 USB-C 和 Thunderbolt，兼容 macOS 13.5 以上，支持 M1/M2/M3 系列設備。</p>
           </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="feature-card text-center h-100 p-4">
-            <div class="feature-icon mb-3">
-              <i class="fas fa-desktop fa-3x text-success"></i>
+
+          <div class="col-md-6">
+            <div class="p-2">
+              <h5 class="mb-2" data-i18n="s3_item3_title">隨接即用，立即開玩</h5>
+              <ul class="mb-0 feature-list">
+                <li data-i18n="s3_item3_li1">免安裝、免設定，接上 OStation 即可直接進入遊戲或 Windows。</li>
+                <li data-i18n="s3_item3_li2">Windows 與遊戲存放於外接 SSD，不佔用 Mac 本機空間。</li>
+              </ul>
             </div>
-            <h4 class="mb-3" data-i18n="product_feature3_title">虛擬機功能</h4>
-            <p class="text-muted" data-i18n="product_feature3_desc">內置 VMware 虛擬機，支持即時啟動 Windows 11。</p>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-2">
+              <h5 class="mb-2" data-i18n="s3_item4_title">全能擴充，一機多用</h5>
+              <ul class="mb-0 feature-list">
+                <li data-i18n="s3_item4_li1">Type-A USB 3.2 Gen2 (10Gbps) x2</li>
+                <li data-i18n="s3_item4_li2">Type-C PD 3.0 快充 (100W) x2</li>
+                <li data-i18n="s3_item4_li3">RJ45 乙太網路 (100Mbps) x1</li>
+                <li data-i18n="s3_item4_li4">4K HDMI 輸出 x1</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-2">
+              <h5 class="mb-2" data-i18n="s3_item5_title">一次購買 · 永久升級</h5>
+              <p class="mb-0" data-i18n="s3_item5_desc">買就送 OStation 虛擬機軟體，終身更新，沒有額外訂閱費。</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-2">
+              <h5 class="mb-2" data-i18n="s3_item6_title">1TB 大容量，工作＋娛樂一次搞定</h5>
+              <p class="mb-0" data-i18n="s3_item6_desc">高容量存儲滿足日常工作與娛樂所需，資料與遊戲分區管理更安心。</p>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- Section 4: 產品規格 -->
   <section id="section4" class="py-5">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="h3 fw-bold mb-3" data-i18n="specs_title">產品規格</h2>
-        <p class="text-muted" data-i18n="specs_subtitle">專業級遊戲SSD，為您帶來極致體驗</p>
-      </div>
-      
-      <!-- 规格卡片网格 -->
-      <div class="row g-4">
-        <!-- 容量规格 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="spec-card h-100">
-            <div class="spec-icon">
-              <i class="fas fa-hdd fa-2x"></i>
-            </div>
-            <h4 class="spec-title" data-i18n="spec_storage_title">存儲容量</h4>
-            <div class="spec-options">
-              <span class="spec-option active">500GB</span>
-              <span class="spec-option">1TB</span>
-              <span class="spec-option">2TB</span>
-            </div>
-            <p class="spec-desc" data-i18n="spec_storage_desc">多種容量選擇，滿足不同需求</p>
-          </div>
+      <div class="p-3 p-md-4">
+        <div class="text-center mb-3">
+          <h2 class="h4 mb-2" data-i18n="section4_title">產品規格</h2>
+          <div class="divider-line"></div>
         </div>
 
-        <!-- 接口规格 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="spec-card h-100">
-            <div class="spec-icon">
-              <i class="fas fa-plug fa-2x"></i>
-            </div>
-            <h4 class="spec-title" data-i18n="spec_interface_title">連接介面</h4>
-            <div class="spec-value">
-              <span class="badge bg-primary me-2" data-i18n="spec_interface_usb_c">USB-C 3.2 Gen2</span>
-              <span class="badge bg-success" data-i18n="spec_interface_thunderbolt">Thunderbolt 4</span>
-            </div>
-            <p class="spec-desc" data-i18n="spec_interface_desc">高速傳輸，兼容性強</p>
-          </div>
+        <div class="mb-2">
+          <h5 class="mb-2" data-i18n="hub_specs_title">OStation Hub 規格表</h5>
         </div>
 
-        <!-- 性能规格 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="spec-card h-100">
-            <div class="spec-icon">
-              <i class="fas fa-tachometer-alt fa-2x"></i>
-            </div>
-            <h4 class="spec-title" data-i18n="spec_read_title">讀取速度</h4>
-            <div class="spec-number">
-              <span class="number">2000</span>
-              <span class="unit" data-i18n="spec_unit_mbps">MB/s</span>
-            </div>
-            <p class="spec-desc" data-i18n="spec_read_desc">極速讀取，遊戲加載更快</p>
-          </div>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th style="width:30%;" data-i18n="specs_col_item">項目</th>
+                <th data-i18n="specs_col_value">規格</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="spec_label_cpu">CPU 架構支援</td><td data-i18n="spec_value_cpu">Apple Silicon 系列處理器</td></tr>
+              <tr><td data-i18n="spec_label_capacity">容量選擇</td><td data-i18n="spec_value_capacity">1TB</td></tr>
+              <tr><td data-i18n="spec_label_interfaces">電腦接口</td><td data-i18n="spec_value_interfaces">USB-C, Thunderbolt 3/4</td></tr>
+              <tr><td data-i18n="spec_label_size">尺寸（大約）</td><td data-i18n="spec_value_size">121 x 55 x 16 mm (4.8 x 2.2 x 0.6 inches)</td></tr>
+              <tr><td data-i18n="spec_label_weight">重量（大約）</td><td data-i18n="spec_value_weight">150 grams (5.3 oz)</td></tr>
+              <tr><td data-i18n="spec_label_cable">線長（大約）</td><td data-i18n="spec_value_cable">50 cm</td></tr>
+              <tr><td data-i18n="spec_label_material">材質</td><td data-i18n="spec_value_material">鋁合金</td></tr>
+              <tr><td data-i18n="spec_label_usbc">USB-C 接口</td><td data-i18n="spec_value_usbc">USB 3.2 Gen 2  /  PD 3.0 / 100 W</td></tr>
+              <tr><td data-i18n="spec_label_usba">USB-A 接口</td><td data-i18n="spec_value_usba">USB 3.2 Gen 2</td></tr>
+              <tr><td data-i18n="spec_label_hdmi">HDMI 顯示接口</td><td data-i18n="spec_value_hdmi">4K@60Hz</td></tr>
+              <tr><td data-i18n="spec_label_ethernet">Ethernet 接口</td><td data-i18n="spec_value_ethernet">速度 10/100/1000M</td></tr>
+              <tr><td data-i18n="spec_label_speed">傳輸速度</td><td data-i18n="spec_value_speed">10 Gbps</td></tr>
+              <tr><td data-i18n="spec_label_protocol">硬碟協定</td><td data-i18n="spec_value_protocol">NVMe</td></tr>
+              <tr><td data-i18n="spec_label_warranty">保固</td><td data-i18n="spec_value_warranty">2 年</td></tr>
+            </tbody>
+          </table>
         </div>
-
-        <!-- 写入速度 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="spec-card h-100">
-            <div class="spec-icon">
-              <i class="fas fa-edit fa-2x"></i>
-            </div>
-            <h4 class="spec-title" data-i18n="spec_write_title">寫入速度</h4>
-            <div class="spec-number">
-              <span class="number">1800</span>
-              <span class="unit" data-i18n="spec_unit_mbps">MB/s</span>
-            </div>
-            <p class="spec-desc" data-i18n="spec_write_desc">快速寫入，數據保存更安全</p>
-          </div>
-        </div>
-
-        <!-- 系统支持 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="spec-card h-100">
-            <div class="spec-icon">
-              <i class="fab fa-apple fa-2x"></i>
-            </div>
-            <h4 class="spec-title" data-i18n="spec_system_title">系統支援</h4>
-            <div class="spec-value">
-              <span class="badge bg-dark" data-i18n="spec_system_macos">macOS 13.5+</span>
-            </div>
-            <p class="spec-desc" data-i18n="spec_system_desc">完美支持最新 Mac 系統</p>
-          </div>
-        </div>
-
-        <!-- 虚拟机支持 -->
-        <div class="col-lg-4 col-md-6">
-          <div class="spec-card h-100">
-            <div class="spec-icon">
-              <i class="fas fa-desktop fa-2x"></i>
-            </div>
-            <h4 class="spec-title" data-i18n="spec_vm_title">虛擬機支援</h4>
-            <div class="spec-value">
-              <span class="badge bg-info" data-i18n="spec_vm_vmware">VMware</span>
-            </div>
-            <p class="spec-desc" data-i18n="spec_vm_desc">內置虛擬機，快速啟動 Windows 11</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 技术亮点 -->
-      <div class="row mt-5">
-        <div class="col-12">
-          <div class="tech-highlights">
-            <h3 class="text-center mb-4" data-i18n="tech_highlights_title">技術亮點</h3>
-            <div class="row">
-              <div class="col-md-3 col-sm-6 mb-3">
-                <div class="highlight-item">
-                  <i class="fas fa-microchip"></i>
-                  <span data-i18n="tech_highlight_m_chips">M1/M2/M3 優化</span>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-3">
-                <div class="highlight-item">
-                  <i class="fas fa-shield-alt"></i>
-                  <span data-i18n="tech_highlight_security">數據安全</span>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-3">
-                <div class="highlight-item">
-                  <i class="fas fa-bolt"></i>
-                  <span data-i18n="tech_highlight_plugplay">即插即用</span>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 mb-3">
-                <div class="highlight-item">
-                  <i class="fas fa-gamepad"></i>
-                  <span data-i18n="tech_highlight_gaming">遊戲優化</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- Section 5: 論壇 -->
   <section id="section5" class="py-5">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="h3 fw-bold mb-3"><a href="https://unigo.ai/forum" target="_blank" data-i18n="forum_title">論壇入口</a></h2>
-        <p class="lead text-muted" data-i18n="forum_subtitle">加入我們的社區，與其他用戶交流</p>
-        <div class="divider-line"></div>
+      <div class="p-3 p-md-4 text-center">
+        <h2 class="h4 mb-3" data-i18n="forum_title">論壇入口</h2>
+        <a class="btn btn-outline-primary" href="https://unigo.ai/forum" target="_blank" rel="noopener" data-i18n="footer_support_forum">社區論壇</a>
       </div>
     </div>
   </section>
@@ -513,22 +264,6 @@
         <h2 class="h3 fw-bold mb-3" data-i18n="faq_title">常見問題</h2>
         <p class="lead text-muted" data-i18n="faq_subtitle">專業技術支援，快速解決您的疑問</p>
         <div class="divider-line"></div>
-      </div>
-      
-      <!-- FAQ 搜索工具 -->
-      <div class="faq-tools mb-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="search-box">
-              <div class="input-group">
-                <span class="input-group-text">
-                  <i class="fas fa-search"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="搜索問題..." id="faqSearch" data-i18n="faq_search_placeholder">
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       
       <div class="faq-container">
@@ -552,9 +287,6 @@
                       <span class="difficulty">簡單</span>
                     </div>
                   </div>
-                  <div class="accordion-arrow">
-                    <i class="fas fa-chevron-down"></i>
-                  </div>
                 </button>
               </h2>
               <div
@@ -565,9 +297,6 @@
                 <div class="accordion-body professional-accordion-body">
                   <div class="answer-wrapper">
                     <div class="answer-header">
-                      <div class="answer-icon">
-                        <i class="fas fa-lightbulb"></i>
-                      </div>
                       <div class="answer-title">解決方案</div>
                     </div>
                     <div class="answer-content">
@@ -580,50 +309,10 @@
           {% endfor %}
         </div>
       </div>
-
-      <!-- 专业支持区域 -->
-      <div class="professional-support mt-5">
-        <div class="support-grid">
-          <div class="support-card">
-            <div class="support-icon">
-              <i class="fas fa-headset"></i>
-            </div>
-            <div class="support-content">
-              <h4 data-i18n="support_cta_title">找不到您要的答案？</h4>
-              <p data-i18n="support_cta_desc">我們的專業技術支援團隊隨時為您提供幫助</p>
-              <div class="support-actions">
-                <a href="mailto:contact@unigo.ai" class="btn btn-primary">
-                  <i class="fas fa-envelope me-2"></i>
-                  聯繫我們
-                </a>
-                <a href="https://unigo.ai/forum" class="btn btn-outline-primary" target="_blank">
-                  <i class="fas fa-comments me-2"></i>
-                  社區論壇
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="support-stats">
-            <div class="stat-item">
-              <div class="stat-number">24/7</div>
-              <div class="stat-label" data-i18n="stat_support">技術支援</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">< 2h</div>
-              <div class="stat-label" data-i18n="stat_avg_response">平均回應</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">98%</div>
-              <div class="stat-label" data-i18n="stat_satisfaction">滿意度</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light" id="support">
+  <section id="support" class="py-5 bg-light">
     <div class="container">
       <h2 class="h3 fw-bold mb-3 text-center" data-i18n="support_title">Product Verification</h2>
       <form id="serialForm" class="mx-auto" style="max-width: 500px;">
@@ -922,22 +611,20 @@
       });
     });
 
-    // FAQ 搜索功能
-    document.getElementById('faqSearch').addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const accordionItems = document.querySelectorAll('.professional-accordion-item');
-      
-      accordionItems.forEach(item => {
-        const questionText = item.querySelector('.question-title').textContent.toLowerCase();
-        const answerText = item.querySelector('.answer-text').textContent.toLowerCase();
-        
-        if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+    // FAQ 搜索功能（若搜索框存在才绑定）
+    (function() {
+      const searchEl = document.getElementById('faqSearch');
+      if (!searchEl) return;
+      searchEl.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const accordionItems = document.querySelectorAll('.professional-accordion-item');
+        accordionItems.forEach(item => {
+          const questionText = (item.querySelector('.question-title')?.textContent || '').toLowerCase();
+          const answerText = (item.querySelector('.answer-text')?.textContent || '').toLowerCase();
+          item.style.display = (questionText.includes(searchTerm) || answerText.includes(searchTerm)) ? 'block' : 'none';
+        });
       });
-    });
+    })();
 
     window.addEventListener('DOMContentLoaded', async () => {
       let savedLang = localStorage.getItem('lang');
@@ -958,7 +645,7 @@
     });
 
     // Header 交互：滚动收缩 + 进度条
-    const navbar = document.querySelector('.navbar.bg-black');
+    const navbar = document.querySelector('.navbar');
     const progress = document.getElementById('scroll-progress');
     let lastY = 0;
     const links = document.querySelectorAll('.navbar .nav-link[href^="#"]');

@@ -1,12 +1,18 @@
-/* 全局基础样式 */
+/* 全局基础样式（默认浅色） */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 10;
-    background-color: #0b0b0b; /* 深色背景以与 header/footer 匹配 */
-    color: #f1f1f1; /* 全站默认白色文字 */
+    padding: 10px;
+    background-color: #ffffff; /* 默认白色背景 */
+    color: #111111;           /* 默认深色文字 */
     padding-top: 60px; /* 适配更大的 Header Logo，仍保持紧凑 */
-  }
+}
+
+/* 深色主题（仅在显式使用 theme-dark 时启用） */
+body.theme-dark {
+  background-color: #0b0b0b;
+  color: #f1f1f1;
+}
 
   /* ===================== */
   /* Light Theme Overrides */
@@ -26,9 +32,23 @@ body {
   body.theme-light .navbar.bg-black { background-color: #ffffff !important; color: #111111 !important; }
   body.theme-light .navbar.bg-black .nav-link { color: #111111 !important; }
   body.theme-light .navbar.bg-black .navbar-brand { color: #111111 !important; text-shadow: none; }
-  body.theme-light .footer { background-color: #f7f7f7 !important; color: #222222 !important; }
-  body.theme-light .footer-title { color: #111111 !important; text-shadow: none !important; }
-  body.theme-light .footer-links a { color: #444444 !important; }
+  /* 强制将任何黑色背景组件在浅色主题下显示为白色 */
+  body.theme-light .bg-black,
+  body.theme-light .navbar-dark { background-color: #ffffff !important; }
+  body.theme-light .navbar-dark .navbar-nav .nav-link { color: #111111 !important; }
+  body.theme-light .navbar-dark .navbar-brand { color: #111111 !important; }
+  /* 避免任何 .bg-dark 背景为黑色，在浅色主题下统一为白底深字 */
+  body.theme-light .bg-dark { background-color: #ffffff !important; }
+  body.theme-light .bg-dark, 
+  body.theme-light .bg-dark .nav-link,
+  body.theme-light .bg-dark .navbar-brand,
+  body.theme-light .bg-dark .card-title,
+  body.theme-light .bg-dark .card-text { color: #111111 !important; }
+  /* Footer (light theme): lighter black-grey bg + brighter off-white text */
+  body.theme-light .footer { background-color: #2e2e2e !important; color: #f0f0f0 !important; }
+  body.theme-light .footer-title { color: #fafafa !important; text-shadow: none !important; }
+  body.theme-light .footer-content { color: #ededed !important; }
+  body.theme-light .footer-links a { color: #f0f0f0 !important; }
   body.theme-light .feature-card-modern,
   body.theme-light .spec-card,
   body.theme-light .professional-accordion-item,
@@ -40,6 +60,80 @@ body {
   body.theme-light .form-control, body.theme-light .input-group-text { background-color: #ffffff !important; color: #111111 !important; border-color: rgba(0,0,0,0.15) !important; }
   body.theme-light .banner .carousel-caption h1, 
   body.theme-light .banner .carousel-caption h3 { text-shadow: none !important; color: #111111 !important; }
+  /* Make every section light in light mode (default) */
+  body.theme-light section { background-color: #ffffff !important; color: #111111 !important; }
+  /* Section 1–6 + support background: darker grey-white */
+  body.theme-light #section1,
+  body.theme-light #section2,
+  body.theme-light #section3,
+  body.theme-light #section4,
+  body.theme-light #section5,
+  body.theme-light #section6,
+  body.theme-light #support { background-color: #eef1f4 !important; }
+  body.theme-light .divider-line { border-color: rgba(0,0,0,0.1) !important; }
+  /* Light version of support block (match sections) */
+  body.theme-light #support { background-color: #eef1f4 !important; }
+  body.theme-light #support .form-control { background-color: #ffffff !important; color: #111111 !important; border: 1px solid rgba(0,0,0,0.15) !important; }
+  body.theme-light #support .form-label { color: #111111 !important; }
+  /* Light version of language dropdown */
+  body.theme-light .lang-dropdown .lang-toggle { border-color: rgba(0,0,0,0.2); color: #111111; background: #ffffff; text-shadow: none; }
+  body.theme-light .lang-dropdown .dropdown-menu { background: #ffffff; border-color: rgba(0,0,0,0.1); }
+  body.theme-light .lang-dropdown .dropdown-item { color: #212529; }
+  body.theme-light .lang-dropdown .dropdown-item:hover { background: #f1f3f5; color: #111111; }
+  /* Section spacing */
+  section + section { margin-top: 2.5rem; }
+  @media (min-width: 992px) {
+    section + section { margin-top: 3rem; }
+  }
+  /* Headings not bold inside sections (light theme) */
+  body.theme-light section h1,
+  body.theme-light section h2,
+  body.theme-light section h3,
+  body.theme-light section h4,
+  body.theme-light section h5,
+  body.theme-light section h6 { font-weight: 400 !important; }
+  /* Navbar link colors in light theme */
+  body.theme-light .navbar.navbar-light .nav-link { color: #343a40 !important; }
+  body.theme-light .navbar.navbar-light .nav-link:hover, 
+  body.theme-light .navbar.navbar-light .nav-link:focus { color: #0a58ca !important; }
+  body.theme-light .navbar.navbar-light .nav-link.active { color: #0d6efd !important; }
+  body.theme-light .navbar.navbar-light .navbar-brand { color: #212529 !important; }
+  /* Header social icons (left of language selector) */
+  body.theme-light .header-social .header-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  body.theme-light .header-social .header-social-link:hover,
+  body.theme-light .header-social .header-social-link:focus {
+    transform: translateY(-1px);
+  }
+  /* Brand colors */
+  body.theme-light .header-social .fa-facebook-f { color: #1877F2; }
+  body.theme-light .header-social .fa-instagram  { color: #E4405F; }
+  body.theme-light .header-social .fa-line       { color: #00C300; }
+  body.theme-light .header-social .fa-youtube    { color: #FF0000; }
+  body.theme-light .header-social .fa-envelope   { color: #0d6efd; }
+  /* Slight brighten on hover */
+  body.theme-light .header-social .header-social-link:hover .fa-facebook-f { color: #2a88ff; }
+  body.theme-light .header-social .header-social-link:hover .fa-instagram  { color: #ff5a73; }
+  body.theme-light .header-social .header-social-link:hover .fa-line       { color: #06d10f; }
+  body.theme-light .header-social .header-social-link:hover .fa-youtube    { color: #ff3333; }
+  body.theme-light .header-social .header-social-link:hover .fa-envelope   { color: #3b99ff; }
+  /* Navbar separators: show '|' between links (all navbars) */
+  body.theme-light .navbar .navbar-nav .nav-item + .nav-item .nav-link { position: relative; }
+  body.theme-light .navbar .navbar-nav .nav-item + .nav-item .nav-link::before {
+    content: "|";
+    color: #adb5bd;
+    display: inline-block;
+    margin-right: .75rem;
+    margin-left: .5rem;
+  }
 
 /* 主题：浅色（白底黑字）覆盖 */
 body.theme-light {
@@ -106,15 +200,27 @@ body.theme-light .form-control::placeholder { color: #666; }
 
 /* Footer */
 body.theme-light .footer {
-  background: #f7f7f7;
-  color: #222;
+  background: #2e2e2e;
+  color: #f0f0f0;
 }
-body.theme-light .footer-title { color: #111; text-shadow: none; }
-body.theme-light .footer-content { color: #444; }
-body.theme-light .footer-links a { color: #444; }
-body.theme-light .footer-links a:hover { color: #0d6efd; }
-body.theme-light .footer-divider { border-top-color: rgba(0,0,0,0.1); }
-body.theme-light .footer-legal .legal-link { color: #444; }
+body.theme-light .footer-title { color: #fafafa; text-shadow: none; }
+body.theme-light .footer-content { color: #ededed; }
+body.theme-light .footer-links a { color: #f0f0f0; }
+body.theme-light .footer-links a:hover { color: #8ad1fa; }
+body.theme-light .footer-divider { border-top-color: rgba(255,255,255,0.2); }
+body.theme-light .footer-legal .legal-link { color: #f0f0f0; }
+/* Ensure address and contact items are readable */
+body.theme-light .footer .company-details p,
+body.theme-light .footer .contact-item,
+body.theme-light .footer .contact-item a { color: #f0f0f0 !important; }
+/* Ensure company name/english match other footer text color */
+body.theme-light .footer .company-name,
+body.theme-light .footer .company-english { color: inherit !important; }
+/* Footer icons and social buttons on dark-grey */
+body.theme-light .footer .company-details i,
+body.theme-light .footer .contact-item i { color: #8ad1fa; }
+body.theme-light .footer .social-icon { background: rgba(255,255,255,0.08); color: #f0f0f0; }
+body.theme-light .footer .social-icon:hover { background: rgba(255,255,255,0.18); color: #8ad1fa; }
 
 /* Progress bar in light mode */
 body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#20c997); box-shadow: none; }
@@ -132,11 +238,10 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     section { scroll-margin-top: 72px; }
   }
   
-  h1,
-  h2,
-  h3 {
-    color: #ffffff; /* 统一为白色标题 */
-  }
+  /* 白色标题仅在深色主题下应用 */
+  body.theme-dark h1,
+  body.theme-dark h2,
+  body.theme-dark h3 { color: #ffffff; }
   
   p {
     line-height: 1.8;
@@ -150,11 +255,8 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     padding: 0 20px;    /* 左右留白 */
   }
 
-  /* 全站深色主题的 Section 背景（与 Header/Footer 一致） */
-  section {
-    background-color: #0f0f0f;
-    color: #f1f1f1;
-  }
+  /* 深色 Section 仅在 theme-dark 下启用 */
+  body.theme-dark section { background-color: #0f0f0f; color: #f1f1f1; }
 
   /* Section 内链接可读性与交互反馈 */
   section a {
@@ -229,6 +331,14 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
   .search-box .input-group .form-control::placeholder {
     color: rgba(255,255,255,0.7);
   }
+
+  /* Section 6 (FAQ) - simplify visuals, remove icons */
+  #section6 .accordion-arrow,
+  #section6 .answer-icon { display: none !important; }
+  #section6 .professional-accordion-item,
+  #section6 .professional-accordion-button,
+  #section6 .professional-accordion-body { box-shadow: none !important; }
+  #section6 .professional-accordion-button { padding: 0.75rem 1rem; }
 
   /* 表单（产品验证等）深色主题 */
   #support {
@@ -645,8 +755,8 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     .navbar.bg-black .navbar-toggler-icon {
         filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));
     }
-  /* Footer */
-  .footer {
+  /* Footer 深色样式仅在深色主题下应用 */
+  body.theme-dark .footer {
     background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%); /* 渐变黑底 */
     color: #ffffff;            /* 白字 */
     padding: 50px 0;
@@ -668,7 +778,7 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
                 radial-gradient(circle at 70% 80%, rgba(0,212,170,0.1) 0%, transparent 50%);
     pointer-events: none;
   }
-  .footer h5 {
+  body.theme-dark .footer h5 {
     font-size: 1.2rem;
     margin-bottom: 15px;
     font-weight: 600;
@@ -676,7 +786,7 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     position: relative;
     z-index: 2;
   }
-  .footer a {
+  body.theme-dark .footer a {
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s, text-shadow 0.3s;
@@ -684,7 +794,7 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     position: relative;
     z-index: 2;
   }
-  .footer a:hover {
+  body.theme-dark .footer a:hover {
     color: #66c0f4;
     text-shadow: 0 0 8px rgba(102, 192, 244, 0.8);
   }
@@ -707,11 +817,11 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     color: #66c0f4;
     text-shadow: 0 0 8px rgba(102, 192, 244, 0.8);
   }
-  hr {
+  body.theme-dark hr {
     border-color: #ffffff;
     opacity: 0.2;
   }
-  .footer-bottom {
+  body.theme-dark .footer-bottom {
     font-size: 1rem;
     margin-top: 20px;
     font-weight: 500;
@@ -755,14 +865,14 @@ body.theme-light #scroll-progress { background: linear-gradient(90deg,#0d6efd,#2
     font-size: 1.05rem; /* 放大 Footer 正文字体 */
   }
 
-  .company-name {
+  body.theme-dark .company-name {
     font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
     margin-bottom: 0.25rem;
   }
 
-  .company-english {
+  body.theme-dark .company-english {
     font-size: 0.9rem;
     color: #999;
     margin-bottom: 1rem;

@@ -23,6 +23,15 @@
     .navbar .nav-link { padding: .5rem .75rem; font-weight: 500; }
     .navbar .nav-link:hover { color: #0a58ca !important; }
     .navbar .nav-link.active { color: #0d6efd !important; font-weight: 600; }
+    /* Navbar 分隔符：每个链接（除第一个）左侧加竖线 */
+    .navbar .navbar-nav .nav-item:not(:first-child) .nav-link { position: relative; }
+    .navbar .navbar-nav .nav-item:not(:first-child) .nav-link::before {
+      content: "|";
+      color: #adb5bd; /* 灰黑色分隔 */
+      display: inline-block;
+      margin-right: .75rem;
+      margin-left: .5rem;
+    }
   </style>
 
   {% block head %}{% endblock %}
