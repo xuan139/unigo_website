@@ -33,19 +33,57 @@
 {% block content %}
 <div class="container container-card">
     <h2>Upload Excel / CSV</h2>
-    <form method="post" action="{{ url_for('import_excel_file') }}" enctype="multipart/form-data" class="mb-3">
+    <form id="uploadForm" method="post" action="{{ url_for('import_excel') }}" enctype="multipart/form-data" class="mb-3">
         <div class="mb-3">
             <label for="fileInput" class="form-label">Choose Excel or CSV file</label>
             <input class="form-control" type="file" id="fileInput" name="file" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Upload</button>
+        <button id="submitBtn" type="submit" class="btn btn-primary w-100">Upload</button>
     </form>
 
-    {% if result %}
-        <div class="result-box">
-            <strong>Import Result:</strong><br>
-            {{ result }}
-        </div>
-    {% endif %}
+    <div id="resultBox" class="result-box d-none"></div>
 </div>
+<script>
+  (function(){
+    const form = document.getElementById('uploadForm');
+    const btn = document.getElementById('submitBtn');
+    const resultBox = document.getElementById('resultBox');
+    if (!form) return;
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if (!form.file || !form.file.files || !form.file.files[0]) {
+        showResult('Please choose a file.');
+        return;
+      }
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Uploading...';
+      try {
+        const fd = new FormData(form);
+        const res = await fetch(form.action, { method: 'POST', body: fd });
+        const data = await res.json().catch(()=>({ error: 'Invalid server response' }));
+        if (!res.ok) {
+          showResult(`Error: ${data.error || res.statusText}`);
+        } else if (typeof data.added !== 'undefined') {
+          showResult(`Import successful. Total: ${data.total}, Added: ${data.added}`);
+          // redirect to list after success (delay so user can read)
+          setTimeout(() => {
+            window.location.href = "{{ url_for('serials_page') }}";
+          }, 1500);
+        } else {
+          showResult(`Done: ${JSON.stringify(data)}`);
+        }
+      } catch(err) {
+        showResult('Network error. Please try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+    function showResult(msg){
+      resultBox.classList.remove('d-none');
+      resultBox.innerHTML = `<strong>Import Result:</strong><br>${msg}`;
+    }
+  })();
+</script>
 {% endblock %}
