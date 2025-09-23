@@ -1,74 +1,77 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Section Hover Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* section 背景和 padding */
+    #section1 {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+      text-align: center;
+      transition: background 0.3s ease;
+      cursor: pointer; /* 鼠标悬停时更明显 */
+    }
 
-{% block title %}Buy SSD - OStation{% endblock %}
+    /* 标题初始样式 */
+    #section1 h2[data-i18n="section1_title"] {
+      color: #051d40;
+      font-weight: 700;
+      font-size: 2rem;
+      transition: color 0.3s ease;
+      margin-bottom: 20px;
+    }
 
-{% block head %}
-<style>
-  /* 页面专属样式 */
-  body {
-    background: linear-gradient(to right, #f3f4f6, #ffffff);
-  }
+    /* 鼠标移到整个 section 时标题变色 */
+    #section1:hover h2[data-i18n="section1_title"] {
+      color: #00DAEA;
+    }
 
-  .product-card {
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+    /* 功能卡片样式 */
+    #section1 .feature-card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
 
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  }
+    /* 功能卡片 hover 效果 */
+    #section1 .feature-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
 
-  .product-card img {
-    border-radius: 12px;
-    object-fit: cover;
-    max-height: 260px;
-  }
-
-  .price {
-    font-size: 1.6rem;
-    color: #0d6efd;
-    font-weight: bold;
-  }
-
-  .section-title {
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-</style>
-{% endblock %}
-
-{% block content %}
-<div class="container py-5">
-  <h2 class="text-center text-primary section-title">
-    <i class="bi bi-cart-check me-2"></i>Buy SSD - OStation Series
-  </h2>
-
-  <div class="row g-4 justify-content-center">
-    {% for product in products %}
-    <div class="col-md-5 col-lg-4">
-      <div class="card product-card p-3">
-        <img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}" />
-        <div class="card-body">
-          <h5 class="card-title fw-semibold">{{ product.name }}</h5>
-          <p class="card-text">{{ product.description }}</p>
-          <p class="price">${{ product.price }}</p>
-          <label class="form-label">Choose Capacity:</label>
-          <select class="form-select mb-3">
-            <option selected disabled>Choose...</option>
-            {% for cap in product.capacities %}
-            <option value="{{ cap.value }}">{{ cap.label }}</option>
-            {% endfor %}
-          </select>
-          <button class="btn btn-primary w-100">
-            <i class="bi bi-bag-plus me-1"></i>Buy Now
-          </button>
+  <section id="section1">
+    <div class="container">
+      <h2 data-i18n="section1_title">三大核心功能</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <h5>不佔用 Mac 空間</h5>
+            <p>Windows 和遊戲都裝在 OStation 裡面的 SSD 上，完全不吃 Mac 本機硬碟。</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <h5>隨接即用</h5>
+            <p>接上 Mac 就能用 Windows 11，免安裝、免設定。</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <h5>工作 & 遊戲兩不誤</h5>
+            <p>工作：股票、繪圖順暢用。</p>
+            <p>遊戲：Steam、Battle.net 等遊戲平台隨便玩。</p>
+          </div>
         </div>
       </div>
     </div>
-    {% endfor %}
-  </div>
-</div>
-{% endblock %}
+  </section>
+
+</body>
+</html>
