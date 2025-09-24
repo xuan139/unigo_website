@@ -449,37 +449,6 @@ footer .social-icons a:hover {
   padding-left: 1.5rem;
 }
 
-/* 默认问题文字颜色 */
-.professional-accordion-button {
-  color: #051d40;
-  font-size: 1.1rem; /* 比答案略大 */
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-/* 当问题被选中（展开）时文字变 #00DAEA */
-.professional-accordion-button:not(.collapsed) {
-  color: #00DAEA;
-}
-
-/* 鼠标悬停也变色 + 下划线 */
-.professional-accordion-button:hover {
-  color: #00DAEA;
-  text-decoration: underline; /* 可选 */
-}
-
-/* 答案文字 */
-.professional-accordion-body .answer-text {
-  color: #051d40;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-/* 展开答案时突出一点 */
-.accordion-collapse.show .answer-text {
-  color: #00DAEA;
-  font-weight: 600;
-}
 
 
 /* 表格默认样式 */
