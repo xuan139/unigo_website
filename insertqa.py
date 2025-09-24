@@ -4,7 +4,7 @@ import os
 # 获取数据库路径
 DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'crm.db')
 
-# ⚡️ 新的 QA mock 数据
+# ⚡️ 新的 QA  数据
 QA_DATA = [
     ("為什麼插上裝置後無反應？", "請確認 Type-C 接口支援資料傳輸，並重新插拔裝置"),
     ("HDMI 無訊號怎麼辦？", "確認設備支援 DP Alt Mode，並使用符合規格的 HDMI 線"),

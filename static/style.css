@@ -109,6 +109,50 @@ body {
   font-size: 1rem;
 }
 
+/* Banner 文字统一亮青色 */
+
+#banner {
+  padding-top: 60px; /* 根据 navbar 实际高度调整 */
+}
+
+@media (max-width: 768px) {
+  #banner {
+    padding-top: 60px; /* 手机时 navbar 高度略小 */
+  }
+}
+
+.banner-copy {
+  color: #00DAEA;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* 桌面字体大小 */
+.banner-copy h1 {
+  font-size: 2.5rem; /* 可根据设计调整 */
+}
+.banner-copy p {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 手机自适应 */
+@media (max-width: 768px) {
+  .banner-copy h1 { font-size: 1.8rem; }
+  .banner-copy p { font-size: 1.2rem; }
+}
+@media (max-width: 480px) {
+  .banner-copy h1 { font-size: 1.5rem; }
+  .banner-copy p { font-size: 1rem; }
+}
+
+/* 保证 overlay 文字垂直居中 */
+.position-absolute.d-flex.align-items-center {
+  top: 0;
+  bottom: 0;
+}
+
+
 /* --------- Footer 样式 --------- */
 .footer {
   background-color: #051d40; /* 深蓝色背景 */
@@ -242,6 +286,16 @@ footer .social-icons a:hover {
   color: #ffffff; /* 分隔符白色 */
   margin: 0 0.25rem;
   font-weight: 700;
+}
+
+.modal-body {
+  color: #051d40; /* 深蓝色 */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.modal-body a {
+  color: #051d40;
+  text-decoration: underline;
 }
 
 /* --------- Section 1 样式 --------- */
@@ -415,7 +469,7 @@ footer .social-icons a:hover {
 /* 答案靠左 */
 .professional-accordion-body {
   text-align: left;
-  padding-left: 0.75 rem; /* 可根据需要调整 */
+  padding-left: 0.75rem; /* 可根据需要调整 */
 }
 
 /* hover 效果：文字加深 + 左侧高亮条 */
@@ -487,7 +541,7 @@ footer .social-icons a:hover {
 .table-hover tbody th {
   color: #051d40;           /* 默认文字颜色 */
   font-weight: 400;          /* 默认字体 */
-  font-size: 1.15 rem;       /* 放大字体 */
+  font-size: 1.15rem;       /* 放大字体 */
   transition: color 0.3s ease, font-weight 0.3s ease, text-shadow 0.3s ease;
 }
 
@@ -509,7 +563,7 @@ footer .social-icons a:hover {
 .table-hover tbody tr:hover th {
   color: #00DAEA;         /* 文字变青色 */
   font-weight: 700;        /* 字体加粗 */
-  font-size: 1.35 rem;  
+  font-size: 1.35rem;  
   transition: color 0.3s ease, font-weight 0.3s ease;
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="../static/style.css?v=20250923">
 </head>
+
+
 <body class="theme-light">
   <div id="scroll-progress"></div>
 
@@ -63,13 +65,15 @@
         <div class="container">
           <div class="p-3 p-sm-4 banner-copy" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
             <h1 class="h4 mb-2" data-i18n="banner_title">無縫體驗 PC on Mac</h1>
-            <p class="mb-2" data-i18n="banner_subtitle1">工作、娛樂， OStation 一台搞定！</p>
-            <p class="mb-0" data-i18n="banner_subtitle2">預裝 Steam、Battle.net、Bluestacks、Windows 11，體驗隨接即用的絲滑享受。</p>
+            <p class="mb-2" data-i18n="banner_subtitle1">工作 娛樂 OStation 一台搞定！</p>
+            <p class="mb-0" data-i18n="banner_subtitle2">預裝 Steam Battle.net Bluestacks Windows 11 體驗隨接即用的絲滑享受。</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  
 
   
   <section id="section1" class="section1">
@@ -314,7 +318,7 @@
 
   <footer class="footer">
     <div class="container">
-      <!-- 主要内容区域 -->
+      <!-- 第一行：公司信息 + 联系方式 + 产品 + 支持 -->
       <div class="footer-main">
         <div class="row g-4">
           <!-- 公司信息 -->
@@ -331,7 +335,7 @@
               </div>
             </div>
           </div>
-
+  
           <!-- 联系方式 -->
           <div class="col-lg-2 col-md-6">
             <div class="footer-section">
@@ -352,9 +356,9 @@
               </div>
             </div>
           </div>
-
+  
           <!-- 产品信息 -->
-          <div class="col-lg-2 col-md-6">
+          <div class="col-lg-2 col-md-6 ms-lg-auto">
             <div class="footer-section">
               <h5 class="footer-title" data-i18n="footer_products_title">產品</h5>
               <div class="footer-content">
@@ -363,88 +367,212 @@
                   <li><a href="#section2" data-i18n="footer_link_why">為什麼選擇我們</a></li>
                   <li><a href="#section3" data-i18n="footer_link_product_intro">產品介紹</a></li>
                   <li><a href="#section4" data-i18n="footer_link_specs">產品規格</a></li>
-                  <li><a href="#section6" data-i18n="footer_link_faq">常見問題</a></li>
+                  <!-- <li><a href="#section6" data-i18n="footer_link_faq">常見問題</a></li> -->
                 </ul>
               </div>
             </div>
           </div>
-
+  
           <!-- 支持与资源 -->
-          <div class="col-lg-2 col-md-6">
+          <div class="col-lg-2 col-md-6" style="margin-left: 80px;">
             <div class="footer-section">
               <h5 class="footer-title" data-i18n="footer_support_title">支援</h5>
               <div class="footer-content">
                 <ul class="footer-links">
                   <li><a href="#section6" data-i18n="footer_support_faq">常見問題</a></li>
                   <li><a href="https://unigo.ai/forum" target="_blank" data-i18n="footer_support_forum">社區論壇</a></li>
-                  <li><a href="/downloads" data-i18n="footer_support_downloads">下載中心</a></li>
-                  <li><a href="mailto:contact@unigo.ai" data-i18n="footer_support_tech">技術支援</a></li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#warrantyModal">
+                      產品保固與退換貨說明
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#usageModal">
+                      其他使用注意事項
+                    </a>
+                  </li>
+
+                  <!-- 產品保固與退換貨說明 Modal -->
+                  <div class="modal fade" id="warrantyModal" tabindex="-1" aria-labelledby="warrantyModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="warrantyModalLabel">產品保固與退換貨說明</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>本產品提供2年保固，保固期內非人為損壞可享免費維修服務。</p>
+                          <p>辦理退貨或換貨時，須提供購買憑證並保留完整包裝。自到貨日起七天內，若商品未拆封且為全新狀態，可申請退貨。若商品有外觀瑕疵或無法正常使用，請聯繫客服，我們將確認問題並安排換貨或退貨。</p>
+                          <p><strong>※ 以下情況不適用於保固服務：</strong></p>
+                          <ul>
+                            <li>因外力造成損壞（如刮痕、凹陷、電子零件損壞等）</li>
+                            <li>因意外、誤用、進水、火災、天災等外部因素造成的損壞</li>
+                            <li>非經本公司授權人員維修所導致的問題</li>
+                            <li>因人為因素導致系統異常（如病毒感染、誤格式化、系統檔案損毀等）</li>
+                          </ul>
+                          <p><strong>※ 維修服務說明：</strong></p>
+                          <ul>
+                            <li>如需產品維修，請由使用者自行負擔運費，將產品寄回本公司進行檢測與處理</li>
+                            <li>若符合保固條件與保固期間內，將免收維修費用，並提供免費回寄服務</li>
+                            <li>若產品損壞不屬於保固範圍，或已超過保固期限，可能會產生額外維修或零件費用，並將另行通知</li>
+                          </ul>
+                          <p>客服信箱 : <a href="mailto:contact@unigo.ai">contact@unigo.ai</a><br>
+                            電話 : +886-2-2771-5900</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 其他使用注意事項 Modal -->
+                  <div class="modal fade" id="usageModal" tabindex="-1" aria-labelledby="usageModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="usageModalLabel">其他使用注意事項</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>由於市售 USB 集線器或多功能轉接器的供電能力不一，為確保產品穩定運作，建議直接連接電腦使用 OStation，以避免供電不足或訊號不穩定的狀況。</p>
+                          <p>部分電腦原廠因配置規格不同，使用上效能可能有異，令遊戲平台及遊戲設計之各類條件下，亦不保證所有機型皆能正常使用。</p>
+                          <p>當所有連接埠同時使用時，總共的共享頻寬為 10Gbps。</p>
+                          <p>注意：不支援透過 TYPE-C 埠連接外接螢幕。</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </ul>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+  
+      <!-- 第二行：社交媒体 + 电子报 -->
+      <div class="row g-4 justify-content-center mt-4">
+        <div class="col-md-8 text-center">
+          <div class="social-icons mb-3">
+            <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" title="Line"><i class="fab fa-line"></i></a>
+            <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:contact@unigo.ai" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+          <div class="newsletter">
+            <p class="newsletter-text" data-i18n="newsletter_title">訂閱我們的電子報</p>
+            <div class="newsletter-form d-flex justify-content-center">
+              <input type="email" class="form-control me-2" placeholder="輸入您的郵箱" data-i18n="newsletter_placeholder">
+              <button class="btn btn-primary btn-sm" data-i18n="newsletter_subscribe">訂閱</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 分隔线 -->
+      <hr class="footer-divider mt-4">
+  
+      <!-- 底部版权信息 + 条款 -->
+      <div class="footer-bottom text-center mt-3">
+        <p class="copyright mb-1">© 2025 OStation. All rights reserved.</p>
+        <!-- 底部法律条款 -->
+        <div class="footer-legal text-center mt-3">
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#termsModal">條款</a>
+          <span class="mx-2">|</span>
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#privacyModal">隱私政策</a>
+          <span class="mx-2">|</span>
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#cookieModal">Cookie 政策</a>
+        </div>
 
-          <!-- 社交媒体 -->
-          <div class="col-lg-2 col-md-6">
-            <div class="footer-section">
-              <h5 class="footer-title" data-i18n="footer_follow_title">關注我們</h5>
-              <div class="footer-content">
-                <div class="social-icons">
-                  <a href="#" class="social-icon" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" class="social-icon" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                  <a href="#" class="social-icon" title="Line">
-                    <i class="fab fa-line"></i>
-                  </a>
-                  <a href="#" class="social-icon" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                  </a>
-                  <a href="mailto:contact@unigo.ai" class="social-icon" title="Email">
-                    <i class="fas fa-envelope"></i>
-                  </a>
-                </div>
-                <div class="newsletter mt-3">
-                  <p class="newsletter-text" data-i18n="newsletter_title">訂閱我們的電子報</p>
-                  <div class="newsletter-form">
-                    <input type="email" class="form-control" placeholder="輸入您的郵箱" data-i18n="newsletter_placeholder">
-                    <button class="btn btn-primary btn-sm" data-i18n="newsletter_subscribe">訂閱</button>
-                  </div>
-                </div>
+      </div>
+
+
+      <!-- 條款 Modal -->
+        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">條款</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>這是條款的  內容：</p>
+                <ul>
+                  <li>使用本網站即表示您同意遵守所有使用條款。</li>
+                  <li>禁止任何未經授權的內容修改或分發行為。</li>
+                  <li>本公司保留對條款更新的權利。</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 分隔线 -->
-      <hr class="footer-divider">
-
-      <!-- 底部版权信息 -->
-      <div class="footer-bottom">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <p class="copyright">© 2025 OStation. All rights reserved.</p>
-          </div>
-          <div class="col-md-6">
-            <div class="footer-legal">
-              <a href="#" class="legal-link" data-i18n="footer_terms">條款</a>
-              <span class="separator">|</span>
-              <a href="#" class="legal-link" data-i18n="footer_privacy">隱私政策</a>
-              <span class="separator">|</span>
-              <a href="#" class="legal-link" data-i18n="footer_cookie">Cookie 政策</a>
+        <!-- 隱私政策 Modal -->
+        <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="privacyModalLabel">隱私政策</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>這是隱私政策的  內容：</p>
+                <ul>
+                  <li>我們會保護您的個人資料並遵守相關法律。</li>
+                  <li>僅在必要情況下使用您的資料以提供服務。</li>
+                  <li>您可以隨時聯繫客服查詢或刪除資料。</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        <!-- Cookie 政策 Modal -->
+        <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cookieModalLabel">Cookie 政策</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>這是 Cookie 政策的  內容：</p>
+                <ul>
+                  <li>本網站使用 Cookie 提升使用體驗及統計數據。</li>
+                  <li>您可以選擇接受或拒絕 Cookie 的使用。</li>
+                  <li>拒絕 Cookie 可能會影響部分功能。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     </div>
+
   </footer>
 
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Language Data (moved to unified loader below) -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  
+    window.addEventListener('load', function () {
+      window.scrollTo(0, 0);
+    });
+  </script>
+  
+  
+  
   <script>
     // Keep only the serial form submission here; i18n loader is defined later
     document.getElementById("serialForm").addEventListener("submit", function(e) {
