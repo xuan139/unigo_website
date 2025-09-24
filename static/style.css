@@ -163,6 +163,19 @@ body {
 .footer .social-icons .social-icon:hover {
   transform: scale(1.2);
 }
+/* Footer 区域社媒图标统一白色 */
+footer .social-icons a {
+  color: #ffffff;          /* 图标颜色改成白色 */
+  font-size: 1.5rem;       /* 可根据需要调大小 */
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+/* hover 时给点高亮效果 */
+footer .social-icons a:hover {
+  color: #00DAEA;          /* hover 高亮成青色 */
+}
+
 
 /* Newsletter 样式 */
 .footer .newsletter-text {
@@ -223,6 +236,7 @@ body {
   text-align: center;
   transition: box-shadow 0.3s ease; /* 悬浮平滑过渡 */
   border-radius: 10px;
+  scroll-margin-top: 120px; /* 距离顶部留出导航栏的高度 */
 }
 
 .section1 .core-title {
@@ -230,7 +244,13 @@ body {
   font-weight: 700; /* 粗体 */
   font-size: 2rem;
   margin-bottom: 40px;
-  transition: color 0.3s ease; /* 标题颜色平滑过渡 */
+  /* transition: color 0.3s ease; 标题颜色平滑过渡 */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.section1 .core-title.active-title {
+  color: #00DAEA;  /* 高亮色 */
+  transform: scale(1.05); /* 轻微放大效果 */
 }
 
 .section1:hover {
@@ -255,13 +275,15 @@ body {
 .section1 .feature-card h5 {
   font-size: 1.25rem;
   margin-bottom: 15px;
-  font-weight: normal; /* 不使用粗体 */
+  font-weight: 700;        /* 使用粗体 */
+  color: #051d40;          /* 深蓝色 */
 }
 
 .section1 .feature-card p {
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  font-weight: normal; /* 不使用粗体 */
+  font-weight: normal;     /* 不使用粗体 */
+  color: #051d40;          /* 深蓝色 */
 }
 
 
@@ -269,6 +291,18 @@ body {
 .section1 .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.section1 .feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* hover 时标题、段落和列表文字都变色 */
+.section1 .feature-card:hover h5,
+.section1 .feature-card:hover p,
+.section1 .feature-card:hover .feature-list li {
+  color: #00DAEA; /* 亮青色 */
 }
 
 /* 去掉 ul 默认圆点 */
@@ -283,6 +317,33 @@ body {
   line-height: 1.6;    /* 行高更好阅读 */
   color: #070707;      /* 和 feature-card 文字一致 */
 }
+
+.section1 .feature-img {
+  margin-bottom: 15px;
+  text-align: center;
+  overflow: hidden; /* 保证放大不溢出 */
+  border-radius: 8px;
+}
+
+.section1 .feature-img img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.4s ease; /* 平滑过渡 */
+}
+
+/* 卡片 hover 时，图片放大 */
+.section1 .feature-card:hover .feature-img img {
+  transform: scale(1.05);
+}
+
+/* 卡片 hover 时，标题变色 */
+.section1 .feature-card:hover h5 {
+  color: #00DAEA;
+}
+
 
 #chatbot-toggle {
   position: fixed;
@@ -385,4 +446,50 @@ body {
 }
 #chat-input button:hover {
   background: #0056b3;
+}
+
+
+/* 桌面端导航：透明背景，白字 */
+.navbar {
+  background-color: transparent;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+/* hover 高亮 */
+.navbar-nav .nav-link:hover {
+  color: #00DAEA !important;
+}
+
+/* 移动端折叠菜单（覆盖展开背景和文字颜色） */
+@media (max-width: 991.98px) { /* 小于 lg 屏幕 */
+  .navbar-collapse {
+    background-color: #051d40 !important; /* 深蓝背景 */
+    padding: 1rem 0;
+  }
+
+  .navbar-collapse .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    display: block;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .navbar-collapse .nav-link:hover {
+    color: #00DAEA !important;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+  }
+}
+
+/* 汉堡按钮改为白色三条横线 */
+.navbar-toggler {
+  border: none !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28 255,255,255,1 %29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
