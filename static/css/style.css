@@ -3,10 +3,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #fff;
+  background-color: #f8f9fa;
   color: #051d40;
 }
 
+/* 横屏 */
+@media (orientation: landscape) {
+  .navbar .nav-link {
+    font-size: 0.75rem; /* 横屏字体稍小 */
+  }
+
+  .navbar .navbar-brand img {
+    height: 30px; /* 可以微调 logo 尺寸 */
+  }
+}
+
+/* 竖屏保持原有大小 */
+@media (orientation: portrait) {
+  .navbar .nav-link {
+    font-size: 1rem; /* 竖屏字体 */
+  }
+
+  .navbar .navbar-brand img {
+    height: 40px; /* 原始 logo 尺寸 */
+  }
+}
 
 /* --------- Header / Navbar 紧凑版样式 --------- */
 
@@ -121,7 +142,7 @@ body {
 /* Banner 文字统一亮青色 */
 
 #banner {
-  padding-top: 60px; /* 根据 navbar 实际高度调整 */
+  padding-top: 80px; /* 根据 navbar 实际高度调整 */
 }
 
 @media (max-width: 768px) {
