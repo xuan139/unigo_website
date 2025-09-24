@@ -7,14 +7,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="../static/style.css?v=20250923">
-</head>
 
+</head>
 
 <body class="theme-light">
   <div id="scroll-progress"></div>
-
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <!-- <nav class="navbar navbar-expand-lg fixed-top"> -->
+  <nav class="navbar navbar-expand-md fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="../static/images/unigo_logo_tr.png" alt="OStation Logo" class="logo">
@@ -556,34 +556,7 @@
 
   </footer>
 
-  
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Language Data (moved to unified loader below) -->
-  <script>
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-  
-    window.addEventListener('load', function () {
-      window.scrollTo(0, 0);
-    });
-  </script>
-  
-  
-  
-  <script>
-    // Keep only the serial form submission here; i18n loader is defined later
-    document.getElementById("serialForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const searchValue = document.getElementById("search").value;
-      fetch(`/serials_ajax?search=${encodeURIComponent(searchValue)}`)
-        .then(response => response.json())
-        .then(data => { alert(`${data.result}`); })
-        .catch(err => { alert("Error fetching data"); console.error(err); });
-    });
-  </script>
 
   <!-- AI Chat Assistant (Upgraded White Theme) -->
   <!-- Chat Trigger -->
@@ -601,247 +574,8 @@
       <button onclick="sendMessage()">▶</button>
     </div>
   </div>
-  
-  <!-- Logic -->
-  <script>
-    const toggleBtn = document.getElementById("chatbot-toggle");
-    const chatBox = document.getElementById("chatbot-box");
-    const closeBtn = document.getElementById("chatbot-close");
-    const chatLog = document.getElementById("chat-log");
-    
-    toggleBtn.onclick = () => {
-      chatBox.style.display = (chatBox.style.display === "flex") ? "none" : "flex";
-      chatBox.scrollTop = chatBox.scrollHeight;
-    };
-    
-    closeBtn.onclick = () => {
-      chatBox.style.display = "none";
-    };
-    
-    document.addEventListener('keydown', function (e) {
-      if (e.key === "Escape") {
-        chatBox.style.display = "none";
-      }
-    });
-    
-    function sendMessage() {
-      const input = document.getElementById("chat-message");
-      const msg = input.value.trim();
-      if (!msg) return;
-      chatLog.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
-      input.value = "";
 
-      // Simulate bot reply
-      setTimeout(() => {
-        const reply = getBotReply(msg);
-        chatLog.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
-        chatLog.scrollTop = chatLog.scrollHeight;
-      }, 500);
-    }
-    
-    function getBotReply(msg) {
-      msg = msg.toLowerCase();
-      if (msg.includes("download")) return "You can download it from the Downloads page.";
-      if (msg.includes("vmware")) return "Yes, a VMware image is included in your SSD package.";
-      if (msg.includes("steam")) return "Steam is ready with pre-installed games.";
-      return "I'm here to assist you! You can ask about setup, features, or downloads.";
-    }
-  </script>
-
-  <script>
-    async function loadTranslations(lang) {
-      try {
-        const res = await fetch(`/static/i18n/${lang}.json?v=${Date.now()}`);
-        if (!res.ok) throw new Error('Failed to load translations');
-        return await res.json();
-      } catch (e) {
-        console.error(e);
-        return null;
-      }
-    }
-
-    function applyTranslations(translations) {
-      if (!translations) return;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[key]) {
-          const tag = el.tagName.toLowerCase();
-          const value = translations[key];
-          if (tag === 'title') {
-            document.title = value;
-          } else if (tag === 'input' || tag === 'textarea') {
-            // Inputs/textareas: use placeholder for data-i18n
-            el.placeholder = value;
-          } else if (tag === 'button') {
-            el.textContent = value;
-          } else {
-            el.innerHTML = String(value).replace(/\n/g, '<br>');
-          }
-        } else {
-          // Optional: debug missing keys in console
-          // console.debug('Missing i18n key:', key);
-        }
-      });
-    }
-
-    async function updateTexts(lang) {
-      const translations = await loadTranslations(lang);
-      applyTranslations(translations);
-    }
-
-    // Language switching via dropdown with flags
-    function setLangUI(lang) {
-      const btn = document.getElementById('langDropdown');
-      if (!btn) return;
-      const map = {
-        en: { flag: '🇺🇸', label: 'English' },
-        zh: { flag: '🇨🇳', label: '简体中文' },
-        zh_tw: { flag: '🇭🇰', label: '繁體中文' },
-        ja: { flag: '🇯🇵', label: '日本語' },
-        ko: { flag: '🇰🇷', label: '한국어' },
-        th: { flag: '🇹🇭', label: 'ไทย' }
-      };
-      const info = map[lang] || map.en;
-      btn.querySelector('.flag').textContent = info.flag;
-      btn.querySelector('.label').textContent = info.label;
-    }
-    document.querySelectorAll('.lang-item').forEach(item => {
-      item.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const lang = item.getAttribute('data-lang');
-        await updateTexts(lang);
-        localStorage.setItem('lang', lang);
-        document.documentElement.setAttribute('lang', lang);
-        setLangUI(lang);
-      });
-    });
-
-    // FAQ 搜索功能（若搜索框存在才绑定）
-    (function() {
-      const searchEl = document.getElementById('faqSearch');
-      if (!searchEl) return;
-      searchEl.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const accordionItems = document.querySelectorAll('.professional-accordion-item');
-        accordionItems.forEach(item => {
-          const questionText = (item.querySelector('.question-title')?.textContent || '').toLowerCase();
-          const answerText = (item.querySelector('.answer-text')?.textContent || '').toLowerCase();
-          item.style.display = (questionText.includes(searchTerm) || answerText.includes(searchTerm)) ? 'block' : 'none';
-        });
-      });
-    })();
-
-    window.addEventListener('DOMContentLoaded', async () => {
-      let savedLang = localStorage.getItem('lang');
-      if (!savedLang) {
-        const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-        if (nav.startsWith('zh-tw') || nav.startsWith('zh-hk') || nav.startsWith('zh-hant')) savedLang = 'zh_tw';
-        else if (nav.startsWith('zh')) savedLang = 'zh';
-        else if (nav.startsWith('ja')) savedLang = 'ja';
-        else if (nav.startsWith('ko')) savedLang = 'ko';
-        else if (nav.startsWith('th')) savedLang = 'th';
-        else savedLang = 'en';
-      }
-      document.documentElement.setAttribute('lang', savedLang);
-      await updateTexts(savedLang);
-      setLangUI(savedLang);
-
-      // Theme toggle removed per request
-    });
-
-    // Header 交互：滚动收缩 + 进度条
-    const navbar = document.querySelector('.navbar');
-    const progress = document.getElementById('scroll-progress');
-    let lastY = 0;
-    const links = document.querySelectorAll('.navbar .nav-link[href^="#"]');
-    const sections = Array.from(links)
-      .map(a => ({ a, id: a.getAttribute('href'), el: document.querySelector(a.getAttribute('href')) }))
-      .filter(x => x.id && x.el);
-
-    function updateActiveLink(y) {
-      // 找到当前视口中最靠近顶部的 section
-      const offset = 120; // 提前激活一点点
-      let current = null;
-      for (const s of sections) {
-        const rect = s.el.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-        if (y + offset >= top) current = s;
-      }
-      links.forEach(l => l.classList.remove('active'));
-      if (current) current.a.classList.add('active');
-      // Toggle active style on section titles (H2)
-      document.querySelectorAll('section h2').forEach(h => h.classList.remove('section-title-active'));
-      // Toggle active class on sections to affect both h2 and h5
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('section-active'));
-      if (current && current.el) {
-        const h2 = current.el.querySelector('h2');
-        if (h2) h2.classList.add('section-title-active');
-        current.el.classList.add('section-active');
-      }
-    }
-
-    function onScroll() {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      if (navbar) {
-        if (y > 10) navbar.classList.add('navbar-scrolled');
-        else navbar.classList.remove('navbar-scrolled');
-        // 向下滚动隐藏，向上滚动显示
-        if (y > lastY && y > 80) navbar.classList.add('navbar-hidden');
-        else navbar.classList.remove('navbar-hidden');
-      }
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - doc.clientHeight;
-      const pct = max > 0 ? (y / max) * 100 : 0;
-      if (progress) progress.style.width = pct + '%';
-      updateActiveLink(y);
-      lastY = y;
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // 移动端：点击导航链接后自动收起折叠菜单
-    const collapseEl = document.getElementById('navbarNav');
-    if (collapseEl) {
-      const navLinks = document.querySelectorAll('.navbar .nav-link[href^="#"]');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (collapseEl.classList.contains('show')) {
-            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl);
-            bsCollapse.hide();
-          }
-          // Immediately highlight target section title
-          const target = document.querySelector(link.getAttribute('href'));
-          if (target) {
-            document.querySelectorAll('section').forEach(sec => sec.classList.remove('section-active'));
-            document.querySelectorAll('section h2').forEach(h => h.classList.remove('section-title-active'));
-            target.classList.add('section-active');
-            const h2 = target.querySelector('h2');
-            if (h2) h2.classList.add('section-title-active');
-          }
-        });
-      });
-    }
-  </script>
-
-  <script>
-    document.querySelectorAll('.professional-accordion-button').forEach(button => {
-      const targetId = button.getAttribute('data-bs-target');
-      const collapseEl = document.querySelector(targetId);
-
-      button.addEventListener('mouseenter', () => {
-        // 打开答案
-        const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-        bsCollapse.show();
-      });
-
-      button.addEventListener('mouseleave', () => {
-        // 关闭答案
-        const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-        bsCollapse.hide();
-      });
-    });
-  </script>
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/main.js"></script>
 </body>
 </html>

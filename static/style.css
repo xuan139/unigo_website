@@ -7,11 +7,20 @@ body {
   color: #051d40;
 }
 
+
 /* --------- Header / Navbar 紧凑版样式 --------- */
+
 .navbar {
-  background-color: #051d40 !important; /* 深蓝色背景 */
-  padding: 0.2rem 1rem; /* 减小上下留白，整体更紧凑 */
+  background-color: #051d40 !important;
+  padding: 0.3rem 1rem; /* 适中上下间距，紧凑但不遮挡 */
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.35rem 1rem; /* 手机竖屏微调 */
+  }
+}
+
 
 .navbar .navbar-brand img.logo {
   height: 60px;  /* 缩小 logo 高度 */
