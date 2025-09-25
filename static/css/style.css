@@ -7,26 +7,50 @@ body {
   color: #051d40;
 }
 
-/* 横屏 */
-@media (orientation: landscape) {
-  .navbar .nav-link {
-    font-size: 0.75rem; /* 横屏字体稍小 */
-  }
+/* 關於我們 Section 樣式 */
+.section-about {
+  background-color: #f8f9fa; /* 淺灰背景，可改成與 banner 或其他 section 匹配 */
+  color: #051d40;
+}
 
-  .navbar .navbar-brand img {
-    height: 30px; /* 可以微调 logo 尺寸 */
+.section-about h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.section-about p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* 手機和小屏幕調整 */
+@media (max-width: 767px) {
+  .section-about h2 {
+    font-size: 1.5rem;
+  }
+  .section-about p {
+    font-size: 0.95rem;
   }
 }
 
-/* 竖屏保持原有大小 */
-@media (orientation: portrait) {
-  .navbar .nav-link {
-    font-size: 1rem; /* 竖屏字体 */
-  }
+/* 關於我們 Section 字體顏色及 hover 效果 */
+#about {
+  color: #051d40; /* 默认深蓝色 */
+}
 
-  .navbar .navbar-brand img {
-    height: 40px; /* 原始 logo 尺寸 */
-  }
+#about p, 
+#about h2 {
+  transition: color 0.3s ease; /* 平滑过渡效果 */
+}
+
+#about:hover {
+  color: #00DAEA; /* 整个 section hover 后字体变为荧光蓝 */
+}
+
+#about:hover p,
+#about:hover h2 {
+  color: #00DAEA;
 }
 
 /* --------- Header / Navbar 紧凑版样式 --------- */
@@ -34,12 +58,6 @@ body {
 .navbar {
   background-color: #051d40 !important;
   padding: 0.3rem 1rem; /* 适中上下间距，紧凑但不遮挡 */
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0.35rem 1rem; /* 手机竖屏微调 */
-  }
 }
 
 
@@ -102,6 +120,7 @@ body {
     color: #ffffff !important;
     font-weight: 600;
     padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;  /* 字体稍微缩小 */
   }
 
   .navbar-collapse .nav-link:hover {
@@ -141,16 +160,6 @@ body {
 
 /* Banner 文字统一亮青色 */
 
-#banner {
-  padding-top: 80px; /* 根据 navbar 实际高度调整 */
-}
-
-@media (max-width: 768px) {
-  #banner {
-    padding-top: 60px; /* 手机时 navbar 高度略小 */
-  }
-}
-
 .banner-copy {
   color: #00DAEA;
   font-weight: 600;
@@ -159,21 +168,21 @@ body {
 
 /* 桌面字体大小 */
 .banner-copy h1 {
-  font-size: 2.5rem; /* 可根据设计调整 */
+  font-size: 2.0rem; /* 可根据设计调整 */
 }
 .banner-copy p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
 /* 手机自适应 */
 @media (max-width: 768px) {
-  .banner-copy h1 { font-size: 1.8rem; }
-  .banner-copy p { font-size: 1.2rem; }
+  .banner-copy h1 { font-size: 1.5rem; }
+  .banner-copy p { font-size: 1.1rem; }
 }
 @media (max-width: 480px) {
-  .banner-copy h1 { font-size: 1.5rem; }
-  .banner-copy p { font-size: 1rem; }
+  .banner-copy h1 { font-size: 0.9rem; }
+  .banner-copy p { font-size: 0.7rem; }
 }
 
 /* 保证 overlay 文字垂直居中 */

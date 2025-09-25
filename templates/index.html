@@ -7,7 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="../static/css/style.css?v=20250923">
-
+  <!-- ICO 兼容所有浏览器 -->
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/x-icon">
 </head>
 
 <body class="theme-light">
@@ -25,8 +26,8 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#section1" data-i18n="nav_s1">核心功能</a></li>
-          <li class="nav-item"><a class="nav-link" href="#section2" data-i18n="nav_s2">優勢</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#section1" data-i18n="nav_s1">核心功能</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section2" data-i18n="nav_s2">優勢</a></li> -->
           <li class="nav-item"><a class="nav-link" href="#section3" data-i18n="nav_s3">產品介紹</a></li>
           <li class="nav-item"><a class="nav-link" href="#section4" data-i18n="nav_s4">產品規格</a></li>
           <li class="nav-item"><a class="nav-link" href="#section5" data-i18n="nav_s5">論壇</a></li>
@@ -64,126 +65,78 @@
       <div class="position-absolute top-50 start-0 translate-middle-y w-100">
         <div class="container">
           <div class="p-3 p-sm-4 banner-copy" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
-            <h1 class="h4 mb-2" data-i18n="banner_title">無縫體驗 PC on Mac</h1>
-            <p class="mb-2" data-i18n="banner_subtitle1">工作 娛樂 OStation 一台搞定！</p>
-            <p class="mb-0" data-i18n="banner_subtitle2">預裝 Steam Battle.net Bluestacks Windows 11 體驗隨接即用的絲滑享受。</p>
+            <h1 class="h4 mb-2" data-i18n="banner_title">凌航科技 × 武盾多利 ，攜手打造!</h1>
+            <p class="mb-2" data-i18n="banner_subtitle1">工作 娛樂 一台搞定！</p>
+            <p class="mb-0" data-i18n="banner_subtitle2">預裝 Windows 11與多種遊戲平台，體驗隨接即用的絲滑享受。</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  
-
-  
-  <section id="section1" class="section1">
+  <!-- 關於我們 Section -->
+  <section id="about" class="section-about py-5 bg-light">
     <div class="container">
-      <h2 class="core-title" data-i18n="section1_title">
-        三大核心功能
-      </h2>
-      <div class="row g-3 mt-4">
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>不佔用 Mac 空間</h5>
-            <p>Windows 和遊戲都裝在 OStation 裡面的 SSD 上,完全不吃 Mac 本機硬碟</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>隨接即用</h5>
-            <p>接上 Mac 就能用 Windows 11 , 免安裝 , 免設定。</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>工作 & 遊戲兩不誤</h5>
-            <p>工作: 股票, 繪圖順暢用。</p>
-            <p>遊戲: Steam, Battle.net 等遊戲平台隨便玩。</p>
-          </div>
+      <h2 class="mb-4 text-center">關於我們</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <p>武盾多利有限公司致力於消費型 AI 與電子產品的研發與創新，秉持「以科技提升生活品質」的理念，為使用者打造更智慧、更便利的體驗。</p>
+          <p>我們的核心優勢在於跨平台研發能力，能將軟體與硬體深度整合，發揮最大效能。同時，我們將使用者體驗視為產品設計的核心，專注於直覺化與便利性的設計思維，讓每一項產品都能真正貼近使用需求。</p>
+          <p>武盾多利有限公司將持續推動創新，提供卓越的 AI 與電子產品解決方案，為消費市場注入更多智慧與驚喜。</p>
         </div>
       </div>
     </div>
   </section>
-  
-  <section id="section2" class="section1">
+
+
+  <section id="section3" class="section1">
     <div class="container">
-      <h2 class="core-title" data-i18n="why_title">
-        產品4大特色，工作遊戲全面升級
+      <h2 class="core-title text-center mb-4">
+        產品特色
       </h2>
-      <div class="row g-3 mt-4 justify-content-center">
-        <!-- Card 1 -->
-        <div class="col-md-6">
-          <div class="feature-card">
+  
+      <div class="row g-4">
+
+                
+        <!-- Card 5 -->
+        <!-- Card 5 -->
+        <div class="col-12">
+          <div class="feature-card d-flex flex-column align-items-center text-center p-3 border rounded shadow-sm">
+            <img src="https://picsum.photos/640/360?random=5" alt="Feature 5" class="img-fluid rounded mb-3">
             <h5>資料零遺失，遊戲檔案一手掌握！</h5>
             <p>
-              把所有 Windows 資料、超大遊戲通通存進凌航企業級工控 Neo Forza SSD，<br>
-              1TB 大容量，保存不佔 Mac 空間，速度更快、體驗更爽，<br>
+              把所有 Windows 資料、超大遊戲通通<br>
+              存進凌航企業級工控 Neo Forza SSD，<br>
+              1TB 大容量，保存不佔 Mac 空間，<br>
+              速度更快、體驗更爽，<br>
               玩得盡興再也不用妥協！
             </p>
           </div>
         </div>
-        <!-- Card 2 -->
-        <div class="col-md-6">
-          <div class="feature-card">
-            <h5>聯名合作</h5>
-            <p>
-              與上市公司凌航聯名共同製造，<br>
-              採用企業級 Neo Forza SSD，<br>
-              確保高速存取與穩定效能。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-
-  <section id="section3" class="section1">
-    <div class="container">
-      <h2 class="core-title">
-        產品介紹
-      </h2>
-  
-      <div class="row g-4">
         <!-- Card 1 -->
-        <div class="col-md-6">
-          <div class="feature-card">
-            <div class="feature-img">
-              <img src="https://picsum.photos/360/360?random=1" alt="Feature 1">
-            </div>
+        <div class="col-12">
+          <div class="feature-card d-flex flex-column align-items-center text-center p-3 border rounded shadow-sm">
+            <img src="https://picsum.photos/640/360?random=1" alt="Feature 1" class="img-fluid rounded mb-3">
             <h5>隨接即用，工作 & 遊戲兩不誤！</h5>
-            <p>
-              Mac 秒變 Windows，免安裝、免設定，<br>
-              Office、股票、繪圖軟體順暢用，高效辦公零壓力！<br>
-              一鍵啟動 Windows 11！
-            </p>
+            <p>Mac 秒變 Windows 免安裝 免設定，Office、股票、繪圖軟體順暢用 高效辦公零壓力！一鍵啟動 Windows 11!</p>
           </div>
         </div>
   
         <!-- Card 2 -->
-        <div class="col-md-6">
-          <div class="feature-card">
-            <div class="feature-img">
-              <img src="https://picsum.photos/360/360?random=2" alt="Feature 2">
-            </div>
+        <div class="col-12">
+          <div class="feature-card d-flex flex-column align-items-center text-center p-3 border rounded shadow-sm">
+            <img src="https://picsum.photos/640/360?random=2" alt="Feature 2" class="img-fluid rounded mb-3">
             <h5>極致遊戲體驗</h5>
-            <p>
-              Steam、Battle.net、Bluestacks 隨接即玩，<br>
-              內建 Wine + GPU 硬體加速，<br>
-              高畫質、零延遲，<br>
-              支援手把、搖桿，暢玩大作更爽快！
-            </p>
+            <p>Steam、Battle.net、Bluestacks 隨接即玩，內建 Wine + GPU 硬體加速，高畫質、零延遲，支援手把、搖桿，暢玩大作更爽快！</p>
           </div>
         </div>
   
         <!-- Card 3 -->
-        <div class="col-md-6">
-          <div class="feature-card">
-            <div class="feature-img">
-              <img src="https://picsum.photos/360/360?random=3" alt="Feature 3">
-            </div>
+        <div class="col-12">
+          <div class="feature-card d-flex flex-column align-items-center text-center p-3 border rounded shadow-sm">
+            <img src="https://picsum.photos/640/360?random=3" alt="Feature 3" class="img-fluid rounded mb-3">
             <h5>全能擴充，一機多用</h5>
-            <ul class="feature-list">
+            <ul class="feature-list text-start">
               <li>Type-A USB 3.2 Gen2 (10Gbps) x2</li>
               <li>Type-C PD 3.0 快充 (100W) x2</li>
               <li>RJ45 乙太網路 (100Mbps) x1</li>
@@ -193,20 +146,20 @@
         </div>
   
         <!-- Card 4 -->
-        <div class="col-md-6">
-          <div class="feature-card">
-            <div class="feature-img">
-              <img src="https://picsum.photos/360/360?random=4" alt="Feature 4">
-            </div>
+        <div class="col-12">
+          <div class="feature-card d-flex flex-column align-items-center text-center p-3 border rounded shadow-sm">
+            <img src="https://picsum.photos/640/360?random=4" alt="Feature 4" class="img-fluid rounded mb-3">
             <h5>一次購買 · 永久升級</h5>
-            <p>
-              買就送 OStation 虛擬機軟體，終身更新，沒有額外訂閱費。
-            </p>
+            <p>買就送 OStation 虛擬機軟體，終身更新，沒有額外訂閱費。</p>
           </div>
         </div>
+  
+
+
       </div>
     </div>
   </section>
+  
   
   
   
@@ -363,8 +316,8 @@
               <h5 class="footer-title" data-i18n="footer_products_title">產品</h5>
               <div class="footer-content">
                 <ul class="footer-links">
-                  <li><a href="#section1" data-i18n="footer_link_features">核心特性</a></li>
-                  <li><a href="#section2" data-i18n="footer_link_why">為什麼選擇我們</a></li>
+                  <!-- <li><a href="#section1" data-i18n="footer_link_features">核心特性</a></li>
+                  <li><a href="#section2" data-i18n="footer_link_why">為什麼選擇我們</a></li> -->
                   <li><a href="#section3" data-i18n="footer_link_product_intro">產品介紹</a></li>
                   <li><a href="#section4" data-i18n="footer_link_specs">產品規格</a></li>
                   <!-- <li><a href="#section6" data-i18n="footer_link_faq">常見問題</a></li> -->
@@ -511,25 +464,66 @@
           </div>
         </div>
 
-        <!-- 隱私政策 Modal -->
-        <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="privacyModalLabel">隱私政策</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>這是隱私政策的  內容：</p>
-                <ul>
-                  <li>我們會保護您的個人資料並遵守相關法律。</li>
-                  <li>僅在必要情況下使用您的資料以提供服務。</li>
-                  <li>您可以隨時聯繫客服查詢或刪除資料。</li>
-                </ul>
-              </div>
-            </div>
+    <!-- 隱私政策 Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">隱私政策</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>OStation（以下簡稱「本網站」）重視您的個人資料與隱私權。本隱私條款將說明我們如何收集、使用、保護您的資訊，並保障您的權益。</p>
+
+            <h6>一、資料收集方式</h6>
+            <ul>
+              <li>基本資料：如姓名、電子郵件、聯絡方式。</li>
+              <li>使用資訊：如瀏覽紀錄、裝置資訊、IP 位址。</li>
+              <li>交易資訊：如付款或訂單相關資料（僅於必要時收集）。</li>
+            </ul>
+
+            <h6>二、資料使用目的</h6>
+            <ul>
+              <li>提供與優化本網站服務。</li>
+              <li>客戶服務及回覆您的查詢。</li>
+              <li>行銷推廣、活動通知（需經您同意）。</li>
+              <li>法律或政府機關要求之必要配合。</li>
+            </ul>
+
+            <h6>三、資料保護</h6>
+            <ul>
+              <li>我們採用合適的安全措施，以防止未經授權的存取、洩漏、竄改或破壞。</li>
+              <li>僅授權員工可存取個人資料，並依法履行保密義務。</li>
+            </ul>
+
+            <h6>四、資料分享與第三方</h6>
+            <ul>
+              <li>除非符合以下情況，我們不會與第三方分享您的個人資料：</li>
+              <ul>
+                <li>經您事前同意。</li>
+                <li>為完成付款、物流或服務所必須。</li>
+                <li>法律要求或政府機關依程序要求。</li>
+              </ul>
+            </ul>
+
+            <h6>五、使用者權利</h6>
+            <ul>
+              <li>查詢、閱覽您的個人資料。</li>
+              <li>請求更正或刪除您的資料。</li>
+              <li>要求停止蒐集、處理或利用您的個人資料。</li>
+              <li>若您希望行使上述權利，請透過本網站提供的聯絡方式與我們聯繫。</li>
+            </ul>
+
+            <h6>六、隱私條款修訂</h6>
+            <p>本網站保留隨時修訂本條款之權利。修訂後的條款將公告於本網站，並自公告日起生效。</p>
+
+            <h6>七、聯絡我們</h6>
+            <p>若您對本隱私條款有任何疑問，請透過 <a href="mailto:contact@unigo.ai">contact@unigo.ai</a> 與我們聯繫。</p>
           </div>
         </div>
+      </div>
+    </div>
+
 
         <!-- Cookie 政策 Modal -->
         <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
