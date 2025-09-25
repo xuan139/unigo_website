@@ -161,7 +161,7 @@ body {
 /* Banner 文字统一亮青色 */
 
 .banner-copy {
-  color: #00DAEA;
+  color: #ffffff;
   font-weight: 600;
   line-height: 1.3;
 }
@@ -183,6 +183,14 @@ body {
 @media (max-width: 480px) {
   .banner-copy h1 { font-size: 0.9rem; }
   .banner-copy p { font-size: 0.7rem; }
+}
+
+.color1 {
+  color: #daaa00 !important; /* 你想要的颜色 */
+}
+
+.color2 {
+  color: #cc0000 !important; /* 另一个颜色 */
 }
 
 /* 保证 overlay 文字垂直居中 */
@@ -348,7 +356,7 @@ footer .social-icons a:hover {
 }
 
 .section1 .core-title {
-  color: #051d40; /* 深蓝色字体 */
+  color: #b4b4b4;/* 深蓝色字体 */
   font-weight: 700; /* 粗体 */
   font-size: 2rem;
   margin-bottom: 40px;
@@ -583,6 +591,21 @@ footer .social-icons a:hover {
 /* 卡片 hover 时，标题变色 */
 .section1 .feature-card:hover h5 {
   color: #00DAEA;
+}
+
+/* 默认颜色 */
+
+
+#section3 .core-title {
+  color: #b4b4b4; /* 灰色 */
+  font-weight: 700; /* 粗体 */
+  font-size: 2rem;
+  transition: color 0.3s ease; /* 平滑过渡 */
+}
+
+/* hover 时改变颜色 */
+#section3 .core-title:hover {
+  color: #00DAEA; /* 荧光蓝 */
 }
 
 /* FAQ 样式 */
