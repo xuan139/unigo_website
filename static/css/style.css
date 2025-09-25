@@ -363,22 +363,141 @@ footer .social-icons a:hover {
 
 .section1:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* hover时阴影更明显 */
+  color: #00DAEA;  /* 高亮色 */
 }
 
 .section1:hover .core-title {
-  color: #00DAEA; /* hover时标题亮青色 */
+  color: #00DAEA;  /* 高亮色 *//* hover时标题亮青色 */
 }
 
+/* ---------------- card1 样式 ---------------- */
+.feature-card1 {
+  width: 90%;
+  max-width: 1000px;
+  background-color: #051d40; /* 深蓝底 */
+  color: #ffffff;            /* 默认文字白色 */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.feature-card1 .feature-text {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  padding-right: 1rem; /* 文字右留白 */
+}
+
+.feature-card1 .feature-img {
+  flex: 0 0 66.666%;
+  max-width: 66.666%;
+  padding-left: 1rem; /* 图片左留白 */
+}
+
+.feature-card1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card1:hover .feature-text,
+.feature-card1:hover .feature-text ul li {
+  color: #00DAEA; /* hover 文字变螢光蓝 */
+}
+
+/* ---------------- card2 样式 ---------------- */
+.feature-card2 {
+  width: 90%;
+  max-width: 1000px;
+  background-color: #ffffff; /* 白底 */
+  color: #000000;            /* 默认文字黑色 */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Card2 */
+.feature-card2 .feature-text {
+  flex: 0 0 33.333%;   /* 文字占 1/3 */
+  max-width: 33.333%;
+  padding-left: 1rem;  /* 左留白 */
+  padding-right: 1rem; /* 右留白 */
+}
+
+.feature-card2 .feature-img {
+  flex: 0 0 66.666%;   /* 图片占 2/3 */
+  max-width: 66.666%;
+  padding-left: 1rem;  /* 左留白 */
+  padding-right: 1rem; /* 右留白 */
+}
+
+
+.feature-card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card2:hover .feature-text,
+.feature-card2:hover .feature-text ul li {
+  color: #00DAEA; /* hover 文字变螢光蓝 */
+}
+
+
+/* ---------------- card3 样式 ---------------- */
+.feature-card3 {
+  width: 90%;
+  max-width: 1000px;
+  background-color: #ffffff; /* 白底 */
+  color: #000000;            /* 默认文字黑色 */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;       /* 左文字右图片 */
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.feature-card3 .feature-text {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  padding-right: 1rem; /* 文字右留白 */
+}
+
+.feature-card3 .feature-img {
+  flex: 0 0 66.666%;
+  max-width: 66.666%;
+  padding-left: 1rem; /* 图片左留白 */
+}
+
+.feature-card3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card3:hover .feature-text,
+.feature-card3:hover .feature-text ul li {
+  color: #00DAEA; /* hover 文字变螢光蓝 */
+}
+
+
+
 .section1 .feature-card {
+  width: 90%;
+  max-width: 1000px;
   background-color: #ffffff; /* 卡片白色背景 */
   padding: 20px;
   border-radius: 8px;
   color: #051d40; /* 卡片文字深蓝色 */
-  font-weight: 700;
+  font-weight: 600;
   height: 100%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* 卡片悬浮平滑过渡 */
 }
+
 
 .section1 .feature-card h5 {
   font-size: 1.25rem;
@@ -401,16 +520,21 @@ footer .social-icons a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.section1 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
 /* hover 时标题、段落和列表文字都变色 */
 .section1 .feature-card:hover h5,
 .section1 .feature-card:hover p,
 .section1 .feature-card:hover .feature-list li {
-  color: #00DAEA; /* 亮青色 */
+  color: #00DAEA;  /* 高亮色 */
+}
+
+/* 默认白色 */
+.hover-text {
+  color: #ffffff;
+}
+
+/* hover 整块文字一起变色 */
+.hover-text:hover {
+  color: #00DAEA; /* 你想要的 hover 颜色，比如蓝色 */
 }
 
 /* 去掉 ul 默认圆点 */
@@ -422,8 +546,7 @@ footer .social-icons a:hover {
 .section1 .feature-list li {
   font-size: 1rem;     /* 字体大小 */
   font-weight: normal; /* 不使用粗体 */
-  line-height: 1.6;    /* 行高更好阅读 */
-  color: #070707;      /* 和 feature-card 文字一致 */
+  line-height: 1.6;    /* 行高更好阅读 */    /* 和 feature-card 文字一致 */
 }
 
 .section1 .feature-img {
@@ -431,11 +554,21 @@ footer .social-icons a:hover {
   text-align: center;
   overflow: hidden; /* 保证放大不溢出 */
   border-radius: 8px;
+  flex: 0 0 66.666%;
+  max-width: 66.666%;
+  padding: 0 1rem; /* 左右留白 */
+}
+
+/* Card 文字占 1/3，右边留白 */
+.section1 .feature-text {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  padding: 0 1rem; /* 文字左右也加留白 */
 }
 
 .section1 .feature-img img {
-  width: 100%;
-  max-width: 360px;
+  width:auto;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   object-fit: cover;
