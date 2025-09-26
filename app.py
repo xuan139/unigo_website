@@ -25,7 +25,8 @@ app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'static', 'uploads')  # 
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'crm.db')
 
-
+# 注册 Blueprint
+app.register_blueprint(forum_bp)
 
 # -------------------- 工具函数 --------------------
 def get_db_connection():

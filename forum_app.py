@@ -19,14 +19,46 @@ def get_db_connection():
     return conn
 
 # 论坛首页 - 显示帖子
+# @forum_bp.route("/")
+# def forum_index():
+#     conn = get_db_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT * FROM forum_posts ORDER BY created_at DESC")
+#     posts = cursor.fetchall()
+#     conn.close()
+#     return render_template("forum_index.html", posts=posts)
+
+# from flask import request
+
+POSTS_PER_PAGE = 5  # 每页显示帖子数
+
 @forum_bp.route("/")
 def forum_index():
+    page = request.args.get("page", 1, type=int)
+
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM forum_posts ORDER BY created_at DESC")
+
+    # 获取总帖子数
+    cursor.execute("SELECT COUNT(*) FROM forum_posts")
+    total_posts = cursor.fetchone()[0]
+    total_pages = (total_posts + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
+
+    # 分页获取帖子
+    offset = (page - 1) * POSTS_PER_PAGE
+    cursor.execute(
+        "SELECT * FROM forum_posts ORDER BY created_at DESC LIMIT ? OFFSET ?",
+        (POSTS_PER_PAGE, offset)
+    )
     posts = cursor.fetchall()
     conn.close()
-    return render_template("forum_index.html", posts=posts)
+
+    return render_template(
+        "forum_index.html",
+        posts=posts,
+        page=page,
+        total_pages=total_pages
+    )
 
 # 查看单个帖子及评论
 @forum_bp.route("/post/<int:post_id>")

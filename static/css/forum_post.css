@@ -1,0 +1,127 @@
+/* 全局基础 */
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+/* 头部 */
+.forum-header {
+    background-color: #051d40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid #00DAEA;
+}
+
+.forum-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* 帖子卡片 */
+.post-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #051d40;
+}
+
+/* 评论卡片 */
+.comment-card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #051d40;
+}
+
+.comment-time {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.comment-content {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* 评论表单 */
+.comment-form-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.comment-form-card textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.comment-form-card button {
+    padding: 8px 16px;
+    background: #051d40;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.comment-form-card button:hover {
+    background: #00DAEA;
+}
+
+/* 返回链接 */
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #051d40;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    color: #00DAEA;
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+    .forum-header h1 {
+        font-size: 1.5rem;
+    }
+    .post-content {
+        font-size: 0.95rem;
+    }
+    .comment-content {
+        font-size: 0.9rem;
+    }
+}

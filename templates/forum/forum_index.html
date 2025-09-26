@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Forum - Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='forum.css') }}">
+    <title>OStation Forum - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
 </head>
+  
 <body>
 <header>
-    <h1>OStation Forum</h1>
+    <h1>OStation Forum </h1>
     <nav>
-        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('index') }}">UnigoAI</a>
         <a href="{{ url_for('forum.forum_index') }}">Forum</a>
         <a href="{{ url_for('forum.forum_new_post') }}">New Post</a>
     </nav>
 </header>
-
 <main>
     {% for post in posts %}
     <div class="post-card">
@@ -25,7 +26,30 @@
     {% else %}
     <p>No posts yet. <a href="{{ url_for('forum.forum_new_post') }}">Create the first one!</a></p>
     {% endfor %}
+
+    <!-- 分页导航 -->
+    {% if total_pages > 1 %}
+    <nav class="pagination">
+        {% if page > 1 %}
+        <a href="{{ url_for('forum.forum_index', page=page-1) }}">« 上一页</a>
+        {% endif %}
+        
+        {% for p in range(1, total_pages+1) %}
+            {% if p == page %}
+                <span class="current">{{ p }}</span>
+            {% else %}
+                <a href="{{ url_for('forum.forum_index', page=p) }}">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+        
+        {% if page < total_pages %}
+        <a href="{{ url_for('forum.forum_index', page=page+1) }}">下一页 »</a>
+        {% endif %}
+    </nav>
+    {% endif %}
 </main>
+
+
 
 <footer>
     <p>&copy; 2025 My Forum</p>
