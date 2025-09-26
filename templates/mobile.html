@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_title">OStation - Plug-and-Play Gaming SSD Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../static/css/style_mobile.css">
+  <!-- ICO 兼容所有浏览器 -->
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/x-icon">
+</head>
+
+<body class="theme-light">
+  <div id="scroll-progress"></div>
+  <!-- Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg fixed-top"> -->
+  <nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="../static/images/unigo_logo_tr.png" alt="OStation Logo" class="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item"><a class="nav-link" href="#section1" data-i18n="nav_s1">核心功能</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section2" data-i18n="nav_s2">優勢</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="#section3" data-i18n="nav_s3">產品介紹</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section4" data-i18n="nav_s4">產品規格</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section5" data-i18n="nav_s5">論壇</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section6" data-i18n="nav_s6">常見問題</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <!-- Language Dropdown with Flags -->
+          <div class="dropdown lang-dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="flag">🇺🇸</span>
+              <span class="label">English</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item lang-item" data-lang="en"><span class="flag">🇺🇸</span> English</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="zh"><span class="flag">🇨🇳</span> 简体中文</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="zh_tw"><span class="flag">🇭🇰</span> 繁體中文</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="ja"><span class="flag">🇯🇵</span> 日本語</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="ko"><span class="flag">🇰🇷</span> 한국어</a></li>
+              <li><a class="dropdown-item lang-item" data-lang="th"><span class="flag">🇹🇭</span> ไทย</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner (single image) -->
+  <section id="banner" class="banner mb-4">
+    <div class="container-fluid px-0 position-relative">
+      <div class="ratio" style="--bs-aspect-ratio: calc(400 / 1300 * 100%);">
+        <img src="https://picsum.photos/1300/400?random=1" class="w-100" alt="OStation banner">
+      </div>
+      <!-- Overlay copy -->
+      <div class="position-absolute top-50 start-0 translate-middle-y w-100">
+        <div class="container">
+          <div class="p-3 p-sm-4 banner-copy" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
+            <h1 style="margin-bottom:0.5rem;">無縫體驗 PC on Mac</h1>
+            <h5 class="h4 mb-2">
+              <span class="color1">凌航科技</span> × <span class="color2">武盾多利</span> 攜手打造
+            </h5>           
+            <br>
+            <p class="mb-2">工作 娛樂 一台搞定！</p>
+            <p class="mb-0">預裝 Windows 11與多種遊戲平台，體驗隨接即用的絲滑享受</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="section3">
+    <div class="container">
+      <h2 class="core-title text-center mb-4">
+        產品特色
+      </h2>
+      <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-12 d-flex justify-content-center mb-4">
+        <div class="feature-card feature-card1 d-flex flex-column flex-md-row align-items-center text-center text-md-start">
+          <!-- 文字在左 -->
+          <!-- <div class="feature-text">
+            <h5>資料零遺失，遊戲檔案一手掌握！</h5>
+            <ul>
+              <li>把所有 Windows 資料、超大遊戲通通</li>
+              <li>存進凌航企業級工控 Neo Forza SSD</li>
+              <li>存進 <span class="color1">凌航</span> 企業級工控 <span class="color1">Neo Forza SSD</span></li>
+              <li>1TB 大容量，保存不佔 Mac 空間</li>
+              <li>速度更快、體驗更爽</li>
+              <li>玩得盡興再也不用妥協！</li>
+            </ul>
+          </div> -->
+          <!-- 图片在右 -->
+          <div class="feature-img">
+            <img src="../static/images/card1.png" alt="Feature 1" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+
+  
+        <!-- Card 2 -->
+        <div class="col-12 d-flex justify-content-center mb-4">
+          <div class="feature-card feature-card2 d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="width: 90%; max-width: 1000px; background-color: #ffffff; color: #000000; padding: 2rem; border-radius: 0.5rem;">
+            <!-- 图片在左 -->
+            <div class="feature-img">
+              <img src="../static/images/card2.png" alt="Feature 2" class="img-fluid rounded">
+            </div>
+            <!-- 文字在右 -->
+            <!-- <div class="feature-text">
+              <h5>隨接即用，工作 & 遊戲兩不誤！</h5>
+              <ul>
+                <li>Mac 秒變 Windows 免安裝 免設定</li>
+                <li>Office、股票、繪圖軟體順暢用 </li>
+                <li>高效辦公零壓力</li>
+                <li>一鍵啟動 Windows 11!</li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="col-12 d-flex justify-content-center mb-4">
+          <div class="feature-card feature-card3 d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="width: 90%; max-width:1000px; background-color: #ffffff; color: #000000; padding: 2rem; border-radius: 0.5rem;">
+            <!-- 文字在左 -->
+            <!-- <div class="feature-text">
+              <h5>極致遊戲體驗</h5>
+              <ul class="feature-list text-start">
+                <li>Steam、Battle.net、Bluestacks 隨接即玩</li>
+                <li>內建 Wine + GPU 硬體加速</li>
+                <li>高畫質、零延遲</li>
+                <li>支援手把、搖桿，暢玩大作更爽快</li>
+              </ul>
+            </div> -->
+            <!-- 图片在右 -->
+            <div class="feature-img">
+              <img src="../static/images/card3.png" alt="Feature 3" class="img-fluid rounded"">
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="col-12 d-flex justify-content-center mb-4">
+          <div class="feature-card feature-card1 d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="width: 90%; max-width: 1000px; background-color: #051d40; color: #ffffff; padding: 2rem; border-radius: 0.5rem;">
+            <!-- 文字在左 -->
+            <!-- <div class="feature-text">
+              <h5>全能擴充，一機多用</h5>
+              <ul>
+                <li>Type-A USB 3.2 Gen2 (10Gbps) x2</li>
+                <li>Type-C PD 3.0 快充 (100W) x2</li>
+                <li>RJ45 乙太網路 (100Mbps) x1</li>
+                <li>4K HDMI 輸出 x1</li>
+              </ul>
+            </div> -->
+            <!-- 图片在右 -->
+            <div class="feature-img">
+              <img src="../static/images/card4.png" alt="Feature 4" class="img-fluid rounded">
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 5 -->
+        <div class="col-12 d-flex justify-content-center mb-4">
+          <div class="feature-card feature-card3 d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="width: 90%; max-width: 1000px; background-color: #ffffff; color: #000000; padding: 2rem; border-radius: 0.5rem;">
+            <!-- 文字在左 -->
+            <!-- <div class="feature-text">
+              <h5>一次購買 · 永久升級</h5>
+              <ul class="feature-list text-start">
+                <li>買就送 OStation 虛擬機軟體</li>
+                <li>終身更新，沒有額外訂閱費</li>
+              </ul>
+                <img src="../static/images/no background.png" alt="附加图片" class="img-fluid rounded mt-2" style="height:80px; width:auto;">
+            </div> -->
+            <!-- 图片在右 -->
+            <div class="feature-img">
+              <img src="../static/images/card5.png" alt="Feature 4" class="img-fluid rounded">
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <section id="section4" class="section1">
+    <div class="container">
+      <h2 class="core-title" data-i18n="section4_title">
+        產品規格
+      </h2>
+  
+      <!-- <div class="mb-2">
+        <h5 data-i18n="hub_specs_title">OStation Hub 規格表</h5>
+      </div> -->
+  
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th style="width:30%;" data-i18n="specs_col_item">項目</th>
+              <th data-i18n="specs_col_value">規格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="spec_label_cpu">CPU 架構支援</td><td data-i18n="spec_value_cpu">Apple Silicon 系列處理器</td></tr>
+            <tr><td data-i18n="spec_label_capacity">容量選擇</td><td data-i18n="spec_value_capacity">1TB</td></tr>
+            <tr><td data-i18n="spec_label_interfaces">電腦接口</td><td data-i18n="spec_value_interfaces">USB-C, Thunderbolt 3/4</td></tr>
+            <tr><td data-i18n="spec_label_size">尺寸（大約）</td><td data-i18n="spec_value_size">121 x 55 x 16 mm (4.8 x 2.2 x 0.6 inches)</td></tr>
+            <tr><td data-i18n="spec_label_weight">重量（大約）</td><td data-i18n="spec_value_weight">150 grams (5.3 oz)</td></tr>
+            <tr><td data-i18n="spec_label_cable">線長（大約）</td><td data-i18n="spec_value_cable">50 cm</td></tr>
+            <tr><td data-i18n="spec_label_material">材質</td><td data-i18n="spec_value_material">鋁合金</td></tr>
+            <tr><td data-i18n="spec_label_usbc">USB-C 接口</td><td data-i18n="spec_value_usbc">USB 3.2 Gen 2 / PD 3.0 / 100 W</td></tr>
+            <tr><td data-i18n="spec_label_usba">USB-A 接口</td><td data-i18n="spec_value_usba">USB 3.2 Gen 2</td></tr>
+            <tr><td data-i18n="spec_label_hdmi">HDMI 顯示接口</td><td data-i18n="spec_value_hdmi">4K@60Hz</td></tr>
+            <tr><td data-i18n="spec_label_ethernet">Ethernet 接口</td><td data-i18n="spec_value_ethernet">速度 10/100/1000M</td></tr>
+            <tr><td data-i18n="spec_label_speed">傳輸速度</td><td data-i18n="spec_value_speed">10 Gbps</td></tr>
+            <tr><td data-i18n="spec_label_protocol">硬碟協定</td><td data-i18n="spec_value_protocol">NVMe</td></tr>
+            <tr><td data-i18n="spec_label_warranty">保固</td><td data-i18n="spec_value_warranty">2 年</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Section 5: 論壇 -->
+  <section id="section5" class="section1">
+    <div class="container text-center">
+      <h2 class="core-title" data-i18n="forum_title">
+        論壇入口
+      </h2>
+      <a class="btn btn-outline-primary mt-3" href="https://unigo.ai/forum" target="_blank" rel="noopener" data-i18n="footer_support_forum">
+        社區論壇
+      </a>
+    </div>
+  </section>
+  
+
+  <section id="section6" class="section1">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="core-title" data-i18n="faq_title">
+          常見問題
+        </h2>
+        <!-- <p class="lead text-muted" data-i18n="faq_subtitle">
+          專業技術支援，快速解決您的疑問
+        </p> -->
+        <div class="divider-line"></div>
+      </div>
+  
+      <div class="faq-container">
+        <div class="accordion professional-accordion" id="qaAccordion">
+          {% for qa in qa_list %}
+            <div class="accordion-item professional-accordion-item" data-category="all">
+              <h2 class="accordion-header" id="qa{{ loop.index }}">
+                <button
+                  class="accordion-button professional-accordion-button {% if not loop.first %}collapsed{% endif %}"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse{{ loop.index }}"
+                  aria-expanded="{{ 'true' if loop.first else 'false' }}"
+                  aria-controls="collapse{{ loop.index }}"
+                >
+                  <div class="question-number">{{ loop.index }}</div>
+                  <div class="question-content">
+                    <div class="question-title">{{ qa['question'] }}</div>
+                  </div>
+                </button>
+              </h2>
+              <div
+                id="collapse{{ loop.index }}"
+                class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+                data-bs-parent="#qaAccordion"
+              >
+                <div class="accordion-body professional-accordion-body">
+                  <div class="answer-wrapper">
+                    <div class="answer-content">
+                      <div class="answer-text">{{ qa['answer'] }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="about" class="section-about">
+    <div class="container">
+      <h2 class="core-title">關於我們</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <ul>
+            <li>武盾多利有限公司致力於消費型 AI 與電子產品的研發與創新，秉持「以科技提升生活品質」的理念，為使用者打造更智慧、更便利的體驗。</li>
+            <li>我們的核心優勢在於跨平台研發能力，能將軟體與硬體深度整合，發揮最大效能。同時，我們將使用者體驗視為產品設計的核心，專注於直覺化與便利性的設計思維，讓每一項產品都能真正貼近使用需求。</li>
+            <li>武盾多利有限公司將持續推動創新，提供卓越的 AI 與電子產品解決方案，為消費市場注入更多智慧與驚喜。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <!-- 第一行：公司信息 + 联系方式 + 产品 + 支持 -->
+      <div class="footer-main">
+        <div class="row g-4">
+          <!-- 公司信息 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-section">
+              <h5 class="footer-title" data-i18n="footer_company_title">公司資訊</h5>
+              <div class="footer-content">
+                <p class="company-name">武盾多利有限公司</p>
+                <p class="company-english">MaKa Taiwan CO., LTD.</p>
+                <div class="company-details">
+                  <p><i class="fas fa-id-card me-2"></i>統一編號 : 83460747</p>
+                  <p><i class="fas fa-map-marker-alt me-2"></i>台北市松山區八德路二段374號二樓之8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 联系方式 -->
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-section">
+              <h5 class="footer-title" data-i18n="footer_contact_title">聯絡我們</h5>
+              <div class="footer-content">
+                <div class="contact-item">
+                  <i class="fas fa-phone me-2"></i>
+                  <span>＋886-2-2771-5900</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope me-2"></i>
+                  <a href="mailto:contact@unigo.ai">contact@unigo.ai</a>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-clock me-2"></i>
+                  <span data-i18n="contact_support_247">24/7 技術支援</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 产品信息 -->
+          <div class="col-lg-2 col-md-6 ms-lg-auto">
+            <div class="footer-section">
+              <h5 class="footer-title" data-i18n="footer_products_title">產品</h5>
+              <div class="footer-content">
+                <ul class="footer-links">
+                  <!-- <li><a href="#section1" data-i18n="footer_link_features">核心特性</a></li>
+                  <li><a href="#section2" data-i18n="footer_link_why">為什麼選擇我們</a></li> -->
+                  <li><a href="#section3" data-i18n="footer_link_product_intro">產品介紹</a></li>
+                  <li><a href="#section4" data-i18n="footer_link_specs">產品規格</a></li>
+                  <!-- <li><a href="#section6" data-i18n="footer_link_faq">常見問題</a></li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 支持与资源 -->
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-section">
+              <h5 class="footer-title" data-i18n="footer_support_title">支援</h5>
+              <div class="footer-content">
+                <ul class="footer-links">
+                  <li><a href="#section6" data-i18n="footer_support_faq">常見問題</a></li>
+                  <li><a href="https://unigo.ai/forum" target="_blank" data-i18n="footer_support_forum">社區論壇</a></li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#warrantyModal">
+                      產品保固與退換貨說明
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#usageModal">
+                      其他使用注意事項
+                    </a>
+                  </li>
+
+                  <!-- 產品保固與退換貨說明 Modal -->
+                  <div class="modal fade" id="warrantyModal" tabindex="-1" aria-labelledby="warrantyModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="warrantyModalLabel">產品保固與退換貨說明</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>本產品提供2年保固，保固期內非人為損壞可享免費維修服務。</p>
+                          <p>辦理退貨或換貨時，須提供購買憑證並保留完整包裝。自到貨日起七天內，若商品未拆封且為全新狀態，可申請退貨。若商品有外觀瑕疵或無法正常使用，請聯繫客服，我們將確認問題並安排換貨或退貨。</p>
+                          <p><strong>※ 以下情況不適用於保固服務：</strong></p>
+                          <ul>
+                            <li>因外力造成損壞（如刮痕、凹陷、電子零件損壞等）</li>
+                            <li>因意外、誤用、進水、火災、天災等外部因素造成的損壞</li>
+                            <li>非經本公司授權人員維修所導致的問題</li>
+                            <li>因人為因素導致系統異常（如病毒感染、誤格式化、系統檔案損毀等）</li>
+                          </ul>
+                          <p><strong>※ 維修服務說明：</strong></p>
+                          <ul>
+                            <li>如需產品維修，請由使用者自行負擔運費，將產品寄回本公司進行檢測與處理</li>
+                            <li>若符合保固條件與保固期間內，將免收維修費用，並提供免費回寄服務</li>
+                            <li>若產品損壞不屬於保固範圍，或已超過保固期限，可能會產生額外維修或零件費用，並將另行通知</li>
+                          </ul>
+                          <p>客服信箱 : <a href="mailto:contact@unigo.ai">contact@unigo.ai</a><br>
+                            電話 : +886-2-2771-5900</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 其他使用注意事項 Modal -->
+                  <div class="modal fade" id="usageModal" tabindex="-1" aria-labelledby="usageModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="usageModalLabel">其他使用注意事項</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>由於市售 USB 集線器或多功能轉接器的供電能力不一，為確保產品穩定運作，建議直接連接電腦使用 OStation，以避免供電不足或訊號不穩定的狀況。</p>
+                          <p>部分電腦原廠因配置規格不同，使用上效能可能有異，令遊戲平台及遊戲設計之各類條件下，亦不保證所有機型皆能正常使用。</p>
+                          <p>當所有連接埠同時使用時，總共的共享頻寬為 10Gbps。</p>
+                          <p>注意：不支援透過 TYPE-C 埠連接外接螢幕。</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 第二行：社交媒体 + 电子报 -->
+      <div class="row g-4 justify-content-center mt-4">
+        <div class="col-md-8 text-center">
+          <div class="social-icons mb-3">
+            <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" title="Line"><i class="fab fa-line"></i></a>
+            <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:contact@unigo.ai" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+          <div class="newsletter">
+            <p class="newsletter-text" data-i18n="newsletter_title">訂閱我們的電子報</p>
+            <div class="newsletter-form d-flex justify-content-center">
+              <input type="email" class="form-control me-2" placeholder="輸入您的郵箱" data-i18n="newsletter_placeholder">
+              <button class="btn btn-primary btn-sm" data-i18n="newsletter_subscribe">訂閱</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 分隔线 -->
+      <hr class="footer-divider mt-4">
+  
+      <!-- 底部版权信息 + 条款 -->
+      <div class="footer-bottom text-center mt-3">
+        <p class="copyright mb-1">© 2025 OStation. All rights reserved.</p>
+        <!-- 底部法律条款 -->
+        <div class="footer-legal text-center mt-3">
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#termsModal">條款</a>
+          <span class="mx-2">|</span>
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#privacyModal">隱私政策</a>
+          <span class="mx-2">|</span>
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#cookieModal">Cookie 政策</a>
+        </div>
+
+      </div>
+
+
+      <!-- 條款 Modal -->
+        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">條款</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>這是條款的  內容：</p>
+                <ul>
+                  <li>使用本網站即表示您同意遵守所有使用條款。</li>
+                  <li>禁止任何未經授權的內容修改或分發行為。</li>
+                  <li>本公司保留對條款更新的權利。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- 隱私政策 Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">隱私政策</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>OStation（以下簡稱「本網站」）重視您的個人資料與隱私權。本隱私條款將說明我們如何收集、使用、保護您的資訊，並保障您的權益。</p>
+
+            <h6>一、資料收集方式</h6>
+            <ul>
+              <li>基本資料：如姓名、電子郵件、聯絡方式。</li>
+              <li>使用資訊：如瀏覽紀錄、裝置資訊、IP 位址。</li>
+              <li>交易資訊：如付款或訂單相關資料（僅於必要時收集）。</li>
+            </ul>
+
+            <h6>二、資料使用目的</h6>
+            <ul>
+              <li>提供與優化本網站服務。</li>
+              <li>客戶服務及回覆您的查詢。</li>
+              <li>行銷推廣、活動通知（需經您同意）。</li>
+              <li>法律或政府機關要求之必要配合。</li>
+            </ul>
+
+            <h6>三、資料保護</h6>
+            <ul>
+              <li>我們採用合適的安全措施，以防止未經授權的存取、洩漏、竄改或破壞。</li>
+              <li>僅授權員工可存取個人資料，並依法履行保密義務。</li>
+            </ul>
+
+            <h6>四、資料分享與第三方</h6>
+            <ul>
+              <li>除非符合以下情況，我們不會與第三方分享您的個人資料：</li>
+              <ul>
+                <li>經您事前同意。</li>
+                <li>為完成付款、物流或服務所必須。</li>
+                <li>法律要求或政府機關依程序要求。</li>
+              </ul>
+            </ul>
+
+            <h6>五、使用者權利</h6>
+            <ul>
+              <li>查詢、閱覽您的個人資料。</li>
+              <li>請求更正或刪除您的資料。</li>
+              <li>要求停止蒐集、處理或利用您的個人資料。</li>
+              <li>若您希望行使上述權利，請透過本網站提供的聯絡方式與我們聯繫。</li>
+            </ul>
+
+            <h6>六、隱私條款修訂</h6>
+            <p>本網站保留隨時修訂本條款之權利。修訂後的條款將公告於本網站，並自公告日起生效。</p>
+
+            <h6>七、聯絡我們</h6>
+            <p>若您對本隱私條款有任何疑問，請透過 <a href="mailto:contact@unigo.ai">contact@unigo.ai</a> 與我們聯繫。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <!-- Cookie 政策 Modal -->
+        <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cookieModalLabel">Cookie 政策</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>這是 Cookie 政策的  內容：</p>
+                <ul>
+                  <li>本網站使用 Cookie 提升使用體驗及統計數據。</li>
+                  <li>您可以選擇接受或拒絕 Cookie 的使用。</li>
+                  <li>拒絕 Cookie 可能會影響部分功能。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- AI Chat Assistant (Upgraded White Theme) -->
+  <!-- Chat Trigger -->
+  <button id="chatbot-toggle" title="Chat with Assistant">💬</button>
+  
+  <!-- Chat Box -->
+  <div id="chatbot-box">
+    <header>
+      <span>OStation Assistant</span>
+      <button id="chatbot-close" title="Close">×</button>
+    </header>
+    <div id="chat-log"></div>
+    <div id="chat-input">
+      <input type="text" id="chat-message" placeholder="Ask anything...">
+      <button onclick="sendMessage()">▶</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+</html>

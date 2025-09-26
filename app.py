@@ -75,17 +75,39 @@ def require_auth(view_func):
 
 @app.route('/')
 def index():
-
+    # 取数据库内容
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT question, answer FROM qa_list ORDER BY created_at DESC")
     qa_list = cursor.fetchall()
     conn.close()
 
-    # return render_template('index.html', qa_list=qa_list)
-    return render_template('index.html', qa_list=qa_list, message="欢迎访问！")
+    # 获取 UA
+    ua = request.headers.get('User-Agent', '').lower()
 
-app.register_blueprint(forum_bp)
+    # 判断是 PC 还是 Mobile
+    if any(m in ua for m in ["iphone", "android", "ipad", "mobile"]):
+        return render_template("mobile.html", qa_list=qa_list, message="欢迎访问！")
+    else:
+        return render_template('index.html', qa_list=qa_list, message="欢迎访问！")
+
+
+# -------------------------------------------
+# 🔹 明确的 Mobile 页面入口
+@app.route('/mobile')
+@app.route('/mobile.html')   # 兼容你原来的写法
+def mobile_page():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT question, answer FROM qa_list ORDER BY created_at DESC")
+    qa_list = cursor.fetchall()
+    conn.close()
+
+    return render_template('mobile.html', qa_list=qa_list, message="欢迎访问！")
+
+# @app.route('/indexmobile.html')
+# def indexmobile_alias():
+#     return redirect(url_for('mobile_page'))
 
 @app.route('/buy')
 def buy():
