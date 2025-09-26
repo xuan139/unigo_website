@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  padding-top: 79px; /* 根据 navbar 高度调整 */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #f8f9fa;
   color: #051d40;
@@ -13,15 +14,24 @@ body {
   color: #051d40;
 }
 
-.section-about h2 {
+.section-about h2 ul li {
   font-size: 2rem;
   font-weight: 600;
 }
 
 .section-about p {
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 1.7;
   margin-bottom: 1rem;
+}
+
+.section-about .core-title {
+  color: #b4b4b4;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-align: center; /* 居中 */
 }
 
 /* 手機和小屏幕調整 */
@@ -414,6 +424,7 @@ footer .social-icons a:hover {
   color: #00DAEA; /* hover 文字变螢光蓝 */
 }
 
+
 /* ---------------- card2 样式 ---------------- */
 .feature-card2 {
   width: 90%;
@@ -454,6 +465,19 @@ footer .social-icons a:hover {
   color: #00DAEA; /* hover 文字变螢光蓝 */
 }
 
+@media (max-width: 768px) {
+  .feature-card2 {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .feature-card2 .feature-text,
+  .feature-card2 .feature-img {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0.5rem 0; /* 上下留白 */
+  }
+}
 
 /* ---------------- card3 样式 ---------------- */
 .feature-card3 {
@@ -594,7 +618,16 @@ footer .social-icons a:hover {
 }
 
 /* 默认颜色 */
-
+/* 手机横屏或小屏幕调整 */
+@media (max-width: 768px) and (orientation: landscape) {
+  #section3 .feature-card h5 {
+    font-size: 0.6rem; /* 缩小标题 */
+  }
+  #section3 .feature-card p,
+  #section3 .feature-card li {
+    font-size: 0.45rem; /* 缩小段落和列表字体 */
+  }
+}
 
 #section3 .core-title {
   color: #b4b4b4; /* 灰色 */
@@ -607,6 +640,7 @@ footer .social-icons a:hover {
 #section3 .core-title:hover {
   color: #00DAEA; /* 荧光蓝 */
 }
+
 
 /* FAQ 样式 */
 .professional-accordion-button {
