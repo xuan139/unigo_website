@@ -498,7 +498,7 @@ footer .social-icons a:hover {
 /* ---------------- card1 样式 ---------------- */
 .feature-card1 {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   background-color: #051d40; /* 深蓝底 */
   color: #ffffff;            /* 默认文字白色 */
   padding: 2rem;
@@ -518,6 +518,7 @@ footer .social-icons a:hover {
   margin-bottom: 0.5rem; /* 下方外边距 */
   margin-left: 0.5rem;   /* 左右居中用 */
   margin-right: 0.5rem;
+  color: #ffffff;     
 }
 
 .feature-card1 .feature-img {
@@ -531,12 +532,26 @@ footer .social-icons a:hover {
   margin-right: 1rem;
 }
 
+.feature-card1 h5 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;        /* 使用粗体 */
+  color: #f1f1f1;          /* 深蓝色 */
+}
+
+.feature-card1 ul li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;     /* 不使用粗体 */
+  color: #ffffff;          /* 深蓝色 */
+}
+
 .feature-card1:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card1:hover .feature-text,
+.feature-card1:hover .feature-text h5,
 .feature-card1:hover .feature-text ul li {
   color: #00DAEA; /* hover 文字变螢光蓝 */
 }
@@ -545,7 +560,7 @@ footer .social-icons a:hover {
 /* ---------------- card2 样式 ---------------- */
 .feature-card2 {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   background-color: #ffffff; /* 白底 */
   color: #000000;            /* 默认文字黑色 */
   /* padding: 2rem; */
@@ -576,13 +591,27 @@ footer .social-icons a:hover {
   margin: 0;  /* 清掉 margin，gap 控制间距 */
 }
 
+.feature-card2 h5 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;        /* 使用粗体 */
+  color: #051d40;          /* 深蓝色 */
+}
+
+
+.feature-card2 ul li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;     /* 不使用粗体 */        /* 深蓝色 */
+  color: #051d40        /* 深蓝色 */
+}
 
 .feature-card2:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card2:hover .feature-text,
+.feature-card2:hover .feature-text h5,
 .feature-card2:hover .feature-text ul li {
   color: #00DAEA; /* hover 文字变螢光蓝 */
 }
@@ -604,7 +633,7 @@ footer .social-icons a:hover {
 /* ---------------- card3 样式 ---------------- */
 .feature-card3 {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   background-color: #ffffff; /* 白底 */
   color: #000000;            /* 默认文字黑色 */
   padding: 2rem;
@@ -638,12 +667,27 @@ footer .social-icons a:hover {
 }
 
 
+.feature-card3 h5 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;        /* 使用粗体 */
+  color: #051d40;          /* 深蓝色 */
+}
+
+
+.feature-card3 ul li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;     /* 不使用粗体 */        /* 深蓝色 */
+  color: #051d40        /* 深蓝色 */
+}
+
 .feature-card3:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card3:hover .feature-text,
+.feature-card3:hover .feature-text h5,
 .feature-card3:hover .feature-text ul li {
   color: #00DAEA; /* hover 文字变螢光蓝 */
 }
