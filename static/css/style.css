@@ -548,10 +548,11 @@ footer .social-icons a:hover {
   max-width: 1000px;
   background-color: #ffffff; /* 白底 */
   color: #000000;            /* 默认文字黑色 */
-  padding: 2rem;
+  /* padding: 2rem; */
   border-radius: 0.5rem;
   display: flex;
   flex-direction: row;
+  gap: 1rem; /* 子元素间水平间距 */
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
@@ -569,16 +570,11 @@ footer .social-icons a:hover {
 }
 
 .feature-card2 .feature-img {
-  flex: 0 0 66.666%;   /* 图片占 2/3 */
+  flex: 0 0 66.666%;
   max-width: 66.666%;
-  padding-left: 0.5rem;  /* 内部左留白 */
-  padding-right: 0.5rem; /* 内部右留白 */
-  margin-top: 0.5rem;    /* 上方外边距 */
-  margin-bottom: 0.5rem; /* 下方外边距 */
-  margin-left: 0.5rem;   /* 左右居中用 */
-  margin-right: 0.5rem;
+  padding: 0.5rem;
+  margin: 0;  /* 清掉 margin，gap 控制间距 */
 }
-
 
 
 .feature-card2:hover {
@@ -652,9 +648,6 @@ footer .social-icons a:hover {
   color: #00DAEA; /* hover 文字变螢光蓝 */
 }
 
-
-
-
 /* 默认颜色 */
 /* 手机横屏或小屏幕调整 */
 @media (max-width: 768px) and (orientation: landscape) {
@@ -679,8 +672,6 @@ footer .social-icons a:hover {
   color: #00DAEA; /* 荧光蓝 */
 }
 
-
-
 /* 默认白色 */
 .hover-text {
   color: #ffffff;
@@ -690,8 +681,6 @@ footer .social-icons a:hover {
 .hover-text:hover {
   color: #00DAEA; /* 你想要的 hover 颜色，比如蓝色 */
 }
-
-
 
 /* FAQ 样式 */
 .professional-accordion-button {
