@@ -57,12 +57,10 @@
 
   <!-- Banner (single image) -->
   <section id="banner" class="banner mb-4">
-    <div class="container-fluid px-0 position-relative">
-      <div class="ratio" style="--bs-aspect-ratio: calc(400 / 1300 * 100%);">
-        <img src="../static/images/banner.png" class="w-100" alt="OStation banner">
-      </div>
+    <div>
+      <img src="../static/images/banner.png" alt="OStation banner">
       <!-- Overlay copy -->
-      <div class="position-absolute top-50 start-0 translate-middle-y w-100">
+      <div class="position-absolute top-50 start-0 w-100" style="transform: translateY(-100%);">
         <div class="container">
           <div class="p-3 p-sm-4 banner-copy" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
             <h1 style="margin-bottom:0.5rem;">無縫體驗 PC on Mac</h1>
@@ -73,12 +71,21 @@
             <p class="mb-2">工作 娛樂 一台搞定！</p>
             <p class="mb-0">預裝 Windows 11與多種遊戲平台，體驗隨接即用的絲滑享受</p>
           </div>
-          
         </div>
       </div>
     </div>
   </section>
 
+
+<!-- 
+| 类名     | 对应的 CSS                      |
+| ------ | ---------------------------- |
+| `mb-0` | margin-bottom: 0             |
+| `mb-1` | margin-bottom: 0.25rem (4px) |
+| `mb-2` | margin-bottom: 0.5rem (8px)  |
+| `mb-3` | margin-bottom: 1rem (16px)   |
+| `mb-4` | margin-bottom: 1.5rem (24px) |
+| `mb-5` | margin-bottom: 3rem (48px)   | -->
 
   <section id="section3">
     <div class="container">
@@ -111,7 +118,7 @@
   
         <!-- Card 2 -->
         <div class="col-12 d-flex justify-content-center mb-4">
-          <div class="feature-card feature-card2 d-flex flex-column flex-md-row align-items-center text-center text-md-start" style="width: 90%; max-width: 1000px; background-color: #ffffff; color: #000000; padding: 2rem; border-radius: 0.5rem;">
+          <div class="feature-card feature-card2 d-flex flex-column flex-md-row align-items-center text-center text-md-start">
             <!-- 图片在左 -->
             <div class="feature-img">
               <img src="../static/images/img2.png" alt="Feature 2" class="img-fluid rounded">

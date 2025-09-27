@@ -170,6 +170,21 @@ body {
 
 /* Banner 文字统一亮青色 */
 
+
+.banner {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 240px;  /* 控制最大高度 */
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 .banner-copy {
   color: #ffffff;
   font-weight: 600;
@@ -178,7 +193,7 @@ body {
 
 /* 桌面字体大小 */
 .banner-copy h1 {
-  font-size: 2.0rem; /* 可根据设计调整 */
+  font-size: 1.5rem; /* 可根据设计调整 */
 }
 .banner-copy p {
   font-size: 1.2rem;
@@ -187,12 +202,12 @@ body {
 
 /* 手机自适应 */
 @media (max-width: 768px) {
-  .banner-copy h1 { font-size: 1.5rem; }
-  .banner-copy p { font-size: 1.1rem; }
+  .banner-copy h1 { font-size: 1.2rem; }
+  .banner-copy p { font-size: 1.0rem; }
 }
 @media (max-width: 480px) {
-  .banner-copy h1 { font-size: 0.9rem; }
-  .banner-copy p { font-size: 0.7rem; }
+  .banner-copy h1 { font-size: 1.0rem; }
+  .banner-copy p { font-size: 0.8rem; }
 }
 
 .color1 {
