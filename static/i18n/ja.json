@@ -8,9 +8,42 @@
   "nav_faq": "よくある質問",
   "nav_download": "ダウンロード",
   "nav_support": "サポート",
-  "banner_title": "MacでシームレスにPC体験",
-  "banner_subtitle1": "仕事も遊びも、OStation ひとつでOK！",
-  "banner_subtitle2": "Steam、Battle.net、BlueStacks、Windows 11 をプリインストール\n接続するだけで滑らかな使い心地",
+  "banner.title": "シームレスな PC on Mac 体験",
+  "banner.subtitle": "凌航科技 × 武盾多利 共同開発",
+  "banner.tagline1": "仕事も遊びもこれ一台！",
+  "banner.tagline2": "Windows 11 と複数のゲームプラットフォームをプリインストール、接続するだけで滑らかな体験",
+
+    "section3_title": "製品の特徴",
+    "card1_title": "データ損失なし、ゲームファイルも簡単に管理！",
+    "card1_li1": "すべての Windows データと大型ゲームを凌航の企業向け Neo Forza SSD に保存",
+    "card1_li2": "1TB の大容量で Mac のスペースをほとんど占有しない",
+    "card1_li3": "より高速でスムーズな体験",
+    "card1_li4": "思い切り楽しんでも妥協不要！",
+    
+    "card2_title": "プラグアンドプレイ、仕事とゲームを両立！",
+    "card2_li1": "Mac が瞬時に Windows に変身、インストールや設定不要",
+    "card2_li2": "Office、株式、グラフィックソフトも快適に使用",
+    "card2_li3": "効率的なオフィス作業、ストレスゼロ",
+    "card2_li4": "ワンクリックで Windows 11 を起動！",
+    
+    "card3_title": "究極のゲーム体験",
+    "card3_li1": "Steam、Battle.net、Bluestacks ですぐにプレイ可能",
+    "card3_li2": "Wine + GPU ハードウェアアクセラレーション内蔵",
+    "card3_li3": "高画質・低遅延",
+    "card3_li4": "コントローラーやジョイスティック対応、大作も快適にプレイ",
+    
+    "card4_title": "万能拡張、一台多役",
+    "card4_li1": "Type-A USB 3.2 Gen2 (10Gbps) x2",
+    "card4_li2": "Type-C PD 3.0 高速充電 (100W) x2",
+    "card4_li3": "RJ45 イーサネット (100Mbps) x1",
+    "card4_li4": "4K HDMI 出力 x1",
+    
+    "card5_title": "一度購入すれば永久アップデート",
+    "card5_li1": "OStation 仮想マシンソフトウェア付属",
+    "card5_li2": "生涯アップデート、追加のサブスクリプション費用なし",
+    "card5_extra_img_alt": "追加画像",
+
+  
   "hero_title": "プラグアンドプレイ。究極のゲームSSDソリューション。",
   "section1_title": "主な3つの機能",
   "section1_item1_title": "Macのストレージを使わない",
@@ -22,7 +55,6 @@
   "section1_item3_desc2": "ゲーム：Steam、Battle.net などを楽しめます。",
   "section2_item1_title": "データは完全に保存",
   "section2_item1_desc": "すべてのWindowsデータとゲームファイルは外部Neo Forza SSDに保存され、Macのストレージを使用しません。",
-  "section3_title": "製品紹介",
   "s3_item1_title": "ワンクリックで Windows 11",
   "s3_item1_li1": "OStation を接続すれば、Mac がすぐに Windows に。",
   "s3_item1_li2": "オフィス、株式、デザインに完璧対応、滑らかな動作。",
@@ -216,5 +248,11 @@
   "contact_support_247": "24/7 技術サポート",
   "stat_read": "MB/s 読み取り",
   "stat_games": "対応ゲーム",
-  "stat_capacity": "容量オプション"
+  "stat_capacity": "容量オプション",
+  "about.title": "私たちについて",
+  "about.li1": "Wudundoli株式会社は、消費者向けAIおよび電子製品の研究開発と革新に取り組んでおり、「技術で生活の質を向上させる」という理念を掲げ、ユーザーによりスマートで便利な体験を提供しています。",
+  "about.li2": "私たちの強みは、クロスプラットフォームの開発能力にあり、ソフトウェアとハードウェアを深く統合して最大の性能を発揮します。また、ユーザー体験を製品設計の中心とし、直感的で便利なデザイン思考に注力し、すべての製品がユーザーのニーズに真に沿うようにしています。",
+  "about.li3": "Wudundoli株式会社は革新を推進し続け、優れたAIおよび電子製品ソリューションを提供し、消費市場により多くの知恵と驚きをもたらします。",
+  "footer.warranty": "製品保証および返品・交換ポリシー",
+  "footer.usage": "その他使用上の注意事項"
 }

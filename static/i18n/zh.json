@@ -8,9 +8,43 @@
   "nav_faq": "常见问题",
   "nav_download": "下载",
   "nav_support": "支持",
-  "banner_title": "在 Mac 上无缝体验 PC",
-  "banner_subtitle1": "工作、娱乐、一台 OStation 全搞定！",
-  "banner_subtitle2": "预装 Steam、Battle.net、BlueStacks、Windows 11\n即插即用，丝滑体验",
+  "banner.title": "无缝体验 PC on Mac",
+  "banner.subtitle": "凌航科技 × 武盾多利 携手打造",
+  "banner.tagline1": "工作 娱乐 一台搞定！",
+  "banner.tagline2": "预装 Windows 11 与多种游戏平台，体验随接即用的丝滑享受",
+
+
+    "card1_title": "资料零遗失，游戏文件轻松掌握！",
+    "card1_li1": "将所有 Windows 资料和大型游戏存入凌航企业级 Neo Forza SSD",
+    "card1_li2": "1TB 大容量，占用 Mac 空间极少",
+    "card1_li3": "速度更快，体验更顺畅",
+    "card1_li4": "尽情玩乐，无需妥协！",
+    
+    "card2_title": "即插即用，工作与游戏两不误！",
+    "card2_li1": "Mac 秒变 Windows，无需安装和设置",
+    "card2_li2": "Office、股票、绘图软件顺畅使用",
+    "card2_li3": "高效办公，零压力",
+    "card2_li4": "一键启动 Windows 11！",
+    
+    "card3_title": "极致游戏体验",
+    "card3_li1": "Steam、Battle.net、Bluestacks 随时即玩",
+    "card3_li2": "内置 Wine + GPU 硬件加速",
+    "card3_li3": "高画质、零延迟",
+    "card3_li4": "支持手柄与摇杆，畅玩大作更爽快",
+    
+    "card4_title": "全能扩展，一机多用",
+    "card4_li1": "Type-A USB 3.2 Gen2 (10Gbps) x2",
+    "card4_li2": "Type-C PD 3.0 快充 (100W) x2",
+    "card4_li3": "RJ45 以太网 (100Mbps) x1",
+    "card4_li4": "4K HDMI 输出 x1",
+    
+    "card5_title": "一次购买 · 永久升级",
+    "card5_li1": "附送 OStation 虚拟机软件",
+    "card5_li2": "终身更新，无额外订阅费用",
+    "card5_extra_img_alt": "附加图片",
+
+
+  
   "hero_title": "即插即玩。终极游戏SSD解决方案。",
   "section1_title": "三大核心功能",
   "section1_item1_title": "不占用 Mac 空间",
@@ -216,5 +250,11 @@
   "contact_support_247": "24/7 技术支持",
   "stat_read": "MB/s 读取",
   "stat_games": "游戏支持",
-  "stat_capacity": "容量选择"
+  "stat_capacity": "容量选择",
+  "about.title": "关于我们",
+  "about.li1": "武盾多利有限公司致力于消费型 AI 与电子产品的研发与创新，秉持“以科技提升生活品质”的理念，为使用者打造更智慧、更便利的体验。",
+  "about.li2": "我们的核心优势在于跨平台研发能力，能将软件与硬件深度整合，发挥最大效能。同时，我们将用户体验视为产品设计的核心，专注于直觉化与便利性的设计思维，让每一项产品都能真正贴近使用需求。",
+  "about.li3": "武盾多利有限公司将持续推动创新，提供卓越的 AI 与电子产品解决方案，为消费市场注入更多智慧与惊喜。",  
+  "footer.warranty": "产品保修与退换货说明",
+  "footer.usage": "其他使用注意事项"
 }
