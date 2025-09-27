@@ -388,6 +388,25 @@ footer .social-icons a:hover {
   color: #00DAEA;  /* 高亮色 *//* hover时标题亮青色 */
 }
 
+/* 卡片容器 */
+.feature-card {
+  width: 100%;               /* 占满整行 */
+  max-width: 1200px;         /* 最大宽度，可以改大一点 */
+  margin: 0 auto;            /* 居中 */
+  padding: 0;                /* 不要额外 padding */
+  border-radius: 0.5rem;
+  overflow: hidden;          /* 保证圆角裁剪图片 */
+  display: block;
+}
+
+/* 图片铺满整个 card */
+.feature-card .feature-img img {
+  width: 100%;               /* 水平方向铺满 */
+  height: auto;              /* 按比例缩放 */
+  display: block;            /* 消除底部空隙 */
+  object-fit: cover;         /* 保证填满容器 */
+}
+
 /* ---------------- card1 样式 ---------------- */
 .feature-card1 {
   width: 90%;
