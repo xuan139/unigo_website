@@ -55,12 +55,12 @@ body {
 }
 
 #about:hover {
-  color: #00DAEA; /* 整个 section hover 后字体变为荧光蓝 */
+  color: #b4b4b4; /* 整个 section hover 后字体变为荧光蓝 */
 }
 
 #about:hover p,
 #about:hover h2 {
-  color: #00DAEA;
+  color: #b4b4b4;
 }
 
 /* --------- Header / Navbar 紧凑版样式 --------- */
@@ -107,7 +107,7 @@ body {
 
 /* Hover 字体颜色 */
 .navbar .nav-link:hover {
-  color: #00DAEA !important;
+  color: #b4b4b4 !important;
 }
 
 /* Navbar 折叠按钮样式 */
@@ -134,7 +134,7 @@ body {
   }
 
   .navbar-collapse .nav-link:hover {
-    color: #00DAEA !important;
+    color: #b4b4b4 !important;
   }
 }
 
@@ -390,17 +390,17 @@ footer .social-icons a:hover {
 }
 
 .section1 .core-title.active-title {
-  color: #00DAEA;  /* 高亮色 */
+  color: #b4b4b4;  /* 高亮色 */
   transform: scale(1.05); /* 轻微放大效果 */
 }
 
 .section1:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* hover时阴影更明显 */
-  color: #00DAEA;  /* 高亮色 */
+  color: #b4b4b4;  /* 高亮色 */
 }
 
 .section1:hover .core-title {
-  color: #00DAEA;  /* 高亮色 *//* hover时标题亮青色 */
+  color: #b4b4b4;  /* 高亮色 *//* hover时标题亮青色 */
 }
 
 /* 卡片容器 */
@@ -455,7 +455,7 @@ footer .social-icons a:hover {
 
 .feature-card1:hover .feature-text,
 .feature-card1:hover .feature-text ul li {
-  color: #00DAEA; /* hover 文字变螢光蓝 */
+  color: #b4b4b4; /* hover 文字变螢光蓝 */
 }
 
 
@@ -496,7 +496,7 @@ footer .social-icons a:hover {
 
 .feature-card2:hover .feature-text,
 .feature-card2:hover .feature-text ul li {
-  color: #00DAEA; /* hover 文字变螢光蓝 */
+  color: #b4b4b4; /* hover 文字变螢光蓝 */
 }
 
 @media (max-width: 768px) {
@@ -546,7 +546,7 @@ footer .social-icons a:hover {
 
 .feature-card3:hover .feature-text,
 .feature-card3:hover .feature-text ul li {
-  color: #00DAEA; /* hover 文字变螢光蓝 */
+  color: #b4b4b4; /* hover 文字变螢光蓝 */
 }
 
 
@@ -590,7 +590,7 @@ footer .social-icons a:hover {
 .section1 .feature-card:hover h5,
 .section1 .feature-card:hover p,
 .section1 .feature-card:hover .feature-list li {
-  color: #00DAEA;  /* 高亮色 */
+  color: #b4b4b4;  /* 高亮色 */
 }
 
 /* 默认白色 */
@@ -600,7 +600,7 @@ footer .social-icons a:hover {
 
 /* hover 整块文字一起变色 */
 .hover-text:hover {
-  color: #00DAEA; /* 你想要的 hover 颜色，比如蓝色 */
+  color: #b4b4b4; /* 你想要的 hover 颜色，比如蓝色 */
 }
 
 /* 去掉 ul 默认圆点 */
@@ -648,7 +648,7 @@ footer .social-icons a:hover {
 
 /* 卡片 hover 时，标题变色 */
 .section1 .feature-card:hover h5 {
-  color: #00DAEA;
+  color: #b4b4b4;
 }
 
 /* 默认颜色 */
@@ -672,7 +672,7 @@ footer .social-icons a:hover {
 
 /* hover 时改变颜色 */
 #section3 .core-title:hover {
-  color: #00DAEA; /* 荧光蓝 */
+  color: #b4b4b4; /* 荧光蓝 */
 }
 
 
@@ -705,7 +705,7 @@ footer .social-icons a:hover {
 
 /* 答案样式 */
 .professional-accordion-body {
-  color: #051d40;
+  color:  #b4b4b4;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -776,12 +776,12 @@ footer .social-icons a:hover {
 
 /* 当问题被选中（展开）时文字变 #00DAEA */
 .professional-accordion-button:not(.collapsed) {
-  color: #00DAEA;
+  color:  #b4b4b4;
 }
 
 /* 鼠标悬停也变色 + 下划线 */
 .professional-accordion-button:hover {
-  color: #00DAEA;
+  color:  #b4b4b4;
   text-decoration: underline; /* 可选 */
 }
 
@@ -794,7 +794,7 @@ footer .social-icons a:hover {
 
 /* 展开答案时突出一点 */
 .accordion-collapse.show .answer-text {
-  color: #00DAEA;
+  color:  #b4b4b4;
   font-weight: 600;
 }
 
@@ -824,7 +824,7 @@ footer .social-icons a:hover {
 
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  color: #00DAEA;         /* 文字变青色 */
+  color:  #b4b4b4;         /* 文字变青色 */
   font-weight: 700;        /* 字体加粗 */
   font-size: 1.35rem;  
   transition: color 0.3s ease, font-weight 0.3s ease;

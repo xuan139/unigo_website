@@ -86,11 +86,13 @@ def index():
     # 获取 UA
     ua = request.headers.get('User-Agent', '').lower()
 
-    # 判断是 PC 还是 Mobile
-    if any(m in ua for m in ["iphone", "android", "ipad", "mobile"]):
+    # 判断是否是移动端（排除 iPad 和 Android 平板）
+    if ("iphone" in ua) or ("android" in ua and "mobile" in ua):
+        # iPhone 或者 Android 且包含 "mobile"（一般是手机 UA 才带 mobile）
         return render_template("mobile.html", qa_list=qa_list, message="欢迎访问！")
     else:
-        return render_template('index.html', qa_list=qa_list, message="欢迎访问！")
+        # iPad、Android 平板、PC 全部走这里
+        return render_template("index.html", qa_list=qa_list, message="欢迎访问！")
 
 
 # -------------------------------------------
