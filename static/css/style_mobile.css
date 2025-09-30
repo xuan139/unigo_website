@@ -26,7 +26,7 @@ body {
 }
 
 .section-about .core-title {
-  color: #b4b4b4;
+  color: #051d40;
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 40px;
@@ -89,7 +89,7 @@ body {
   align-items: center;
   transition: color 0.3s ease;
   position: relative;
-  font-size: 1.1rem;  /* 字体稍微缩小 */
+  font-size: 1.3rem;  /* 字体稍微缩小 */
 }
 
 /* 竖条分隔（仅桌面端显示） */
@@ -381,7 +381,7 @@ footer .social-icons a:hover {
 }
 
 .section1 .core-title {
-  color: #b4b4b4;/* 深蓝色字体 */
+  color: #051d40;/* 深蓝色字体 */
   font-weight: 700; /* 粗体 */
   font-size: 2rem;
   margin-bottom: 40px;
@@ -664,7 +664,7 @@ footer .social-icons a:hover {
 }
 
 #section3 .core-title {
-  color: #b4b4b4; /* 灰色 */
+  color: #051d40; /* 灰色 */
   font-weight: 700; /* 粗体 */
   font-size: 2rem;
   transition: color 0.3s ease; /* 平滑过渡 */

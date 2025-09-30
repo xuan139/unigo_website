@@ -14,15 +14,15 @@ const Utils = {
    * @returns {string} The selected language code (e.g., 'en', 'zh', 'zh_tw').
    */
   getLanguageFromNavigator() {
-    const navLang = navigator.language || navigator.userLanguage; // Get browser language (e.g., 'en-US', 'zh-CN')
-    if (navLang.startsWith('zh-HK') || navLang.startsWith('zh-TW') || navLang.startsWith('zh-hant')) {
-      return 'zh_tw'; // Traditional Chinese for Hong Kong or Taiwan
-    }
-    if (navLang.startsWith('zh')) return 'zh'; // Simplified Chinese
-    if (navLang.startsWith('ja')) return 'ja'; // Japanese
-    if (navLang.startsWith('ko')) return 'ko'; // Korean
-    if (navLang.startsWith('th')) return 'th'; // Thai
-    return 'en'; // Default to English
+    // const navLang = navigator.language || navigator.userLanguage; // Get browser language (e.g., 'en-US', 'zh-CN')
+    // if (navLang.startsWith('zh-HK') || navLang.startsWith('zh-TW') || navLang.startsWith('zh-hant')) {
+    //   return 'zh_tw'; // Traditional Chinese for Hong Kong or Taiwan
+    // }
+    // if (navLang.startsWith('zh')) return 'zh'; // Simplified Chinese
+    // if (navLang.startsWith('ja')) return 'ja'; // Japanese
+    // if (navLang.startsWith('ko')) return 'ko'; // Korean
+    // if (navLang.startsWith('th')) return 'th'; // Thai
+    return 'zh_tw'; // Default to English
   }
 };
 
@@ -106,8 +106,15 @@ const I18n = {
    * Initializes the page language based on saved preference or browser settings.
    * Sets the HTML lang attribute and updates UI.
    */
+  // async initLanguage() {
+  //   let lang = localStorage.getItem('lang') || Utils.getLanguageFromNavigator(); // Get saved or browser language
+  //   document.documentElement.setAttribute('lang', lang); // Set HTML lang attribute
+  //   await this.updateTexts(lang); // Load and apply translations
+  //   this.setLangUI(lang); // Update dropdown UI
+  // },
+
   async initLanguage() {
-    let lang = localStorage.getItem('lang') || Utils.getLanguageFromNavigator(); // Get saved or browser language
+    let lang =  Utils.getLanguageFromNavigator(); // Get saved or browser language
     document.documentElement.setAttribute('lang', lang); // Set HTML lang attribute
     await this.updateTexts(lang); // Load and apply translations
     this.setLangUI(lang); // Update dropdown UI
