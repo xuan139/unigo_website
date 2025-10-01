@@ -90,6 +90,7 @@ def index():
     if ("iphone" in ua) or ("android" in ua and "mobile" in ua):
         # iPhone 或者 Android 且包含 "mobile"（一般是手机 UA 才带 mobile）
         return render_template("mobile.html", qa_list=qa_list, message="欢迎访问！")
+        
     else:
         # iPad、Android 平板、PC 全部走这里
         return render_template("index.html", qa_list=qa_list, message="欢迎访问！")
@@ -391,7 +392,7 @@ def serial_exists(serial):
     return "Exist" if exists else "Not exist"
 
 @app.route("/serials_ajax", methods=["GET"])
-@require_auth
+# @require_auth
 def serials_ajax():
     search_query = request.args.get("search", "")
     result = serial_exists(search_query)

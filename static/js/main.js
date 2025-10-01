@@ -240,7 +240,11 @@ const FAQ = {
   /**
    * Initializes FAQ search functionality.
    * Filters accordion items based on search input.
+   * 
+   * 
    */
+
+  
   initSearch() {
     const searchEl = document.getElementById('faqSearch'); // Get search input
     if (!searchEl) return; // Exit if not found
@@ -371,3 +375,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Expose sendMessage for HTML onclick events
 window.sendMessage = Chatbot.sendMessage.bind(Chatbot);
+
+
+
+document.querySelectorAll('#qaAccordion .accordion-item').forEach(item => {
+  const button = item.querySelector('.accordion-button');
+  const collapse = item.querySelector('.accordion-collapse');
+
+  item.addEventListener('mouseenter', () => {
+    // 展开当前项
+    const bsCollapse = new bootstrap.Collapse(collapse, { toggle: false });
+    bsCollapse.show();
+  });
+
+  item.addEventListener('mouseleave', () => {
+    // 收起当前项
+    const bsCollapse = new bootstrap.Collapse(collapse, { toggle: false });
+    bsCollapse.hide();
+  });
+});

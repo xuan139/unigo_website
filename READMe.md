@@ -131,9 +131,18 @@ pip install gunicorn
 
 ### 2.4 Start Flask with Gunicorn
 
+#### dont not use sudp
 ```bash
-sudo pkill -f gunicorn
-sudo gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
+pkill -f gunicorn
+gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
+
+venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app -D
+
+venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app \
+  --access-logfile gunicorn_access.log \
+  --error-logfile gunicorn_error.log \
+  -D
+
 ```
 
 Test:
@@ -178,6 +187,14 @@ pip install gunicorn
 ```bash
 pkill -f gunicorn
 gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
+
+venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app -D
+
+venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app \
+  --access-logfile gunicorn_access.log \
+  --error-logfile gunicorn_error.log \
+  -D
+
 ```
 ```bash
 #!/bin/bash
