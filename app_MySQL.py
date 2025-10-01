@@ -338,7 +338,6 @@ def serial_exists(serial):
     return "Exist" if exists else "Not exist"
 
 @app.route("/serials_ajax", methods=["GET"])
-@require_auth
 def serials_ajax():
     search_query = request.args.get("search", "")
     result = serial_exists(search_query)
