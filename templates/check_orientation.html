@@ -1,0 +1,15 @@
+<script>
+    function go() {
+      if (window.matchMedia("(orientation: portrait)").matches) {
+        // 竖屏 -> mobile 页面
+        window.location.href = "/mobile";
+      } else {
+        // 横屏 -> PC 页面
+        window.location.href = "/index";
+      }
+    }
+    go();
+    // 监听横竖屏切换
+    window.addEventListener("orientationchange", go);
+  </script>
+  
