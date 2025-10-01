@@ -722,134 +722,158 @@ footer .social-icons a:hover {
   color: #b4b4b4; /* 荧光蓝 */
 }
 
-/* FAQ 样式 */
-.professional-accordion-button {
-  color: #051d40 !important;
-  font-size: 22px;
-  font-weight: 700;
-  background-color: #fff !important;
-  box-shadow: none;
+/* FAQ 容器 */
+.faq-container,
+.table-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-size: 1.4rem;
 }
 
-.professional-accordion-button:not(.collapsed) {
-  color: #051d40 !important;
-  background-color: #f8f9fa !important;
-  box-shadow: none;
-}
-
-.professional-accordion-button:focus {
-  box-shadow: none !important;
-}
-
-/* 问题序号 */
-.question-number {
-  font-size: 20px;
-  font-weight: 700;
-  color: #051d40;
-  margin-right: 10px;
-}
-
-/* 答案样式 */
-.professional-accordion-body {
-  color: #051d40;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.6;
-}
-
-/* 让展开时更明显 */
+/* Accordion Item */
 .accordion-item {
   border: 1px solid #ddd;
   border-radius: 6px;
   margin-bottom: 10px;
   font-weight: 700;
 }
-/* 问题按钮靠左 */
+
+/* 问题按钮 */
 .professional-accordion-button {
   text-align: left;
   justify-content: flex-start;
-  padding-left: 0.75rem; /* 可根据需要调整 */
-}
-
-/* 问题序号和内容整体左对齐 */
-.question-number,
-.question-content {
-  text-align: left;
-}
-
-/* 答案靠左 */
-.professional-accordion-body {
-  text-align: left;
-  padding-left: 0.75rem; /* 可根据需要调整 */
-}
-
-/* hover 效果：文字加深 + 左侧高亮条 */
-.professional-accordion-button:hover {
-  color: #002a66; /* 比原本 #051d40 稍微深一些 */
-  text-decoration: underline; /* 加下划线 */
-  background-color: #f5f8fc;  /* 淡淡的背景变化 */
+  padding-left: 0.75rem;
+  color: #051d40;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #fff !important;
+  box-shadow: none;
   transition: all 0.2s ease-in-out;
-  border-left: 4px solid #051d40; /* 左侧高亮条 */
-  padding-left: calc(0.75rem - 4px); /* 抵消边距 */
 }
 
-/* 保证 active 展开的效果保持一致 */
-.professional-accordion-button:not(.collapsed) {
-  color: #002a66;
-  background-color: #eef3fa;
+/* 鼠标悬停问题按钮 */
+.professional-accordion-button:hover {
+  color: #002a66; /* 问题和答案颜色一致 */
+  background-color: #f5f8fc;
   border-left: 4px solid #051d40;
   padding-left: calc(0.75rem - 4px);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-/* FAQ 或 Table 容器限制宽度并居中 */
-.faq-container,
-.table-container {
-  max-width: 700px;   /* 最大宽度，可按需求调窄或调宽 */
-  margin: 0 auto;      /* 居中 */
-  padding: 0 1rem;     /* 两边留白 */
-  font-size: 1.3rem;
 }
 
-/* 问题和答案整体右移一点 */
-.professional-accordion-button .question-content,
-.professional-accordion-body .answer-wrapper {
+/* 问题展开时 */
+.professional-accordion-button:not(.collapsed) {
+  color: #002a66;
+  background-color: #eef3fa !important;
+  border-left: 4px solid #051d40;
+  padding-left: calc(0.75rem - 4px);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* 问题序号和内容 */
+.question-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: inherit; /* 与按钮文字颜色一致 */
+  margin-right: 10px;
+}
+
+.question-content {
+  padding-left: 1.5rem;
+  color: inherit;
+}
+
+/* 答案样式 */
+.professional-accordion-body {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  padding-left: 0.75rem;
+  color: #051d40;
+  transition: color 0.2s ease-in-out;
+}
+
+/* 当问题悬停或展开时，答案颜色同步问题 */
+.professional-accordion-button:hover + .accordion-collapse .answer-text,
+.professional-accordion-button:not(.collapsed) + .accordion-collapse .answer-text {
+  color: #002a66;
+}
+
+/* 答案文本容器 */
+.answer-wrapper {
   padding-left: 1.5rem;
 }
 
-/* 默认问题文字颜色 */
-.professional-accordion-button {
-  color: #051d40;
-  font-size: 1.3rem; /* 比答案略大 */
-  font-weight: 700;
-  transition: color 0.3s ease;
+.answer-text {
+  transition: color 0.2s ease-in-out;
+  font-weight: 500;
 }
 
-/* 当问题被选中（展开）时文字变 #00DAEA */
-.professional-accordion-button:not(.collapsed) {
-  color: #b4b4b4;
-  font-size: 1.4rem;
-}
-
-/* 鼠标悬停也变色 + 下划线 */
-.professional-accordion-button:hover {
-  color: #b4b4b4;
-  text-decoration: underline; /* 可选 */
-  font-size: 1.4rem;
-}
-
-/* 答案文字 */
-.professional-accordion-body .answer-text {
-  color: #051d40;
-  font-size: 1.4rem;
-  transition: color 0.3s ease;
-}
-
-/* 展开答案时突出一点 */
+/* 展开答案加粗 */
 .accordion-collapse.show .answer-text {
-  color: #b4b4b4;
   font-weight: 700;
 }
+
+/* 移除 focus 样式阴影 */
+.professional-accordion-button:focus {
+  box-shadow: none !important;
+}
+
+/* 问题按钮 */
+.professional-accordion-button {
+  text-align: left;
+  justify-content: flex-start;
+  padding-left: 0.75rem;
+  color: #051d40;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #fff !important;
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 鼠标悬停问题按钮 */
+.professional-accordion-button:hover {
+  color: #002a66;
+  background-color: #f5f8fc;  /* 问题背景色 */
+  border-left: 4px solid #051d40;
+  padding-left: calc(0.75rem - 4px);
+}
+
+/* 问题展开时 */
+.professional-accordion-button:not(.collapsed) {
+  color: #002a66;
+  background-color: #eef3fa !important; /* 问题背景色 */
+  border-left: 4px solid #051d40;
+  padding-left: calc(0.75rem - 4px);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* 答案样式 */
+.professional-accordion-body {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  padding-left: 0.75rem;
+  color: #051d40;
+  background-color: #fff; /* 默认背景色 */
+  transition: all 0.2s ease-in-out;
+  border-top: none; /* 去掉默认边框 */
+}
+
+/* 当问题悬浮时，答案背景色同步 */
+.professional-accordion-button:hover + .accordion-collapse .accordion-body {
+  background-color: #f5f8fc;
+}
+
+/* 当问题展开时，答案背景色同步 */
+.professional-accordion-button:not(.collapsed) + .accordion-collapse .accordion-body {
+  background-color: #eef3fa;
+}
+
 
 /* ---------------- 表格基础样式 ---------------- */
 .table-hover {
@@ -892,9 +916,6 @@ footer .social-icons a:hover {
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);    /* 轻微阴影 */
 }
 
-.table-hover tbody tr:hover td {
-  color: #b4b4b4;          /* 字体变青色 */
-}
 
 /* 可选：奇偶行不同背景色 */
 .table-hover tbody tr:nth-child(odd) {
