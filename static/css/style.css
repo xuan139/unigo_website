@@ -442,11 +442,12 @@ footer .social-icons a:hover {
 .feature-card1 h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  font-weight: 800;        /* 使用粗体 */
+  font-weight: bold !important;       /* 使用粗体 */
   color: #ffffff;          /* 深蓝色 */
 }
 
 .feature-card1 ul li {
+  list-style: none;  
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
   font-weight: 500;     /* 不使用粗体 */
@@ -494,7 +495,7 @@ footer .social-icons a:hover {
 .feature-card2 h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  font-weight: bold;  
+  font-weight: bold !important;  
   color: #051d40;          /* 深蓝色 */
 }
 
@@ -559,12 +560,13 @@ footer .social-icons a:hover {
 .feature-card3 h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  font-weight: 700;        /* 使用粗体 */
+  font-weight: bold !important;        /* 使用粗体 */
   color: #051d40;          /* 深蓝色 */
 }
 
 
 .feature-card3 ul li {
+  list-style: none;  
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
   font-weight: 500;     /* 不使用粗体 */        /* 深蓝色 */
