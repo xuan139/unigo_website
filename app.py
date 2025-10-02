@@ -89,7 +89,7 @@ def index():
     # 判断是否是移动端（排除 iPad 和 Android 平板）
     if ("iphone" in ua) or ("android" in ua and "mobile" in ua):
         # iPhone 或者 Android 且包含 "mobile"（一般是手机 UA 才带 mobile）
-        return render_template("mobile.html", qa_list=qa_list, message="欢迎访问！")
+        return render_template("index.html", qa_list=qa_list, message="欢迎访问！")
         
     else:
         # iPad、Android 平板、PC 全部走这里

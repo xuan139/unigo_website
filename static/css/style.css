@@ -456,6 +456,27 @@ footer .social-icons a:hover {
 }
 
 
+/* 手机竖屏 (常见宽度 <= 576px, portrait) */
+@media screen and (max-width: 576px) and (orientation: portrait) {
+  .feature-card1 h3 {
+    font-size: 0.6rem;   /* 字体缩小 */
+  }
+  .feature-card1 ul li {
+    font-size: 0.5rem;     /* 字体缩小 */
+  }
+}
+
+/* 手机横屏 (宽度 <= 812px, landscape) */
+@media screen and (max-width: 812px) and (orientation: landscape) {
+  .feature-card1 h3 {
+    font-size: 0.6rem;   /* 再小一点 */
+  }
+  .feature-card1 ul li {
+    font-size: 0.5rem;
+  }
+}
+
+
 /* ---------------- card2 样式 ---------------- */
 .feature-card2 {
   width: auto;             /* 让宽度根据 margin 决定 */
@@ -509,6 +530,26 @@ footer .social-icons a:hover {
 }
 
 
+/* 手机竖屏 (常见宽度 <= 576px, portrait) */
+@media screen and (max-width: 576px) and (orientation: portrait) {
+  .feature-card2 h3 {
+    font-size: 0.6rem;   /* 字体缩小 */
+  }
+  .feature-card2 ul li {
+    font-size: 0.5rem;     /* 字体缩小 */
+  }
+}
+
+/* 手机横屏 (宽度 <= 812px, landscape) */
+@media screen and (max-width: 812px) and (orientation: landscape) {
+  .feature-card2 h3 {
+    font-size: 0.6rem;   /* 再小一点 */
+  }
+  .feature-card2 ul li {
+    font-size: 0.5rem;
+  }
+}
+
 /* ---------------- card3 样式 ---------------- */
 .feature-card3 {
   width: auto;             /* 让宽度根据 margin 决定 */
@@ -556,6 +597,27 @@ footer .social-icons a:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+
+/* 手机竖屏 (常见宽度 <= 576px, portrait) */
+@media screen and (max-width: 576px) and (orientation: portrait) {
+  .feature-card3 h3 {
+    font-size: 0.6rem;   /* 字体缩小 */
+  }
+  .feature-card3 ul li {
+    font-size: 0.5rem;     /* 字体缩小 */
+  }
+}
+
+/* 手机横屏 (宽度 <= 812px, landscape) */
+@media screen and (max-width: 812px) and (orientation: landscape) {
+  .feature-card3 h3 {
+    font-size: 0.6rem;   /* 再小一点 */
+  }
+  .feature-card3 ul li {
+    font-size: 0.5rem;
+  }
+}
+
 #section3 .core-title {
   color: #051d40; /* 灰色 */
   font-weight: 700; /* 粗体 */
@@ -588,8 +650,8 @@ footer .social-icons a:hover {
   text-align: left;
   justify-content: flex-start;
   padding-left: 0.75rem;
-  font-size: 1.4rem;       /* 问题字号略大 */   /* 略粗 */
-  font-weight: 400;
+  font-size: 1.5rem;       /* 问题字号略大 */   /* 略粗 */
+  font-weight: 700;
   color: #051d40;
   background-color: #fff !important;
   box-shadow: none;
@@ -614,7 +676,7 @@ footer .social-icons a:hover {
 
 /* 答案样式 */
 .professional-accordion-body {
-  font-size: 1.4rem;       /* 答案比问题略小 */     /* 正常字体，不加粗 */
+  font-size: 1.3rem;       /* 答案比问题略小 */     /* 正常字体，不加粗 */
   line-height: 1.6;
   text-align: left;
   padding-left: 0.75rem;
@@ -634,6 +696,15 @@ footer .social-icons a:hover {
 /* 答案文本容器 */
 .answer-wrapper {
   padding-left: 1.5rem;
+}
+
+/* 答案文本容器 */
+.answer-text{
+  font-size: 1.3rem;    
+  font-weight: 400;   /* 答案比问题略小 */     /* 正常字体，不加粗 */
+  line-height: 1.6;
+  text-align: left;
+  padding-left: 0.75rem;
 }
 
 /* 移除 focus 阴影 */
