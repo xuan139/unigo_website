@@ -394,3 +394,21 @@ document.querySelectorAll('#qaAccordion .accordion-item').forEach(item => {
     bsCollapse.hide();
   });
 });
+
+
+  // 选中所有折叠菜单里的链接
+  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // 判断菜单是否展开
+      if (navbarCollapse.classList.contains('show')) {
+        // 使用 Bootstrap 的 Collapse API 收起菜单
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: true
+        });
+        bsCollapse.hide();
+      }
+    });
+  });

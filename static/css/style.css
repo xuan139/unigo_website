@@ -8,6 +8,12 @@ body {
   color: #051d40;
 }
 
+.navbar, .banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* --------- Header / Navbar 紧凑版样式 --------- */
 
 .navbar {
@@ -48,12 +54,54 @@ body {
     vertical-align: middle;
   }
 }
+
+
+/* Hover 字体颜色 */
+.navbar .nav-link:hover {
+  color: #b4b4b4 !important;
+}
+
+/* Navbar 折叠按钮样式 */
+
+.navbar-toggler {
+  border: 1px solid #ffffff; /* 保留按钮边框 */
+}
+/* 使用默认 Bootstrap 三条线 */
+.navbar-toggler-icon {
+  /* 不要覆盖 background-image */
+  /* 可用 filter 改颜色 */
+  filter: invert(1); /* 白色 */
+}
+
+ /* 先试用默认的Bootstrap三条线 */
+
+/* 折叠菜单（移动端）样式 */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #051d40; /* 深蓝背景 */
+    padding: 1rem 0;
+  }
+
+  .navbar-collapse .nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    padding: 0.5rem 1.0rem;
+    font-size: 1.2rem;  /* 字体稍微缩小 */
+  }
+
+  .navbar-collapse .nav-link:hover {
+    color: #b4b4b4 !important;
+  }
+}
+
 /* Banner 文字统一亮青色 */
 .banner {
   width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 320px;  /* 控制最大高度 */
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .banner .overlay {
@@ -436,7 +484,7 @@ footer .social-icons a:hover {
 
 
 .feature-card1 h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
   font-weight: 700 !important;  
   color: #ffffff;       /* 使用粗体 */ 
@@ -510,7 +558,7 @@ footer .social-icons a:hover {
 }
 
 .feature-card2 h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;       
   font-weight: 700 !important;  /* 深蓝色 */
   color: #051d40;   
@@ -518,6 +566,7 @@ footer .social-icons a:hover {
 
 
 .feature-card2 ul li {
+  list-style: none;  
   font-size: 1.2rem;
   margin-bottom: 0.5rem;   
   font-weight: 400 !important;  /* 深蓝色 */  /* 不使用粗体 */        /* 深蓝色 */
@@ -578,7 +627,7 @@ footer .social-icons a:hover {
 }
 
 .feature-card3 h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;  
   font-weight: 700 !important;        /* 使用粗体 */
   color: #051d40;          /* 深蓝色 */
@@ -650,7 +699,7 @@ footer .social-icons a:hover {
   text-align: left;
   justify-content: flex-start;
   padding-left: 0.75rem;
-  font-size: 1.5rem;       /* 问题字号略大 */   /* 略粗 */
+  font-size: 1.6rem;       /* 问题字号略大 */   /* 略粗 */
   font-weight: 700;
   color: #051d40;
   background-color: #fff !important;
@@ -676,7 +725,7 @@ footer .social-icons a:hover {
 
 /* 答案样式 */
 .professional-accordion-body {
-  font-size: 1.3rem;       /* 答案比问题略小 */     /* 正常字体，不加粗 */
+  font-size: 1.4rem;       /* 答案比问题略小 */     /* 正常字体，不加粗 */
   line-height: 1.6;
   text-align: left;
   padding-left: 0.75rem;
@@ -700,7 +749,7 @@ footer .social-icons a:hover {
 
 /* 答案文本容器 */
 .answer-text{
-  font-size: 1.3rem;    
+  font-size: 1.4rem;    
   font-weight: 400;   /* 答案比问题略小 */     /* 正常字体，不加粗 */
   line-height: 1.6;
   text-align: left;
