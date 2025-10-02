@@ -58,28 +58,21 @@
     </div>
   </nav>
 
-  <!-- Banner (single image) -->
-  <section id="banner" class="banner mb-4">
-    <div>
-      <img src="../static/images/banner.png" alt="OStation banner">
-      <!-- Overlay copy -->
-      <div class="position-absolute top-50 start-0 w-100" style="transform: translateY(-100%);">
-        <div class="container">
-          <div class="p-3 p-sm-4 banner-copy" style="max-width: 760px; background: transparent; border: none; box-shadow: none;">
-            <h1 style="margin-bottom:0.5rem;" data-i18n="banner.title">無縫體驗 PC on Mac</h1>
-            <h5 class="h4 mb-2">
-              <span class="color1">凌航科技</span> × <span class="color2">武盾多利</span> 攜手打造
-            </h1>   
-            <br>
-            <p class="mb-2" data-i18n="banner.tagline1">工作 娛樂 一台搞定！</p>
-            <p class="mb-0" data-i18n="banner.tagline2">預裝 Windows 11與多種遊戲平台，體驗隨接即用的絲滑享受</p>
-          </div>
+  <section id="banner" class="banner mb-4 position-relative">
+    <img src="../static/images/banner.png" alt="OStation banner" style="width: 100%; height: auto; display: block;">
+    <div class="position-absolute" style="top: 5%; left: 5%; max-width: 90%; max-height: 90%; overflow: hidden;">
+      <div class="container">
+        <div class="banner-copy" style="max-width: 760px; padding: 5vw; box-sizing: border-box;">
+          <h1 style="margin-bottom: 0.5rem; font-size: clamp(1.5rem, 4vw, 2rem);" data-i18n="banner.title">無縫體驗 PC on Mac</h1>
+          <h5 class="h4 mb-2" style="font-size: clamp(1rem, 3vw, 1.5rem);">
+            <span class="color1">凌航科技</span> × <span class="color2">武盾多利</span> 攜手打造
+          </h5>
+          <p class="mb-2" style="font-size: clamp(0.875rem, 2.5vw, 1rem);" data-i18n="banner.tagline1">工作 娛樂 一台搞定！</p>
+          <p class="mb-0" style="font-size: clamp(0.875rem, 2.5vw, 1rem);" data-i18n="banner.tagline2">預裝 Windows 11與多種遊戲平台，體驗隨接即用的絲滑享受</p>
         </div>
       </div>
     </div>
   </section>
-
-
 
 <!-- 
 | 类名     | 对应的 CSS                      |
@@ -92,13 +85,13 @@
 | `mb-5` | margin-bottom: 3rem (48px)   | -->
 
   <section id="section3">
-    <div class="container">
+    <div>
       <h2 class="core-title text-center mb-5" data-i18n="section3_title">
         產品介紹
       </h2>
       <div class="row g-4">
         <!-- Card 1 -->
-        <div class="col-12 d-flex justify-content-center mb-4">
+        <div class="col-12 mb-4">
           <div class="feature-card1">
             <div class="feature-text">
               <h3 data-i18n="card1_title">資料零遺失，遊戲檔案一手掌握！</h3>
@@ -110,13 +103,17 @@
               </ul>
             </div>
             <div class="feature-img">
-              <img src="../static/images/img1.png" alt="Feature 1" data-i18n-alt="card1_img_alt" class="img-fluid rounded">
+              <img src="../static/images/img1.png" 
+                   alt="Feature 1" 
+                   data-i18n-alt="card1_img_alt" 
+                   class="img-fluid rounded">
             </div>
           </div>
         </div>
+        
 
         <!-- Card 2 -->
-        <div class="col-12 d-flex justify-content-center mb-4">
+        <div class="col-12 mb-4">
           <div class="feature-card2">
             <div class="feature-img">
               <img src="../static/images/img2.png" alt="Feature 2" data-i18n-alt="card2_img_alt" class="img-fluid rounded">
@@ -135,7 +132,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="col-12 d-flex justify-content-center mb-4">
+        <div class="col-12 mb-4">
           <div class="feature-card3">
             <div class="feature-text">
               <!-- <h5 data-i18n="card3_title">極致遊戲體驗</h5> -->
@@ -150,7 +147,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="col-12 d-flex justify-content-center mb-4">
+        <div class="col-12 mb-4">
           <div class="feature-card1">
             <div class="feature-img">
               <img src="../static/images/img4.png" alt="Feature 4" data-i18n-alt="card4_img_alt" class="img-fluid rounded">
@@ -158,10 +155,10 @@
             <div class="feature-text">
               <h3 data-i18n="card4_title">全能擴充，一機多用</h3>
               <ul style="padding-left: 8px; margin: 0;">
-                <li style="color: #ffffff; list-style-type: disc; list-style-position: inside;">Type-A USB 3.2 Gen2 (10Gbps) x2</li>
-                <li style="color: #ffffff; list-style-type: disc; list-style-position: inside;">Type-C PD 3.0 快充 (100W) x2</li>
-                <li style="color: #ffffff; list-style-type: disc; list-style-position: inside;">RJ45 乙太網路 (100Mbps) x1</li>
-                <li style="color: #ffffff; list-style-type: disc; list-style-position: inside;">4K HDMI 輸出 x1</li>
+                <li style="color: #fff; list-style-type: disc; list-style-position: inside;">Type-A USB 3.2 Gen2 (10Gbps) x2</li>
+                <li style="color: #fff; list-style-type: disc; list-style-position: inside;">Type-C PD 3.0 快充 (100W) x2</li>
+                <li style="color: #fff; list-style-type: disc; list-style-position: inside;">RJ45 乙太網路 (100Mbps) x1</li>
+                <li style="color: #fff; list-style-type: disc; list-style-position: inside;">4K HDMI 輸出 x1</li>
               </ul>              
             </div>
 
@@ -169,22 +166,29 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="col-12 d-flex justify-content-center mb-4">
+        <div class="col-12 mb-4">
           <div class="feature-card3">
-            <div class="feature-text">
+            <div class="feature-text" style="text-align: center; width: 100%;">
               <h3 data-i18n="card5_title">一次購買 · 永久升級</h3>
-              <ul class="feature-list text-start">
+              <ul class="feature-list" style="list-style: none; padding-left: 0; margin: 0 auto; display: inline-block; text-align: left;">
                 <li data-i18n="card5_li1">買就送 OStation 虛擬機軟體</li>
                 <li data-i18n="card5_li2">終身更新，沒有額外訂閱費</li>
               </ul>
-              <img src="../static/images/no background.png" alt="附加图片" data-i18n-alt="card5_img_alt" class="img-fluid rounded mt-2 d-block mx-auto" style="height:80px; width:auto;">
-              
+              <img src="../static/images/no background.png" 
+                   alt="附加图片" 
+                   data-i18n-alt="card5_img_alt" 
+                   class="img-fluid rounded mt-2 d-block mx-auto" 
+                   style="height:80px; width:auto;">
             </div>
             <div class="feature-img">
-              <img src="../static/images/img5.png" alt="Feature 5" data-i18n-alt="card5_img_alt" class="img-fluid rounded">
+              <img src="../static/images/img5.png" 
+                   alt="Feature 5" 
+                   data-i18n-alt="card5_img_alt" 
+                   class="img-fluid rounded">
             </div>
           </div>
         </div>
+        
 
       </div>
     </div>
