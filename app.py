@@ -79,7 +79,7 @@ def index():
     # 取数据库内容
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT question, answer FROM qa_list ORDER BY created_at DESC")
+    cursor.execute("SELECT question, answer , image_link FROM qa_list ORDER BY created_at DESC")
     qa_list = cursor.fetchall()
     conn.close()
 
@@ -275,9 +275,10 @@ def qa_list():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT id, question, answer, image_link , created_at FROM qa_list ORDER BY created_at DESC")
+        cursor.execute("SELECT * FROM qa_list ORDER BY created_at DESC")
         qa_list = cursor.fetchall()
         conn.close()
+
         return render_template('qa_list.html', qa_list=qa_list)
     except Exception as e:
         return f"错误: {str(e)}", 500

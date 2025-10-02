@@ -287,6 +287,13 @@
                   <div class="answer-wrapper">
                     <div class="answer-content">
                       <div class="answer-text">{{ qa['answer'] }}</div>
+                      {% if qa['image_link'] %}
+                      <div class="answer-wrapper" style="text-align:left;">
+                        <img src="{{ url_for('static', filename=qa['image_link']) }}" 
+                             alt="QA Image"
+                             style="height:auto; max-width:60%; width:auto; display:block;">
+                     </div>
+                      {% endif %}
                     </div>
                   </div>
                 </div>

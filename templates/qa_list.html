@@ -58,6 +58,7 @@
               <tr>
                 <th>Question</th>
                 <th>Answer</th>
+                <th>Link</th>
                 <th>Created At</th>
               </tr>
             </thead>
@@ -66,6 +67,7 @@
               <tr>
                 <td class="question-cell">{{ qa.question }}</td>
                 <td class="answer-cell">{{ qa.answer }}</td>
+                <td class="link-cell">{{ qa.image_link }}</td>
                 <td class="date-cell" data-raw="{{ qa.created_at }}">{{ qa.created_at }}</td>
               </tr>
               {% endfor %}

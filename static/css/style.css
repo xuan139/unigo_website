@@ -484,7 +484,7 @@ footer .social-icons a:hover {
 
 
 .feature-card1 h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
   font-weight: 700 !important;  
   color: #ffffff;       /* 使用粗体 */ 
@@ -699,7 +699,7 @@ footer .social-icons a:hover {
   text-align: left;
   justify-content: flex-start;
   padding-left: 0.75rem;
-  font-size: 1.6rem;       /* 问题字号略大 */   /* 略粗 */
+  font-size: 1.5rem;       /* 问题字号略大 */   /* 略粗 */
   font-weight: 700;
   color: #051d40;
   background-color: #fff !important;
@@ -725,7 +725,7 @@ footer .social-icons a:hover {
 
 /* 答案样式 */
 .professional-accordion-body {
-  font-size: 1.4rem;       /* 答案比问题略小 */     /* 正常字体，不加粗 */
+  font-size: 1.3rem;       /* 答案比问题略小 */     /* 正常字体，不加粗 */
   line-height: 1.6;
   text-align: left;
   padding-left: 0.75rem;
