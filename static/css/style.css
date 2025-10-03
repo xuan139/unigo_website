@@ -398,6 +398,9 @@ footer .social-icons a:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
+.section1{
+  margin-top: 40px; /* 或你想要的距离 */
+}
 
 /* Feature 列表 */
 .section1 .feature-list {
@@ -491,24 +494,24 @@ footer .social-icons a:hover {
 }
 
 .feature-card1 .feature-text {
-  flex: 1 1 35%;       /* 左边占一半 */
-  padding: 20px;
+  flex: 1 1 45%;       /* 左边占一半 */
+  padding: 10px;
   text-align: left;
 }
 
 .feature-card1 .feature-img {
-  flex: 1 1 65%;       /* 右边占一半 */
+  flex: 1 1 55%;       /* 右边占一半 */
   text-align: center;
 }
 
 .feature-card1 .feature-img img {
-  max-width: 100%;     /* 自适应缩放 */
+  max-width: 95%;     /* 自适应缩放 */
   height: auto;
 }
 
 
 .feature-card1 h3 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
   font-weight: 700 !important;  
   color: #ffffff;       /* 使用粗体 */ 
@@ -516,7 +519,7 @@ footer .social-icons a:hover {
 
 .feature-card1 ul li {
   list-style: none;  
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;       
   font-weight: 400 !important;  
   color: #ffffff;   /* 不使用粗体 */ 
@@ -566,24 +569,23 @@ footer .social-icons a:hover {
 
 /* Card2 */
 .feature-card2 .feature-text {
-  flex: 1 1 35%;       /* 左边占一半 */
+  flex: 1 1 45%;       /* 左边占一半 */
   padding: 20px;
   text-align: left;
 }
 
 .feature-card2 .feature-img {
-  flex: 1 1 65%;       /* 右边占一半 */
+  flex: 1 1 55%;       /* 右边占一半 */
   text-align: center;
 }
 
 .feature-card2 .feature-img img {
-  max-width: 100%;     /* 自适应缩放 */
+  max-width: 95%;  
   height: auto;
 }
 
 .feature-card2 h3 {
   font-size: 1.8rem;
-  margin-bottom: 0.5rem;       
   font-weight: 700 !important;  /* 深蓝色 */
   color: #051d40;   
 }
@@ -591,8 +593,7 @@ footer .social-icons a:hover {
 
 .feature-card2 ul li {
   list-style: none;  
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;   
+  font-size: 1.4rem;
   font-weight: 400 !important;  /* 深蓝色 */  /* 不使用粗体 */        /* 深蓝色 */
   color: #051d40        /* 深蓝色 */
 }
@@ -636,32 +637,30 @@ footer .social-icons a:hover {
 }
 
 .feature-card3 .feature-text {
-  flex: 1 1 35%;       /* 左边占一半 */
+  flex: 1 1 45%;       /* 左边占一半 */
   padding: 20px;
   text-align: left;
 }
 
 .feature-card3 .feature-img {
-  flex: 1 1 65%;       /* 右边占一半 */
+  flex: 1 1 55%;       /* 右边占一半 */
   text-align: center;
 }
 
 .feature-card3 .feature-img img {
-  max-width: 100%;     /* 自适应缩放 */
+  max-width: 95%;  
   height: auto;
 }
 
 .feature-card3 h3 {
   font-size: 1.8rem;
-  margin-bottom: 0.5rem;  
   font-weight: 700 !important;        /* 使用粗体 */
   color: #051d40;          /* 深蓝色 */
 }
 
 .feature-card3 ul li {
   list-style: none;  
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
   font-weight: 400 !important;;     /* 不使用粗体 */        /* 深蓝色 */
   color: #051d40        /* 深蓝色 */
 }
