@@ -73,7 +73,7 @@ body {
   filter: invert(1); /* 白色 */
 }
 
- /* 先试用默认的Bootstrap三条线 */
+
 
 /* 折叠菜单（移动端）样式 */
 @media (max-width: 991.98px) {
@@ -97,18 +97,19 @@ body {
 .banner {
   width: 100%;
   position: relative;
-  color: #fff; /* 亮青色 */
+  color: #fff; /* 白色 */
   overflow: hidden;
 }
 
 /* 图片自适应填满屏幕宽度，高度随宽度变化 */
+
+
 .banner-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  max-height: 100vh; /* 高度不超过屏幕 */
+  width: 100%;     /* 横向铺满屏幕 */
+  height: auto;    /* 高度自动保持比例 */
+  display: block;  /* 去掉 img 默认 inline 空隙 */
 }
+
 
 /* 文字左上角固定 */
 .banner-overlay {
