@@ -58,20 +58,22 @@
     </div>
   </nav>
 
-  <section id="banner" class="banner mb-4 position-relative">
-    <img src="../static/images/banner.png" alt="OStation banner" style="width: 100%; height: auto; display: block;">
-    <div class="position-absolute" style="top: 5%; left: 5%; max-width: 90%; max-height: 90%; overflow: hidden;">
-      <div class="container">
-        <div class="banner-copy" style="max-width: 760px; padding: 5vw; box-sizing: border-box;">
-          <h1 style="margin-bottom: 0.5rem; font-size: clamp(1.5rem, 4vw, 2rem);" data-i18n="banner.title">無縫體驗 PC on Mac</h1>
-          <h5 class="h4 mb-2" style="font-size: clamp(1rem, 3vw, 1.5rem);">
-            <span class="color1">凌航科技</span> × <span class="color2">武盾多利，</span> 攜手打造！
-          </h5>
-          <p class="mb-2" style="font-size: clamp(0.875rem, 2.5vw, 1rem);" data-i18n="banner.tagline1">工作、娛樂，一台搞定！</p>
-          <p class="mb-0" style="font-size: clamp(0.875rem, 2.5vw, 1rem);" data-i18n="banner.tagline2">預裝 Windows 11 與多種遊戲平台，體驗隨接即用的絲滑享受！</p>
-        </div>
+
+
+  <section id="banner">
+  <div class="banner">
+    <img src="../static/images/banner.png" alt="Banner" class="banner-img">
+    <div class="banner-overlay">
+      <div class="banner-copy">
+        <h1 data-i18n="banner.title">無縫體驗 PC on Mac</h1>
+        <h5 class="h4 mb-2">
+          <span class="color1">凌航科技</span> × <span class="color2">武盾多利，</span> 攜手打造！
+        </h5>
+        <p data-i18n="banner.tagline1">工作、娛樂，一台搞定！</p>
+        <p data-i18n="banner.tagline2">預裝 Windows 11 與多種遊戲平台，體驗隨接即用的絲滑享受！</p>
       </div>
     </div>
+  </div>
   </section>
 
 
@@ -85,7 +87,7 @@
 | `mb-4` | margin-bottom: 1.5rem (24px) |
 | `mb-5` | margin-bottom: 3rem (48px)   | -->
 
-  <section id="section3">
+  <section id="section3" class="mb-4">
     <div>
       <h2 class="core-title text-center mb-5" data-i18n="section3_title">
         產品介紹
@@ -161,7 +163,7 @@
                 <li style="color: #fff; list-style-type: disc; list-style-position: inside;">USB-A x2</li>
                 <li style="color: #fff; list-style-type: disc; list-style-position: inside;">USB-C x2</li>
                 <li style="color: #fff; list-style-type: disc; list-style-position: inside;">RJ45 乙太網路 x1</li>
-                <li style="color: #fff; list-style-type: disc; list-style-position: inside;">4K HDMI 輸出 x1(12)</li>
+                <li style="color: #fff; list-style-type: disc; list-style-position: inside;">4K HDMI 輸出 x1</li>
               </ul>              
             </div>
 
@@ -406,7 +408,7 @@
             <a href="mailto:contact@unigo.ai" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
           </div>
           <div class="newsletter">
-            <p class="newsletter-text" data-i18n="newsletter_title">訂閱我們的電子報</p>
+            <p class="newsletter-text">訂閱我們</p>
             <div class="newsletter-form d-flex justify-content-center">
               <input type="email" class="form-control me-2" placeholder="輸入您的郵箱" data-i18n="newsletter_placeholder">
               <button class="btn btn-primary btn-sm" data-i18n="newsletter_subscribe">訂閱</button>
@@ -425,9 +427,9 @@
         <div class="footer-legal text-center mt-3">
           <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#termsModal">條款</a>
           <span class="mx-2">|</span>
-          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#privacyModal">隱私政策</a>
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#privacyModal">隱私條款</a>
           <span class="mx-2">|</span>
-          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#cookieModal">Cookie 政策</a>
+          <a href="#" class="legal-link" data-bs-toggle="modal" data-bs-target="#cookieModal">Cookie 條款</a>
         </div>
 
       </div>
