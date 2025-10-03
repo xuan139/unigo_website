@@ -145,13 +145,13 @@ body {
 
   /* 小屏幕字体缩小 */
   .banner-copy h1 {
-    font-size: clamp(0.6rem, 5vw, 2rem);
+    font-size: 0.6rem;
   }
   .banner-copy h5 {
-    font-size: clamp(0.3rem, 4vw, 1.2rem);
+    font-size: 0.5rem;
   }
-  .banner-copy p {
-    font-size: clamp(0.3rem, 3vw, 1rem);
+  .banner-copy h6 {
+    font-size: 0.4rem;
   }
 }
 
@@ -396,9 +396,7 @@ footer .social-icons a:hover {
 .section1:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
-.section1:hover .core-title {
-  color: #b4b4b4;
-}
+
 
 /* Feature 列表 */
 .section1 .feature-list {
@@ -697,9 +695,7 @@ footer .social-icons a:hover {
 }
 
 /* hover 时改变颜色 */
-#section3 .core-title:hover {
-  color: #b4b4b4; /* 荧光蓝 */
-}
+
 
 #section3 {
   margin-top: 40px; /* 或你想要的距离 */
