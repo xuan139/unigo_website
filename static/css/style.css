@@ -485,15 +485,18 @@ footer .social-icons a:hover {
   align-items: center;
   justify-content: space-between;
   background-color: #051d40;  
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .feature-card1 .feature-text {
-  flex: 1 1 40%;       /* 左边占一半 */
+  flex: 1 1 35%;       /* 左边占一半 */
   padding: 20px;
+  text-align: left;
 }
 
 .feature-card1 .feature-img {
-  flex: 1 1 60%;       /* 右边占一半 */
+  flex: 1 1 65%;       /* 右边占一半 */
   text-align: center;
 }
 
@@ -522,7 +525,6 @@ footer .social-icons a:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-
 
 /* 手机竖屏 (常见宽度 <= 576px, portrait) */
 @media screen and (max-width: 576px) and (orientation: portrait) {
@@ -563,12 +565,13 @@ footer .social-icons a:hover {
 
 /* Card2 */
 .feature-card2 .feature-text {
-  flex: 1 1 40%;       /* 左边占一半 */
+  flex: 1 1 35%;       /* 左边占一半 */
   padding: 20px;
+  text-align: left;
 }
 
 .feature-card2 .feature-img {
-  flex: 1 1 60%;       /* 右边占一半 */
+  flex: 1 1 65%;       /* 右边占一半 */
   text-align: center;
 }
 
@@ -632,12 +635,13 @@ footer .social-icons a:hover {
 }
 
 .feature-card3 .feature-text {
-  flex: 1 1 40%;       /* 左边占一半 */
+  flex: 1 1 35%;       /* 左边占一半 */
   padding: 20px;
+  text-align: left;
 }
 
 .feature-card3 .feature-img {
-  flex: 1 1 60%;       /* 右边占一半 */
+  flex: 1 1 65%;       /* 右边占一半 */
   text-align: center;
 }
 
@@ -694,13 +698,9 @@ footer .social-icons a:hover {
   transition: color 0.3s ease; /* 平滑过渡 */
 }
 
-/* hover 时改变颜色 */
-
-
 #section3 {
   margin-top: 40px; /* 或你想要的距离 */
 }
-
 /* FAQ 容器 */
 .faq-container,
 .table-container {
