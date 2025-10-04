@@ -34,7 +34,7 @@ body {
   align-items: center;
   transition: color 0.3s ease;
   position: relative;
-  font-size: clamp(1.3rem, 1.5vw, 2rem);
+  font-size: clamp(1.2rem, 1.5vw, 3rem);
 }
 
 /* Hover 高亮：导航链接 */
@@ -73,8 +73,6 @@ body {
   filter: invert(1); /* 白色 */
 }
 
-
-
 /* 折叠菜单（移动端）样式 */
 @media (max-width: 991.98px) {
   .navbar-collapse {
@@ -102,15 +100,11 @@ body {
 }
 
 /* 图片自适应填满屏幕宽度，高度随宽度变化 */
-
-
 .banner-img {
   width: 100%;     /* 横向铺满屏幕 */
   height: auto;    /* 高度自动保持比例 */
   display: block;  /* 去掉 img 默认 inline 空隙 */
 }
-
-
 /* 文字左上角固定 */
 .banner-overlay {
   position: absolute;
@@ -121,19 +115,19 @@ body {
 .banner-copy h1 {
   font-size: clamp(1.8rem, 2.5vw, 3.0rem);
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.0rem;
 }
 
 .banner-copy h5 {
   font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: 400;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.0rem;
 }
 
 .banner-copy h6 {
   font-size: clamp(1.2rem, 1.5vw, 2.0rem);
   font-weight: 400;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.0rem;
 }
 
 
@@ -187,23 +181,29 @@ body {
   font-weight: 700;            /* 文字粗体 */
   padding: 3rem 0;
   font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-  
 }
 
 .footer .footer-title {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 2vw, 2.5rem); /* 根据实际屏幕调小一些 */
 }
+
+.footer .footer-content {
+  color: #ffffff;
+  font-weight: 400; /* 内容不必太粗 */
+  margin-bottom: 1rem;
+  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
+}
+
 
 .footer .footer-links li a {
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: none;
   display: block;
   margin-bottom: 0.5rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .footer .footer-links li a:hover {
@@ -218,12 +218,11 @@ body {
 /* 公司信息文字 */
 .footer .company-details p {
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* 联系方式图标颜色 */
@@ -236,9 +235,8 @@ body {
 .footer .contact-item span,
 .footer .contact-item a {
   color: #ffffff; /* 邮箱和电话文字白色 */
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: none;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .footer .contact-item a:hover {
@@ -247,7 +245,6 @@ body {
 
 /* 社交媒体图标保持原色 */
 .footer .social-icons .social-icon i {
-  font-size: 1.5rem;
   transition: transform 0.3s;
   color: inherit; /* 使用原始图标颜色 */
 }
@@ -258,7 +255,6 @@ body {
 /* Footer 区域社媒图标统一白色 */
 footer .social-icons a {
   color: #ffffff;          /* 图标颜色改成白色 */
-  font-size: 1.5rem;       /* 可根据需要调大小 */
   margin: 0 10px;
   transition: color 0.3s ease;
 }
@@ -273,7 +269,7 @@ footer .social-icons a:hover {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
 }
 
 .footer .newsletter-form input {
@@ -283,15 +279,17 @@ footer .social-icons a:hover {
   margin-right: 0.5rem;
   border-radius: 0.25rem;
   border: none;
+  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
 }
 
 .footer .newsletter-form button {
   background-color: #00DAEA;
   border: none;
   color: #051d40;
-  font-weight: 700;
+  font-weight: 400;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
+  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
 }
 
 .footer .newsletter-form button:hover {
@@ -302,7 +300,6 @@ footer .social-icons a:hover {
 .footer .footer-legal {
   margin-top: 2rem;
   text-align: center;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .footer .footer-legal .legal-link {
@@ -310,7 +307,6 @@ footer .social-icons a:hover {
   font-weight: 700; /* 粗体 */
   text-decoration: none;
   margin: 0 0.25rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .footer .footer-legal .legal-link:hover {
@@ -328,7 +324,7 @@ footer .social-icons a:hover {
   color: #051d40; /* 深蓝色 */
   font-size: 1rem;
   line-height: 1.3;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.5rem, 1.5vw, 3.0rem);
 }
 .modal-body a {
   color: #051d40;
@@ -352,36 +348,29 @@ footer .social-icons a:hover {
 
 .modal-body ul li {
   margin-bottom: 1rem; /* 每一条的间距 */
-  font-size: 1.1rem;       /* 字体大小，可根据需要调整 */
   color: #000000;        /* 字体颜色黑色 */
   font-weight: normal;    
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .modal-body p {
   margin: 0.75rem 1rem;      /* 上下各 0.75rem，左右为 0 */
   margin-left: 1rem;      /* 左缩进 1rem */
-  font-size: 1.1rem;      /* 字体放大一点，可调整 */
   line-height: 1.5;       /* 行高更舒服 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .modal-body p strong {
   font-weight: normal;      /* 保持加粗 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 
 .modal-body h5 {
   font-size: 1.3rem; /* 比 h6 大 */
   font-weight: 650;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .modal-body h6 {
   font-size: 1.1rem;
   font-weight: normal;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .custom-list {
@@ -392,7 +381,6 @@ footer .social-icons a:hover {
 .custom-list li {
   margin-bottom: 10px; /* 每条之间增加间距 */
   line-height: 1.6;    /* 行高，阅读更舒适 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* --------- Section 1 样式 --------- */
@@ -409,10 +397,9 @@ footer .social-icons a:hover {
 .section1 .core-title {
   color: #051d40;
   font-weight: 700;
-  font-size: 2rem;
   margin-bottom: 40px;
   transition: color 0.3s ease, transform 0.3s ease;
-  font-size: clamp(1.5rem, 2.0vw, 3.5rem);
+  font-size: clamp(2.2rem, 2.0vw, 3.5rem);
 }
 .section1 .core-title.active-title {
   color: #b4b4b4;
@@ -464,7 +451,6 @@ footer .social-icons a:hover {
   flex: 0 0 33.333%;
   max-width: 33.333%;
   padding: 0 1rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* Feature Card */
@@ -479,7 +465,6 @@ footer .social-icons a:hover {
   height: 100%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 .section1 .feature-card h5 {
   font-size: 1.25rem;
@@ -512,6 +497,19 @@ footer .social-icons a:hover {
 }
 
 /* ---------------- card1 样式 ---------------- */
+
+.section3 .core-title {
+  color: #051d40; /* 灰色 */
+  text-align: center;
+  font-weight: 700; /* 粗体 */
+  transition: color 0.3s ease; /* 平滑过渡 */
+  font-size: clamp(2.2rem, 2.0vw, 3.5rem);
+}
+
+.section3 {
+  margin-top: 40px; /* 或你想要的距离 */
+}
+
 .feature-card1 {
   width: auto;             /* 让宽度根据 margin 决定 */
   margin-left: 5%;
@@ -564,31 +562,6 @@ footer .social-icons a:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* 手机竖屏 (常见宽度 <= 576px, portrait) */
-@media screen and (max-width: 576px) and (orientation: portrait) {
-  .feature-card1 h3 {
-    font-size: 0.4rem;   /* 字体缩小 */
-    padding: 0.1rem;   
-  }
-  .feature-card1 ul li {
-    font-size: 0.3rem;     /* 字体缩小 */
-    padding: 0.1rem;  
-  }
-}
-
-/* 手机横屏 (宽度 <= 812px, landscape) */
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  .feature-card1 h3 {
-    font-size: 0.5rem;   /* 再小一点 */
-    padding: 0.1rem;  
-  }
-  .feature-card1 ul li {
-    font-size: 0.4rem;
-    padding: 0.1rem;  
-  }
-}
-
-
 /* ---------------- card2 样式 ---------------- */
 .feature-card2 {
   width: auto;             /* 让宽度根据 margin 决定 */
@@ -623,17 +596,14 @@ footer .social-icons a:hover {
 }
 
 .feature-card2 h3 {
-  font-size: 1.8rem;
   font-weight: 700 !important;  /* 深蓝色 */
   text-align: left;
   color: #051d40;   
   font-size: clamp(1.8rem, 2.0vw, 3.0rem);
 }
 
-
 .feature-card2 ul li {
   list-style: none;  
-  font-size: 1.4rem;
   font-weight: 400 !important; 
   text-align: left;
   color: #051d40 ; 
@@ -645,26 +615,6 @@ footer .social-icons a:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-/* 手机竖屏 (常见宽度 <= 576px, portrait) */
-@media screen and (max-width: 576px) and (orientation: portrait) {
-  .feature-card2 h3 {
-    font-size: 0.4rem;   /* 字体缩小 */
-  }
-  .feature-card2 ul li {
-    font-size: 0.3rem;     /* 字体缩小 */
-  }
-}
-
-/* 手机横屏 (宽度 <= 812px, landscape) */
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  .feature-card2 h3 {
-    font-size: 0.6rem;   /* 再小一点 */
-  }
-  .feature-card2 ul li {
-    font-size: 0.5rem;
-  }
-}
 
 /* ---------------- card3 样式 ---------------- */
 .feature-card3 {
@@ -714,37 +664,42 @@ footer .social-icons a:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-/* 手机竖屏 (常见宽度 <= 576px, portrait) */
+/* ---------------- 手机竖屏 (宽度 <= 576px) ---------------- */
 @media screen and (max-width: 576px) and (orientation: portrait) {
+  .feature-card1 h3,
+  .feature-card2 h3,
   .feature-card3 h3 {
-    font-size: 0.6rem;   /* 字体缩小 */
+    font-size: 0.8rem !important;
+    margin: 0.1rem !important;
   }
+
+  .feature-card1 ul li,
+  .feature-card2 ul li,
   .feature-card3 ul li {
-    font-size: 0.5rem;     /* 字体缩小 */
+    font-size: 0.6rem !important;
+    margin: 0.1rem !important;
   }
 }
 
-/* 手机横屏 (宽度 <= 812px, landscape) */
-@media screen and (max-width: 812px) and (orientation: landscape) {
+/* ---------------- 手机横屏 (宽度 <= 900px) ---------------- */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  .feature-card1 h3,
+  .feature-card2 h3,
   .feature-card3 h3 {
-    font-size: 0.6rem;   /* 再小一点 */
+    font-size: 1.2rem !important;
+    margin: 0.1rem !important;
   }
+
+  .feature-card1 ul li,
+  .feature-card2 ul li,
   .feature-card3 ul li {
-    font-size: 0.5rem;
+    font-size: 1.0rem !important;
+    margin: 0.1rem !important;
   }
 }
 
-#section3 .core-title {
-  color: #051d40; /* 灰色 */
-  font-weight: 700; /* 粗体 */
-  transition: color 0.3s ease; /* 平滑过渡 */
-  font-size: clamp(1.5rem, 2.0vw, 3.5rem);
-}
 
-#section3 {
-  margin-top: 40px; /* 或你想要的距离 */
-}
+
 /* FAQ 容器 */
 .faq-container,
 .table-container {
