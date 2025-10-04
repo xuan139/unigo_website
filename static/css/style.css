@@ -180,21 +180,21 @@ body {
   color: #ffffff;            /* 文字白色 */
   font-weight: 700;            /* 文字粗体 */
   padding: 3rem 0;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
 }
 
 .footer .footer-title {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-size: clamp(1.0rem, 2vw, 2.5rem); /* 根据实际屏幕调小一些 */
+  font-size: clamp(1.0rem, 2.0vw, 3.0rem); /* 根据实际屏幕调小一些 */
 }
 
 .footer .footer-content {
   color: #ffffff;
   font-weight: 400; /* 内容不必太粗 */
   margin-bottom: 1rem;
-  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 
@@ -269,7 +269,7 @@ footer .social-icons a:hover {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
+  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
 }
 
 .footer .newsletter-form input {
@@ -279,7 +279,7 @@ footer .social-icons a:hover {
   margin-right: 0.5rem;
   border-radius: 0.25rem;
   border: none;
-  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
+  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
 }
 
 .footer .newsletter-form button {
@@ -289,7 +289,7 @@ footer .social-icons a:hover {
   font-weight: 400;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
-  font-size: clamp(1.0rem, 1.5vw, 1.8rem);
+  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
 }
 
 .footer .newsletter-form button:hover {
