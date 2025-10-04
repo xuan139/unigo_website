@@ -18,7 +18,7 @@
   <!-- Navbar -->
   <!-- <nav class="navbar navbar-expand-lg fixed-top"> -->
   <nav class="navbar navbar-expand-md fixed-top">
-    <div class="container">
+    <div class="container-fluid px-5"> <!-- px-5 = 左右 padding 3rem -->
       <a class="navbar-brand" href="#">
         <img src="../static/images/unigo_logo_tr.png" alt="OStation Logo" class="logo">
       </a>
@@ -66,12 +66,12 @@
     <img src="../static/images/banner.png" alt="Banner" class="banner-img">
       <div class="banner-overlay">
         <div class="banner-copy">
-          <h1 data-i18n="banner.title">無縫體驗 PC on Mac</h1>
+          <h1>無縫體驗 PC on Mac</h1>
           <h5 class="h4 mb-2">
             <span class="color1">凌航科技</span> × <span class="color2">武盾多利，</span> 攜手打造！
           </h5>
-          <h6 data-i18n="banner.tagline1">工作、娛樂，一台搞定！</h6>
-          <h6 data-i18n="banner.tagline2">預裝 Windows 11 與多種遊戲平台，體驗隨接即用的絲滑享受！</h6>
+          <h6>工作、娛樂，一台搞定！</h6>
+          <h6>預裝 Windows 11 與多種遊戲平台，體驗隨接即用的絲滑享受！</h6>
         </div>
       </div>
     </div>
@@ -99,9 +99,8 @@
         <div class="col-12 mb-4">
           <div class="feature-card1">
             <div class="feature-text">
-              <h3 style="text-align: left; margin-left: 10px">資料零遺失，遊戲檔案一手掌握！</h3>
-              <br>
-              <ul style="list-style: none; margin-left: 10px; text-align: left;">
+              <h3>資料零遺失，遊戲檔案一手掌握！</h3>
+              <ul>
                 <li>把所有 Windows 資料、超大遊戲通通存進 <span class="color1">凌航</span> 企業級工控 <span class="color1">Neo Forza SSD</span></li>
                 <li>1TB 大容量，保存不佔 Mac 空間 速度更快、體驗更爽</li>
                 <li>玩得盡興再也不用妥協！</li>
@@ -160,8 +159,7 @@
             </div>
             <div class="feature-text">
               <h3 data-i18n="card4_title">全能擴充，一機多用</h3>
-              <br>
-              <ul style="padding-left: 20px; margin: 0;">
+              <ul>
                 <li style="color: #fff; list-style-type: disc; list-style-position: inside;">USB-A x2</li>
                 <li style="color: #fff; list-style-type: disc; list-style-position: inside;">USB-C x2</li>
                 <li style="color: #fff; list-style-type: disc; list-style-position: inside;">RJ45 乙太網路 x1</li>
@@ -175,10 +173,9 @@
         <!-- Card 5 -->
         <div class="col-12 mb-4">
           <div class="feature-card3">
-            <div class="feature-text" style="text-align: center; width: 100%;">
-              <h3 style="text-align: left;" data-i18n="card5_title">一次購買 · 終生免費更新</h3>
-              <br>
-              <ul class="feature-list" style="list-style: none; padding-left: 10; margin: 0; text-align: left;">
+            <div class="feature-text">
+              <h3>一次購買 · 終生免費更新</h3>
+              <ul>
                   <li>買就送 OStation 虛擬機軟體,終身更新，沒有額外訂閱費</li>
               </ul>
               <img src="../static/images/no background.png" 
@@ -202,7 +199,7 @@
   </section>
 
   <section id="section4" class="section1 mb-4">
-    <div class="container">
+    <div class="container">  <!-- 左右 padding 可自己调整 -->
       <h2 class="core-title" data-i18n="section4_title">
         產品規格
       </h2>
@@ -255,7 +252,7 @@
   
 
   <section id="section6" class="section1 mb-4">
-    <div class="container">
+    <div class="container">  <!-- 左右 padding 可自己调整 -->
       <div class="text-center mb-5">
         <h2 class="core-title" data-i18n="faq_title">
           常見問題
@@ -309,16 +306,13 @@
     </div>
   </section>
   
-
-  
-
   <footer class="footer">
-    <div class="container">
+    <div class="container-fluid px-5">  <!-- 左右 padding 可自己调整 -->
       <!-- 第一行：公司信息 + 联系方式 + 产品 + 支持 -->
       <div class="footer-main">
         <div class="row g-4">
           <!-- 公司信息 -->
-          <div class="col-lg-3 col-md-6">
+          <div class="col-12 col-md-6 col-lg-3">
             <div class="footer-section">
               <h5 class="footer-title" data-i18n="footer_company_title">公司資訊</h5>
               <div class="footer-content">
@@ -333,7 +327,7 @@
           </div>
   
           <!-- 联系方式 -->
-          <div class="col-lg-3 col-md-6">
+          <div class="col-12 col-md-6 col-lg-3">
             <div class="footer-section">
               <h5 class="footer-title" data-i18n="footer_contact_title">聯絡我們</h5>
               <div class="footer-content">
@@ -354,7 +348,7 @@
           </div>
   
           <!-- 产品信息 -->
-          <div class="col-lg-3 col-md-6">
+          <div class="col-12 col-md-6 col-lg-3">
             <div class="footer-section">
               <h5 class="footer-title" data-i18n="footer_products_title">產品</h5>
               <div class="footer-content">
@@ -370,7 +364,7 @@
           </div>
   
           <!-- 支持与资源 -->
-          <div class="col-lg-3 col-md-6">
+          <div class="col-12 col-md-6 col-lg-3">
             <div class="footer-section">
               <h5 class="footer-title" data-i18n="footer_support_title">支援</h5>
               <div class="footer-content">
@@ -397,8 +391,6 @@
         </div>
       </div>
   
-
-      
       <!-- 第二行：社交媒体 + 电子报 -->
       <div class="row g-4 justify-content-center mt-4">
         <div class="col-md-8 text-center">
