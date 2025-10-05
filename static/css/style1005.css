@@ -143,16 +143,13 @@ body {
 
   /* 小屏幕字体缩小 */
   .banner-copy h1 {
-    font-size: 0.9rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.7rem;
   }
   .banner-copy h5 {
-    font-size: 0.8rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.6rem;
   }
   .banner-copy h6 {
-    font-size: 0.7rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.5rem;
   }
 }
 
@@ -402,7 +399,7 @@ footer .social-icons a:hover {
   font-weight: 700;
   margin-bottom: 40px;
   transition: color 0.3s ease, transform 0.3s ease;
-  font-size: clamp(1.5rem, 2.0vw, 3.5rem);
+  font-size: clamp(1.0rem, 2.0vw, 3.5rem);
 }
 .section1 .core-title.active-title {
   color: #b4b4b4;
@@ -509,197 +506,196 @@ footer .social-icons a:hover {
   text-align: center;
   font-weight: 700; /* 粗体 */
   transition: color 0.3s ease; /* 平滑过渡 */
-  font-size: clamp(1.5rem, 2.0vw, 3.5rem);
+  font-size: clamp(1.0rem, 2.0vw, 3.5rem);
 }
 
-/* 🔽 把 feature-card1 的样式写成 section3 的子级 */
-.section3 .feature-card1 {
-  width: auto;
+.feature-card1 {
+  width: auto;             /* 让宽度根据 margin 决定 */
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 40px;
+  margin-top: 40px; /* 或你想要的距离 */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;     /* 小屏幕时换行 */
   align-items: center;
   justify-content: space-between;
-  background-color: #051d40;
+  background-color: #051d40;  
   border-radius: 0.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-.section3 .feature-card1 .feature-text {
-  flex: 1 1 45%;
+.feature-card1 .feature-text {
+  flex: 1 1 45%;       /* 左边占一半 */
   padding: 5px;
   text-align: left;
 }
 
-.section3 .feature-card1 .feature-img {
-  flex: 1 1 55%;
+.feature-card1 .feature-img {
+  flex: 1 1 55%;       /* 右边占一半 */
   text-align: center;
 }
 
-.section3 .feature-card1 .feature-img img {
-  max-width: 95%;
+.feature-card1 .feature-img img {
+  max-width: 95%;     /* 自适应缩放 */
   height: auto;
 }
 
-.section3 .feature-card1 h3 {
+
+.feature-card1 h3 {
   margin: 1.0rem;
-  font-weight: 700 !important;
+  font-weight: 700 !important;  
   text-align: left;
-  color: #ffffff;
+  color: #ffffff;       /* 使用粗体 */ 
   font-size: clamp(1.0rem, 1.8vw, 3.0rem);
 }
 
-.section3 .feature-card1 ul li {
-  list-style: none;
-  margin: 0.5rem;
-  font-weight: 400 !important;
+.feature-card1 ul li {
+  list-style: none;  
+  margin: 0.5rem;   
+  font-weight: 400 !important;  
   text-align: left;
-  color: #ffffff;
+  color: #ffffff;   /* 不使用粗体 */ 
   font-size: clamp(1.0rem, 1.4vw, 3.0rem);
 }
 
-.section3 .feature-card1:hover {
+.feature-card1:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-
 
 /* ---------------- card2 样式 ---------------- */
-.section3 .feature-card2 {
-  width: auto;
+.feature-card2 {
+  width: auto;             /* 让宽度根据 margin 决定 */
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #ffffff;
-  color: #000000;
+  flex-wrap: wrap;           /* 小屏幕时换行 */
+  align-items: center;       /* 垂直居中对齐 */
+  justify-content: space-between; /* 两侧元素均匀分布 */
+  background-color: #ffffff; /* 白底 */
+  color: #000000;            /* 默认文字黑色 */
   border-radius: 0.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-.section3 .feature-card2 .feature-text {
-  flex: 1 1 45%;
+/* Card2 */
+.feature-card2 .feature-text {
+  flex: 1 1 45%;       /* 左边占一半 */
   padding: 5px;
   text-align: left;
 }
 
-.section3 .feature-card2 .feature-img {
-  flex: 1 1 55%;
+.feature-card2 .feature-img {
+  flex: 1 1 55%;       /* 右边占一半 */
   text-align: center;
 }
 
-.section3 .feature-card2 .feature-img img {
-  max-width: 95%;
+.feature-card2 .feature-img img {
+  max-width: 95%;  
   height: auto;
 }
 
-.section3 .feature-card2 h3 {
-  font-weight: 700 !important;
+.feature-card2 h3 {
+  font-weight: 700 !important;  /* 深蓝色 */
   text-align: left;
-  color: #051d40;
+  color: #051d40;   
   font-size: clamp(1.0rem, 1.8vw, 3.0rem);
 }
 
-.section3 .feature-card2 ul li {
-  list-style: none;
-  font-weight: 400 !important;
+.feature-card2 ul li {
+  list-style: none;  
+  font-weight: 400 !important; 
   text-align: left;
-  color: #051d40;
+  color: #051d40 ; 
   font-size: clamp(1.0rem, 1.4vw, 3.0rem);
 }
 
-.section3 .feature-card2:hover {
+.feature-card2:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+
 /* ---------------- card3 样式 ---------------- */
-.section3 .feature-card3 {
-  width: auto;
+.feature-card3 {
+  width: auto;             /* 让宽度根据 margin 决定 */
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;     /* 小屏幕时换行 */
   align-items: center;
   justify-content: space-between;
-  color: #051d40;
+  color: #051d40;  
 }
 
-.section3 .feature-card3 .feature-text {
-  flex: 1 1 45%;
+.feature-card3 .feature-text {
+  flex: 1 1 45%;       /* 左边占一半 */
   padding: 5px;
   text-align: left;
 }
 
-.section3 .feature-card3 .feature-img {
-  flex: 1 1 55%;
+.feature-card3 .feature-img {
+  flex: 1 1 55%;       /* 右边占一半 */
   text-align: center;
 }
 
-.section3 .feature-card3 .feature-img img {
-  max-width: 95%;
+.feature-card3 .feature-img img {
+  max-width: 95%;  
   height: auto;
 }
 
-.section3 .feature-card3 h3 {
-  font-weight: 700 !important;
-  color: #051d40;
-  text-align: left;
+.feature-card3 h3 {
+  font-size: 1.8rem;
+  font-weight: 700 !important;        /* 使用粗体 */
+  color: #051d40;      
   font-size: clamp(1.0rem, 1.8vw, 3.0rem);
 }
 
-.section3 .feature-card3 ul li {
-  list-style: none;
-  font-weight: 400 !important;
-  color: #051d40;
-  text-align: left;
+.feature-card3 ul li {
+  list-style: none;  
+  font-size: 1.4rem;
+  font-weight: 400 !important;;     /* 不使用粗体 */        /* 深蓝色 */
+  color: #051d40 ;
   font-size: clamp(1.0rem, 1.4vw, 3.0rem);
 }
 
-.section3 .feature-card3:hover {
+.feature-card3:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-
 
 /* ---------------- 手机竖屏 (宽度 <= 576px) ---------------- */
 @media screen and (max-width: 576px) and (orientation: portrait) {
-  .section3 .feature-card1 h3,
-  .section3 .feature-card2 h3,
-  .section3 .feature-card3 h3 {
-    font-size: 0.65rem !important;
+  .feature-card1 h3,
+  .feature-card2 h3,
+  .feature-card3 h3 {
+    font-size: 0.8rem !important;
     margin: 0.1rem !important;
   }
 
-  .section3 .feature-card1 ul li,
-  .section3 .feature-card2 ul li,
-  .section3 .feature-card3 ul li {
-    font-size: 0.5rem !important;
+  .feature-card1 ul li,
+  .feature-card2 ul li,
+  .feature-card3 ul li {
+    font-size: 0.6rem !important;
     margin: 0.1rem !important;
   }
 }
 
 /* ---------------- 手机横屏 (宽度 <= 900px) ---------------- */
 @media screen and (max-width: 900px) and (orientation: landscape) {
-  .section3 .feature-card1 h3,
-  .section3 .feature-card2 h3,
-  .section3 .feature-card3 h3 {
-    font-size: 1.1rem !important;
-    margin: 0.2rem !important;
+  .feature-card1 h3,
+  .feature-card2 h3,
+  .feature-card3 h3 {
+    font-size: 1.2rem !important;
+    margin: 0.1rem !important;
   }
 
-  .section3 .feature-card1 ul li,
-  .section3 .feature-card2 ul li,
-  .section3 .feature-card3 ul li {
-    font-size: 0.8rem !important;
+  .feature-card1 ul li,
+  .feature-card2 ul li,
+  .feature-card3 ul li {
+    font-size: 1.0rem !important;
     margin: 0.1rem !important;
   }
 }
-
 
 /* FAQ 容器 */
 .faq-container,
