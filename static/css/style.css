@@ -34,7 +34,7 @@ body {
   align-items: center;
   transition: color 0.3s ease;
   position: relative;
-  font-size: clamp(1.2rem, 1.5vw, 3rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.5rem);
 }
 
 /* Hover 高亮：导航链接 */
@@ -64,7 +64,7 @@ body {
 /* Navbar 折叠按钮样式 */
 
 .navbar-toggler {
-  border: 1px solid #ffffff; /* 保留按钮边框 */
+  border: 0px solid #ffffff; /* 保留按钮边框 */
 }
 /* 使用默认 Bootstrap 三条线 */
 .navbar-toggler-icon {
@@ -113,27 +113,21 @@ body {
 }
 
 .banner-copy h1 {
-  font-size: clamp(1.8rem, 2.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 2.5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1.0rem;
 }
 
 .banner-copy h5 {
-  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  font-size: clamp(1.0rem, 1.8vw, 2.5rem);
   font-weight: 400;
   margin-bottom: 1.0rem;
 }
 
 .banner-copy h6 {
-  font-size: clamp(1.2rem, 1.5vw, 2.0rem);
+  font-size: clamp(1.0rem, 1.6vw, 2.5rem);
   font-weight: 400;
   margin-bottom: 1.0rem;
-}
-
-
-.banner-copy p {
-  font-size: clamp(0.875rem, 2vw, 1.2rem);
-  margin: 0.2rem 0;
 }
 
 @media (max-width: 768px) {
@@ -149,13 +143,13 @@ body {
 
   /* 小屏幕字体缩小 */
   .banner-copy h1 {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   .banner-copy h5 {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
   .banner-copy h6 {
-    font-size: 0.4rem;
+    font-size: 0.5rem;
   }
 }
 
@@ -180,27 +174,27 @@ body {
   color: #ffffff;            /* 文字白色 */
   font-weight: 700;            /* 文字粗体 */
   padding: 3rem 0;
-  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.5rem);
 }
 
 .footer .footer-title {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-size: clamp(1.0rem, 2.0vw, 3.0rem); /* 根据实际屏幕调小一些 */
+  font-size: clamp(1.0rem, 1.5vw, 2.5rem); /* 根据实际屏幕调小一些 */
 }
 
 .footer .footer-content {
   color: #ffffff;
-  font-weight: 400; /* 内容不必太粗 */
+  font-weight: 700; /* 内容不必太粗 */
   margin-bottom: 1rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.35vw, 2.0rem);
 }
 
 
 .footer .footer-links li a {
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 700;
   text-decoration: none;
   display: block;
   margin-bottom: 0.5rem;
@@ -218,7 +212,7 @@ body {
 /* 公司信息文字 */
 .footer .company-details p {
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -235,7 +229,7 @@ body {
 .footer .contact-item span,
 .footer .contact-item a {
   color: #ffffff; /* 邮箱和电话文字白色 */
-  font-weight: 400;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -269,7 +263,7 @@ footer .social-icons a:hover {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
 }
 
 .footer .newsletter-form input {
@@ -279,7 +273,7 @@ footer .social-icons a:hover {
   margin-right: 0.5rem;
   border-radius: 0.25rem;
   border: none;
-  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
 }
 
 .footer .newsletter-form button {
@@ -289,7 +283,7 @@ footer .social-icons a:hover {
   font-weight: 400;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
-  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
 }
 
 .footer .newsletter-form button:hover {
@@ -300,6 +294,7 @@ footer .social-icons a:hover {
 .footer .footer-legal {
   margin-top: 2rem;
   text-align: center;
+  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
 }
 
 .footer .footer-legal .legal-link {
@@ -322,9 +317,8 @@ footer .social-icons a:hover {
 /* for modal.html */
 .modal-body {
   color: #051d40; /* 深蓝色 */
-  font-size: 1rem;
   line-height: 1.3;
-  font-size: clamp(1.5rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 .modal-body a {
   color: #051d40;
@@ -334,9 +328,9 @@ footer .social-icons a:hover {
 .modal-title {
   color: black !important;     /* 字体颜色 */
   font-weight: 700;              /* 粗体 */
-  font-size: 1.5rem;             /* 略大字体，可按需调整 */
   text-align: left;              /* 靠左 */
-  width: 100%;                   /* 确保居中有效 */
+  width: 100%;            
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);       /* 确保居中有效 */
 }
 
 /* modal 内的 ul li 黑点列表样式 */
@@ -344,43 +338,49 @@ footer .social-icons a:hover {
   list-style-type: disc; /* 黑点 */
   padding-left: 2.5rem;  /* 左侧缩进 */
   margin-bottom: 0.5rem;   /* 列表下方间距 */
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .modal-body ul li {
   margin-bottom: 1rem; /* 每一条的间距 */
   color: #000000;        /* 字体颜色黑色 */
   font-weight: normal;    
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .modal-body p {
   margin: 0.75rem 1rem;      /* 上下各 0.75rem，左右为 0 */
   margin-left: 1rem;      /* 左缩进 1rem */
   line-height: 1.5;       /* 行高更舒服 */
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .modal-body p strong {
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
   font-weight: normal;      /* 保持加粗 */
 }
 
 
 .modal-body h5 {
-  font-size: 1.3rem; /* 比 h6 大 */
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
   font-weight: 650;
 }
 
 .modal-body h6 {
-  font-size: 1.1rem;
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
   font-weight: normal;
 }
 
 .custom-list {
   list-style: none; /* 去掉黑点 */
   padding-left: 20px; /* 内边距，可调整 */
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .custom-list li {
   margin-bottom: 10px; /* 每条之间增加间距 */
   line-height: 1.6;    /* 行高，阅读更舒适 */
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* --------- Section 1 样式 --------- */
@@ -399,7 +399,7 @@ footer .social-icons a:hover {
   font-weight: 700;
   margin-bottom: 40px;
   transition: color 0.3s ease, transform 0.3s ease;
-  font-size: clamp(2.2rem, 2.0vw, 3.5rem);
+  font-size: clamp(1.0rem, 2.0vw, 3.5rem);
 }
 .section1 .core-title.active-title {
   color: #b4b4b4;
@@ -497,23 +497,23 @@ footer .social-icons a:hover {
 }
 
 /* ---------------- card1 样式 ---------------- */
+.section3 {
+  margin-top: 40px; /* 或你想要的距离 */
+}
 
 .section3 .core-title {
-  color: #051d40; /* 灰色 */
+  color: #051d40; /* 深蓝色 */
   text-align: center;
   font-weight: 700; /* 粗体 */
   transition: color 0.3s ease; /* 平滑过渡 */
-  font-size: clamp(2.2rem, 2.0vw, 3.5rem);
-}
-
-.section3 {
-  margin-top: 40px; /* 或你想要的距离 */
+  font-size: clamp(1.0rem, 2.0vw, 3.5rem);
 }
 
 .feature-card1 {
   width: auto;             /* 让宽度根据 margin 决定 */
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 40px; /* 或你想要的距离 */
   display: flex;
   flex-wrap: wrap;     /* 小屏幕时换行 */
   align-items: center;
@@ -525,7 +525,7 @@ footer .social-icons a:hover {
 
 .feature-card1 .feature-text {
   flex: 1 1 45%;       /* 左边占一半 */
-  padding: 10px;
+  padding: 5px;
   text-align: left;
 }
 
@@ -545,7 +545,7 @@ footer .social-icons a:hover {
   font-weight: 700 !important;  
   text-align: left;
   color: #ffffff;       /* 使用粗体 */ 
-  font-size: clamp(1.8rem, 2.0vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.8vw, 3.0rem);
 }
 
 .feature-card1 ul li {
@@ -554,7 +554,7 @@ footer .social-icons a:hover {
   font-weight: 400 !important;  
   text-align: left;
   color: #ffffff;   /* 不使用粗体 */ 
-  font-size: clamp(1.4rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.4vw, 3.0rem);
 }
 
 .feature-card1:hover {
@@ -577,11 +577,10 @@ footer .social-icons a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-
 /* Card2 */
 .feature-card2 .feature-text {
   flex: 1 1 45%;       /* 左边占一半 */
-  padding: 20px;
+  padding: 5px;
   text-align: left;
 }
 
@@ -599,7 +598,7 @@ footer .social-icons a:hover {
   font-weight: 700 !important;  /* 深蓝色 */
   text-align: left;
   color: #051d40;   
-  font-size: clamp(1.8rem, 2.0vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.8vw, 3.0rem);
 }
 
 .feature-card2 ul li {
@@ -607,7 +606,7 @@ footer .social-icons a:hover {
   font-weight: 400 !important; 
   text-align: left;
   color: #051d40 ; 
-  font-size: clamp(1.4rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.4vw, 3.0rem);
 }
 
 .feature-card2:hover {
@@ -630,7 +629,7 @@ footer .social-icons a:hover {
 
 .feature-card3 .feature-text {
   flex: 1 1 45%;       /* 左边占一半 */
-  padding: 20px;
+  padding: 5px;
   text-align: left;
 }
 
@@ -648,7 +647,7 @@ footer .social-icons a:hover {
   font-size: 1.8rem;
   font-weight: 700 !important;        /* 使用粗体 */
   color: #051d40;      
-  font-size: clamp(1.8rem, 2.0vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.8vw, 3.0rem);
 }
 
 .feature-card3 ul li {
@@ -656,7 +655,7 @@ footer .social-icons a:hover {
   font-size: 1.4rem;
   font-weight: 400 !important;;     /* 不使用粗体 */        /* 深蓝色 */
   color: #051d40 ;
-  font-size: clamp(1.4rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.4vw, 3.0rem);
 }
 
 .feature-card3:hover {
@@ -698,8 +697,6 @@ footer .social-icons a:hover {
   }
 }
 
-
-
 /* FAQ 容器 */
 .faq-container,
 .table-container {
@@ -725,7 +722,7 @@ footer .social-icons a:hover {
   background-color: #fff !important;
   box-shadow: none;
   transition: all 0.2s ease-in-out;
-  font-size: clamp(1.4rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* 问题序号 */
@@ -750,7 +747,7 @@ footer .social-icons a:hover {
   text-align: left;
   padding-left: 0.75rem;
   color: #051d40;
-  font-size: clamp(1.3rem, 2.0vw, 3.0rem);
+  font-size: clamp(1.0rem, 2.0vw, 3.0rem);
   /* background-color: #fff;  默认背景 */
 
   background-color: #eef3fa !important; /* 背景色变化 */
@@ -774,7 +771,7 @@ footer .social-icons a:hover {
   line-height: 1.6;
   text-align: left;
   padding-left: 0.75rem;
-  font-size: clamp(1.4rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* 移除 focus 阴影 */
@@ -805,7 +802,7 @@ footer .social-icons a:hover {
   font-size: 1.3rem;
   border-bottom: 1px solid #e0e0e0; /* 轻微分隔线 */
   transition: all 0.3s ease;
-  font-size: clamp(1.3rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 .table-hover td[data-i18n^="spec_label"] {
@@ -827,7 +824,7 @@ footer .social-icons a:hover {
   color: #051d40;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-size: clamp(1.4rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
 /* 表格行 hover 效果 */
