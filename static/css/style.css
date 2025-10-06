@@ -2,27 +2,25 @@
 body {
   margin: 0;
   padding: 0;
-  padding-top: 79px; /* 根据 navbar 高度调整 */
-  font-weight: bold;   
+  padding-top: 79px ;/* 根据 navbar 高度调整 */
+  font-weight: 700;   
   background-color: #f8f9fa;
   color: #051d40;
 }
 
-.navbar{
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* --------- Header / Navbar 紧凑版样式 --------- */
-
+/* 固定导航栏高度 */
 .navbar {
-  background-color: #051d40 !important;
-  padding: 0.3rem 1rem; /* 适中上下间距，紧凑但不遮挡 */
+  width: 100%;
+  height: 79px !important;                    /* 固定高度 */
+  min-height: 79px !important;                /* 防止收缩 */
+  background-color: #051d40;       /* 深蓝底（保持风格） */
+  display: flex;
+  align-items: center;             /* 垂直居中内容 */
+  padding: 0.0rem 0rem; /* 适中上下间距，紧凑但不遮挡 */
 }
 
 .navbar .navbar-brand img.logo {
-  height: 60px;  /* 缩小 logo 高度 */
+  height: 65px;  /* 缩小 logo 高度 */
   width: auto;
 }
 
@@ -34,7 +32,7 @@ body {
   align-items: center;
   transition: color 0.3s ease;
   position: relative;
-  font-size: clamp(1.0rem, 1.5vw, 2.5rem);
+  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
 }
 
 /* Hover 高亮：导航链接 */
@@ -47,11 +45,12 @@ body {
   .navbar .navbar-nav .nav-item:not(:last-child) .nav-link::after {
     content: "";
     display: inline-block;
-    width: 1px;
-    height: 0.7em;
+    width: 2px;
+    height: 1.0em;
     background-color: #ffffff;
     margin-left: 10px;
     vertical-align: middle;
+    font-weight: 700;
   }
 }
 
@@ -62,35 +61,62 @@ body {
 }
 
 /* Navbar 折叠按钮样式 */
-
 .navbar-toggler {
-  border: 0px solid #ffffff; /* 保留按钮边框 */
+  border: 0px solid #ffffff; /* 去掉按钮边框 */
 }
 /* 使用默认 Bootstrap 三条线 */
 .navbar-toggler-icon {
-  /* 不要覆盖 background-image */
-  /* 可用 filter 改颜色 */
   filter: invert(1); /* 白色 */
 }
 
-/* 折叠菜单（移动端）样式 */
-@media (max-width: 991.98px) {
+/* ✅ 移动端导航栏样式优化（≤768px） */
+@media (max-width: 768px) {
+
+  /* 整体容器 */
+  .navbar .container {
+    display: flex;
+    justify-content: space-between; /* 左右分布：logo 靠左，按钮靠右 */
+    align-items: center;
+    padding: 0.4rem 0.8rem; /* 稍微留一点边距，不贴边 */
+  }
+
+  /* logo 靠左完全贴近容器左侧 */
+  .navbar-brand {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 菜单按钮（右侧） */
+  .navbar-toggler {
+    margin: 0;
+    padding: 0.4rem 0.6rem;
+    border: none;
+    outline: none;
+  }
+
+  /* 折叠菜单背景 */
   .navbar-collapse {
-    background-color: #051d40; /* 深蓝背景 */
+    background-color: #051d40;
     padding: 1rem 0;
   }
 
+  /* 菜单项样式 */
   .navbar-collapse .nav-link {
     color: #ffffff !important;
-    font-weight: 600;
-    padding: 0.5rem 1.0rem;
-    font-size: 1.2rem;  /* 字体稍微缩小 */
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    text-align: left;
   }
 
+  /* hover 效果 */
   .navbar-collapse .nav-link:hover {
-    color: #b4b4b4 !important;
+    color: #00DAEA !important;
   }
 }
+
 
 .banner {
   width: 100%;
@@ -266,7 +292,7 @@ footer .social-icons a:hover {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
+  font-size: clamp(1.0rem, 1.3vw, 2.0rem);
 }
 
 .footer .newsletter-form input {
@@ -276,7 +302,7 @@ footer .social-icons a:hover {
   margin-right: 0.5rem;
   border-radius: 0.25rem;
   border: none;
-  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
+  font-size: clamp(1.0rem, 1.3vw, 2.0rem);
 }
 
 .footer .newsletter-form button {
@@ -286,7 +312,7 @@ footer .social-icons a:hover {
   font-weight: 400;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
-  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
+  font-size: clamp(1.0rem, 1.3vw, 2.0rem);
 }
 
 .footer .newsletter-form button:hover {
@@ -317,79 +343,108 @@ footer .social-icons a:hover {
   font-weight: 700;
 }
 
-/* for modal.html */
-.modal-body {
-  color: #051d40; /* 深蓝色 */
-  line-height: 1.3;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-}
-.modal-body a {
+/* 🌌 统一 Modal 深蓝主题（白底标题） */
+.modal-content {
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  background-color: #ffffff;
   color: #051d40;
-  text-decoration: underline;
+  font-size: clamp(1.0rem, 1.2vw, 2.5rem);
+}
+
+/* 🩵 顶部标题栏：白底深蓝字 */
+.modal-header {
+  background-color: #ffffff;
+  color: #051d40;
+  padding: 1rem 1.5rem;
+  align-items: center;
 }
 
 .modal-title {
-  color: black !important;     /* 字体颜色 */
-  font-weight: 700;              /* 粗体 */
-  text-align: left;              /* 靠左 */
-  width: 100%;            
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);       /* 确保居中有效 */
+  font-weight: 700;
+  font-size: clamp(1.0rem, 1.5vw, 2.5rem);
+  letter-spacing: 0.5px;
+  color: #051d40;
 }
 
-/* modal 内的 ul li 黑点列表样式 */
-.modal-body ul {
-  list-style-type: disc; /* 黑点 */
-  padding-left: 2.5rem;  /* 左侧缩进 */
-  margin-bottom: 0.5rem;   /* 列表下方间距 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+/* ❌ 关闭按钮（深蓝色 + 自动缩放） */
+.btn-close {
+  filter: none;
+  opacity: 0.8;
+  font-size: clamp(1.0rem, 1.2vw, 2.5rem);
+  color: #051d40;
+  transition: color 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
-.modal-body ul li {
-  margin-bottom: 1rem; /* 每一条的间距 */
-  color: #000000;        /* 字体颜色黑色 */
-  font-weight: normal;    
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+.btn-close:hover {
+  color: #00DAEA;
+  opacity: 1;
+  transform: rotate(90deg);
 }
 
-.modal-body p {
-  margin: 0.75rem 1rem;      /* 上下各 0.75rem，左右为 0 */
-  margin-left: 1rem;      /* 左缩进 1rem */
-  line-height: 1.5;       /* 行高更舒服 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+/* 📖 内容区 */
+.modal-body {
+  padding: 1.5rem;
+  line-height: 1.7;
+  color: #051d40;
+  font-size: clamp(1.0rem, 1.1vw, 2.0rem);
 }
 
-.modal-body p strong {
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-  font-weight: normal;      /* 保持加粗 */
+/* 📦 底部按钮区 */
+.modal-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f7fbfd;
 }
 
-
-.modal-body h5 {
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-  font-weight: 650;
+/* 按钮样式 */
+.modal-footer .btn-secondary {
+  background-color: #051d40;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: clamp(1.0rem, 1.2vw, 2.0rem);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.modal-body h6 {
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-  font-weight: normal;
+.modal-footer .btn-secondary:hover {
+  background-color: #00DAEA;
+  color: #051d40;
+  transform: translateY(-2px);
 }
+
+/* 🌟 弹出动画 */
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform: translateY(-10%);
+  opacity: 0;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 
 .custom-list {
   list-style: none; /* 去掉黑点 */
   padding-left: 20px; /* 内边距，可调整 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.2vw, 3.0rem);
 }
 
 .custom-list li {
   margin-bottom: 10px; /* 每条之间增加间距 */
   line-height: 1.6;    /* 行高，阅读更舒适 */
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
+  font-size: clamp(1.0rem, 1.2vw, 3.0rem);
 }
 
 /* --------- Section 1 样式 --------- */
 .section1 {
   background-color: #f8f9fa;
-  padding: 50px 0;
+  margin-top: 3rem; /* 或你想要的距离 */
+  padding: 2rem 0;
   text-align: center;
   border-radius: 10px;
   scroll-margin-top: 120px; /* 距离顶部留出导航栏 */
@@ -400,9 +455,9 @@ footer .social-icons a:hover {
 .section1 .core-title {
   color: #051d40;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 10rm;
   transition: color 0.3s ease, transform 0.3s ease;
-  font-size: clamp(1.5rem, 2.0vw, 3.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
 }
 .section1 .core-title.active-title {
   color: #b4b4b4;
@@ -414,104 +469,23 @@ footer .social-icons a:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
-.section1{
-  margin-top: 40px; /* 或你想要的距离 */
-}
-
-/* Feature 列表 */
-.section1 .feature-list {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 1rem;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-}
-.section1 .feature-list li {
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.6;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-}
-
-/* 图片 & 文本布局 */
-.section1 .feature-img {
-  margin-bottom: 15px;
-  text-align: center;
-  overflow: hidden;
-  border-radius: 8px;
-  flex: 0 0 66.666%;
-  max-width: 66.666%;
-  padding: 0 1rem;
-}
-.section1 .feature-img img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.section1 .feature-text {
-  flex: 0 0 33.333%;
-  max-width: 33.333%;
-  padding: 0 1rem;
-}
-
-/* Feature Card */
-.section1 .feature-card {
-  width: 90%;
-  max-width: 1000px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  color: #051d40;
-  font-weight: 600;
-  height: 100%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.section1 .feature-card h5 {
-  font-size: 1.25rem;
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: #051d40;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-}
-.section1 .feature-card p {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: normal;
-  color: #051d40;
-  font-size: clamp(1.0rem, 1.5vw, 3.0rem);
-}
-
-/* 卡片 Hover 效果 */
-.section1 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-.section1 .feature-card:hover .feature-img img {
-  transform: scale(1.05);
-}
-/* 卡片 hover 时统一变色 */
-.section1 .feature-card:hover h5,
-.section1 .feature-card:hover p,
-.section1 .feature-card:hover .feature-list li {
-  color: #b4b4b4;
-}
-
 /* ---------------- card1 样式 ---------------- */
 .section3 {
-  margin-top: 40px; /* 或你想要的距离 */
+  margin-top: 3rem; /* 或你想要的距离 */
 }
 
 .section3 .core-title {
   color: #051d40; /* 深蓝色 */
   text-align: center;
   font-weight: 700; /* 粗体 */
-  transition: color 0.3s ease; /* 平滑过渡 */
-  font-size: clamp(1.5rem, 2.0vw, 3.5rem);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
 }
 
+.section3 .core-title:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); */
+}
 /* 🔽 把 feature-card1 的样式写成 section3 的子级 */
 .section3 .feature-card1 {
   width: auto;
@@ -701,7 +675,7 @@ footer .social-icons a:hover {
 }
 
 
-/* FAQ 容器 */
+/* 常見問題 FAQ 容器 */
 .faq-container,
 .table-container {
   max-width: 90%;
@@ -740,7 +714,6 @@ footer .social-icons a:hover {
 .professional-accordion-button:hover,
 .professional-accordion-button:not(.collapsed) {
   color: #002a66;
-  background-color: #eef3fa !important;
   border-left: 4px solid #051d40;
   padding-left: calc(0.75rem - 4px);
 }
@@ -754,14 +727,16 @@ footer .social-icons a:hover {
   font-size: clamp(1.0rem, 2.0vw, 3.0rem);
   /* background-color: #fff;  默认背景 */
 
-  background-color: #eef3fa !important; /* 背景色变化 */
+  background-color: #f8f9fa !important; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);    /* 轻微阴影 */
   transition: all 0.2s ease-in-out;
 }
 
 /* 答案背景色同步问题背景色 */
 .professional-accordion-button:hover + .accordion-collapse .accordion-body,
 .professional-accordion-button:not(.collapsed) + .accordion-collapse .accordion-body {
-  background-color: #eef3fa;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);    /* 轻微阴影 */
 }
 
 /* 答案文本容器 */
@@ -775,6 +750,7 @@ footer .social-icons a:hover {
   line-height: 1.6;
   text-align: left;
   padding-left: 0.75rem;
+  background-color: #f8f9fa;
   font-size: clamp(1.0rem, 1.5vw, 3.0rem);
 }
 
@@ -790,7 +766,7 @@ footer .social-icons a:hover {
 }
 
 
-/* ---------------- 表格基础样式 ---------------- */
+/* ---------------- 產品規格 表格基础样式 ---------------- */
 .table-hover {
   width: 100%;
   border-collapse: collapse;
@@ -833,7 +809,6 @@ footer .social-icons a:hover {
 
 /* 表格行 hover 效果 */
 .table-hover tbody tr:hover {
-  background-color: rgba(0, 218, 234, 0.15); /* 柔和背景高亮 */
   transform: translateY(-2px);               /* 微微上浮效果 */
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);    /* 轻微阴影 */
 }

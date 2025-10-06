@@ -412,3 +412,7 @@ document.querySelectorAll('#qaAccordion .accordion-item').forEach(item => {
       }
     });
   });
+  
+  window.onload = function() {
+    window.scrollTo(0, 0);
+  };
