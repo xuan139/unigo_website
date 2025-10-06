@@ -466,7 +466,8 @@ footer .social-icons a:hover {
 
 /* hover 整个 section 时阴影和标题高亮 */
 .section1:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ---------------- card1 样式 ---------------- */
