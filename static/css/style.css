@@ -443,6 +443,7 @@ footer .social-icons a:hover {
 /* --------- Section 1 样式 --------- */
 .section1 {
   background-color: #f8f9fa;
+  width: 100%;
   margin-top: 3rem; /* 或你想要的距离 */
   padding: 2rem 0;
   text-align: center;
@@ -679,6 +680,7 @@ footer .social-icons a:hover {
 /* 常見問題 FAQ 容器 */
 .faq-container,
 .table-container {
+  width: 100%;
   max-width: 90%;
   margin: 0 auto;
   padding: 0 1rem;
