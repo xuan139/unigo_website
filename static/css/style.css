@@ -11,33 +11,40 @@ body {
 /* 固定导航栏高度 */
 .navbar {
   width: 100%;
-  height: 79px !important;                    /* 固定高度 */
-  min-height: 79px !important;                /* 防止收缩 */
-  background-color: #051d40;       /* 深蓝底（保持风格） */
+  height: 79px !important;
+  min-height: 79px !important;
+  background-color: #051d40;        /* 灰白背景 */
   display: flex;
-  align-items: center;             /* 垂直居中内容 */
-  padding: 0.0rem 0rem; /* 适中上下间距，紧凑但不遮挡 */
+  align-items: center;
+  padding: 0rem 0rem;
 }
 
+/* logo 样式 */
 .navbar .navbar-brand img.logo {
-  height: 65px;  /* 缩小 logo 高度 */
+  height: 65px;
   width: auto;
 }
 
+/* 导航链接样式 */
 .navbar-nav .nav-link {
-  color: #ffffff !important;
-  font-weight: 500;
-  padding: 0.5rem 1rem;  /* 推荐这个，看起来更均衡 */
+  color: #f8f9fa !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  transition: color 0.3s ease;
   position: relative;
-  font-size: clamp(1.0rem, 1.5vw, 2.0rem);
+  font-size: clamp(1rem, 1.5vw, 2.5rem);
+  transition: 
+    color 0.3s ease,
+    transform 0.25s ease,
+    text-shadow 0.25s ease;
 }
 
-/* Hover 高亮：导航链接 */
+/* Hover 高亮 + 放大 + 凸起 */
 .navbar-nav .nav-link:hover {
-  color: #00DAEA !important;
+  color: #00DAEA !important;             /* 变深色 */
+  transform: scale(1.1) translateY(-2px); /* 放大并稍微上移 */
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15); /* 模拟凸起阴影 */
 }
 
 /* 竖条分隔（仅桌面端显示） */
@@ -46,28 +53,24 @@ body {
     content: "";
     display: inline-block;
     width: 2px;
-    height: 1.0em;
-    background-color: #ffffff;
+    height: 1em;
+    background-color: #999999;
     margin-left: 10px;
     vertical-align: middle;
     font-weight: 700;
   }
 }
 
-
-/* Hover 字体颜色 */
-.navbar .nav-link:hover {
-  color: #00DAEA !important;
-}
-
 /* Navbar 折叠按钮样式 */
 .navbar-toggler {
-  border: 0px solid #ffffff; /* 去掉按钮边框 */
+  border: 0px solid #999999;
 }
-/* 使用默认 Bootstrap 三条线 */
+
+/* Bootstrap 三条线按钮颜色调整 */
 .navbar-toggler-icon {
-  filter: invert(1); /* 白色 */
+  filter: invert(0);
 }
+
 
 /* ✅ 移动端导航栏样式优化（≤768px） */
 @media (max-width: 768px) {
@@ -120,6 +123,7 @@ body {
 
 .banner {
   width: 100%;
+  height: 15%;    /* 高度自动保持比例 */
   position: relative;
   color: #fff; /* 白色 */
   overflow: hidden;
@@ -128,7 +132,7 @@ body {
 /* 图片自适应填满屏幕宽度，高度随宽度变化 */
 .banner-img {
   width: 100%;     /* 横向铺满屏幕 */
-  height: auto;    /* 高度自动保持比例 */
+  height: 15%;    /* 高度自动保持比例 */
   display: block;  /* 去掉 img 默认 inline 空隙 */
 }
 /* 文字左上角固定 */
@@ -490,9 +494,9 @@ footer .social-icons a:hover {
 }
 /* 🔽 把 feature-card1 的样式写成 section3 的子级 */
 .section3 .feature-card1 {
-  width: auto;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -544,9 +548,9 @@ footer .social-icons a:hover {
 
 /* ---------------- card2 样式 ---------------- */
 .section3 .feature-card2 {
-  width: auto;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -595,9 +599,9 @@ footer .social-icons a:hover {
 
 /* ---------------- card3 样式 ---------------- */
 .section3 .feature-card3 {
-  width: auto;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

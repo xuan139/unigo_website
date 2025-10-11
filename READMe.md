@@ -134,14 +134,15 @@ pip install gunicorn
 #### dont not use sudp
 ```bash
 pkill -f gunicorn
-gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
 
 venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app -D
 
 venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app \
-  --access-logfile gunicorn_access.log \
-  --error-logfile gunicorn_error.log \
+  --access-logfile /tmp/gunicorn_access.log \
+  --error-logfile /tmp/gunicorn_error.log \
   -D
+
+tail -f /tmp/gunicorn_error.log
 
 ```
 
@@ -185,15 +186,18 @@ pip install gunicorn
 #### 2.5.5 Restart Gunicorn
 
 ```bash
-pkill -f gunicorn
-gunicorn -w 4 -b 0.0.0.0:5050 app:app   --access-logfile gunicorn_access.log   --error-logfile gunicorn_error.log -D
 
-venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app -D
+
+pkill -f gunicorn
 
 venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app \
-  --access-logfile gunicorn_access.log \
-  --error-logfile gunicorn_error.log \
+  --access-logfile /tmp/gunicorn_access.log \
+  --error-logfile /tmp/gunicorn_error.log \
   -D
+
+tail -f /tmp/gunicorn_error.log
+
+venv/bin/gunicorn -w 4 -b 0.0.0.0:5050 app:app -D
 
 ```
 ```bash
@@ -234,8 +238,9 @@ curl http://localhost:5050
 ```bash
 tail -n 50 gunicorn_error.log
 tail -n 50 gunicorn_access.log
-```
 
+tail -f /tmp/gunicorn_error.log
+```
 
 ## 3. Configure Nginx on Ubuntu
 
