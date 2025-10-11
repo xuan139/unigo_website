@@ -57,23 +57,24 @@ A Flask-based web application for managing software downloads and updates.
 
 ```
 unigo_website/
-├── app.py               # Main Flask application
+├── app.py
 ├── db/
-│   └── crm.db           # ✅ SQLite database
-├── templates/           # Jinja2 templates
+│   └── crm.db
+├── templates/
 │   └── *.html
-├── static/              # Static files
-│   ├── uploads/         # File uploads
-│   ├── i18n/            # Multi-language
-│   ├── images/          # Images
-│   ├── style.css        # CSS
-│   └── forum.css        # CSS
-├── requirements.txt     # ✅ Dependencies
-├── .gitignore           # Git ignore rules
-└── README.md            # Documentation
-```
+├── static/
+│   ├── css/             
+│   │   └── style.css
+│   ├── js/              
+│   │   └── main.js
+│   ├── uploads/
+│   ├── i18n/
+│   ├── images/
+├── requirements.txt
+├── .gitignore
+└── README.md
 
----
+```
 
 ## 2. Deployment Guide
 
@@ -131,7 +132,7 @@ pip install gunicorn
 
 ### 2.4 Start Flask with Gunicorn
 
-#### dont not use sudp
+#### do  NOT use sudo
 ```bash
 pkill -f gunicorn
 
